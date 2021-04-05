@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "adiBsJQE3+2MG9c8t75MgYaFCtZ/IhnWgFgWE0hOmmNMdtVV32I6avmdVPw4BfWDiVoeCj0eGDBruFh7V7yF2w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\balon\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+  ],
+  "logs": []
+}
