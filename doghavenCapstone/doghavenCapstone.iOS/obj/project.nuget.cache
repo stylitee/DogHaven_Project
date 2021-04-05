@@ -1,10 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "adiBsJQE3+2MG9c8t75MgYaFCtZ/IhnWgFgWE0hOmmNMdtVV32I6avmdVPw4BfWDiVoeCj0eGDBruFh7V7yF2w==",
+  "dgSpecHash": "+4BO3mgsV/ft/VeK3QgLV7oy8AOEuljnLrXn5pW8wHUauMxvgCa8J+WwwTSNFV4XQQO2FnsRgflj9oFCGQiyYQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\balon\\.nuget\\packages\\microsoft.azure.mobile.client\\4.2.0\\microsoft.azure.mobile.client.4.2.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\pclcrypto\\2.0.147\\pclcrypto.2.0.147.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\pinvoke.bcrypt\\0.3.2\\pinvoke.bcrypt.0.3.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\pinvoke.kernel32\\0.3.2\\pinvoke.kernel32.0.3.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\pinvoke.ncrypt\\0.3.2\\pinvoke.ncrypt.0.3.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\pinvoke.windows.core\\0.3.2\\pinvoke.windows.core.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\validation\\2.2.8\\validation.2.2.8.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
