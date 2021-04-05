@@ -4,9 +4,18 @@
              x:Class="doghavenCapstone.InitialPages.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="login page" />
+            <Entry x:Name="txtUsername"
+                   Placeholder="username" />
+            <Entry x:Name="txtPassword"
+                   Placeholder="password"
+                   IsPassword="True" />
+            <Button Text="submit"
+                    x:Name="btnSubmit"
+                    Clicked="btnSubmit_Clicked" />
+            <Button Text="Register"
+                    x:Name="btnRegister"
+                    Clicked="btnRegister_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

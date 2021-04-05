@@ -19,7 +19,12 @@ namespace doghavenCapstone.InitialPages
 
         private void btnSubmit_Clicked(object sender, EventArgs e)
         {
+            if
+        }
 
+        private void btnRegister_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Register());
         }
     }
 }

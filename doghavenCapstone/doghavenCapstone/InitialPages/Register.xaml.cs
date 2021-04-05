@@ -19,7 +19,7 @@ namespace doghavenCapstone.InitialPages
 
         private void btnCancel_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new LoginPage());
         }
     }
 }

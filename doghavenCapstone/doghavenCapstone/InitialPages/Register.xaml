@@ -4,9 +4,18 @@
              x:Class="doghavenCapstone.InitialPages.Register">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Register account" />
+            <Entry x:Name="txtUsername"
+                   Placeholder="username" />
+            <Entry x:Name="txtPassword"
+                   Placeholder="password"
+                   IsPassword="True" />
+            <Button Text="submit"
+                    x:Name="btnSubmit"
+                    Clicked="btnSubmit_Clicked" />
+            <Button Text="Cancel"
+                    x:Name="btnCancel"
+                    Clicked="btnCancel_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
