@@ -4,15 +4,18 @@
              x:Class="doghavenCapstone.InitialPages.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="login page" />
-            <Entry x:Name="txtUsername"
+            <Label Text="login page"
+                   HorizontalOptions="CenterAndExpand"
+                   BackgroundColor="Red"
+                   Margin="0,20,0,0"/>
+            <Entry x:Name="txtUser"
                    Placeholder="username" />
-            <Entry x:Name="txtPassword"
+            <Entry x:Name="txtPword"
                    Placeholder="password"
                    IsPassword="True" />
             <Button Text="submit"
-                    x:Name="btnSubmit"
-                    Clicked="btnSubmit_Clicked" />
+                    x:Name="btnSubmitted"
+                    Clicked="btnSubmitted_Clicked" />
             <Button Text="Register"
                     x:Name="btnRegister"
                     Clicked="btnRegister_Clicked" />

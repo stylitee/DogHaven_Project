@@ -8,12 +8,15 @@ namespace doghavenCapstone
 {
     public partial class App : Application
     {
-        public static MobileServiceClient client = new MobileServiceClient("https://doghaven-serverapp.azurewebsites.net");
-        public App()
+        public static MobileServiceClient client = new MobileServiceClient("https://myserver-doghaven.azurewebsites.net");
+        public static string DatabaseLocation = string.Empty;
+        public App(string databaseLocation)
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new LoginPage());
+
+            DatabaseLocation = databaseLocation;
         }
 
         protected override void OnStart()

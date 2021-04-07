@@ -11,8 +11,8 @@
                    Placeholder="password"
                    IsPassword="True" />
             <Button Text="submit"
-                    x:Name="btnSubmit"
-                    Clicked="btnSubmit_Clicked" />
+                    x:Name="btnSubmission"
+                    Clicked="btnSubmission_Clicked"/>
             <Button Text="Cancel"
                     x:Name="btnCancel"
                     Clicked="btnCancel_Clicked" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -24,8 +25,11 @@ namespace doghavenCapstone.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            string dbName = "dbDoghaven.sqlite";
+            string folderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            string fullpath = Path.Combine(folderPath, dbName);
             CurrentPlatform.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(fullpath));
 
             return base.FinishedLaunching(app, options);
         }

@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
+using System.IO;
 
 namespace doghavenCapstone.Droid
 {
@@ -18,10 +19,14 @@ namespace doghavenCapstone.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+            string dbName = "dbDoghaven.sqlite";
+            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string fullpath = Path.Combine(folderPath, dbName);
+
             CurrentPlatform.Init();
 
 
-            LoadApplication(new App());
+            LoadApplication(new App(fullpath));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

@@ -2,9 +2,9 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\bin\Deb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\bin\Debug\netstandard2.0\doghavenCapstone.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\bin\Debug\netstandard2.0\ref\doghavenCapstone.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\bin\Debug\netstandard2.0\doghavenCapstone.pdb
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.csprojAssemblyReference.cache
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\App.xaml.g.cs
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\InitialPages\LoginPage.xaml.g.cs
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\InitialPages\Register.xaml.g.cs
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.AssemblyInfoInputs.cache
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.AssemblyInfo.cs
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.csproj.CoreCompileInputs.cache
@@ -12,3 +12,4 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Deb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\ref\doghavenCapstone.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.csprojAssemblyReference.cache
