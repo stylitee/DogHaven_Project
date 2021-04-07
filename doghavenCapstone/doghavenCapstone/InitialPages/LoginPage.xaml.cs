@@ -16,41 +16,49 @@ namespace doghavenCapstone.InitialPages
         public LoginPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(LoginPage);
+
+            imgLogo.Source = ImageSource.FromResource("doghavenCapstone.Assets.Logo_icon.png", assembly);
         }
 
-        private void btnRegister_Clicked(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Register());
-        }
-
-        private async void btnSubmitted_Clicked(object sender, EventArgs e)
-        {
+            //login
+            string usernames = "", password = "";
             try
             {
-                if (txtUser.Text == "" || txtUser.Text == null || txtPword.Text == "" || txtPword.Text == null)
+                if (txtUser_name.Text == "" || txtUser_name.Text == null || txtUser_password.Text == "" || txtUser_password.Text == null)
                 {
                     await DisplayAlert("Warning", "Fields cannot be empty", "Okay");
-                    txtPword.Text = "";
-                    txtUser.Text = "";
+                    txtUser_password.Text = "";
+                    txtUser_name.Text = "";
                 }
                 else
                 {
-                    var user = await App.client.GetTable<accountusers>().Where(u => u.username == txtUser.Text).ToListAsync();
+                    var user = await App.client.GetTable<accountusers>().Where(u => u.username == txtUser_name.Text).ToListAsync();
+
+                    foreach (var c in user)
+                    {
+                        usernames = c.username;
+                        password = c.userPassword;
+                    }
 
                     if (user != null)
                     {
-                        await DisplayAlert("CONFIRMATION", "MAY LAMAN", "Okay");
-                        /*if (user.userPassword == txtPword.Text)
+                        if (password == txtUser_password.Text)
                         {
                             await DisplayAlert("Confirmation", "Login Succesful", "Okay");
-                            txtPword.Text = "";
-                            txtUser.Text = "";
-                        }*/
+                            txtUser_password.Text = "";
+                            txtUser_name.Text = "";
+                            usernames = "";
+                            password = "";
+                        }
                     }
                     else
                     {
-                        txtPword.Text = "";
-                        txtUser.Text = "";
+                        txtUser_password.Text = "";
+                        txtUser_name.Text = "";
                         await DisplayAlert("Warning", "Invalid username or password", "Okay");
                     }
                 }
@@ -60,7 +68,11 @@ namespace doghavenCapstone.InitialPages
 
                 throw;
             }
+        }
 
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            //forgotPassword
         }
     }
 }

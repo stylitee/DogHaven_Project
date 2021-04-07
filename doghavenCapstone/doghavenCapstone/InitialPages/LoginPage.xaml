@@ -1,24 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="doghavenCapstone.InitialPages.LoginPage">
+             x:Class="doghavenCapstone.InitialPages.LoginPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="login page"
-                   HorizontalOptions="CenterAndExpand"
-                   BackgroundColor="Red"
-                   Margin="0,20,0,0"/>
-            <Entry x:Name="txtUser"
-                   Placeholder="username" />
-            <Entry x:Name="txtPword"
-                   Placeholder="password"
-                   IsPassword="True" />
-            <Button Text="submit"
-                    x:Name="btnSubmitted"
-                    Clicked="btnSubmitted_Clicked" />
-            <Button Text="Register"
-                    x:Name="btnRegister"
-                    Clicked="btnRegister_Clicked" />
+        <StackLayout BackgroundColor="#ffc93c">
+            <Image x:Name="imgLogo"
+                   HeightRequest="100"
+                   Margin="0,50,0,20"/>
+
+            <Frame CornerRadius="20"
+                   HasShadow="True"
+                   Padding="0,0"
+                   Margin="30,0"
+                   BackgroundColor="White">
+                <StackLayout Padding="0,0">
+                    <Label Text="Hello"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="35"
+                           Margin="0,15,0,0"
+                           TextColor="Black"/>
+                    <Label Text="Sign into your account"
+                           FontSize="20"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="0,0,0,0"
+                           TextColor="Black"/>
+                    <Entry TextColor="Black"
+                           x:Name="txtUser_name"
+                           Placeholder="Username"
+                           Margin="30,10,30,0"
+                           PlaceholderColor="Gray"/>
+                    <Entry TextColor="Black"
+                           Margin="30,0,30,0"
+                           Placeholder="Password"
+                           x:Name="txtUser_password"
+                           PlaceholderColor="Gray"
+                           IsPassword="True"/>
+                    <Label Text="Forgot your password?"
+                           HorizontalTextAlignment="End"
+                           Margin="0,0,30,0"
+                           x:Name="lblForgotPassword">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Frame BackgroundColor="#31326f"
+                           CornerRadius="15"
+                           Margin="30,20"
+                           Padding="0,10"
+                           x:Name="btnLogin">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Login"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </Frame>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

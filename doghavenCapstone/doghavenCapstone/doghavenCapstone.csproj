@@ -11,6 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Logo_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Logo_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.0-beta" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
