@@ -57,6 +57,18 @@
                                HorizontalOptions="Center"
                                TextColor="White"/>
                     </Frame>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center"
+                                 Margin="0,0,0,20">
+                        <Label Text="Dont have an account?"
+                               TextColor="Black"/>
+                        <Label Text="Register Now!"
+                               TextColor="#FFB636">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </StackLayout>

@@ -1,21 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="doghavenCapstone.InitialPages.Register">
+             x:Class="doghavenCapstone.InitialPages.Register"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Register account" />
-            <Entry x:Name="txtUsername"
-                   Placeholder="username" />
-            <Entry x:Name="txtPassword"
-                   Placeholder="password"
-                   IsPassword="True" />
-            <Button Text="submit"
-                    x:Name="btnSubmission"
-                    Clicked="btnSubmission_Clicked"/>
-            <Button Text="Cancel"
-                    x:Name="btnCancel"
-                    Clicked="btnCancel_Clicked" />
+        <StackLayout BackgroundColor="#ffc93c">
+            
+            <Frame CornerRadius="20"
+                   HasShadow="True"
+                   Padding="0,0"
+                   Margin="20,10,20,0">
+                <StackLayout Margin="20,0,20,20"
+                             Padding="0,0">
+                    <Entry Placeholder="Username"
+                           x:Name="txtUser_name"
+                           Margin="0,0,0,0"/>
+                    <Entry Placeholder="First name"
+                           x:Name="txtfname"
+                           Margin="0,0,0,0"/>
+                    <Entry Placeholder="Middle name"
+                           x:Name="txtmname"/>
+                    <Entry Placeholder="Last name"
+                           x:Name="txtlname"/>
+                    <Entry Placeholder="Street name"
+                           x:Name="txtStreetName"/>
+                    <Entry Placeholder="Barangay"
+                           x:Name="txtBarangay"/>
+                    <Label Text="  Choose user type:"/>
+                    <Picker x:Name="pckrUserRole"/>
+                    <Entry Placeholder="Password" IsPassword="True" x:Name="txtPassword"/>
+                    <Entry Placeholder="Confirm Password" IsPassword="True" x:Name="txtConfirmPassword"/>
+                    <Frame BackgroundColor="#0985FF"
+                           CornerRadius="15"
+                           Padding="0,10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                        <Label HorizontalOptions="Center"
+                               Text="Register"
+                               TextColor="White" />
+                    </Frame>
+                </StackLayout>
+            </Frame>
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="EndAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,0,0,20">
+                    <Label Text="Already have an account?" />
+                    <Label Text="Login now!" 
+                           TextColor="#0985FF">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

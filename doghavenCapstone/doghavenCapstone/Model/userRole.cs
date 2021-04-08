@@ -5,13 +5,11 @@ using System.Text;
 
 namespace doghavenCapstone.Model
 {
-    public class usersaddress
+    public class userRole
     {
         [JsonProperty(PropertyName = "id")]
         public string id { get; set; }
-        [JsonProperty(PropertyName = "streetname")]
-        public string streetname { get; set; }
-        [JsonProperty(PropertyName = "barangay")]
-        public string barangay { get; set; }
+        [JsonProperty(PropertyName = "roleDescription")]
+        public string roleDescription { get; set; }
     }
 }

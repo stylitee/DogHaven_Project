@@ -74,5 +74,11 @@ namespace doghavenCapstone.InitialPages
         {
             //forgotPassword
         }
+
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        {
+            //register now
+            Navigation.PushAsync(new Register());
+        }
     }
 }
