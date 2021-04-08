@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.Model;
+﻿using doghavenCapstone.FlyoutPage;
+using doghavenCapstone.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,7 @@ namespace doghavenCapstone.InitialPages
                     {
                         if (password == txtUser_password.Text)
                         {
-                            await DisplayAlert("Confirmation", "Login Succesful", "Okay");
+                            await Navigation.PushAsync(new FlyoutMenuPage());
                             txtUser_password.Text = "";
                             txtUser_name.Text = "";
                             usernames = "";
