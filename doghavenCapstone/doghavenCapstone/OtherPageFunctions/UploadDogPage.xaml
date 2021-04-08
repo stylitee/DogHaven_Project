@@ -17,18 +17,7 @@
             <Label Text="Dog name:" 
                    TextColor="black"/>
             <Entry TextColor="Black" />
-            
-            <Frame CornerRadius="15"
-                   BackgroundColor="Black"
-                   HasShadow="True">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="btnTakePicture_Clicked" NumberOfTapsRequired="1" />
-                </Frame.GestureRecognizers>
-                <Label Text="Take a picture" HorizontalOptions="Center"
-                       TextColor="White"
-                       BackgroundColor="Black"/>
-            </Frame>
-            
+
             <Frame CornerRadius="15"
                    BackgroundColor="White"
                    HasShadow="True">
@@ -39,7 +28,18 @@
                        TextColor="Black"
                        BackgroundColor="White"/>
             </Frame>
-            
+
+            <Frame CornerRadius="15"
+                   BackgroundColor="Blue"
+                   HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnUploadImage_Clicked" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Label Text="Upload Image" HorizontalOptions="Center"
+                       TextColor="White"
+                       BackgroundColor="Blue"/>
+            </Frame>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,7 +1,13 @@
+FFImageLoading.Forms.Platform.dll
+FFImageLoading.Platform.dll
+FFImageLoading.Svg.Forms.dll
+FFImageLoading.Svg.Platform.dll
 FormsViewGroup.dll
 Microsoft.Azure.Mobile.Client.dll
 PCLCrypto.dll
+Plugin.CurrentActivity.dll
 Plugin.Media.dll
+SkiaSharp.dll
 SQLitePCLRaw.lib.e_sqlite3.android.dll
 Xamarin.AndroidX.Activity.dll
 Xamarin.AndroidX.Annotation.dll
@@ -90,8 +96,3 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.browser.browser.aar
-FFImageLoading.Platform.dll
-FFImageLoading.Svg.Platform.dll
-SkiaSharp.dll
-FFImageLoading.Forms.Platform.dll
-FFImageLoading.Svg.Forms.dll

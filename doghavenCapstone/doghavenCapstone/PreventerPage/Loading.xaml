@@ -4,15 +4,16 @@
              x:Class="doghavenCapstone.PreventerPage.Loading"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Opacity="0.5">
-            <Image x:Name="imgLoading"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
-            <Label Text="Loading please wait..."
+        <StackLayout>
+            <ff:CachedImage x:Name="imgLoading"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand" />
+            <Label Text=""
                    FontSize="15"
+                   TextColor="Gray"
+                   x:Name="lblLoadMessage"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
         </StackLayout>

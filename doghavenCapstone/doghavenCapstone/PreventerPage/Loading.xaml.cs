@@ -15,7 +15,7 @@ namespace doghavenCapstone.PreventerPage
         public Loading()
         {
             InitializeComponent();
-
+            lblLoadMessage.Text = App.loadingMessage;
             var assembly = typeof(Loading);
 
             imgLoading.Source = ImageSource.FromResource("doghavenCapstone.Assets.loading_gif_ini.gif",assembly);

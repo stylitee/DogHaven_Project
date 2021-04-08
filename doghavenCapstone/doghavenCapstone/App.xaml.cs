@@ -11,12 +11,13 @@ namespace doghavenCapstone
     {
         public static MobileServiceClient client = new MobileServiceClient("https://myserver-doghaven.azurewebsites.net");
         public static string DatabaseLocation = string.Empty;
+        public static string loadingMessage = "";
         public App(string databaseLocation)
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new LoginPage());
-            MainPage = new Loading();
+            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new Loading();
             DatabaseLocation = databaseLocation;
         }
 

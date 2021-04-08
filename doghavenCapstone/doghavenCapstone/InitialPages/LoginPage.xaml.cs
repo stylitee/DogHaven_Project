@@ -15,6 +15,7 @@ namespace doghavenCapstone.InitialPages
     public partial class LoginPage : ContentPage
     {
         public static string users_id;
+        
         //dont forget to make this null or empty in logoutpage
         public LoginPage()
         {
@@ -39,6 +40,7 @@ namespace doghavenCapstone.InitialPages
                 }
                 else
                 {
+                    App.loadingMessage = "Logging in please wait . . .";
                     await Navigation.PushAsync(new Loading());
                     var user = await App.client.GetTable<accountusers>().Where(u => u.username == txtUser_name.Text).ToListAsync();
 
@@ -58,10 +60,21 @@ namespace doghavenCapstone.InitialPages
                             txtUser_name.Text = "";
                             usernames = "";
                             password = "";
+                            App.loadingMessage = "";
+                        }
+                        else
+                        {
+                            await Navigation.PushAsync(new LoginPage());
+                            App.loadingMessage = "";
+                            txtUser_password.Text = "";
+                            txtUser_name.Text = "";
+                            await DisplayAlert("Warning", "Invalid username or password", "Okay");
                         }
                     }
                     else
                     {
+                        await Navigation.PushAsync(new LoginPage());
+                        App.loadingMessage = "";
                         txtUser_password.Text = "";
                         txtUser_name.Text = "";
                         await DisplayAlert("Warning", "Invalid username or password", "Okay");
@@ -70,7 +83,8 @@ namespace doghavenCapstone.InitialPages
             }
             catch (Exception)
             {
-
+                await DisplayAlert("Warning", "Something went wrong", "Okay");
+                App.loadingMessage = "";
                 throw;
             }
         }

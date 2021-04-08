@@ -1,4 +1,5 @@
 ﻿using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,8 @@ namespace doghavenCapstone.InitialPages
                     
                     try
                     {
+                        App.loadingMessage = "Information is being processed, please wait ...";
+                        await Navigation.PushAsync(new Loading());
                         addressid = System.Guid.NewGuid().ToString("N").Substring(0, 11);
                         
                         usersaddress address = new usersaddress()
@@ -75,6 +78,9 @@ namespace doghavenCapstone.InitialPages
 
                         await App.client.GetTable<usersaddress>().InsertAsync(address);
                         await App.client.GetTable<accountusers>().InsertAsync(user);
+                        await Navigation.PushAsync(new LoginPage());
+                        await DisplayAlert("Confirmation", "You're acccount is succesfully saved!", "Okay");
+                        App.loadingMessage = "";
                     }
                     catch (Exception)
                     {

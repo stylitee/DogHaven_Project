@@ -2,6 +2,33 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Hyak.Common/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Hyak.Common.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Hyak.Common.dll": {}
+        }
+      },
+      "Microsoft.Azure.Common/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Hyak.Common": "1.0.2",
+          "Microsoft.Azure.Common.Dependencies": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Azure.Common.NetFramework.dll": {},
+          "lib/net45/Microsoft.Azure.Common.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Azure.Common.NetFramework.dll": {},
+          "lib/net45/Microsoft.Azure.Common.dll": {}
+        }
+      },
+      "Microsoft.Azure.Common.Dependencies/1.0.0": {
+        "type": "package"
+      },
       "Microsoft.Azure.Mobile.Client/4.2.0": {
         "type": "package",
         "dependencies": {
@@ -22,6 +49,18 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.WindowsAzure.Management.Storage/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Common": "[2.0.4, 3.0.0)"
+        },
+        "compile": {
+          "lib/net40/Microsoft.WindowsAzure.Management.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.WindowsAzure.Management.Storage.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -233,6 +272,19 @@
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+      "WindowsAzure.Storage/9.3.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        }
+      },
       "Xam.Plugin.Media/5.0.1": {
         "type": "package",
         "dependencies": {
@@ -327,6 +379,55 @@
     }
   },
   "libraries": {
+    "Hyak.Common/1.0.2": {
+      "sha512": "kqWlD8Oi9LNLFsJoEnmbU5rYyu/LiPRkLlE1x4D07fYgH0VXcgOnib5PRLacpffLwt0CNHrzIYXj/BajGRgrPA==",
+      "type": "package",
+      "path": "hyak.common/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "hyak.common.1.0.2.nupkg.sha512",
+        "hyak.common.nuspec",
+        "lib/net40/Hyak.Common.dll",
+        "lib/net40/Hyak.Common.xml",
+        "lib/net45/Hyak.Common.dll",
+        "lib/net45/Hyak.Common.xml",
+        "lib/portable-net403+win+wpa81/Hyak.Common.dll",
+        "lib/portable-net403+win+wpa81/Hyak.Common.xml"
+      ]
+    },
+    "Microsoft.Azure.Common/2.0.4": {
+      "sha512": "bCUYaWuLNaNTwJPRuCKt6uczZ9DrBCOZYnlu1EzqhmI+Anql77+sgObk9d5ir8fjnUEioFqDztWN+CmUBPq0sA==",
+      "type": "package",
+      "path": "microsoft.azure.common/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Azure.Common.NetFramework.dll",
+        "lib/net40/Microsoft.Azure.Common.NetFramework.xml",
+        "lib/net40/Microsoft.Azure.Common.dll",
+        "lib/net40/Microsoft.Azure.Common.xml",
+        "lib/net45/Microsoft.Azure.Common.NetFramework.dll",
+        "lib/net45/Microsoft.Azure.Common.NetFramework.xml",
+        "lib/net45/Microsoft.Azure.Common.dll",
+        "lib/net45/Microsoft.Azure.Common.xml",
+        "lib/portable-net45+wp8+wpa81+win/Microsoft.Azure.Common.dll",
+        "lib/portable-net45+wp8+wpa81+win/Microsoft.Azure.Common.xml",
+        "microsoft.azure.common.2.0.4.nupkg.sha512",
+        "microsoft.azure.common.nuspec"
+      ]
+    },
+    "Microsoft.Azure.Common.Dependencies/1.0.0": {
+      "sha512": "qRk48ELK5MitFOrS6ZYmZ2mpy2pGRA2mA/+9jODLInau8NcDNEB3qnk/Vv5iMfPT81/anmvmxY+IQxXZ7U+xIg==",
+      "type": "package",
+      "path": "microsoft.azure.common.dependencies/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "microsoft.azure.common.dependencies.1.0.0.nupkg.sha512",
+        "microsoft.azure.common.dependencies.nuspec"
+      ]
+    },
     "Microsoft.Azure.Mobile.Client/4.2.0": {
       "sha512": "bSfSCtIMqlBD90TXKfv0zUOZ4I7BXdoFE+q/O2jhMF25hVgkc3DfI5X4RvPO85wqkwPyyR7e+LBFWs43T0G+yA==",
       "type": "package",
@@ -364,6 +465,21 @@
         "microsoft.netcore.platforms.1.1.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json"
+      ]
+    },
+    "Microsoft.WindowsAzure.Management.Storage/6.0.1": {
+      "sha512": "oF1x/n1O2ANZKOE1CLNpjvbYmNPBcbGaStanSKSjicKyG8Sb+g5cprHXib37mcFMczuuPyEVpvaKmlQmIR5g0w==",
+      "type": "package",
+      "path": "microsoft.windowsazure.management.storage/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.WindowsAzure.Management.Storage.dll",
+        "lib/net40/Microsoft.WindowsAzure.Management.Storage.xml",
+        "lib/portable-net45+wp8+wpa81+win/Microsoft.WindowsAzure.Management.Storage.dll",
+        "lib/portable-net45+wp8+wpa81+win/Microsoft.WindowsAzure.Management.Storage.xml",
+        "microsoft.windowsazure.management.storage.6.0.1.nupkg.sha512",
+        "microsoft.windowsazure.management.storage.nuspec"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -779,6 +895,30 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "WindowsAzure.Storage/9.3.3": {
+      "sha512": "VUV8j6dzkU/7vDgk5k+ob5g7nnch2fNByr0p9aOxMGFGk+tAnTehrZ4qnClF04CVozP1GNN2zrnbsxCmr+iZBg==",
+      "type": "package",
+      "path": "windowsazure.storage/9.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.WindowsAzure.Storage.dll",
+        "lib/net45/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/net45/Microsoft.WindowsAzure.Storage.xml",
+        "lib/netstandard1.0/Microsoft.WindowsAzure.Storage.dll",
+        "lib/netstandard1.0/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll",
+        "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/win8/Microsoft.WindowsAzure.Storage.dll",
+        "lib/win8/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/wp8/Microsoft.WindowsAzure.Storage.dll",
+        "lib/wp8/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/wpa/Microsoft.WindowsAzure.Storage.dll",
+        "lib/wpa/Microsoft.WindowsAzure.Storage.pdb",
+        "windowsazure.storage.9.3.3.nupkg.sha512",
+        "windowsazure.storage.nuspec"
       ]
     },
     "Xam.Plugin.Media/5.0.1": {
@@ -1262,7 +1402,9 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Microsoft.Azure.Mobile.Client >= 4.2.0",
+      "Microsoft.WindowsAzure.Management.Storage >= 6.0.1",
       "NETStandard.Library >= 2.0.3",
+      "WindowsAzure.Storage >= 9.3.3",
       "Xam.Plugin.Media >= 5.0.1",
       "Xamarin.Essentials >= 1.6.1",
       "Xamarin.FFImageLoading.Svg >= 2.4.11.982",
@@ -1319,11 +1461,19 @@
             "target": "Package",
             "version": "[4.2.0, )"
           },
+          "Microsoft.WindowsAzure.Management.Storage": {
+            "target": "Package",
+            "version": "[6.0.1, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "WindowsAzure.Storage": {
+            "target": "Package",
+            "version": "[9.3.3, )"
           },
           "Xam.Plugin.Media": {
             "target": "Package",
@@ -1363,5 +1513,37 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Hyak.Common 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Hyak.Common",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Azure.Common 2.0.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Azure.Common",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.WindowsAzure.Management.Storage 6.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.WindowsAzure.Management.Storage",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

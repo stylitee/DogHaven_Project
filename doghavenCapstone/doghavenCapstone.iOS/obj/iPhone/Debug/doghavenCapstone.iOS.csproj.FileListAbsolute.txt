@@ -74,3 +74,17 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csproj.CopyComplete
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.exe
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\SkiaSharp.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\WebP.Touch.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Platform.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Platform.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Forms.Platform.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Forms.Platform.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Forms.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Forms.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Svg.Platform.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Svg.Platform.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Svg.Forms.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Svg.Forms.pdb

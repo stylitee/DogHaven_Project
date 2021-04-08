@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>HUAWEI MYA-L02</SelectedDevice>
     <ActiveDebugProfile>HUAWEI MYA-L02</ActiveDebugProfile>
+    <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>
