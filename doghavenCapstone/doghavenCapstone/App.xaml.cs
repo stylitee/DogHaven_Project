@@ -1,4 +1,5 @@
 ﻿using doghavenCapstone.InitialPages;
+using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
@@ -12,12 +13,13 @@ namespace doghavenCapstone
         public static MobileServiceClient client = new MobileServiceClient("https://myserver-doghaven.azurewebsites.net");
         public static string DatabaseLocation = string.Empty;
         public static string loadingMessage = "";
+        public static string user_id = "";
         public App(string databaseLocation)
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new Loading();
+            //MainPage = new UploadDogPage();
             DatabaseLocation = databaseLocation;
         }
 

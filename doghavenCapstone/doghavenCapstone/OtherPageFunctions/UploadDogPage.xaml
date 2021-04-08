@@ -14,9 +14,10 @@
             <Label Text="Dog Gender:" 
                    TextColor="black"/>
             <Picker x:Name="pckrGender" />
-            <Label Text="Dog name:" 
+            <Label Text="Dog Breed:" 
                    TextColor="black"/>
-            <Entry TextColor="Black" />
+            <Picker x:Name="pckrDogPurpose" />
+            <Picker x:Name="pckrDogBreed" />
 
             <Frame CornerRadius="15"
                    BackgroundColor="White"
@@ -39,7 +40,7 @@
                        TextColor="White"
                        BackgroundColor="Blue"/>
             </Frame>
-
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

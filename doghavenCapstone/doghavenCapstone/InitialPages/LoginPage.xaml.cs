@@ -14,9 +14,7 @@ namespace doghavenCapstone.InitialPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        public static string users_id;
-        
-        //dont forget to make this null or empty in logoutpage
+        //dont forget to make user-id null or empty in logoutpage
         public LoginPage()
         {
             InitializeComponent();
@@ -46,7 +44,7 @@ namespace doghavenCapstone.InitialPages
 
                     foreach (var c in user)
                     {
-                        users_id = c.id;
+                        App.user_id = c.id;
                         usernames = c.username;
                         password = c.userPassword;
                     }
