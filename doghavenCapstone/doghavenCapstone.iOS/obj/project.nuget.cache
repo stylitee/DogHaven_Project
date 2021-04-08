@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oICmlU1EfyMDgd5JuabPjincW/TBeJJasfruOhQPxyrGNFbNDIe1mG+cFScR2SUBntGC75FIAVcm4wq0F6ZW/A==",
+  "dgSpecHash": "OeHRyAv4USuyXJrIqA4+MlZOFrKDR3OZ/kmgwnAbRoR5sfka65sujg381J3oB0loVcVaJW0x3ReJwMDJLU51eQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.kernel32\\0.3.2\\pinvoke.kernel32.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.ncrypt\\0.3.2\\pinvoke.ncrypt.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.windows.core\\0.3.2\\pinvoke.windows.core.0.3.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlite-net-pcl\\1.8.0-beta\\sqlite-net-pcl.1.8.0-beta.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
@@ -20,8 +21,13 @@
     "C:\\Users\\balon\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\validation\\2.2.8\\validation.2.2.8.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\webp.touch\\1.0.8\\webp.touch.1.0.8.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg\\2.4.11.982\\xamarin.ffimageloading.svg.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg.forms\\2.4.11.982\\xamarin.ffimageloading.svg.forms.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
   "logs": []

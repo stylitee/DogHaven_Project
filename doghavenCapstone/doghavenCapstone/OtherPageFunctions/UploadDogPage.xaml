@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.UploadDogPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="imgDogImage"
+                   HeightRequest="100"
+                   WidthRequest="100"/>
+            <Label Text="Dog name:" 
+                   TextColor="black"/>
+            <Entry TextColor="Black"
+                   x:Name="txtDogName"/>
+            <Label Text="Dog Gender:" 
+                   TextColor="black"/>
+            <Picker x:Name="pckrGender" />
+            <Label Text="Dog name:" 
+                   TextColor="black"/>
+            <Entry TextColor="Black" />
+            
+            <Frame CornerRadius="15"
+                   BackgroundColor="Black"
+                   HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnTakePicture_Clicked" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Label Text="Take a picture" HorizontalOptions="Center"
+                       TextColor="White"
+                       BackgroundColor="Black"/>
+            </Frame>
+            
+            <Frame CornerRadius="15"
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnChooseGallery_Clicked" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Label Text="Choose from Gallery" HorizontalOptions="Center"
+                       TextColor="Black"
+                       BackgroundColor="White"/>
+            </Frame>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
 ﻿using doghavenCapstone.InitialPages;
+using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
 using Xamarin.Forms;
@@ -14,8 +15,8 @@ namespace doghavenCapstone
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
-
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = new Loading();
             DatabaseLocation = databaseLocation;
         }
 

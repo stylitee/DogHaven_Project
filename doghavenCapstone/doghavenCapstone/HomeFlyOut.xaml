@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.HomeFlyOut"
+             xmlns:pages="clr-namespace:doghavenCapstone" 
+            xmlns:pages1="clr-namespace:doghavenCapstone.MainPages"
+            NavigationPage.HasNavigationBar="False">
+  <FlyoutPage.Flyout>
+    <pages:HomeFlyOutFlyout x:Name="FlyoutPage" />
+  </FlyoutPage.Flyout>
+  <FlyoutPage.Detail>
+    <NavigationPage NavigationPage.HasNavigationBar="False">
+      <x:Arguments>
+        <pages1:BreedMatchingPage />
+      </x:Arguments>
+    </NavigationPage>
+  </FlyoutPage.Detail>
+</FlyoutPage>

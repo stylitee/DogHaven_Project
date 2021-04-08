@@ -1,5 +1,5 @@
-﻿using doghavenCapstone.FlyoutPage;
-using doghavenCapstone.Model;
+﻿using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +14,8 @@ namespace doghavenCapstone.InitialPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        public static string users_id;
+        //dont forget to make this null or empty in logoutpage
         public LoginPage()
         {
             InitializeComponent();
@@ -37,10 +39,12 @@ namespace doghavenCapstone.InitialPages
                 }
                 else
                 {
+                    await Navigation.PushAsync(new Loading());
                     var user = await App.client.GetTable<accountusers>().Where(u => u.username == txtUser_name.Text).ToListAsync();
 
                     foreach (var c in user)
                     {
+                        users_id = c.id;
                         usernames = c.username;
                         password = c.userPassword;
                     }
@@ -49,7 +53,7 @@ namespace doghavenCapstone.InitialPages
                     {
                         if (password == txtUser_password.Text)
                         {
-                            await Navigation.PushAsync(new FlyoutMenuPage());
+                            await Navigation.PushAsync(new HomeFlyOut());
                             txtUser_password.Text = "";
                             txtUser_name.Text = "";
                             usernames = "";

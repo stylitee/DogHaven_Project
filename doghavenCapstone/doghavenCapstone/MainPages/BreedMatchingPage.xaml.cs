@@ -1,4 +1,5 @@
-﻿using System;
+﻿using doghavenCapstone.OtherPageFunctions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace doghavenCapstone.MainPages
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             //--------------------upload image--------------------------
-
+            Navigation.PushAsync(new UploadDogPage());
         }
     }
 }

@@ -90,6 +90,7 @@ namespace doghavenCapstone.InitialPages
             addressid = "";
             userrole_id = "";
             clearFields();
+            loadPicker();
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)

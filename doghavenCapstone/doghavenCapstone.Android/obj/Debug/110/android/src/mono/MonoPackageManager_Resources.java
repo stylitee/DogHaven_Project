@@ -12,6 +12,7 @@ public class MonoPackageManager_Resources {
 		"PInvoke.Kernel32.dll",
 		"PInvoke.NCrypt.dll",
 		"PInvoke.Windows.Core.dll",
+		"Plugin.Media.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",

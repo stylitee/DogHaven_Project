@@ -11,26 +11,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\loading_gif_ini.gif" />
     <None Remove="Assets\Logo_icon.png" />
+    <None Remove="Assets\no_image_available.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\loading_gif_ini.gif" />
     <EmbeddedResource Include="Assets\Logo_icon.png" />
+    <EmbeddedResource Include="Assets\no_image_available.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.0-beta" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="FlyoutPage\FlyoutMenuPage.xaml">
+    <EmbeddedResource Update="HomeFlyOut.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="FlyoutPage\FlyoutMenuPageFlyout.xaml">
+    <EmbeddedResource Update="HomeFlyOutDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="HomeFlyOutFlyout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="InitialPages\LoginPage.xaml">
@@ -40,6 +49,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="MainPages\BreedMatchingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="OtherPageFunctions\UploadDogPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PreventerPage\Loading.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
