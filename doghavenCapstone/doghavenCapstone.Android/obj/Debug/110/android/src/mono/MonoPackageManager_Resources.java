@@ -18,6 +18,7 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Threading.Tasks.Extensions.dll",
 		"Microsoft.WindowsAzure.Management.Storage.dll",
 		"Microsoft.WindowsAzure.Storage.dll",
+		"MLToolkit.Forms.SwipeCardView.dll",
 		"Newtonsoft.Json.dll",
 		"PCLCrypto.dll",
 		"PInvoke.BCrypt.dll",

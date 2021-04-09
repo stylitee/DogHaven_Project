@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.Model;
+﻿using doghavenCapstone.MainPages;
+using doghavenCapstone.Model;
 using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
@@ -143,7 +144,7 @@ namespace doghavenCapstone.OtherPageFunctions
                         dogGender = pckrGender.Items[pckrGender.SelectedIndex].ToString(),
                         dogImage = url,
                         dogBreed_id = breeed_id,
-                        dogPurpose = purposeid,
+                        dogPurpose_id = purposeid,
                         userid = App.user_id
                     };
 
@@ -177,6 +178,11 @@ namespace doghavenCapstone.OtherPageFunctions
             pckrDogPurpose.Items.Clear();
             pckrDogBreed.Items.Clear();
             pckrGender.Items.Clear();
+        }
+
+        private void btnBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new BreedMatchingPage());
         }
     }
 }

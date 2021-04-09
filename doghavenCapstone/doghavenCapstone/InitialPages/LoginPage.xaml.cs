@@ -41,7 +41,6 @@ namespace doghavenCapstone.InitialPages
                     App.loadingMessage = "Logging in please wait . . .";
                     await Navigation.PushAsync(new Loading());
                     var user = await App.client.GetTable<accountusers>().Where(u => u.username == txtUser_name.Text).ToListAsync();
-
                     foreach (var c in user)
                     {
                         App.user_id = c.id;

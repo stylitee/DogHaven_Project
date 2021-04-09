@@ -9,12 +9,14 @@
     ".NETStandard,Version=v2.0/": {
       "doghavenCapstone/1.0.0": {
         "dependencies": {
+          "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
           "NETStandard.Library": "2.0.3",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
           "Xamarin.Essentials": "1.6.1",
+          "Xamarin.FFImageLoading.Forms": "2.4.11.982",
           "Xamarin.FFImageLoading.Svg": "2.4.11.982",
           "Xamarin.FFImageLoading.Svg.Forms": "2.4.11.982",
           "Xamarin.Forms": "5.0.0.2012",
@@ -70,6 +72,17 @@
           "lib/net40/Microsoft.WindowsAzure.Management.Storage.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.1.0"
+          }
+        }
+      },
+      "MLToolkit.Forms.SwipeCardView/2.2.0": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MLToolkit.Forms.SwipeCardView.dll": {
+            "assemblyVersion": "2.2.0.1",
+            "fileVersion": "2.2.0.1"
           }
         }
       },
@@ -325,6 +338,13 @@
       "sha512": "sha512-oF1x/n1O2ANZKOE1CLNpjvbYmNPBcbGaStanSKSjicKyG8Sb+g5cprHXib37mcFMczuuPyEVpvaKmlQmIR5g0w==",
       "path": "microsoft.windowsazure.management.storage/6.0.1",
       "hashPath": "microsoft.windowsazure.management.storage.6.0.1.nupkg.sha512"
+    },
+    "MLToolkit.Forms.SwipeCardView/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uX6KRUopRMy75jVuNH3Kyb38wFTCaVXJsURh7y4dtsYlLRhLImrf6sJPLAGUzyTtKlqpwMQQVLTH7WLWazqJ+w==",
+      "path": "mltoolkit.forms.swipecardview/2.2.0",
+      "hashPath": "mltoolkit.forms.swipecardview.2.2.0.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",

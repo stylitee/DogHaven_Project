@@ -40,7 +40,8 @@
                        TextColor="White"
                        BackgroundColor="Blue"/>
             </Frame>
-            
+            <Button x:Name="btnBack" 
+                    Clicked="btnBack_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

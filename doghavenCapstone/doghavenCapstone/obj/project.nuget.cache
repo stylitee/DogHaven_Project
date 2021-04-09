@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KeMM9rJ1hyxr+3ZNkb275oqyLFzCa0ZkWhdsXN6sHpMTfg+XPJpvwb+KjylKVWkwMR60sfB9HPVo1JCJxBkzsg==",
+  "dgSpecHash": "OxZ5OFxr9Ng33W0sFgf21iTtCn1G8RWhFydUCyVBX0l6qGCKnpd5oyBJPpmcDSyCazvt2aFhp43d5Hx3NfpXKQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\microsoft.azure.mobile.client\\4.2.0\\microsoft.azure.mobile.client.4.2.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\microsoft.windowsazure.management.storage\\6.0.1\\microsoft.windowsazure.management.storage.6.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\mltoolkit.forms.swipecardview\\2.2.0\\mltoolkit.forms.swipecardview.2.2.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",

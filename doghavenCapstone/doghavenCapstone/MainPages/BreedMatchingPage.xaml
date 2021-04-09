@@ -1,19 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="doghavenCapstone.MainPages.BreedMatchingPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="upload"
-                       x:Name="lblUpload"
-                       HorizontalOptions="EndAndExpand"
-                       TextColor="Blue">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
-                    </Label.GestureRecognizers>
-                </Label>
+             x:Class="doghavenCapstone.MainPages.BreedMatchingPage"
+             xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView">
+
+    <StackLayout BackgroundColor="#2D2D30">
+            <swipeCardView:SwipeCardView x:Name="swipeView" 
+                                         ItemsSource="{Binding DogList}"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         Padding="10"
+                                         Margin="0,0"
+                                         HeightRequest="150"
+                                         SupportedSwipeDirections="Left,Right,Up">
+                <swipeCardView:SwipeCardView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand">
+                            <Frame CornerRadius="10"
+                                       Padding="8"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand">
+                                <AbsoluteLayout>
+                                    <Image Source="{Binding dogImage}"
+                                               Aspect="AspectFill"
+                                               AbsoluteLayout.LayoutBounds=".5,0.5,1,1"
+                                               AbsoluteLayout.LayoutFlags="All"/>
+                                    <Label FontSize="Large"
+                                           WidthRequest="30"
+                                               FontAttributes="Bold"
+                                               TextColor="White"
+                                               BackgroundColor="Black"
+                                               AbsoluteLayout.LayoutBounds="0.1,0.95,250,30"
+                                               AbsoluteLayout.LayoutFlags="PositionProportional">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding dogGender}" />
+                                                <Span Text=", " />
+                                                <Span Text="{Binding breed_Name}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </AbsoluteLayout>
+                            </Frame>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </swipeCardView:SwipeCardView.ItemTemplate>
+
+            </swipeCardView:SwipeCardView>
+            <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Padding="10,10,10,20"
+                             Spacing="30">
+
+                <StackLayout>
+                    <Button x:Name="btnNope" 
+                                Image="ic_tinder_nope.png"
+                                Clicked="btnNope_Clicked"
+                                WidthRequest="60"
+                                HeightRequest="60"
+                                CornerRadius="30"
+                                BackgroundColor="White"
+                                Scale="1"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Center">
+                    <Button x:Name="btnSuperLike" 
+                                Image="ic_tinder_superlike.png"
+                                Clicked="btnSuperLike_Clicked"
+                                WidthRequest="50"
+                                HeightRequest="50"
+                                CornerRadius="25"
+                                BackgroundColor="White"
+                                Scale="1"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Button x:Name="btnLike" 
+                                Image="ic_tinder_like.png"
+                                Clicked="btnLike_Clicked"
+                                WidthRequest="60"
+                                HeightRequest="60"
+                                CornerRadius="30"
+                                BackgroundColor="White"
+                                Scale="1"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>
