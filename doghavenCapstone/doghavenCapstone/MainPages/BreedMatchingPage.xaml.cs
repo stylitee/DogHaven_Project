@@ -22,97 +22,115 @@ namespace doghavenCapstone.MainPages
         public ObservableCollection<dogInfo> _Doglist = new ObservableCollection<dogInfo>();
         public static List<dogInfo> lstDogs = new List<dogInfo>();
         public static List<string> dogId = new List<string>();
-        public int flag = 0;
+
         public BreedMatchingPage()
         {
             InitializeComponent();
             BindingContext = this;
         }
 
-        public Command LeftCommand => new Command<string>(LeftSwipe);
-
-        private void LeftSwipe(string parameter)
-        {
-            Acr.UserDialogs.UserDialogs.Instance.Toast("You disliked the dog" + parameter, new TimeSpan(2));
-        }
-
         public async void loadDogs()
         {
-            int iterate = 0;
-            if(flag == 0)
+            _Doglist.Clear();
+            dogId.Clear();
+            var likedTable = await App.client.GetTable<likedDogs>().ToListAsync();
+            var dislikedTable = await App.client.GetTable<dislikedDogs>().ToListAsync();
+            List<dogInfo> dogInfoTable = new List<dogInfo>();
+            string breed_Name = "";
+
+            if(likedTable.Count == 0 && dislikedTable.Count == 0)
             {
-                var mydogList = await App.client.GetTable<dogInfo>().Where(d => d.userid != App.user_id).ToListAsync();
-                foreach (var dog in mydogList)
+                dogInfoTable = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id).ToListAsync();
+
+                foreach(var dog in dogInfoTable)
                 {
-                    if (iterate <= 15)
-                    {
-                        lstDogs.Add(dog);
-                        iterate++;
-                    }
-                }
-            }
-            else
-            {
-                var mydogList = await App.client.GetTable<dogInfo>().Skip(flag).Where(d => d.userid != App.user_id).ToListAsync();
-                foreach (var dog in mydogList)
-                {
-                    if (iterate <= 15)
-                    {
-                        lstDogs.Add(dog);
-                        iterate++;
-                    }
-                }
-            }
-            flag = flag + iterate;
-            iterate = 0;
-            string bName = "";
-            if(lstDogs.Count == 0 || lstDogs == null)
-            {
-                return;
-            }
-            else
-            {
-                //hahalion dgdi si nasa dislike
-                int myindex = 0;
-                List<int> index = new List<int>();
-                foreach(var c in lstDogs)
-                {
-                    var removeDislikeDogs = await App.client.GetTable<dislikedDogs>().Where(d => d.dog_id == c.id && d.userid == App.user_id).ToListAsync();
-                    foreach (var d in removeDislikeDogs)
-                    {
-                        if (c.id == d.dog_id)
-                        {
-                            index.Add(myindex);
-                        }
-                        myindex++;
-                    }
-                }
-                for (int i = 0; i < index.Count - 1; i++)
-                {
-                    lstDogs.RemoveAt(i);
-                }
-                foreach (var dog in lstDogs)
-                {
-                    
-                    //lstDogs.RemoveAt(0);
                     var breedName = await App.client.GetTable<dogBreed>().Where(breed => breed.id == dog.dogBreed_id).ToListAsync();
-                    
+
                     foreach (var b in breedName)
                     {
-                        bName = b.breedName;
+                        breed_Name = b.breedName;
                     }
                     System.Uri url = new System.Uri(dog.dogImage);
                     _Doglist.Add(new dogInfo()
                     {
                         dogName = dog.dogName,
                         dogGender = dog.dogGender,
-                        breed_Name = bName,
+                        breed_Name = breed_Name,
                         dogImage = dog.dogImage
                     });
                     dogId.Add(dog.id);
                 }
-                myindex = 0;
             }
+
+            if(likedTable.Count != 0 || dislikedTable.Count != 0)
+            {
+                List<dogInfo> finalList = new List<dogInfo>();
+                List<likedDogs> _likedOthers = new List<likedDogs>();
+                List<likedDogs> lstLiked = new List<likedDogs>();
+                var getLikedInfo = await App.client.GetTable<likedDogs>().Where(x => x.userid == App.user_id).ToListAsync();
+                var getdisLikedInfo = await App.client.GetTable<dislikedDogs>().Where(x => x.userid == App.user_id).ToListAsync();
+                
+                foreach(var c in getLikedInfo)
+                {
+                    dogInfoTable = await App.client.GetTable<dogInfo>().Where(x => x.id != c.dog_id && x.userid != c.userid).ToListAsync();
+                    foreach(var g in dogInfoTable)
+                    {
+                        finalList.Add(g);
+                    }
+                    dogInfoTable.Clear();
+                }
+                foreach(var d in getdisLikedInfo)
+                {
+                    dogInfoTable = await App.client.GetTable<dogInfo>().Where(x => x.id != d.dog_id && x.userid != d.userid).ToListAsync();
+                    foreach (var g in dogInfoTable)
+                    {
+                        finalList.Add(g);
+                    }
+                    dogInfoTable.Clear();
+                }
+
+                dogInfoTable = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
+                foreach(var d in dogInfoTable)
+                {
+                    var _liked = await App.client.GetTable<likedDogs>().Where(x => x.userid != App.user_id && x.dog_id == d.id).ToListAsync();
+                    foreach(var c in _liked)
+                    {
+                        _likedOthers.Add(c);
+                    }
+                }
+                dogInfoTable.Clear();
+
+                foreach(var likeby in _likedOthers)
+                {
+                    var _addition = await App.client.GetTable<dogInfo>().Where(x => x.id == likeby.dog_id).ToListAsync();
+                    foreach(var final in _addition)
+                    {
+                        finalList.Add(final);
+                    }
+                }
+                _likedOthers.Clear();                
+                //makua ning mga rows sa likedTable
+                foreach (var dog in finalList)
+                {
+                    var breedName = await App.client.GetTable<dogBreed>().Where(breed => breed.id == dog.dogBreed_id).ToListAsync();
+
+                    foreach (var b in breedName)
+                    {
+                        breed_Name = b.breedName;
+                    }
+                    System.Uri url = new System.Uri(dog.dogImage);
+                    _Doglist.Add(new dogInfo()
+                    {
+                        dogName = dog.dogName,
+                        dogGender = dog.dogGender,
+                        breed_Name = breed_Name,
+                        dogImage = dog.dogImage
+                    });
+                    dogId.Add(dog.id);
+                }
+                finalList.Clear();
+            }
+            //ang pag remove item sa list sa swiping na
         }
 
 
@@ -168,10 +186,49 @@ namespace doghavenCapstone.MainPages
                     dog_id = dogId[0]
                 };
 
-                await App.client.GetTable<dislikedDogs>().InsertAsync(dis_like);
+                dislikedDogs.Insert(dis_like);
                 Acr.UserDialogs.UserDialogs.Instance.Toast("You disliked the dog", new TimeSpan(2));
-                _Doglist.RemoveAt(0);
-                dogId.RemoveAt(0);
+                if(_Doglist.Count != 0 && dogId.Count != 0)
+                {
+                    _Doglist.RemoveAt(0);
+                    dogId.RemoveAt(0);
+                }
+                if(_Doglist.Count == 0 && dogId.Count == 0)
+                {
+
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public async void swipeRightAlgo()
+        {
+            try
+            {
+                await swipeView.InvokeSwipe((MLToolkit.Forms.SwipeCardView.Core.SwipeCardDirection)MLToolkit.Forms.SwipeCardView.Core.SwipeCardDirection.Right);
+                likedDogs liked = new likedDogs()
+                {
+                    id = Id.ToString("N").Substring(0, 10),
+                    userid = App.user_id,
+                    dog_id = dogId[0]
+                };
+
+                likedDogs.Insert(liked);
+                Acr.UserDialogs.UserDialogs.Instance.Toast("You liked the dog", new TimeSpan(2));
+                if (_Doglist.Count != 0 && dogId.Count != 0)
+                {
+                    _Doglist.RemoveAt(0);
+                    dogId.RemoveAt(0);
+                }
+                if (_Doglist.Count == 0 && dogId.Count == 0)
+                {
+
+                }
+
             }
             catch (Exception)
             {
@@ -180,11 +237,11 @@ namespace doghavenCapstone.MainPages
             }
         }
 
-        /*private void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        private void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
         {
             //left
             swipeLeftAlgo();
-        }*/
+        }
 
         private void SwipeGestureRecognizer_Swiped_1(object sender, SwipedEventArgs e)
         {

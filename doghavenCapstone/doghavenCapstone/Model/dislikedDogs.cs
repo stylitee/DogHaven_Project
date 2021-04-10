@@ -13,5 +13,10 @@ namespace doghavenCapstone.Model
         public string dog_id { get; set; }
         [JsonProperty(PropertyName = "userid")]
         public string userid { get; set; }
+
+        public static async void Insert(dislikedDogs dis_like)
+        {
+            await App.client.GetTable<dislikedDogs>().InsertAsync(dis_like);
+        }
     }
 }

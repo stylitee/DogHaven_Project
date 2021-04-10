@@ -19,3 +19,4 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Deb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\ref\doghavenCapstone.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.pdb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\TryPage.xaml.g.cs
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.csprojAssemblyReference.cache
