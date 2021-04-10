@@ -52,6 +52,7 @@ namespace doghavenCapstone.InitialPages
                     {
                         if (password == txtUser_password.Text)
                         {
+                            Application.Current.MainPage = new HomeFlyOut();
                             await Navigation.PushAsync(new HomeFlyOut());
                             txtUser_password.Text = "";
                             txtUser_name.Text = "";

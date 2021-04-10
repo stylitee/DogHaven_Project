@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GL7d4FxfZunPAcR8d4YRKdyeqa9g5P4ZDfOQ3aR5WFO4D4u27sg8nlzGNJHE6+5T1fyoSdb2Gk6u7ziKlzw06g==",
+  "dgSpecHash": "Q0DvL56cynirXmPJVY2/Mc1GTCc0tp87uZ/8JTnDG/1zYkkV74pZBuViq667jx2Dm59b4RREqETAkEgWHC1E3Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\balon\\.nuget\\packages\\acr.userdialogs\\7.1.0.483\\acr.userdialogs.7.1.0.483.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\andhud\\1.4.2\\andhud.1.4.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\hyak.common\\1.0.2\\hyak.common.1.0.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\microsoft.azure.common\\2.0.4\\microsoft.azure.common.2.0.4.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\microsoft.azure.common.dependencies\\1.0.0\\microsoft.azure.common.dependencies.1.0.0.nupkg.sha512",

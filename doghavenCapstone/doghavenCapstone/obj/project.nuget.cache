@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OxZ5OFxr9Ng33W0sFgf21iTtCn1G8RWhFydUCyVBX0l6qGCKnpd5oyBJPpmcDSyCazvt2aFhp43d5Hx3NfpXKQ==",
+  "dgSpecHash": "w9pFgte9E5jZ+g/jO2QkWfHEk70WRP/mh3IP8Z25Oto1OAiTv47ZQVO7fU3LbAYkA7Zk9E3NC/vF/ODYphw9YA==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\balon\\.nuget\\packages\\acr.userdialogs\\7.1.0.483\\acr.userdialogs.7.1.0.483.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\hyak.common\\1.0.2\\hyak.common.1.0.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\microsoft.azure.common\\2.0.4\\microsoft.azure.common.2.0.4.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\microsoft.azure.common.dependencies\\1.0.0\\microsoft.azure.common.dependencies.1.0.0.nupkg.sha512",

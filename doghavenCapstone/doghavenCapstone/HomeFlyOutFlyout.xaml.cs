@@ -1,4 +1,5 @@
-﻿using System;
+﻿using doghavenCapstone.MainPages;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -33,11 +34,12 @@ namespace doghavenCapstone
             {
                 MenuItems = new ObservableCollection<HomeFlyOutFlyoutMenuItem>(new[]
                 {
-                    new HomeFlyOutFlyoutMenuItem { Id = 0, Title = "Page 1" },
-                    new HomeFlyOutFlyoutMenuItem { Id = 1, Title = "Page 2" },
-                    new HomeFlyOutFlyoutMenuItem { Id = 2, Title = "Page 3" },
-                    new HomeFlyOutFlyoutMenuItem { Id = 3, Title = "Page 4" },
-                    new HomeFlyOutFlyoutMenuItem { Id = 4, Title = "Page 5" },
+                    new HomeFlyOutFlyoutMenuItem { Id = 0, Title = "Profile", Icon = "profile.png"},
+                    new HomeFlyOutFlyoutMenuItem { Id = 1, Title = "Breed Matching" , Icon = "Breeding.png", TargetType = typeof(BreedMatchingPage) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 2, Title = "Marketplace", Icon = "MarketPlace.png" },
+                    new HomeFlyOutFlyoutMenuItem { Id = 3, Title = "Adoption", Icon = "adoption.png" },
+                    new HomeFlyOutFlyoutMenuItem { Id = 4, Title = "Lost and Found", Icon = "Lost_and_Found.png" },
+                    new HomeFlyOutFlyoutMenuItem { Id = 5, Title = "Settings", Icon = "settings.png" },
                 });
             }
 

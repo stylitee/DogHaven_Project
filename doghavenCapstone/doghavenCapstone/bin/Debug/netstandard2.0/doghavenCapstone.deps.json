@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "doghavenCapstone/1.0.0": {
         "dependencies": {
+          "Acr.UserDialogs": "7.1.0.483",
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
@@ -24,6 +25,14 @@
         },
         "runtime": {
           "doghavenCapstone.dll": {}
+        }
+      },
+      "Acr.UserDialogs/7.1.0.483": {
+        "runtime": {
+          "lib/netstandard2.0/Acr.UserDialogs.dll": {
+            "assemblyVersion": "7.1.0.483",
+            "fileVersion": "7.1.0.483"
+          }
         }
       },
       "Hyak.Common/1.0.2": {
@@ -296,6 +305,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Acr.UserDialogs/7.1.0.483": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Uoo7ZcrHl9SN3M05A5/e3qwUcR7lFhgsSI+7HaVSPnIQcectHNrERJbLoV8HLjDJc+0/3t3tfinxDHu/e2fiMw==",
+      "path": "acr.userdialogs/7.1.0.483",
+      "hashPath": "acr.userdialogs.7.1.0.483.nupkg.sha512"
     },
     "Hyak.Common/1.0.2": {
       "type": "package",

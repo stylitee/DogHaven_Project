@@ -2,10 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="doghavenCapstone.MainPages.BreedMatchingPage"
-             xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView">
-
+             xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="dog_add.png" Text="Search" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <StackLayout BackgroundColor="#2D2D30">
-            <swipeCardView:SwipeCardView x:Name="swipeView" 
+        <swipeCardView:SwipeCardView x:Name="swipeView" 
                                          ItemsSource="{Binding DogList}"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="FillAndExpand"
@@ -13,20 +16,29 @@
                                          Margin="0,0"
                                          HeightRequest="150"
                                          SupportedSwipeDirections="Left,Right,Up">
-                <swipeCardView:SwipeCardView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout HorizontalOptions="FillAndExpand"
+            <swipeCardView:SwipeCardView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand">
-                            <Frame CornerRadius="10"
+                        <Frame CornerRadius="10"
                                        Padding="8"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand">
                                 <AbsoluteLayout>
-                                    <Image Source="{Binding dogImage}"
+                                <AbsoluteLayout.GestureRecognizers>
+                                    <SwipeGestureRecognizer Direction="Left" 
+                                                            Command="{Binding LeftCommand}"
+                                                            CommandParameter="{Binding dogBreed_id}"/>
+                                    <SwipeGestureRecognizer Direction="Right" 
+                                                            Swiped="SwipeGestureRecognizer_Swiped_1" />
+                                    <SwipeGestureRecognizer Direction="Up" 
+                                                            Swiped="SwipeGestureRecognizer_Swiped_2" />
+                                </AbsoluteLayout.GestureRecognizers>
+                                <Image Source="{Binding dogImage}"
                                                Aspect="AspectFill"
                                                AbsoluteLayout.LayoutBounds=".5,0.5,1,1"
-                                               AbsoluteLayout.LayoutFlags="All"/>
-                                    <Label FontSize="Large"
+                                               AbsoluteLayout.LayoutFlags="All" />
+                                <Label FontSize="Large"
                                            WidthRequest="30"
                                                FontAttributes="Bold"
                                                TextColor="White"

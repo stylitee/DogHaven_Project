@@ -42,6 +42,10 @@
       "frameworks": {
         "xamarinios10": {
           "dependencies": {
+            "Acr.UserDialogs": {
+              "target": "Package",
+              "version": "[7.1.0.483, )"
+            },
             "MLToolkit.Forms.SwipeCardView": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -141,6 +145,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Acr.UserDialogs": {
+              "target": "Package",
+              "version": "[7.1.0.483, )"
+            },
             "MLToolkit.Forms.SwipeCardView": {
               "target": "Package",
               "version": "[2.2.0, )"

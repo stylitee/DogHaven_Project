@@ -8,6 +8,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using System.IO;
 using FFImageLoading.Forms.Platform;
 using Plugin.CurrentActivity;
+using Acr.UserDialogs;
 
 namespace doghavenCapstone.Droid
 {
@@ -24,7 +25,7 @@ namespace doghavenCapstone.Droid
             string dbName = "dbDoghaven.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullpath = Path.Combine(folderPath, dbName);
-
+            UserDialogs.Init(this);
             CurrentPlatform.Init();
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 

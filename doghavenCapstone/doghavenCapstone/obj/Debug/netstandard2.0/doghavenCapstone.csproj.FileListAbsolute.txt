@@ -1,4 +1,3 @@
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.csprojAssemblyReference.cache
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\HomeFlyOut.xaml.g.cs
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\HomeFlyOutDetail.xaml.g.cs

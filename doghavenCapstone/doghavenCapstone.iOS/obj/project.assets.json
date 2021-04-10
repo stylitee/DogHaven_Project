@@ -2,6 +2,30 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Acr.UserDialogs/7.1.0.483": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.1"
+        },
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "Hyak.Common/1.0.2": {
         "type": "package",
         "dependencies": {
@@ -1079,6 +1103,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.1.0.483",
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
@@ -1100,6 +1125,30 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Acr.UserDialogs/7.1.0.483": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.1"
+        },
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "Hyak.Common/1.0.2": {
         "type": "package",
         "dependencies": {
@@ -2091,6 +2140,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.1.0.483",
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
@@ -2112,6 +2162,30 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Acr.UserDialogs/7.1.0.483": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.1"
+        },
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "Hyak.Common/1.0.2": {
         "type": "package",
         "dependencies": {
@@ -3106,6 +3180,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.1.0.483",
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
@@ -3127,6 +3202,30 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Acr.UserDialogs/7.1.0.483": {
+        "type": "package",
+        "dependencies": {
+          "BTProgressHUD": "1.3.1"
+        },
+        "compile": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Acr.UserDialogs.dll": {}
+        }
+      },
+      "BTProgressHUD/1.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/BTProgressHUD.dll": {}
+        }
+      },
       "Hyak.Common/1.0.2": {
         "type": "package",
         "dependencies": {
@@ -4121,6 +4220,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Acr.UserDialogs": "7.1.0.483",
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
@@ -4143,6 +4243,57 @@
     }
   },
   "libraries": {
+    "Acr.UserDialogs/7.1.0.483": {
+      "sha512": "Uoo7ZcrHl9SN3M05A5/e3qwUcR7lFhgsSI+7HaVSPnIQcectHNrERJbLoV8HLjDJc+0/3t3tfinxDHu/e2fiMw==",
+      "type": "package",
+      "path": "acr.userdialogs/7.1.0.483",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "acr.userdialogs.7.1.0.483.nupkg.sha512",
+        "acr.userdialogs.nuspec",
+        "lib/monoandroid10.0/Acr.UserDialogs.dll",
+        "lib/monoandroid10.0/Acr.UserDialogs.pdb",
+        "lib/monoandroid10.0/Acr.UserDialogs.xml",
+        "lib/monoandroid90/Acr.UserDialogs.dll",
+        "lib/monoandroid90/Acr.UserDialogs.pdb",
+        "lib/monoandroid90/Acr.UserDialogs.xml",
+        "lib/netstandard2.0/Acr.UserDialogs.dll",
+        "lib/netstandard2.0/Acr.UserDialogs.pdb",
+        "lib/netstandard2.0/Acr.UserDialogs.xml",
+        "lib/uap10.0.16299/Acr.UserDialogs.dll",
+        "lib/uap10.0.16299/Acr.UserDialogs.pdb",
+        "lib/uap10.0.16299/Acr.UserDialogs.pri",
+        "lib/uap10.0.16299/Acr.UserDialogs.xml",
+        "lib/uap10.0.16299/Acr.UserDialogs/Acr.UserDialogs.xr.xml",
+        "lib/xamarinios10/Acr.UserDialogs.dll",
+        "lib/xamarinios10/Acr.UserDialogs.pdb",
+        "lib/xamarinios10/Acr.UserDialogs.xml",
+        "lib/xamarinmac20/Acr.UserDialogs.dll",
+        "lib/xamarinmac20/Acr.UserDialogs.pdb",
+        "lib/xamarinmac20/Acr.UserDialogs.xml",
+        "lib/xamarintvos10/Acr.UserDialogs.dll",
+        "lib/xamarintvos10/Acr.UserDialogs.pdb",
+        "lib/xamarintvos10/Acr.UserDialogs.xml",
+        "readme.txt"
+      ]
+    },
+    "BTProgressHUD/1.3.1": {
+      "sha512": "3NLBJFd039vRplgww5tiGdlTU5ztLD5LvB6Fjr62y1Ov/cKRkpe7jEDWX/TwyYTKyLwk5BQ+Kzs4HVm72QyAvQ==",
+      "type": "package",
+      "path": "btprogresshud/1.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NOTICE",
+        "btprogresshud.1.3.1.nupkg.sha512",
+        "btprogresshud.nuspec",
+        "lib/xamarinios10/BTProgressHUD.dll",
+        "lib/xamarinios10/BTProgressHUD.pdb",
+        "lib/xamarinios10/BTProgressHUD.xml"
+      ]
+    },
     "Hyak.Common/1.0.2": {
       "sha512": "kqWlD8Oi9LNLFsJoEnmbU5rYyu/LiPRkLlE1x4D07fYgH0VXcgOnib5PRLacpffLwt0CNHrzIYXj/BajGRgrPA==",
       "type": "package",
@@ -8064,6 +8215,7 @@
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
+      "Acr.UserDialogs >= 7.1.0.483",
       "MLToolkit.Forms.SwipeCardView >= 2.2.0",
       "Microsoft.Azure.Mobile.Client >= 4.2.0",
       "Microsoft.WindowsAzure.Management.Storage >= 6.0.1",
@@ -8120,6 +8272,10 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "Acr.UserDialogs": {
+            "target": "Package",
+            "version": "[7.1.0.483, )"
+          },
           "MLToolkit.Forms.SwipeCardView": {
             "target": "Package",
             "version": "[2.2.0, )"

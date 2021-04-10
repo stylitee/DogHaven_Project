@@ -9,7 +9,7 @@
     <pages:HomeFlyOutFlyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>
   <FlyoutPage.Detail>
-    <NavigationPage NavigationPage.HasNavigationBar="False">
+        <NavigationPage NavigationPage.HasNavigationBar="True" BarBackground="#F8D73A">
       <x:Arguments>
         <pages1:BreedMatchingPage />
       </x:Arguments>

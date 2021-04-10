@@ -182,7 +182,7 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void btnBack_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new BreedMatchingPage());
+            Navigation.PopAsync();
         }
     }
 }
