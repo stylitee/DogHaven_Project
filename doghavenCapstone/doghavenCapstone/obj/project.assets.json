@@ -1785,11 +1785,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
+      "projectUniqueName": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
       "projectName": "doghavenCapstone",
-      "projectPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
+      "projectPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
       "packagesPath": "C:\\Users\\balon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\obj\\",
+      "outputPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

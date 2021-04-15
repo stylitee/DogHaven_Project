@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pjS4gnasL+KS2hSMsavbzO/sqaLTANtKbuBjySCI2nRIHPCVekk9RSozscmq6kI2GiNC1xfTAHpQdbDqJtEqwQ==",
+  "dgSpecHash": "3VXmNc830V1HbgS6EVNn07faAf9j7/p+0e2KbIg7/BU5Ddjn08imUoPP+unTfekhd4MTJFPQi6y9A798Krmllw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
+  "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\balon\\.nuget\\packages\\acr.userdialogs\\7.1.0.483\\acr.userdialogs.7.1.0.483.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\andhud\\1.4.2\\andhud.1.4.2.nupkg.sha512",

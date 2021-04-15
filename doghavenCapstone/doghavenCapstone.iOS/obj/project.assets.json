@@ -8452,11 +8452,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
       "projectName": "doghavenCapstone.iOS",
-      "projectPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
+      "projectPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
       "packagesPath": "C:\\Users\\balon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\obj\\",
+      "outputPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8477,8 +8477,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj": {
-              "projectPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj"
+            "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj": {
+              "projectPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj"
             }
           }
         }

@@ -7957,11 +7957,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
+      "projectUniqueName": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
       "projectName": "doghavenCapstone.Android",
-      "projectPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
+      "projectPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
       "packagesPath": "C:\\Users\\balon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\obj\\",
+      "outputPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -7982,8 +7982,8 @@
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj": {
-              "projectPath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj"
+            "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj": {
+              "projectPath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj"
             }
           }
         }

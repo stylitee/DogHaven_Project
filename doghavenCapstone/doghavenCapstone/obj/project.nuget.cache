@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7YhWYGUUO9b4U5moJx9tMBwqLYLgDXioCGEaM5fE/LSIedjLWKikfL1ozodv056Kxktf/PP+lhaw253CP50JYw==",
+  "dgSpecHash": "wtbtUHzWKKZsZ05J3ia1oHTaOOm767/MTNqGXyDTYyEntwmKa1uW1H1L7Ev7dlsDg4xMOyuK/kxjnDOXAHdWcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
+  "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\balon\\.nuget\\packages\\acr.userdialogs\\7.1.0.483\\acr.userdialogs.7.1.0.483.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\hyak.common\\1.0.2\\hyak.common.1.0.2.nupkg.sha512",
