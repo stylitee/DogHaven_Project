@@ -9,6 +9,7 @@ Microsoft.Azure.Mobile.Client.dll
 PCLCrypto.dll
 Plugin.CurrentActivity.dll
 Plugin.Media.dll
+Plugin.Permissions.dll
 SkiaSharp.dll
 SQLitePCLRaw.lib.e_sqlite3.android.dll
 Xamarin.AndroidX.Activity.dll
@@ -54,6 +55,7 @@ Xamarin.AndroidX.VectorDrawable.dll
 Xamarin.AndroidX.VersionedParcelable.dll
 Xamarin.AndroidX.ViewPager.dll
 Xamarin.AndroidX.ViewPager2.dll
+Xamarin.CommunityToolkit.dll
 Xamarin.Essentials.dll
 Xamarin.Forms.Platform.Android.dll
 Xamarin.Forms.Platform.dll

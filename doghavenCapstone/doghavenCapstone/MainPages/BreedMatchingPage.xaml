@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="doghavenCapstone.MainPages.BreedMatchingPage"
              xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False"
+             x:Name="BreedingPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="dog_add.png" Text="Search" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
@@ -37,23 +38,44 @@
                                 <Image Source="{Binding dogImage}"
                                                Aspect="AspectFill"
                                                AbsoluteLayout.LayoutBounds=".5,0.5,1,1"
-                                               AbsoluteLayout.LayoutFlags="All" />
+                                               AbsoluteLayout.LayoutFlags="All" >
+                                    <Image.GestureRecognizers >
+                                        <TapGestureRecognizer Command="{Binding NewPageCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                
+                                    <Label FontSize="Large"
+                                           WidthRequest="30"
+                                               FontAttributes="Bold"
+                                               TextColor="White"
+                                               BackgroundColor="Transparent"
+                                               AbsoluteLayout.LayoutBounds="0.1,0.95,200,30"
+                                               AbsoluteLayout.LayoutFlags="PositionProportional">
+                                        <Label.FormattedText >
+                                            <FormattedString>
+                                                <Span Text="{Binding dogName}"/>
+                                                <Span Text=", " />
+                                                <Span Text="{Binding dogGender}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+
                                 <Label FontSize="Large"
                                            WidthRequest="30"
                                                FontAttributes="Bold"
                                                TextColor="White"
-                                               BackgroundColor="Black"
-                                               AbsoluteLayout.LayoutBounds="0.1,0.95,250,30"
+                                               BackgroundColor="Transparent"
+                                               AbsoluteLayout.LayoutBounds="1.1,0.95,100,30"
                                                AbsoluteLayout.LayoutFlags="PositionProportional">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding dogGender}" />
-                                                <Span Text=", " />
-                                                <Span Text="{Binding breed_Name}" />
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                </AbsoluteLayout>
+                                    <Label.FormattedText >
+                                        <FormattedString>
+                                            <Span Text="{Binding usersDistance}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                            </AbsoluteLayout>
                             </Frame>
 
                         </StackLayout>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.ChangeUserTypePage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        
+        <StackLayout VerticalOptions="Center">
+            <Label Margin="20,20"
+                   TextColor="Black">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Upadate your usertype, "/>
+                        <Span x:Name="spantextName" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Frame CornerRadius="20"
+                   Margin="20,0">
+                <StackLayout>
+
+                    <Label Text="Change user type"
+                   TextColor="Black" />
+                    <Picker x:Name="pckrUserType"/>
+                    <Button CornerRadius="20" 
+                    Text="Confirm"
+                    x:Name="btnConfirm"
+                            Clicked="btnConfirm_Clicked"/>
+                    <Button CornerRadius="20" 
+                    Text="Cancel"
+                    x:Name="btnCancel"
+                            Clicked="btnCancel_Clicked"/>
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

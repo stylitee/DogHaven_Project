@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.DogInformationPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="Red">
+                <Frame Margin="20,20"
+                       CornerRadius="10">
+                    <StackLayout>
+                        <Image x:Name="imgDogImage"
+                               BackgroundColor="White"
+                               Aspect="AspectFill"
+                               HeightRequest="300"/>
+                        <Label Text="Name of the dog"
+                               x:Name="lblNameOfTheDog"/>
+                    </StackLayout>
+                </Frame>
+                <Label Text="Owned by: "
+                       TextColor="Black"
+                       FontSize="Large"
+                       Margin="30,0"
+                       x:Name="lblOwner"/>
+                <Label Text="Other Dogs owned" 
+                       Margin="30,0"/>
+                <StackLayout Orientation="Horizontal"
+                             Margin="20,20"
+                             x:Name="stckDogImages">
+                    <Image HeightRequest="50"
+                           WidthRequest="50"
+                           BackgroundColor="White"/>
+                    <Image HeightRequest="50"
+                           WidthRequest="50"
+                           BackgroundColor="White"/>
+                    <Image HeightRequest="50"
+                           WidthRequest="50"
+                           BackgroundColor="White"/>
+                    <Image HeightRequest="50"
+                           WidthRequest="50"
+                           BackgroundColor="White"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

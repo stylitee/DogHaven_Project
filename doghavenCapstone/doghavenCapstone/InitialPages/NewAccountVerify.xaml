@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.InitialPages.NewAccountVerify"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="23"
+                       TextColor="Black"
+                       Margin="0,50,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Welcome to DogHaven, "/>
+                            <Span x:Name="txtNameSpan" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Frame CornerRadius="20"
+                       IsClippedToBounds="True"
+                       HeightRequest="300"
+                       Margin="20,20,20,10">
+                    <ScrollView>
+                        <Label x:Name="txtMessage"
+                               TextColor="Black"/>
+                    </ScrollView>
+                </Frame>
+
+                <Button Text="Change User Type" 
+                        CornerRadius="20"
+                        Margin="20,0"
+                        x:Name="btnChangeUserType"
+                        Clicked="btnChangeUserType_Clicked"/>
+                <Button Text="Proceed" 
+                        CornerRadius="20"
+                        Margin="20,0"
+                        x:Name="btnProceed"
+                        Clicked="btnProceed_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

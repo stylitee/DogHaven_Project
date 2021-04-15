@@ -1,4 +1,6 @@
-﻿using doghavenCapstone.Model;
+﻿using Acr.UserDialogs;
+using doghavenCapstone.Model;
+using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,7 @@ namespace doghavenCapstone.InitialPages
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             //login
+            App.buttonName = "Proceed";
             string usernames = "", password = "";
             try
             {
@@ -38,11 +41,14 @@ namespace doghavenCapstone.InitialPages
                 }
                 else
                 {
-                    App.loadingMessage = "Logging in please wait . . .";
-                    await Navigation.PushAsync(new Loading());
+                    //App.loadingMessage = "Logging in please wait . . .";
+                    //await Navigation.PushAsync(new Loading());
+                    UserDialogs.Instance.ShowLoading("Logging in please wait");
+                    
                     var user = await App.client.GetTable<accountusers>().Where(u => u.username == txtUser_name.Text).ToListAsync();
                     foreach (var c in user)
                     {
+                        App.fullName = c.fullName;
                         App.user_id = c.id;
                         usernames = c.username;
                         password = c.userPassword;
@@ -52,37 +58,65 @@ namespace doghavenCapstone.InitialPages
                     {
                         if (password == txtUser_password.Text)
                         {
-                            Application.Current.MainPage = new HomeFlyOut();
-                            await Navigation.PushAsync(new HomeFlyOut());
-                            txtUser_password.Text = "";
-                            txtUser_name.Text = "";
-                            usernames = "";
-                            password = "";
-                            App.loadingMessage = "";
+                            UserDialogs.Instance.ShowLoading("Please wait while we prepare everything for you");
+                            var newAccountChecker = await App.client.GetTable<dogInfo>().ToListAsync();
+                            var dogchecker = await App.client.GetTable<dogInfo>().ToListAsync();
+                            var userDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
+                            var location = await App.client.GetTable<getCurrentLocation>().Where(x => x.user_id == App.user_id).ToListAsync();
+                            if (newAccountChecker.Count + 1 <= 5 && dogchecker.Count <= 5 && location.Count == 0)
+                            {
+                                await Navigation.PushAsync(new GetUsersLocation());
+                            }
+                            if(newAccountChecker.Count + 1 <= 5 && dogchecker.Count <= 5 && location.Count != 0)
+                            {
+                                //await Navigation.PushAsync(new UploadDogPage());
+                                if (userDogs.Count != 0)
+                                {
+                                    await Navigation.PushAsync(new UploadDogPage());
+                                }
+                                else
+                                {
+                                    await Navigation.PushAsync(new NewAccountVerify());
+                                }
+
+                            }
+                            if(newAccountChecker.Count() + 1 >= 5 && dogchecker.Count >= 5 && location.Count != 0)
+                            {
+                                Application.Current.MainPage = new HomeFlyOut();
+                                await Navigation.PushAsync(new HomeFlyOut());
+                                txtUser_password.Text = "";
+                                txtUser_name.Text = "";
+                                usernames = "";
+                                password = "";
+                                UserDialogs.Instance.HideLoading();
+                            }
+                            if(newAccountChecker.Count() + 1 >= 5 && dogchecker.Count >= 5 && location.Count == 0)
+                            {
+                                await Navigation.PushAsync(new GetUsersLocation());
+                            }
                         }
                         else
                         {
-                            await Navigation.PushAsync(new LoginPage());
-                            App.loadingMessage = "";
                             txtUser_password.Text = "";
                             txtUser_name.Text = "";
+                            UserDialogs.Instance.HideLoading();
                             await DisplayAlert("Warning", "Invalid username or password", "Okay");
                         }
                     }
                     else
                     {
-                        await Navigation.PushAsync(new LoginPage());
-                        App.loadingMessage = "";
+                        
                         txtUser_password.Text = "";
                         txtUser_name.Text = "";
+                        UserDialogs.Instance.HideLoading();
                         await DisplayAlert("Warning", "Invalid username or password", "Okay");
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception fs)
             {
-                await DisplayAlert("Warning", "Something went wrong", "Okay");
-                App.loadingMessage = "";
+                await DisplayAlert("Warning", "Something went wrong:" + fs.Message , "Okay");
+                UserDialogs.Instance.HideLoading();
                 throw;
             }
         }

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.GetUsersLocation"
+             BackgroundColor="#4CDCED"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    <ContentPage.Content >
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <ff:CachedImage x:Name="imgLocationAnimation"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/> 
+            <Label x:Name="lblLocationMessage"
+                   Text="Dog Haven wants to know your location"
+                   TextColor="Black"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Button Text="Give location"
+                    Margin="50,10"
+                    BackgroundColor="DeepPink"
+                    TextColor="White"
+                    CornerRadius="20"
+                    x:Name="btnGetLocation"
+                    Clicked="btnGetLocation_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

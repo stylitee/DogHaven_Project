@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BO+Kd+wUb1IAXCpV3lGz0Iu97WlW3gsHG33KcnrY1DtuxD921A8wK6tKwVV0Mjx0NmQ1cLlpKXzjDlVQI3OXlw==",
+  "dgSpecHash": "MryKnjaWysWtJr1agyZMgm8QXl5XNdWtJGJrZIGf7w4zDmOEEcRDg/AVasyShJ9gFfVSko/Z795Lgi3UO4ZksA==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.kernel32\\0.3.2\\pinvoke.kernel32.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.ncrypt\\0.3.2\\pinvoke.ncrypt.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.windows.core\\0.3.2\\pinvoke.windows.core.0.3.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\plugin.permissions\\6.0.1\\plugin.permissions.6.0.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlite-net-pcl\\1.8.0-beta\\sqlite-net-pcl.1.8.0-beta.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
@@ -80,6 +81,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\webp.touch\\1.0.8\\webp.touch.1.0.8.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\windowsazure.storage\\9.3.3\\windowsazure.storage.9.3.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",

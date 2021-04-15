@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="doghavenCapstone.PreventerPage.SystemNotReady"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#11DEFB">
+            <ff:CachedImage VerticalOptions="Center"
+                            x:Name="imgCuteDog"
+                            Margin="0,100,0,0"/>
+            <Label Text="This is a sample message"
+                   FontSize="Large"
+                    x:Name="lblMessage"
+                   TextColor="Black"
+                   Margin="20,30"
+                   HorizontalOptions="Center"/>
+            <Button CornerRadius="20" 
+                    Text="Exit"
+                    Margin="50,0,50,50"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    x:Name="btnExit"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="btnExit_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

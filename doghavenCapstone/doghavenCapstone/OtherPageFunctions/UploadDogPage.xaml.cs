@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.MainPages;
+﻿using Acr.UserDialogs;
+using doghavenCapstone.MainPages;
 using doghavenCapstone.Model;
 using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.Storage;
@@ -32,9 +33,15 @@ namespace doghavenCapstone.OtherPageFunctions
             loadBreeds();
             loadPurposeData();
             imgDogImage.Source = ImageSource.FromResource("doghavenCapstone.Assets.no_image_available.jpg", assembly);
-            App.loadingMessage = "Dog information is being saved, please wait ...";
             pckrGender.Items.Add("Male");
             pckrGender.Items.Add("Female");
+            UserDialogs.Instance.HideLoading();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            btnBack.Text = App.buttonName;
         }
 
         public async void loadBreeds()
@@ -50,35 +57,20 @@ namespace doghavenCapstone.OtherPageFunctions
 
         public void btnUploadImage_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Loading());
-            uploadDogInfo(dog_image);
-        }
-
-        private async void btnChooseGallery_Clicked(object sender, EventArgs e)
-        {
-            await CrossMedia.Current.Initialize();
-
-            if(!CrossMedia.Current.IsPickPhotoSupported)
+            if(App.buttonName == "Proceed")
             {
-                await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
-                return;
+                //Application.Current.MainPage = new HomeFlyOut();
+                UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
+                uploadDogInfo(dog_image);
+                
             }
-
-            var mediaOptions = new PickMediaOptions()
+            else
             {
-                PhotoSize = PhotoSize.Medium
-            };
-            var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
-
-            if(selectedImageFile == null)
-            {
-                await DisplayAlert("Ops","There was an error trying to get your image","Okay");
-                return;
+                Application.Current.MainPage = new HomeFlyOut();
+                UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
+                uploadDogInfo(dog_image);
             }
-
-            imgDogImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
-
-            dog_image = selectedImageFile.GetStream();
+            
         }
 
         public async void uploadDogInfo(Stream stream)
@@ -104,6 +96,7 @@ namespace doghavenCapstone.OtherPageFunctions
             }
             catch (Exception)
             {
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Warning", "Something went wrong with uploading the image", "Okay");
                 return;
             }
@@ -114,6 +107,7 @@ namespace doghavenCapstone.OtherPageFunctions
             if(url != null || url != "")
             {
                 uploadDogData();
+                
             }
             else
             {
@@ -129,7 +123,9 @@ namespace doghavenCapstone.OtherPageFunctions
                     pckrDogBreed == null || pckrDogPurpose == null ||
                     pckrGender == null || imgDogImage == null)
                 {
-                    await Navigation.PushAsync(new UploadDogPage());
+                    //clear input
+                    txtDogName.Text = "";
+                    //imgDogImage = null;
                     await DisplayAlert("Ops!", "Please provide info to all the provided fields", "Okay");
                 }
                 else
@@ -141,25 +137,36 @@ namespace doghavenCapstone.OtherPageFunctions
                     {
                         id = Guid.NewGuid().ToString("N").Substring(0,20),
                         dogName = txtDogName.Text,
-                        dogGender = pckrGender.Items[pckrGender.SelectedIndex].ToString(),
                         dogImage = url,
+                        dogGender = pckrGender.Items[pckrGender.SelectedIndex].ToString(),
                         dogBreed_id = breeed_id,
                         dogPurpose_id = purposeid,
                         userid = App.user_id
                     };
 
                     await App.client.GetTable<dogInfo>().InsertAsync(dogInformation);
-                    await Navigation.PushAsync(new UploadDogPage());
+                    //await Navigation.PushAsync(new UploadDogPage());
+                    txtDogName.Text = "";
+                    //imgDogImage = null;
                     await DisplayAlert("Confirmation", "Dog information succesfully uploaded", "Okay");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                await Navigation.PushAsync(new UploadDogPage());
-                await DisplayAlert("Ops", "Connection timed out", "Okay");
+                txtDogName.Text = "";
+                imgDogImage = null;
+                //await Navigation.PushAsync(new UploadDogPage());
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "An error has occured: " + ex.Message, "Okay");
                 return;
             }
-            App.loadingMessage = "";
+            //imgDogImage.Source = null;
+            txtDogName.Text = "";
+            pckrDogBreed.SelectedIndex = -1;
+            pckrDogPurpose.SelectedIndex = -1;
+            pckrGender.SelectedIndex = -1;
+            UserDialogs.Instance.HideLoading();
+            //App.loadingMessage = "";
         }
 
         public async void loadPurposeData()
@@ -182,7 +189,43 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void btnBack_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            if(btnBack.Text == "Back")
+            {
+                Application.Current.MainPage = new HomeFlyOut();
+                Navigation.PopToRootAsync();
+            }
+            else
+            {
+                Application.Current.MainPage = new HomeFlyOut();
+                Navigation.PushAsync(new HomeFlyOut());
+            }
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
+                return;
+            }
+
+            var mediaOptions = new PickMediaOptions()
+            {
+                PhotoSize = PhotoSize.Medium
+            };
+            var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+            if (selectedImageFile == null)
+            {
+                Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
+                return;
+            }
+
+            imgDogImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
+
+            dog_image = selectedImageFile.GetStream();
         }
     }
 }

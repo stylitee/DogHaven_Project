@@ -34,12 +34,13 @@ namespace doghavenCapstone
             {
                 MenuItems = new ObservableCollection<HomeFlyOutFlyoutMenuItem>(new[]
                 {
-                    new HomeFlyOutFlyoutMenuItem { Id = 0, Title = "Profile", Icon = "profile.png"},
+                    new HomeFlyOutFlyoutMenuItem { Id = 0, Title = "Profile", Icon = "profile.png", TargetType = typeof(ProfilePage)},
                     new HomeFlyOutFlyoutMenuItem { Id = 1, Title = "Breed Matching" , Icon = "Breeding.png", TargetType = typeof(BreedMatchingPage) },
-                    new HomeFlyOutFlyoutMenuItem { Id = 2, Title = "Marketplace", Icon = "MarketPlace.png" },
-                    new HomeFlyOutFlyoutMenuItem { Id = 3, Title = "Adoption", Icon = "adoption.png" },
-                    new HomeFlyOutFlyoutMenuItem { Id = 4, Title = "Lost and Found", Icon = "Lost_and_Found.png" },
-                    new HomeFlyOutFlyoutMenuItem { Id = 5, Title = "Settings", Icon = "settings.png" },
+                    new HomeFlyOutFlyoutMenuItem { Id = 2, Title = "Marketplace", Icon = "MarketPlace.png",TargetType = typeof(MarketPlacePage) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 3, Title = "Adoption", Icon = "adoption.png", TargetType = typeof(Adoption) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 4, Title = "Lost and Found", Icon = "Lost_and_Found.png" , TargetType = typeof(LostAndFoundHome)},
+                    new HomeFlyOutFlyoutMenuItem { Id = 5, Title = "Settings", Icon = "settings.png", TargetType = typeof(SettingsPage) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 6, Title = "Log out", Icon = "settings.png", TargetType = typeof(LogoutPage) },
                 });
             }
 

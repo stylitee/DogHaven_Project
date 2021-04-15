@@ -2,38 +2,45 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="doghavenCapstone.OtherPageFunctions.UploadDogPage"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <Image x:Name="imgDogImage"
+                   Margin="0,30,0,0"
                    HeightRequest="100"
-                   WidthRequest="100"/>
+                   WidthRequest="50"
+                   VerticalOptions="Center"
+                   Aspect="AspectFit">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Label Text="Dog name:" 
-                   TextColor="black"/>
+                   TextColor="black"
+                   Margin="20,10,20,0"/>
             <Entry TextColor="Black"
-                   x:Name="txtDogName"/>
+                   x:Name="txtDogName"
+                   Margin="20,0"/>
             <Label Text="Dog Gender:" 
+                   TextColor="black"
+                   Margin="20,0"/>
+            <Picker x:Name="pckrGender"
+                    Margin="20,0"/>
+            <Label Text="Dog Purpose:"
+                   Margin="20,0"
                    TextColor="black"/>
-            <Picker x:Name="pckrGender" />
-            <Label Text="Dog Breed:" 
+            <Picker x:Name="pckrDogPurpose"
+                    Margin="20,0"/>
+            <Label Text="Dog Breed:"
+                   Margin="20,0"
                    TextColor="black"/>
-            <Picker x:Name="pckrDogPurpose" />
-            <Picker x:Name="pckrDogBreed" />
+            <Picker x:Name="pckrDogBreed"
+                    Margin="20,0"/>
 
-            <Frame CornerRadius="15"
-                   BackgroundColor="White"
-                   HasShadow="True">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="btnChooseGallery_Clicked" NumberOfTapsRequired="1" />
-                </Frame.GestureRecognizers>
-                <Label Text="Choose from Gallery" HorizontalOptions="Center"
-                       TextColor="Black"
-                       BackgroundColor="White"/>
-            </Frame>
-
-            <Frame CornerRadius="15"
+            <Frame CornerRadius="20"
                    BackgroundColor="Blue"
-                   HasShadow="True">
+                   HasShadow="True"
+                   Margin="20,0">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="btnUploadImage_Clicked" NumberOfTapsRequired="1" />
                 </Frame.GestureRecognizers>
@@ -41,7 +48,9 @@
                        TextColor="White"
                        BackgroundColor="Blue"/>
             </Frame>
-            <Button x:Name="btnBack" 
+            <Button x:Name="btnBack"
+                    CornerRadius="20"
+                    Margin="20,0"
                     Clicked="btnBack_Clicked"/>
         </StackLayout>
     </ContentPage.Content>

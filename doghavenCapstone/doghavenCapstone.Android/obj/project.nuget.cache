@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q0DvL56cynirXmPJVY2/Mc1GTCc0tp87uZ/8JTnDG/1zYkkV74pZBuViq667jx2Dm59b4RREqETAkEgWHC1E3Q==",
+  "dgSpecHash": "pjS4gnasL+KS2hSMsavbzO/sqaLTANtKbuBjySCI2nRIHPCVekk9RSozscmq6kI2GiNC1xfTAHpQdbDqJtEqwQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.ncrypt\\0.3.2\\pinvoke.ncrypt.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.windows.core\\0.3.2\\pinvoke.windows.core.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\plugin.currentactivity\\2.1.0.4\\plugin.currentactivity.2.1.0.4.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\plugin.permissions\\6.0.1\\plugin.permissions.6.0.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlite-net-pcl\\1.8.0-beta\\sqlite-net-pcl.1.8.0-beta.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
@@ -152,6 +153,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.versionedparcelable\\1.1.1.6\\xamarin.androidx.versionedparcelable.1.1.1.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager\\1.0.0.6\\xamarin.androidx.viewpager.1.0.0.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager2\\1.0.0.8\\xamarin.androidx.viewpager2.1.0.0.8.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",

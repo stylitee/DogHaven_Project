@@ -1,4 +1,5 @@
 ﻿using doghavenCapstone.InitialPages;
+using doghavenCapstone.MainPages;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.MobileServices;
@@ -14,12 +15,24 @@ namespace doghavenCapstone
         public static string DatabaseLocation = string.Empty;
         public static string loadingMessage = "";
         public static string user_id = "";
+        public static string fullName = "";
+        public static string buttonName = "";
+        public static int uploadFlag = 0;
+        //Doginformation
+        public static string dog_id = "";
+        public static string dog_name = "";
+        public static string dog_image = "";
+        public static string dog_gender = "";
+        public static string dog_purposeID = "";
+        public static string dog_breedID = "";
+        public static string dog_userID = "";
+
         public App(string databaseLocation)
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new TryPage();
+            //MainPage = new GetUsersLocation();
             DatabaseLocation = databaseLocation;
         }
 

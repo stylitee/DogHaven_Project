@@ -1,11 +1,3 @@
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\optimized\
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csprojAssemblyReference.cache
-C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csproj.CoreCompileInputs.cache
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\doghavenCapstone.iOS.exe
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\doghavenCapstone.iOS.pdb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Acr.UserDialogs.dll
@@ -27,6 +19,8 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\PInvoke.Kernel32.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\PInvoke.NCrypt.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\PInvoke.Windows.Core.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Plugin.Permissions.dll
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Plugin.Permissions.pdb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\SkiaSharp.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\SQLite-net.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\SQLitePCLRaw.batteries_v2.dll
@@ -48,6 +42,7 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Microsoft.WindowsAzure.Storage.pdb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Plugin.Media.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Plugin.Media.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Xamarin.CommunityToolkit.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Xamarin.Essentials.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\Xamarin.Essentials.pdb
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\FFImageLoading.Platform.dll
@@ -105,6 +100,14 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\doghavenCapstone.dll
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\bin\iPhone\Debug\doghavenCapstone.pdb
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\optimized\
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csprojAssemblyReference.cache
+C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csproj.CoreCompileInputs.cache
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csproj.CopyComplete
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.exe
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.pdb
