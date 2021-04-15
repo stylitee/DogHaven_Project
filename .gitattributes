@@ -1,6 +1,0 @@
-. filter=lfs diff=lfs merge=lfs -text
-.xmlns filter=lfs diff=lfs merge=lfs -text
-doghavenCapstone/doghavenCapstone.Android filter=lfs diff=lfs merge=lfs -text
-.apk filter=lfs diff=lfs merge=lfs -text
-*.apk filter=lfs diff=lfs merge=lfs -text
-*.gif filter=lfs diff=lfs merge=lfs -text
