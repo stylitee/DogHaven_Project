@@ -19,6 +19,11 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void btnOpenMaps_Clicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new PinLostDogPage());
+        }
+
+        private void btnSave_Clicked(object sender, EventArgs e)
+        {
 
         }
     }

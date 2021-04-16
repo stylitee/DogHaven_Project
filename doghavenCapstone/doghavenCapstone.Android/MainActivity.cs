@@ -29,6 +29,7 @@ namespace doghavenCapstone.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             string dbName = "dbDoghaven.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullpath = Path.Combine(folderPath, dbName);

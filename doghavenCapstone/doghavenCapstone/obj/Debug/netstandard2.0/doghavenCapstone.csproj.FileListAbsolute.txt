@@ -53,10 +53,12 @@ C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\MainPages\MarketPlacePage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\MainPages\ProfilePage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\MainPages\SettingsPage.xaml.g.cs
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\AddLostDogPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\ChangeUserTypePage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\DogInformationPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\GetUsersLocation.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\MatchNotification.xaml.g.cs
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\PinLostDogPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\UploadDogPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\UserCurrentLocation.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\PreventerPage\Loading.xaml.g.cs
@@ -71,5 +73,3 @@ C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.dll
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\ref\doghavenCapstone.dll
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.pdb
-C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\AddLostDogPage.xaml.g.cs
-C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\PinLostDogPage.xaml.g.cs

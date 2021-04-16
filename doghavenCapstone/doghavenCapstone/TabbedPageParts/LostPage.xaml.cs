@@ -83,7 +83,7 @@ namespace doghavenCapstone.TabbedPageParts
 
         private void toolBarItemDog_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new UploadDogPage());
+            Navigation.PushAsync(new AddLostDogPage());
         }
 
         public ObservableCollection<LostDogs> LostDoglist

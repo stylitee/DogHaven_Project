@@ -57,10 +57,15 @@ Xamarin.AndroidX.ViewPager.dll
 Xamarin.AndroidX.ViewPager2.dll
 Xamarin.CommunityToolkit.dll
 Xamarin.Essentials.dll
+Xamarin.Forms.GoogleMaps.Android.dll
 Xamarin.Forms.Platform.Android.dll
 Xamarin.Forms.Platform.dll
 Xamarin.Google.Android.Material.dll
 Xamarin.Google.Guava.ListenableFuture.dll
+Xamarin.GooglePlayServices.Base.dll
+Xamarin.GooglePlayServices.Basement.dll
+Xamarin.GooglePlayServices.Maps.dll
+Xamarin.GooglePlayServices.Tasks.dll
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.lifecycle.lifecycle-runtime.aar
 androidx.core.core.aar
@@ -100,8 +105,3 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.browser.browser.aar
-Xamarin.Forms.GoogleMaps.Android.dll
-Xamarin.GooglePlayServices.Base.dll
-Xamarin.GooglePlayServices.Basement.dll
-Xamarin.GooglePlayServices.Maps.dll
-Xamarin.GooglePlayServices.Tasks.dll

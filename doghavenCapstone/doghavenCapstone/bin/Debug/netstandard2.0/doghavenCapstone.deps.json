@@ -23,6 +23,7 @@
           "Xamarin.FFImageLoading.Svg": "2.4.11.982",
           "Xamarin.FFImageLoading.Svg.Forms": "2.4.11.982",
           "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.GoogleMaps": "4.0.0-BETA1",
           "sqlite-net-pcl": "1.8.0-beta"
         },
         "runtime": {
@@ -353,6 +354,17 @@
             "fileVersion": "5.0.0.671"
           }
         }
+      },
+      "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -592,6 +604,13 @@
       "sha512": "sha512-Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
       "path": "xamarin.forms/5.0.0.2012",
       "hashPath": "xamarin.forms.5.0.0.2012.nupkg.sha512"
+    },
+    "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ok9khI88VsofzPVeddcY90Pm+Jy6z5zyrnakMLx1xxir1bVz5mtjFDLz5GCRalsUsEeUcUdK1jOGNa8F/p/fmA==",
+      "path": "xamarin.forms.googlemaps/4.0.0-beta1",
+      "hashPath": "xamarin.forms.googlemaps.4.0.0-beta1.nupkg.sha512"
     }
   }
 }

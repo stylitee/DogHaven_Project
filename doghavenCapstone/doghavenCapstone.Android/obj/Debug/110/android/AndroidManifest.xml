@@ -23,7 +23,10 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES" />
   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-  <application android:name="android.app.Application" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/icon" android:label="doghavenCapstone.Android" android:theme="@style/MainTheme">
+  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+  <application android:name="crc648c25666d4d5544e9.MainAppication" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/icon" android:label="doghavenCapstone.Android" android:theme="@style/MainTheme">
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCF5QOXmOpYU3xwIlNMVkXZFVu1TIwrNR4" />
     <activity android:name="crc644d1b3750717d48d9.MainActivity" android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:label="doghavenCapstone" android:theme="@style/MainTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -50,5 +53,7 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.doghavencapstone" />
       </intent-filter>
     </receiver>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
   </application>
 </manifest>
