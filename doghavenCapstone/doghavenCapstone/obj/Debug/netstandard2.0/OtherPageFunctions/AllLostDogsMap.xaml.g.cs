@@ -8,24 +8,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("doghavenCapstone.OtherPageFunctions.AllLostDogsMap.xaml", "OtherPageFunctions/AllLostDogsMap.xaml", typeof(global::doghavenCapstone.OtherPageFunctions.PinLostDogPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("doghavenCapstone.OtherPageFunctions.AllLostDogsMap.xaml", "OtherPageFunctions/AllLostDogsMap.xaml", typeof(global::doghavenCapstone.OtherPageFunctions.AllLostDogsMap))]
 
 namespace doghavenCapstone.OtherPageFunctions {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("OtherPageFunctions\\AllLostDogsMap.xaml")]
-    public partial class PinLostDogPage : global::Xamarin.Forms.ContentPage {
+    public partial class AllLostDogsMap : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.GoogleMaps.Map lostMaps;
+        private global::Xamarin.Forms.GoogleMaps.Map ShowAlllostMaps;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button btnBack;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(PinLostDogPage));
-            lostMaps = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.GoogleMaps.Map>(this, "lostMaps");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AllLostDogsMap));
+            ShowAlllostMaps = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.GoogleMaps.Map>(this, "ShowAlllostMaps");
             btnBack = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnBack");
         }
     }

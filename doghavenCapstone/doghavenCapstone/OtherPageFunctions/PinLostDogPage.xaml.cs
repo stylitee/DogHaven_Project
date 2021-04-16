@@ -18,7 +18,7 @@ namespace doghavenCapstone.OtherPageFunctions
         public PinLostDogPage()
         {
             InitializeComponent();
-
+            BindingContext = new LostDogs();
             loadUserLocation();
         }
 

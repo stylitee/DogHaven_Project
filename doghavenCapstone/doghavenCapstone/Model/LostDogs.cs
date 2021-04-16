@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace doghavenCapstone.Model
@@ -41,7 +42,7 @@ namespace doghavenCapstone.Model
         {
             if(App.uploadFlag == 1)
             {
-
+                //command = new 
             }
         }
 
@@ -49,5 +50,8 @@ namespace doghavenCapstone.Model
         {
             LostPage.LostPageContent[0].Navigation.PushAsync(new AddLostDogPage());
         }
+
+        // getting of lost dogs Pin
+
     }
 }

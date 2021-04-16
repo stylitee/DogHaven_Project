@@ -94,5 +94,10 @@ namespace doghavenCapstone.TabbedPageParts
                 _LostDoglist = value;
             }
         }
+
+        private void btnSeeAllDogs_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AllLostDogsMap());
+        }
     }
 }

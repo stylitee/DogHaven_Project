@@ -2,12 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             x:Class="doghavenCapstone.OtherPageFunctions.PinLostDogPage">
+             x:Class="doghavenCapstone.OtherPageFunctions.AllLostDogsMap">
 
-    <StackLayout>
-        <map:Map x:Name="lostMaps" />
+    <Grid>
+        <map:Map x:Name="ShowAlllostMaps" />
         <Button Text="Back to List"
-                x:Name="btnBack"/>
-    </StackLayout>
+                x:Name="btnBack"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="Center"
+                Margin="20"/>
+    </Grid>
 
 </ContentPage>

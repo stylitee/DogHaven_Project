@@ -111,3 +111,11 @@ C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csproj.CopyComplete
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.exe
 C:\Users\balon\Desktop\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.pdb
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\optimized\
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csprojAssemblyReference.cache
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.iOS\obj\iPhone\Debug\doghavenCapstone.iOS.csproj.CoreCompileInputs.cache
