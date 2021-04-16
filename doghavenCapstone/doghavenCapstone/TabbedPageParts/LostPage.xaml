@@ -14,21 +14,20 @@
                                    HasShadow="True">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="{Binding dogImageSouce}"
-                                           WidthRequest="66"/>
+                                           WidthRequest="80"
+                                           Margin="0,0,10,0"/>
                                     <StackLayout VerticalOptions="Center">
                                         <Label Text="{Binding breedName}"
-                                               FontSize="Large"
+                                               FontSize="15"
                                                TextColor="Black"/>
                                         <Label Text="{Binding fullName}"
-                                               FontSize="Large"
+                                               FontSize="15"
                                                TextColor="Black"/>
-                                    </StackLayout>
-                                    <StackLayout VerticalOptions="Center">
-                                        <Label Text="{Binding datelost}"
-                                               FontSize="Large"
+                                        <Label Text="{Binding dateLost}"
+                                               FontSize="15"
                                                TextColor="Black"/>
-                                        <Label Text="{Binding Ownertimelost}"
-                                               FontSize="Large"
+                                        <Label Text="{Binding timeLost}"
+                                               FontSize="15"
                                                TextColor="Black"/>
                                     </StackLayout>
                                 </StackLayout>
