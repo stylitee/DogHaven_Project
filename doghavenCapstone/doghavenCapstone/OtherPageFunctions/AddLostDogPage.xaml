@@ -69,7 +69,6 @@
                                        VerticalOptions="Center"/>
                                 <DatePicker x:Name="dateSetter"
                                             MinimumDate="01/01/2018"
-                                            MaximumDate="12/31/2018"
                                             TextColor="Black"
                                             WidthRequest="200"/>
                         </StackLayout>

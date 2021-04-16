@@ -34,6 +34,7 @@ namespace doghavenCapstone.OtherPageFunctions
             pickerDogGender.Items.Add("Female");
             timeSetter.Time = DateTime.Now.TimeOfDay;
             dateSetter.Date = DateTime.Now.Date;
+            dateSetter.MaximumDate = DateTime.Now.Date;
             var listOfBreeds = await App.client.GetTable<dogBreed>().ToListAsync();
             foreach(var c in listOfBreeds)
             {
