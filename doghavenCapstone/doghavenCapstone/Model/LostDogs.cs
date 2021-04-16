@@ -21,5 +21,13 @@ namespace doghavenCapstone.Model
         public string placeLost_latitude { get; set; }
         [JsonProperty(PropertyName = "dogInfo_id")]
         public string dogInfo_id { get; set; }
+
+        //other components
+        public string fullName { get; set; }
+        public string dogImageSouce { get; set; }
+        public string breedName { get; set; }
+        public string dateLost { get; set; }
+        public string timeLost { get; set; }
+        public string placeLost { get; set; }
     }
 }

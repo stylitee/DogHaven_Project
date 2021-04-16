@@ -3,10 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="doghavenCapstone.TabbedPageParts.LostPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="This is the lost page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView ItemsSource="{Binding LostDoglist}"
+                  BackgroundColor="Transparent"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding dogImageSouce}"
+                                           WidthRequest="66"/>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding breedName}"
+                                               FontSize="Large"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding fullName}"
+                                               FontSize="Large"
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding datelost}"
+                                               FontSize="Large"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding Ownertimelost}"
+                                               FontSize="Large"
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

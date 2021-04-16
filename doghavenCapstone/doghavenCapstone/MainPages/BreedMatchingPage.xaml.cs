@@ -108,7 +108,7 @@ namespace doghavenCapstone.MainPages
                             breed_Name = breed_Name,
                             dogImage = dog.dogImage,
                             usersDistance = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude),2).ToString() + "km"
-                    });
+                        });
                         dogId.Add(dog.id);
                     }
                 }
