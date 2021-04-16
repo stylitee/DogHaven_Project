@@ -30,6 +30,7 @@ namespace doghavenCapstone.OtherPageFunctions
 
         public async void InitializeControls()
         {
+            
             pickerDogGender.Items.Add("Male");
             pickerDogGender.Items.Add("Female");
             timeSetter.Time = DateTime.Now.TimeOfDay;
@@ -127,7 +128,7 @@ namespace doghavenCapstone.OtherPageFunctions
         {
             try
             {
-                if (txtDogName.Text == "" || txtDogName == null ||
+                /*if (txtDogName.Text == "" || txtDogName == null ||
                     pckrBreed == null || pckrBreed.SelectedIndex == -1 ||
                     pickerDogGender == null || pickerDogGender.SelectedIndex == -1)
                     if(setLocation_latitude == "" || setLocation_longtitude == "")
@@ -141,42 +142,45 @@ namespace doghavenCapstone.OtherPageFunctions
                     }
                 else
                 {
-                    var temp_id = mylstOfBreeds.FindIndex(breed => breed.breedName == pckrBreed.Items[pckrBreed.SelectedIndex]);
-                    string breeed_id = mylstOfBreeds[temp_id].id, purposeid = "5421dsad3";
-                    dogInfo_ID = Guid.NewGuid().ToString("N").Substring(0, 20);
-                    //lostDogID = Guid.NewGuid().ToString("N").Substring(0, 19);
-                    dogInfo dogInformation = new dogInfo()
-                    {
+                    
 
-                        id = dogInfo_ID,
-                        dogName = txtDogName.Text,
-                        dogImage = url,
-                        dogGender = pickerDogGender.Items[pickerDogGender.SelectedIndex].ToString(),
-                        dogBreed_id = breeed_id,
-                        dogPurpose_id = purposeid,
-                        userid = App.user_id
-                    };
+                    }*/
 
-                       await App.client.GetTable<dogInfo>().InsertAsync(dogInformation);
-                        //await Navigation.PushAsync(new UploadDogPage());
+                var temp_id = mylstOfBreeds.FindIndex(breed => breed.breedName == pckrBreed.Items[pckrBreed.SelectedIndex]);
+                string breeed_id = mylstOfBreeds[temp_id].id, purposeid = "5421dsad3";
+                dogInfo_ID = Guid.NewGuid().ToString("N").Substring(0, 20);
+                //lostDogID = Guid.NewGuid().ToString("N").Substring(0, 19);
+                App.uploadFlag = 0;
+                dogInfo dogInformation = new dogInfo()
+                {
 
-                        //imgDogImage = null;
-                        LostDogs lostdogs = new LostDogs()
-                        {
-                            id = Guid.NewGuid().ToString("N").Substring(0, 20),
-                            userid = App.user_id,
-                            lastSeen_date = dateSetter.Date.ToString("MM/dd/yyyy"),
-                            lastSeen_time = timeSetter.Time.ToString("h:mm tt"),
-                            placeLost_latitude = setLocation_latitude,
-                            placeLost_longtitude = setLocation_longtitude,
-                            dogInfo_id = dogInfo_ID
-                        };
+                    id = dogInfo_ID,
+                    dogName = txtDogName.Text,
+                    dogImage = url,
+                    dogGender = pickerDogGender.Items[pickerDogGender.SelectedIndex].ToString(),
+                    dogBreed_id = breeed_id,
+                    dogPurpose_id = purposeid,
+                    userid = App.user_id
+                };
 
-                        await App.client.GetTable<LostDogs>().InsertAsync(lostdogs);
+                await App.client.GetTable<dogInfo>().InsertAsync(dogInformation);
+                //await Navigation.PushAsync(new UploadDogPage());
 
-                        await DisplayAlert("Confirmation", "Dog succesfully saved!", "Okay");
+                //imgDogImage = null;
+                LostDogs lostdogs = new LostDogs()
+                {
+                    id = Guid.NewGuid().ToString("N").Substring(0, 20),
+                    userid = App.user_id,
+                    lastSeen_date = dateSetter.Date.ToString("MM/dd/yyyy"),
+                    lastSeen_time = timeSetter.Time.ToString("h:mm:ss tt"),
+                    placeLost_latitude = setLocation_latitude,
+                    placeLost_longtitude = setLocation_longtitude,
+                    dogInfo_id = dogInfo_ID
+                };
 
-                    }
+                await App.client.GetTable<LostDogs>().InsertAsync(lostdogs);
+                App.uploadFlag = 0;
+                await DisplayAlert("Confirmation", "Dog succesfully saved!", "Okay");
             }
             catch (Exception ex)
             {
