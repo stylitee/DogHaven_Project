@@ -15,6 +15,7 @@ namespace doghavenCapstone.OtherPageFunctions
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PinLostDogPage : ContentPage
     {
+        
         public PinLostDogPage()
         {
             InitializeComponent();
@@ -35,15 +36,14 @@ namespace doghavenCapstone.OtherPageFunctions
             Pin pinMyAddress = new Pin()
             {
                 Type = PinType.Place,
-                Label = "Naga City",
-                Address = "26-7 Looban 6 Bayawas St. Barangay Abella",
+                Label = "Pin to Lost Place",
                 Position = new Position(double.Parse(latitude), double.Parse(longtitude)),
                 Rotation = 33.3f,
-                Tag = "id_Bayawas"
+                IsDraggable = true
             };
 
             lostMaps.Pins.Add(pinMyAddress);
-            lostMaps.MoveToRegion(MapSpan.FromCenterAndRadius(pinMyAddress.Position, Distance.FromMeters(5000)));
+            lostMaps.MoveToRegion(MapSpan.FromCenterAndRadius(pinMyAddress.Position, Distance.FromMeters(500)));
 
             ApplyMyMapTheme();
         }
@@ -59,6 +59,22 @@ namespace doghavenCapstone.OtherPageFunctions
                 themefile = reader.ReadToEnd();
                 lostMaps.MapStyle = MapStyle.FromJson(themefile);
             }
+        }
+
+        private void lostMaps_PinDragStart(object sender, PinDragEventArgs e)
+        {
+
+        }
+
+        private void btnConfirm_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
+
+        private void lostMaps_PinDragEnd(System.Object sender, Xamarin.Forms.GoogleMaps.PinDragEventArgs e)
+        {
+            AddLostDogPage.setLocation_latitude = e.Pin.Position.Latitude.ToString();
+            AddLostDogPage.setLocation_longtitude = e.Pin.Position.Longitude.ToString();
         }
     }
 }

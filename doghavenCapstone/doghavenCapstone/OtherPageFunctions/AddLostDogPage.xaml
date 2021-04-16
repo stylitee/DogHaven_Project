@@ -15,7 +15,11 @@
                    BackgroundColor="Red">
                 <Image x:Name="imgDogImage"
                        HeightRequest="100"
-                       WidthRequest="1000"/>
+                       WidthRequest="1000">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Frame>
                 
                 <Frame Padding="10"
@@ -41,7 +45,7 @@
                             <Label Text="Dog Gender"
                                FontSize="21"
                                VerticalOptions="Center"/>
-                            <Picker x:Name="txtDogGender"
+                            <Picker x:Name="pickerDogGender"
                                 TextColor="Black"
                                 WidthRequest="200"/>
                         </StackLayout>
@@ -51,21 +55,23 @@
                                    FontSize="21"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start"/>
-                            <Picker x:Name="txtBreed"
+                            <Picker x:Name="pckrBreed"
                                     HorizontalOptions="EndAndExpand"
                                 TextColor="Black"
                                 WidthRequest="200"/>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="Center"
-                                 VerticalOptions="Center">
-                            <Label Text="Last Seen Date" 
-                               FontSize="21"
-                               VerticalOptions="Center"/>
-                            <Entry x:Name="txtDateLastSeen"
-                                TextColor="Black"
-                               WidthRequest="200"/>
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center">
+                                <Label Text="Last Seen Date" 
+                                       FontSize="21"
+                                       VerticalOptions="Center"/>
+                                <DatePicker x:Name="dateSetter"
+                                            MinimumDate="01/01/2018"
+                                            MaximumDate="12/31/2018"
+                                            TextColor="Black"
+                                            WidthRequest="200"/>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal"
@@ -74,14 +80,15 @@
                             <Label Text="Last Seen Time"
                                FontSize="21"
                                VerticalOptions="Center"/>
-                            <Entry x:Name="txtTimeLastSeen"
-                                TextColor="Black"
-                               WidthRequest="200"/>
-                        </StackLayout>
+                            <TimePicker x:Name="timeSetter"
+                                        Time="4:15:26"
+                                        TextColor="Black"
+                                        WidthRequest="200"/>
+                            </StackLayout>
                     </StackLayout>
                 </Frame>
                 <Button Margin="20,0"
-                        Text="Pin Lost Dog in Maps"
+                        Text="Pin Place in Maps"
                         x:Name="btnOpenMaps"
                         Clicked="btnOpenMaps_Clicked"
                         CornerRadius="20" />

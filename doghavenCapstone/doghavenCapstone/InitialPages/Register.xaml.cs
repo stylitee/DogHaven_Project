@@ -33,7 +33,7 @@ namespace doghavenCapstone.InitialPages
             loadPicker();
         }
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             //-------------------register button------------------------
             uploadUserImage(dog_image);

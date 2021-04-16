@@ -5,8 +5,10 @@
              x:Class="doghavenCapstone.OtherPageFunctions.PinLostDogPage">
 
     <StackLayout>
-        <map:Map x:Name="lostMaps" />
-        <Button Text="Pin to maps" />
+        <map:Map x:Name="lostMaps" PinDragStart="lostMaps_PinDragStart" PinDragEnd="lostMaps_PinDragEnd" HasZoomEnabled="True"/>
+        <Button Text="Confirm location"
+                x:Name="btnConfirm"
+                Clicked="btnConfirm_Clicked" />
     </StackLayout>
     
 </ContentPage>

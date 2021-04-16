@@ -12,6 +12,9 @@ namespace doghavenCapstone
     public partial class App : Application
     {
         public static MobileServiceClient client = new MobileServiceClient("https://myserver-doghaven.azurewebsites.net");
+        
+        
+        
         public static string DatabaseLocation = string.Empty;
         public static string loadingMessage = "";
         public static string user_id = "";
