@@ -1,4 +1,5 @@
 ﻿using doghavenCapstone.Model;
+using doghavenCapstone.OtherPageFunctions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +16,6 @@ namespace doghavenCapstone.TabbedPageParts
     public partial class LostPage : ContentPage
     {
         public ObservableCollection<LostDogs> _LostDoglist = new ObservableCollection<LostDogs>();
-        double latitude, longtitude;
         string fullLostAddress = "";
         public LostPage()
         {
@@ -72,11 +72,16 @@ namespace doghavenCapstone.TabbedPageParts
                     dogInfo_id = c.dogInfo_id,
                     fullName = "Owner: " + full_Name,
                     breedName = "Breed: " + breed_name,
-                    dateLost = "Date Lost: " + c.dateLost,
-                    timeLost = "Time Lost: " + c.timeLost,
+                    dateLost = "Date Lost: " + c.lastSeen_date,
+                    timeLost = "Time Lost: " + c.lastSeen_time,
                     placeLost = fullLostAddress
                 });
             }
+        }
+
+        private void toolBarItemDog_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new UploadDogPage());
         }
 
         public ObservableCollection<LostDogs> LostDoglist

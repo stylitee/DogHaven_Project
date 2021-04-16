@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="doghavenCapstone.TabbedPageParts.LostPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="dogCurious.png" Text="Add Lost Dog" x:Name="toolBarItemDog" Clicked="toolBarItemDog_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding LostDoglist}"
                   BackgroundColor="Transparent"

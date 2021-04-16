@@ -41,7 +41,6 @@ namespace doghavenCapstone.MainPages
             }
         }
 
-        //public static double CalculateDistance(double latitudeStart, double longitudeStart, double latitudeEnd, double longitudeEnd, Xamarin.Essentials.DistanceUnits units);
         public double getDistance(double user1_latitude, double user1_longtitude, double user2_latitude, double user2_longitude)
         {
             Location sourceCoordinates = new Location(user1_latitude, user1_longtitude);

@@ -1488,3 +1488,4 @@ C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone.Android\obj\Debug\110\res\drawable\dogcurious.png
