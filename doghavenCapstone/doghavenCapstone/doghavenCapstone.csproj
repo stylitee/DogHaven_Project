@@ -15,6 +15,7 @@
     <None Remove="Assets\get_location.gif" />
     <None Remove="Assets\Logo_icon.png" />
     <None Remove="Assets\no_image_available.jpg" />
+    <None Remove="MapThemes\MapStyle.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
     <EmbeddedResource Include="Assets\get_location.gif" />
     <EmbeddedResource Include="Assets\Logo_icon.png" />
     <EmbeddedResource Include="Assets\no_image_available.jpg" />
+    <EmbeddedResource Include="MapThemes\MapStyle.json" />
   </ItemGroup>
 
   <ItemGroup>

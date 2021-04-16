@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,6 +44,21 @@ namespace doghavenCapstone.OtherPageFunctions
 
             lostMaps.Pins.Add(pinMyAddress);
             lostMaps.MoveToRegion(MapSpan.FromCenterAndRadius(pinMyAddress.Position, Distance.FromMeters(5000)));
+
+            ApplyMyMapTheme();
+        }
+
+        private void ApplyMyMapTheme()
+        {
+            var assembly = typeof(PinLostDogPage).GetTypeInfo().Assembly;
+            var stream = assembly.GetManifestResourceStream($"doghavenCapstone.MapThemes.MapStyle.json");
+            string themefile;
+
+            using(var reader = new System.IO.StreamReader(stream))
+            {
+                themefile = reader.ReadToEnd();
+                lostMaps.MapStyle = MapStyle.FromJson(themefile);
+            }
         }
     }
 }

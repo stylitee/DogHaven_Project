@@ -6,41 +6,44 @@
         <ToolbarItem Icon="dogCurious.png" Text="Add Lost Dog" x:Name="toolBarItemDog" Clicked="toolBarItemDog_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding LostDoglist}"
+        <StackLayout>
+            <Button Text="See all lost dogs in Maps" x:Name="btnSeeAllDogs" Clicked="btnSeeAllDogs_Clicked"/>
+            <ListView ItemsSource="{Binding LostDoglist}"
                   BackgroundColor="Transparent"
                   HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Frame CornerRadius="20"
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
                                    HasShadow="True">
-                                
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="{Binding dogImageSouce}"
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding dogImageSouce}"
                                            WidthRequest="80"
                                            Margin="0,0,10,0"/>
-                                    <StackLayout VerticalOptions="Center">
-                                        <Label Text="{Binding breedName}"
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label Text="{Binding breedName}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                        <Label Text="{Binding fullName}"
+                                            <Label Text="{Binding fullName}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                        <Label Text="{Binding dateLost}"
+                                            <Label Text="{Binding dateLost}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                        <Label Text="{Binding timeLost}"
+                                            <Label Text="{Binding timeLost}"
                                                FontSize="15"
                                                TextColor="Black"/>
+                                        </StackLayout>
                                     </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            
-        </ListView>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
