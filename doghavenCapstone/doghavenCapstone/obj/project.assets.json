@@ -458,6 +458,18 @@
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
         }
+      },
+      "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.5.0.495"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll": {}
+        }
       }
     }
   },
@@ -1757,6 +1769,23 @@
         "xamarin.forms.5.0.0.2012.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
+    },
+    "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+      "sha512": "Ok9khI88VsofzPVeddcY90Pm+Jy6z5zyrnakMLx1xxir1bVz5mtjFDLz5GCRalsUsEeUcUdK1jOGNa8F/p/fmA==",
+      "type": "package",
+      "path": "xamarin.forms.googlemaps/4.0.0-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/MonoAndroid90/Xamarin.Forms.GoogleMaps.Android.dll",
+        "lib/MonoAndroid90/Xamarin.Forms.GoogleMaps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll",
+        "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll",
+        "xamarin.forms.googlemaps.4.0.0-beta1.nupkg.sha512",
+        "xamarin.forms.googlemaps.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1775,6 +1804,7 @@
       "Xamarin.FFImageLoading.Svg >= 2.4.11.982",
       "Xamarin.FFImageLoading.Svg.Forms >= 2.4.11.982",
       "Xamarin.Forms >= 5.0.0.2012",
+      "Xamarin.Forms.GoogleMaps >= 4.0.0-BETA1",
       "sqlite-net-pcl >= 1.8.0-beta"
     ]
   },
@@ -1879,6 +1909,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[5.0.0.2012, )"
+          },
+          "Xamarin.Forms.GoogleMaps": {
+            "target": "Package",
+            "version": "[4.0.0-BETA1, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",

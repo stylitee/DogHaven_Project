@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wtbtUHzWKKZsZ05J3ia1oHTaOOm767/MTNqGXyDTYyEntwmKa1uW1H1L7Ev7dlsDg4xMOyuK/kxjnDOXAHdWcg==",
+  "dgSpecHash": "Dkfkkz+YzZqLzjExdkMsK4TSiQllA9Z1Pg1zGABAHelzyRbpiy1LlSpKXNHP7mS8OAEpCOR32CfBvg2wO55lug==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
   "expectedPackageFiles": [
@@ -36,7 +36,8 @@
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg\\2.4.11.982\\xamarin.ffimageloading.svg.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg.forms\\2.4.11.982\\xamarin.ffimageloading.svg.forms.2.4.11.982.nupkg.sha512",
-    "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms.googlemaps\\4.0.0-beta1\\xamarin.forms.googlemaps.4.0.0-beta1.nupkg.sha512"
   ],
   "logs": [
     {

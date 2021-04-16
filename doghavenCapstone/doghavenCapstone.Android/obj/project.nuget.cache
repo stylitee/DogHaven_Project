@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3VXmNc830V1HbgS6EVNn07faAf9j7/p+0e2KbIg7/BU5Ddjn08imUoPP+unTfekhd4MTJFPQi6y9A798Krmllw==",
+  "dgSpecHash": "SeRVgzAwofnKa5aFZy23boSBEJNTJklXAyDkDDqXTaQwr2XIfcnhV9uGUMH7cpjJLQSVUpEz0T3u8MI+NGBq0Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
   "expectedPackageFiles": [
@@ -89,6 +89,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.arch.lifecycle.livedata.core\\1.1.1.3\\xamarin.android.arch.lifecycle.livedata.core.1.1.1.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.arch.lifecycle.runtime\\1.1.1.3\\xamarin.android.arch.lifecycle.runtime.1.1.1.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.arch.lifecycle.viewmodel\\1.1.1.3\\xamarin.android.arch.lifecycle.viewmodel.1.1.1.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.animated.vector.drawable\\28.0.0.3\\xamarin.android.support.animated.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.annotations\\28.0.0.3\\xamarin.android.support.annotations.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.asynclayoutinflater\\28.0.0.3\\xamarin.android.support.asynclayoutinflater.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.collections\\28.0.0.3\\xamarin.android.support.collections.28.0.0.3.nupkg.sha512",
@@ -101,12 +102,17 @@
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.customview\\28.0.0.3\\xamarin.android.support.customview.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.documentfile\\28.0.0.3\\xamarin.android.support.documentfile.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.drawerlayout\\28.0.0.3\\xamarin.android.support.drawerlayout.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.fragment\\28.0.0.3\\xamarin.android.support.fragment.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.interpolator\\28.0.0.3\\xamarin.android.support.interpolator.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.loader\\28.0.0.3\\xamarin.android.support.loader.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.localbroadcastmanager\\28.0.0.3\\xamarin.android.support.localbroadcastmanager.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.media.compat\\28.0.0.3\\xamarin.android.support.media.compat.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.print\\28.0.0.3\\xamarin.android.support.print.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.slidingpanelayout\\28.0.0.3\\xamarin.android.support.slidingpanelayout.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.swiperefreshlayout\\28.0.0.3\\xamarin.android.support.swiperefreshlayout.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.v4\\28.0.0.3\\xamarin.android.support.v4.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.v7.appcompat\\28.0.0.3\\xamarin.android.support.v7.appcompat.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.vector.drawable\\28.0.0.3\\xamarin.android.support.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
@@ -153,6 +159,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.versionedparcelable\\1.1.1.6\\xamarin.androidx.versionedparcelable.1.1.1.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager\\1.0.0.6\\xamarin.androidx.viewpager.1.0.0.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager2\\1.0.0.8\\xamarin.androidx.viewpager2.1.0.0.8.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.build.download\\0.7.0\\xamarin.build.download.0.7.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
@@ -160,8 +167,13 @@
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg\\2.4.11.982\\xamarin.ffimageloading.svg.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg.forms\\2.4.11.982\\xamarin.ffimageloading.svg.forms.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms.googlemaps\\4.0.0-beta1\\xamarin.forms.googlemaps.4.0.0-beta1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.2.1.1\\xamarin.google.android.material.1.2.1.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.base\\71.1610.1\\xamarin.googleplayservices.base.71.1610.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.basement\\71.1620.2\\xamarin.googleplayservices.basement.71.1620.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.maps\\71.1610.1\\xamarin.googleplayservices.maps.71.1610.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.tasks\\71.1601.1\\xamarin.googleplayservices.tasks.71.1601.1.nupkg.sha512"
   ],
   "logs": []
 }

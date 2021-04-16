@@ -919,6 +919,13 @@
           "lib/xamarinios10/Plugin.Media.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.CommunityToolkit/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -1132,6 +1139,38 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Google.iOS.Maps": "3.7.0.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        }
+      },
+      "Xamarin.Google.iOS.Maps/3.7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.Maps.targets": {}
+        }
+      },
       "doghavenCapstone/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -1149,6 +1188,7 @@
           "Xamarin.FFImageLoading.Svg": "2.4.11.982",
           "Xamarin.FFImageLoading.Svg.Forms": "2.4.11.982",
           "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.GoogleMaps": "4.0.0-BETA1",
           "sqlite-net-pcl": "1.8.0-beta"
         },
         "compile": {
@@ -1991,6 +2031,13 @@
           "lib/xamarinios10/Plugin.Media.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.CommunityToolkit/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -2204,6 +2251,38 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Google.iOS.Maps": "3.7.0.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        }
+      },
+      "Xamarin.Google.iOS.Maps/3.7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.Maps.targets": {}
+        }
+      },
       "doghavenCapstone/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -2221,6 +2300,7 @@
           "Xamarin.FFImageLoading.Svg": "2.4.11.982",
           "Xamarin.FFImageLoading.Svg.Forms": "2.4.11.982",
           "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.GoogleMaps": "4.0.0-BETA1",
           "sqlite-net-pcl": "1.8.0-beta"
         },
         "compile": {
@@ -3066,6 +3146,13 @@
           "lib/xamarinios10/Plugin.Media.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.CommunityToolkit/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -3279,6 +3366,38 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Google.iOS.Maps": "3.7.0.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        }
+      },
+      "Xamarin.Google.iOS.Maps/3.7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.Maps.targets": {}
+        }
+      },
       "doghavenCapstone/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -3296,6 +3415,7 @@
           "Xamarin.FFImageLoading.Svg": "2.4.11.982",
           "Xamarin.FFImageLoading.Svg.Forms": "2.4.11.982",
           "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.GoogleMaps": "4.0.0-BETA1",
           "sqlite-net-pcl": "1.8.0-beta"
         },
         "compile": {
@@ -4141,6 +4261,13 @@
           "lib/xamarinios10/Plugin.Media.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.CommunityToolkit/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -4354,6 +4481,38 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Google.iOS.Maps": "3.7.0.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll": {}
+        }
+      },
+      "Xamarin.Google.iOS.Maps/3.7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.Maps.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.Maps.targets": {}
+        }
+      },
       "doghavenCapstone/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -4371,6 +4530,7 @@
           "Xamarin.FFImageLoading.Svg": "2.4.11.982",
           "Xamarin.FFImageLoading.Svg.Forms": "2.4.11.982",
           "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.GoogleMaps": "4.0.0-BETA1",
           "sqlite-net-pcl": "1.8.0-beta"
         },
         "compile": {
@@ -7941,6 +8101,28 @@
         "xam.plugin.media.nuspec"
       ]
     },
+    "Xamarin.Build.Download/0.10.0": {
+      "sha512": "XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICE.txt",
+        "build/Microsoft.Win32.Registry.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "buildTransitive/Microsoft.Win32.Registry.dll",
+        "buildTransitive/Newtonsoft.Json.dll",
+        "buildTransitive/Xamarin.Build.Download.dll",
+        "buildTransitive/Xamarin.Build.Download.props",
+        "buildTransitive/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.10.0.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.CommunityToolkit/1.1.0": {
       "sha512": "GJiaXaPLrM1qn1HYxDPKlECYAzX5CI6FKtv4NXCq8K7SJTscmFo79RcwZoj1o3de+4V0aiJAVZMCpbMIF/sZVA==",
       "type": "package",
@@ -8420,6 +8602,39 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.Forms.GoogleMaps/4.0.0-BETA1": {
+      "sha512": "Ok9khI88VsofzPVeddcY90Pm+Jy6z5zyrnakMLx1xxir1bVz5mtjFDLz5GCRalsUsEeUcUdK1jOGNa8F/p/fmA==",
+      "type": "package",
+      "path": "xamarin.forms.googlemaps/4.0.0-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/MonoAndroid90/Xamarin.Forms.GoogleMaps.Android.dll",
+        "lib/MonoAndroid90/Xamarin.Forms.GoogleMaps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll",
+        "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll",
+        "xamarin.forms.googlemaps.4.0.0-beta1.nupkg.sha512",
+        "xamarin.forms.googlemaps.nuspec"
+      ]
+    },
+    "Xamarin.Google.iOS.Maps/3.7.0.1": {
+      "sha512": "pIWT/X8RGobj42vwIWvfVf+l034NlDQ79SVTHFXlJhs25ojILPCZORgpjxHJYroGTHagMafdKw5G3Ajk1M9/iw==",
+      "type": "package",
+      "path": "xamarin.google.ios.maps/3.7.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "build/Xamarin.Google.iOS.Maps.targets",
+        "buildTransitive/Xamarin.Google.iOS.Maps.targets",
+        "googleiosmaps_128x128.png",
+        "lib/xamarinios10/Google.Maps.dll",
+        "xamarin.google.ios.maps.3.7.0.1.nupkg.sha512",
+        "xamarin.google.ios.maps.nuspec"
+      ]
+    },
     "doghavenCapstone/1.0.0": {
       "type": "project",
       "path": "../doghavenCapstone/doghavenCapstone.csproj",
@@ -8441,6 +8656,7 @@
       "Xamarin.FFImageLoading.Svg >= 2.4.11.982",
       "Xamarin.FFImageLoading.Svg.Forms >= 2.4.11.982",
       "Xamarin.Forms >= 5.0.0.2012",
+      "Xamarin.Forms.GoogleMaps >= 4.0.0-BETA1",
       "doghavenCapstone >= 1.0.0",
       "sqlite-net-pcl >= 1.8.0-beta"
     ]
@@ -8538,6 +8754,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[5.0.0.2012, )"
+          },
+          "Xamarin.Forms.GoogleMaps": {
+            "target": "Package",
+            "version": "[4.0.0-BETA1, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
