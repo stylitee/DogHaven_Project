@@ -16,10 +16,12 @@ namespace doghavenCapstone.TabbedPageParts
     public partial class LostPage : ContentPage
     {
         public ObservableCollection<LostDogs> _LostDoglist = new ObservableCollection<LostDogs>();
+        public static List<ContentPage> LostPageContent = new List<ContentPage>();
         string fullLostAddress = "";
         public LostPage()
         {
             InitializeComponent();
+            LostPageContent.Add(this);
             BindingContext = this;
             LoadLostDogs();
         }

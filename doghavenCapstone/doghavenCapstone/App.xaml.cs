@@ -31,8 +31,8 @@ namespace doghavenCapstone
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new GetUsersLocation();
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = new AddLostDogPage();
             DatabaseLocation = databaseLocation;
         }
 

@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace doghavenCapstone.OtherPageFunctions
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddLostDogPage : ContentPage
+    public partial class PinLostDogPage : ContentPage
     {
-        public AddLostDogPage()
+        public PinLostDogPage()
         {
             InitializeComponent();
-        }
-
-        private void btnOpenMaps_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

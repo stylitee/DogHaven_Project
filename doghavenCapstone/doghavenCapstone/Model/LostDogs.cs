@@ -1,7 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using doghavenCapstone.OtherPageFunctions;
+using doghavenCapstone.TabbedPageParts;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 
 namespace doghavenCapstone.Model
 {
@@ -29,5 +32,22 @@ namespace doghavenCapstone.Model
         public string dateLost { get; set; }
         public string timeLost { get; set; }
         public string placeLost { get; set; }
+
+        //Commands
+
+        public ICommand command { get; set; }
+
+        public LostDogs()
+        {
+            if(App.uploadFlag == 1)
+            {
+
+            }
+        }
+
+        public void gotoThisPage()
+        {
+            LostPage.LostPageContent[0].Navigation.PushAsync(new AddLostDogPage());
+        }
     }
 }
