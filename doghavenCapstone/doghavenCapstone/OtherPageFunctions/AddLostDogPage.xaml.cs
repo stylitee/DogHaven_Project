@@ -5,6 +5,7 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -78,8 +79,9 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void btnSave_Clicked(object sender, EventArgs e)
         {
-            UserDialogs.Instance.ShowLoading("Please wait while we save your dog info");
-            uploadDogInfo(dogImage);
+            /*UserDialogs.Instance.ShowLoading("Please wait while we save your dog info");
+            uploadDogInfo(dogImage);*/
+            uploadDogData();
         }
 
         public async void uploadDogInfo(Stream stream)
@@ -103,10 +105,16 @@ namespace doghavenCapstone.OtherPageFunctions
                 infoInitializer();
 
             }
+            catch (System.ArgumentNullException ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "Please select a dog image ", "Okay");
+                return;
+            }
             catch (Exception)
             {
                 UserDialogs.Instance.HideLoading();
-                await DisplayAlert("Warning", "Something went wrong with uploading the image", "Okay");
+                await DisplayAlert("Warning", "Something went wrong with uploading the image: ", "Okay");
                 return;
             }
         }
@@ -128,25 +136,14 @@ namespace doghavenCapstone.OtherPageFunctions
         {
             try
             {
-                /*if (txtDogName.Text == "" || txtDogName == null ||
-                    pckrBreed == null || pckrBreed.SelectedIndex == -1 ||
-                    pickerDogGender == null || pickerDogGender.SelectedIndex == -1)
-                    if(setLocation_latitude == "" || setLocation_longtitude == "")
-                    {
-                        txtDogName.Text = "";
-                        pckrBreed.SelectedIndex = -1;
-                        pickerDogGender.SelectedIndex = -1;
-                        setLocation_latitude = "";
-                        setLocation_longtitude = "";
-                        await DisplayAlert("Ops!", "Please provide info to all the provided fields and set a location", "Okay");
-                    }
-                else
-                {
-                    
-
-                    }*/
+                string formattedTime = timeSetter.Time.Hours.ToString() + ":" + timeSetter.Time.Minutes.ToString();
+                string fromattedDate = dateSetter.Date.ToString("MM/dd/yyyy");
+                string trylang = timeSetter.Time.ToString();
+                DateTime dt = DateTime.Parse(formattedTime);
+                string finalTime = dt.ToString("hh:mm tt");
 
                 var temp_id = mylstOfBreeds.FindIndex(breed => breed.breedName == pckrBreed.Items[pckrBreed.SelectedIndex]);
+
                 string breeed_id = mylstOfBreeds[temp_id].id, purposeid = "5421dsad3";
                 dogInfo_ID = Guid.NewGuid().ToString("N").Substring(0, 20);
                 //lostDogID = Guid.NewGuid().ToString("N").Substring(0, 19);
@@ -171,8 +168,8 @@ namespace doghavenCapstone.OtherPageFunctions
                 {
                     id = Guid.NewGuid().ToString("N").Substring(0, 20),
                     userid = App.user_id,
-                    lastSeen_date = dateSetter.Date.ToString("MM/dd/yyyy"),
-                    lastSeen_time = timeSetter.Time.ToString("h:mm:ss tt"),
+                    lastSeen_date = fromattedDate,
+                    lastSeen_time = finalTime,
                     placeLost_latitude = setLocation_latitude,
                     placeLost_longtitude = setLocation_longtitude,
                     dogInfo_id = dogInfo_ID

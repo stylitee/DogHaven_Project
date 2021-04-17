@@ -69,7 +69,7 @@
                                        VerticalOptions="Center"/>
                                 <DatePicker x:Name="dateSetter"
                                             MinimumDate="01/01/2018"
-                                            Format="MM/dd/yyyy"
+                                            
                                             TextColor="Black"
                                             WidthRequest="200"/>
                         </StackLayout>
@@ -80,11 +80,11 @@
                             <Label Text="Last Seen Time"
                                FontSize="21"
                                VerticalOptions="Center"/>
-                            <TimePicker x:Name="timeSetter"
-                                        Time="4:15:26"
+                        <TimePicker x:Name="timeSetter"
                                         TextColor="Black"
+                                        
                                         WidthRequest="200"/>
-                            </StackLayout>
+                    </StackLayout>
                     </StackLayout>
                 </Frame>
                 <Button Margin="20,0"
