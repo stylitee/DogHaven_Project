@@ -21,9 +21,10 @@ namespace doghavenCapstone.TabbedPageParts
         public LostPage()
         {
             InitializeComponent();
+
             LostPageContent.Add(this);
             BindingContext = this;
-            LoadLostDogs();
+            
         }
 
         public async void getAddress(double latitude, double longtitude)
@@ -38,8 +39,17 @@ namespace doghavenCapstone.TabbedPageParts
             }
         }
 
+        protected override void OnAppearing()
+        {
+            LoadLostDogs();
+            base.OnAppearing();
+
+        }
+
         public async void LoadLostDogs()
         {
+
+            _LostDoglist.Clear();
             var LostList = await App.client.GetTable<LostDogs>().ToListAsync();
             string breed_name = "", full_Name = "", dog_id = "", user__id ="",  dogImage_source = "";
             foreach(var c in LostList)

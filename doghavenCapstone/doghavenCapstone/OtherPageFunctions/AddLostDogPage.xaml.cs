@@ -79,9 +79,15 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void btnSave_Clicked(object sender, EventArgs e)
         {
-            /*UserDialogs.Instance.ShowLoading("Please wait while we save your dog info");
-            uploadDogInfo(dogImage);*/
-            uploadDogData();
+            if(setLocation_latitude != "" && setLocation_longtitude != "")
+            {
+                UserDialogs.Instance.ShowLoading("Please wait while we save your dog info");
+                uploadDogInfo(dogImage);
+            }
+            else
+            {
+                DisplayAlert("Ops", "Please enter the location", "Okay");
+            }
         }
 
         public async void uploadDogInfo(Stream stream)
@@ -178,6 +184,18 @@ namespace doghavenCapstone.OtherPageFunctions
                 await App.client.GetTable<LostDogs>().InsertAsync(lostdogs);
                 App.uploadFlag = 0;
                 await DisplayAlert("Confirmation", "Dog succesfully saved!", "Okay");
+            }
+            catch (Microsoft.WindowsAzure.MobileServices.MobileServiceInvalidOperationException ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "Please provide all the fields", "Okay");
+                return;
+            }
+            catch(System.ArgumentOutOfRangeException)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "Please provide all the fields", "Okay");
+                return;
             }
             catch (Exception ex)
             {
