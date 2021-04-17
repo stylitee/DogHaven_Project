@@ -17,7 +17,9 @@
                             <Grid Padding="10">
                                 <Frame CornerRadius="20"
                                    HasShadow="True">
-
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding command}" />
+                                    </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="{Binding dogImageSouce}"
                                            WidthRequest="80"

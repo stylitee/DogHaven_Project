@@ -41,6 +41,7 @@ namespace doghavenCapstone.TabbedPageParts
 
         protected override void OnAppearing()
         {
+            App.uploadFlag = 1;
             LoadLostDogs();
             base.OnAppearing();
 

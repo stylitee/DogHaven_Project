@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.LostDogDetails">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="20"
+                   CornerRadius="20"
+                   IsClippedToBounds="True"
+                   HorizontalOptions="Center">
+                <Image x:Name="imgDogImage"
+                       HeightRequest="250"
+                       WidthRequest="250"
+                       Aspect="Fill"/>
+            </Frame>
+            <Label Text="Owned by: " 
+                   TextColor="Black"
+                   Margin="30,0"
+                   x:Name="lblOwnerName"/>
+            <Label Text="Breed: "
+                   TextColor="Black"
+                   Margin="30,0"
+                   x:Name="lblBreedName"/>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         Margin="30,0">
+                <Label Text="date"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       x:Name="lblDate"/>
+                <Label Text="time"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="EndAndExpand"
+                       x:Name="lblTime"/>
+            </StackLayout>
+            <Label Text="address"
+                   Margin="30,0"
+                   TextColor="Black"
+                   x:Name="lblAddress"/>
+            <Label Text="See in Maps"
+                   Margin="30,0"
+                   TextColor="Black"
+                   HorizontalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="seeMaps_Tapped" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Button Text="Message"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    x:Name="btnMessage"
+                    Clicked="btnMessage_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

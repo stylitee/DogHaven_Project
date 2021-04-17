@@ -213,5 +213,11 @@ namespace doghavenCapstone.OtherPageFunctions
             UserDialogs.Instance.HideLoading();
             //App.loadingMessage = "";
         }
+        protected override void OnAppearing()
+        {
+            App.uploadFlag = 0;
+            base.OnAppearing();
+
+        }
     }
 }
