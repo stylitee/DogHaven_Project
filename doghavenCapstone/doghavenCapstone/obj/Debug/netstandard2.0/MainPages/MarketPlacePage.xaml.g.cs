@@ -14,7 +14,7 @@ namespace doghavenCapstone.MainPages {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("MainPages\\MarketPlacePage.xaml")]
-    public partial class MarketPlacePage : global::Xamarin.Forms.ContentPage {
+    public partial class MarketPlacePage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
