@@ -13,5 +13,6 @@ namespace doghavenCapstone.ClassHelper
         public static string placeLost_latitude = "";
         public static string placeLost_longtitude = "";
         public static string doginfo_id = "";
+        public static string isRegistred = "Yes";
     }
 }

@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="doghavenCapstone.TabbedPageParts.DogSellerPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="dogCurious.png" Text="Add Lost Dog" x:Name="toolBarItemDog" Clicked="toolBarItemDog_Clicked"/>
+        <ToolbarItem Icon="dogCurious.png" Text="Add Lost Dog" x:Name="addLostDog" Clicked="addLostDog_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="See all lost dogs in Maps" x:Name="btnSeeAllDogs" Clicked="btnSeeAllDogs_Clicked"/>
-            <ListView ItemsSource="{Binding LostDoglist}"
+            <Picker x:Name="pickersType" SelectedIndexChanged="pickersType_SelectedIndexChanged"/>
+            <ListView ItemsSource="{Binding dogSellers}"
                   BackgroundColor="Transparent"
                   HasUnevenRows="True">
                 <ListView.ItemTemplate>
@@ -21,20 +21,17 @@
                                         <TapGestureRecognizer Command="{Binding command}" />
                                     </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
-                                        <Image Source="{Binding dogImageSouce}"
+                                        <Image Source="{Binding sellerImage}"
                                            WidthRequest="80"
                                            Margin="0,0,10,0"/>
                                         <StackLayout VerticalOptions="Center">
-                                            <Label Text="{Binding breedName}"
-                                               FontSize="15"
-                                               TextColor="Black"/>
                                             <Label Text="{Binding fullName}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                            <Label Text="{Binding dateLost}"
+                                            <Label Text="{Binding breedsName}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                            <Label Text="{Binding timeLost}"
+                                            <Label Text="{Binding dogsOwnedForSelling}"
                                                FontSize="15"
                                                TextColor="Black"/>
                                         </StackLayout>
