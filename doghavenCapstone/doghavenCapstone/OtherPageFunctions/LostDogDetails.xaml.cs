@@ -63,6 +63,13 @@ namespace doghavenCapstone.OtherPageFunctions
             lblBreedName.Text = "Breed name: " + BreedName;
         }
 
+        protected override void OnAppearing()
+        {
+            App.uploadFlag = 0;
+            base.OnAppearing();
+
+        }
+
         private void seeMaps_Tapped(object sender, EventArgs e)
         {
 

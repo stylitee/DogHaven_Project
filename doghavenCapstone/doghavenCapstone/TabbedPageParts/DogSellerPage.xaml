@@ -18,7 +18,7 @@
                                 <Frame CornerRadius="20"
                                    HasShadow="True">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding command}" />
+                                        <TapGestureRecognizer Command="{Binding SeeDetails}" />
                                     </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="{Binding sellerImage}"

@@ -17,7 +17,7 @@
             
             <StackLayout Orientation="Horizontal">
                 <Label Text="DogsOwmned"/>
-                <Picker x:Name="pckrBreedsOwned" />
+                <Picker x:Name="pckrBreedsOwned" SelectedIndexChanged="pckrBreedsOwned_SelectedIndexChanged"/>
             </StackLayout>
 
             <ListView ItemsSource="{Binding dogPrices}"
