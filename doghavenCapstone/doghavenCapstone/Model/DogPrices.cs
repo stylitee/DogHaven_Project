@@ -17,5 +17,13 @@ namespace doghavenCapstone.Model
         public string withCompletePapers { get; set; }
         [JsonProperty(PropertyName = "completeVaccines")]
         public string completeVaccines { get; set; }
+        [JsonProperty(PropertyName = "isPuppy")]
+        public string isPuppy { get; set; }
+        [JsonProperty(PropertyName = "Age")]
+        public string Age { get; set; }
+        [JsonProperty(PropertyName = "seller_id")]
+        public string seller_id { get; set; }
+
+        //walagn seller id sa database lagyan mo pag balik ng internet
     }
 }
