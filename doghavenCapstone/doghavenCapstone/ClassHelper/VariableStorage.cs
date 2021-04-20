@@ -6,6 +6,7 @@ namespace doghavenCapstone.ClassHelper
 {
     public class VariableStorage
     {
+        //Lost Class
         public static string id = "";
         public static string userid = "";
         public static string lastSeen_date = "";
@@ -14,5 +15,11 @@ namespace doghavenCapstone.ClassHelper
         public static string placeLost_longtitude = "";
         public static string doginfo_id = "";
         public static string isRegistred = "Yes";
+
+
+        //Dog Sellers
+        public static string seller_id = "";
+        public static string sellersUser_id = "";
+        public static string SellersisRegistered = "";
     }
 }

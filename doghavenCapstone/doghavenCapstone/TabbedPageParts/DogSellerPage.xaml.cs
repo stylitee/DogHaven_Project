@@ -16,13 +16,14 @@ namespace doghavenCapstone.TabbedPageParts
     public partial class DogSellerPage : ContentPage
     {
         public ObservableCollection<dogSeller> _dogSellers = new ObservableCollection<dogSeller>();
+        public static List<ContentPage> _DogSellerPage = new List<ContentPage>();
         public DogSellerPage()
         {
             InitializeComponent();
             BindingContext = this;
             checkifRegistered();
             lostSellerTypes();
-
+            _DogSellerPage.Add(this);
         }
 
         public void lostSellerTypes()

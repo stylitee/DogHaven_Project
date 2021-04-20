@@ -77,3 +77,4 @@ C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\TabbedPageParts\DogSellerPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\TabbedPageParts\RelatedShopsPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.csprojAssemblyReference.cache
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\DetailsPage\SellerDetails.xaml.g.cs
