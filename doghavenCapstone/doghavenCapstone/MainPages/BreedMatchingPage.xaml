@@ -9,6 +9,22 @@
         <ToolbarItem Icon="dog_add.png" Text="Search" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout BackgroundColor="#2D2D30">
+        <Frame CornerRadius="15"
+               Margin="10,10,10,0"
+               Padding="0">
+            <StackLayout Orientation="Horizontal"
+                     BackgroundColor="White"
+                         Margin="20,0">
+                <Label Text="Find a dog for: "
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="Black"/>
+                <Picker x:Name="pckrDogList"
+                    SelectedIndexChanged="pckrDogList_SelectedIndexChanged"
+                    TextColor="Black"
+                    WidthRequest="210"
+                    BackgroundColor="White"/>
+            </StackLayout>
+        </Frame>
         <swipeCardView:SwipeCardView x:Name="swipeView" 
                                          ItemsSource="{Binding DogList}"
                                          HorizontalOptions="FillAndExpand"

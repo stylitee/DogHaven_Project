@@ -21,6 +21,8 @@ namespace doghavenCapstone.MainPages
         public static List<dogInfo> lstDogs = new List<dogInfo>();
         public static List<string> dogId = new List<string>();
         List<dogInfo> dogInfoTable = new List<dogInfo>();
+        List<dogInfo> _mydoglist = new List<dogInfo>();
+        List<string> _breedNameList = new List<string>();
         double user_latitude = 0, user_longtitude = 0, otherUser_latitude = 0, otherUser_longtitude = 0;
         public BreedMatchingPage()
         { 
@@ -29,7 +31,28 @@ namespace doghavenCapstone.MainPages
             BindingContext = this;
             App.buttonName = "Back";
             breedingContentPage.Add(this);
+            loadYourDogs();
         }
+
+        private async void loadYourDogs()
+        {
+            _mydoglist.Clear();
+            pckrDogList.Items.Clear();
+            var myDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
+            foreach(var dogs in myDogs)
+            {
+                pckrDogList.Items.Add(dogs.dogName);
+                _mydoglist.Add(dogs);
+                var bred = await App.client.GetTable<dogBreed>().Where(x => x.id == dogs.dogBreed_id).ToListAsync();
+                foreach(var c in bred)
+                {
+                    _breedNameList.Add(c.breedName);
+                }
+                
+            }
+        }
+
+
 
         public async void getUserLocation()
         {
@@ -384,6 +407,39 @@ namespace doghavenCapstone.MainPages
             swipeLeftAlgo();
         }
 
+        private void pckrDogList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadRelatedDogs();
+        }
+
+        private async void loadRelatedDogs()
+        {
+            _Doglist.Clear();
+            if(_Doglist.Count() == 0)
+            {
+                int index = _mydoglist.FindIndex(a => a.dogName == pckrDogList.Items[pckrDogList.SelectedIndex]);
+                
+                var availDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.breed_Name == _breedNameList[index]).ToListAsync();
+                foreach(var dog in availDogs)
+                {
+                    _Doglist.Add(new dogInfo()
+                    {
+                        id = dog.id,
+                        dogPurpose_id = dog.dogPurpose_id,
+                        dogBreed_id = dog.dogBreed_id,
+                        userid = dog.userid,
+                        dogName = dog.dogName,
+                        dogGender = dog.dogGender,
+                        breed_Name = _mydoglist[index].breed_Name,
+                        dogImage = dog.dogImage,
+                        usersDistance = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2).ToString() + "km"
+                    });
+                    dogId.Add(dog.id);
+                }
+            }
+        
+        }
+
         private void SwipeGestureRecognizer_Swiped_1(object sender, SwipedEventArgs e)
         {
             //right
@@ -454,5 +510,6 @@ namespace doghavenCapstone.MainPages
                 }
             }
         }
+
     }
 }
