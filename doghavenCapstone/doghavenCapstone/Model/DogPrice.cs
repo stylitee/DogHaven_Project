@@ -1,7 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.DetailsPage;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace doghavenCapstone.Model
 {
@@ -25,6 +29,30 @@ namespace doghavenCapstone.Model
         //unrelated props
 
         public string dogImage { get; set; }
-        
+        public string dogBreed { get; set; }
+
+        public ICommand SeeDogInfo { get; set; }
+
+        public DogPrice()
+        {
+            if (App.uploadFlag == 1)
+            {
+                SeeDogInfo = new Command(DogSellPage);
+            }
+        }
+
+        public void DogSellPage()
+        {
+            VariableStorage.dogDetails_id = id;
+            VariableStorage.dogDetails_breeedName = dogBreed;
+            VariableStorage.dogDetails_age = Age;
+            VariableStorage.dogDetails_price = price;
+            VariableStorage.dogDetails_vaccine = completeVaccines;
+            VariableStorage.dogDetails_completepapers = withCompletePapers;
+            VariableStorage.dogDetails_sellerid = seller_id;
+            VariableStorage.dogDetails_doginfoID = doginfo_id;
+            SellerDetails.dogForsale[0].Navigation.PushAsync(new dogForSaleDetails());
+        }
+
     }
 }

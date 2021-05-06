@@ -30,6 +30,7 @@ namespace doghavenCapstone.Model
 
 
         public ICommand SeeDetails { get; set; }
+        
 
         public dogSeller()
         {
@@ -41,10 +42,12 @@ namespace doghavenCapstone.Model
 
         public void GoToThisPage()
         {
-            VariableStorage.sellersUser_id = id;
+            
+            VariableStorage.seller_id = id;
             VariableStorage.sellersUser_id = userid;
             VariableStorage.SellersisRegistered = isRegistered;
-            DogSellerPage._DogSellerPage[0].Navigation.PushAsync(new SellerDetails());
+            DogSellerPage._DogSellerPage[DogSellerPage._DogSellerPage.Count - 1].Navigation.PushAsync(new SellerDetails());
+            DogSellerPage._DogSellerPage.Clear();
         }
     }
 }

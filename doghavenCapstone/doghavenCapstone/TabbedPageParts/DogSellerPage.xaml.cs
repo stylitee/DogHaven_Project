@@ -59,6 +59,12 @@ namespace doghavenCapstone.TabbedPageParts
             }
         }
 
+        protected override void OnAppearing()
+        {
+            App.uploadFlag = 1;
+            base.OnAppearing();
+        }
+
         public async void loadSellers()
         {
             _dogSellers.Clear();

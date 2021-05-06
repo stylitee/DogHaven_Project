@@ -11,7 +11,7 @@
                 <Frame CornerRadius="200"
                        HeightRequest="100"
                        WidthRequest="68">
-                    <Image x:Name="imgDogImage"
+                    <Image x:Name="imgOwnerImage"
                            />
                 </Frame>
                 <StackLayout VerticalOptions="Center"
@@ -51,23 +51,20 @@
                                 <Frame CornerRadius="20"
                                    HasShadow="True">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding command}" />
+                                        <TapGestureRecognizer Command="{Binding SeeDogInfo}" />
                                     </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
-                                        <Image Source="{Binding dogImageSouce}"
+                                        <Image Source="{Binding dogImage}"
                                            WidthRequest="80"
                                            Margin="0,0,10,0"/>
                                         <StackLayout VerticalOptions="Center">
-                                            <Label Text="{Binding breedName}"
+                                            <Label Text="{Binding dogBreed}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                            <Label Text="{Binding fullName}"
+                                            <Label Text="{Binding Age}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                            <Label Text="{Binding dateLost}"
-                                               FontSize="15"
-                                               TextColor="Black"/>
-                                            <Label Text="{Binding timeLost}"
+                                            <Label Text="{Binding price}"
                                                FontSize="15"
                                                TextColor="Black"/>
                                         </StackLayout>

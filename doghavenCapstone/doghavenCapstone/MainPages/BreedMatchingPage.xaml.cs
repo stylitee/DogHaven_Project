@@ -38,6 +38,7 @@ namespace doghavenCapstone.MainPages
         {
             _mydoglist.Clear();
             pckrDogList.Items.Clear();
+            _breedNameList.Clear();
             var myDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
             foreach(var dogs in myDogs)
             {
@@ -419,7 +420,7 @@ namespace doghavenCapstone.MainPages
             {
                 int index = _mydoglist.FindIndex(a => a.dogName == pckrDogList.Items[pckrDogList.SelectedIndex]);
                 
-                var availDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.breed_Name == _breedNameList[index]).ToListAsync();
+                var availDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.breed_Name == _breedNameList[index] && x.dogGender != _mydoglist[index].dogGender).ToListAsync();
                 foreach(var dog in availDogs)
                 {
                     _Doglist.Add(new dogInfo()

@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.InitialPages;
+﻿using doghavenCapstone.DetailsPage;
+using doghavenCapstone.InitialPages;
 using doghavenCapstone.MainPages;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
@@ -29,13 +30,14 @@ namespace doghavenCapstone
         public static string dog_purposeID = "";
         public static string dog_breedID = "";
         public static string dog_userID = "";
+        
 
         public App(string databaseLocation)
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new LostDogDetails();
+            //MainPage = new dogForSaleDetails();
             DatabaseLocation = databaseLocation;
         }
 

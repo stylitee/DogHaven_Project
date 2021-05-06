@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.DetailsPage.dogForSaleDetails">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Aspect="Fill"
+                   x:Name="imgDog"
+                   HeightRequest="270"/>
+            <StackLayout Margin="20,20">
+                <Label x:Name="lblBreed"
+                       Text="Breed: "
+                       TextColor="Black"
+                       FontSize="15"/>
+                <Label x:Name="lblAge"
+                       Text="Age: "
+                       TextColor="Black"
+                       FontSize="15"/>
+                <Label x:Name="lblPrice"
+                       Text="Price: "
+                       TextColor="Black"
+                       FontSize="15"/>
+                <Label x:Name="lblVaccinated"
+                       Text="Vaccinated: "
+                       TextColor="Black"
+                       FontSize="15"/>
+                <Label x:Name="lblCompletePapers"
+                       Text="Complete Papers: "
+                       TextColor="Black"
+                       FontSize="15"/>
+                <Label x:Name="lblOwner"
+                       Text="Owned by: "
+                       TextColor="Black"
+                       FontSize="15"/>
+            </StackLayout>
+            <Button Text="Buy this dog" 
+                    Margin="0,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

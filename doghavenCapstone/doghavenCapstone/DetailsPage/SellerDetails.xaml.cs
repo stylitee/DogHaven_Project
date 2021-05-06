@@ -16,12 +16,17 @@ namespace doghavenCapstone.DetailsPage
     public partial class SellerDetails : ContentPage
     {
         public ObservableCollection<DogPrice> _dogPrices = new ObservableCollection<DogPrice>();
-        List<string> getDogID = new List<string>();
-        List<string> getBreedID = new List<string>();
+        List<DogPrice> dogPriceInformation = new List<DogPrice>();
+        List<dogInfo> doginformationList = new List<dogInfo>();
+        List<dogSeller> sellerInformations = new List<dogSeller>();
+        public static List<ContentPage> dogForsale = new List<ContentPage>();
+        public static string breed__id = "";
         List<string> ListOfBreeds = new List<string>();
+        
         public SellerDetails()
         {
             InitializeComponent();
+            dogForsale.Add(this);
             BindingContext = this;
             LoadBreeds();
             loadUserInfo();
@@ -29,31 +34,38 @@ namespace doghavenCapstone.DetailsPage
 
         public async void LoadBreeds()
         {
+            _dogPrices.Clear();
             pckrBreedsOwned.Items.Clear();
-            getDogID.Clear();
-            getBreedID.Clear();
+            dogPriceInformation.Clear();
+            doginformationList.Clear();
             ListOfBreeds.Clear();
-            var dogInformation = await App.client.GetTable<DogPrice>().Where(x => x.seller_id == VariableStorage.sellersUser_id).ToListAsync();
-            foreach (var info in dogInformation)
+            var sellerInfo = await App.client.GetTable<dogSeller>().Where(x => x.userid == VariableStorage.sellersUser_id).ToListAsync();
+            foreach (var info in sellerInfo)
             {
-                getDogID.Add(info.doginfo_id);
+                sellerInformations.Add(info);
             }
 
-            foreach (var id in getDogID)
+            var dogInformation = await App.client.GetTable<DogPrice>().Where(x => x.seller_id == sellerInformations[0].id).ToListAsync();
+            foreach(var c in dogInformation)
             {
-                var getInfo = await App.client.GetTable<dogInfo>().Where(x => x.id == id).ToListAsync();
+                dogPriceInformation.Add(c);
+            }
+
+            foreach (var info in dogPriceInformation)
+            {
+                var getInfo = await App.client.GetTable<dogInfo>().Where(x => x.id == info.doginfo_id ).ToListAsync();
                 foreach (var breeds in getInfo)
                 {
-                    getBreedID.Add(breeds.dogBreed_id);
+                    doginformationList.Add(breeds);
                 }
             }
             pckrBreedsOwned.Items.Add("All");
-            foreach(var breeds in getBreedID)
+            foreach(var breeds in doginformationList)
             {
-                var getInfo = await App.client.GetTable<dogInfo>().Where(x => x.id == breeds).ToListAsync();
+                var getInfo = await App.client.GetTable<dogBreed>().Where(x => x.id == breeds.dogBreed_id).ToListAsync();
                 foreach(var info in getInfo)
                 {
-                    pckrBreedsOwned.Items.Add(info.breed_Name);
+                    pckrBreedsOwned.Items.Add(info.breedName);
                 }
             }
 
@@ -76,10 +88,12 @@ namespace doghavenCapstone.DetailsPage
 
         public async void loadSelectedDog(string breedNames)
         {
-            getBreedID.Clear();
+            _dogPrices.Clear();
+            pckrBreedsOwned.Items.Clear();
+            dogPriceInformation.Clear();
+            doginformationList.Clear();
             ListOfBreeds.Clear();
-            getBreedID.Clear();
-            
+
             var dogInformation = await App.client.GetTable<DogPrice>().Where(x => x.seller_id == VariableStorage.sellersUser_id).ToListAsync();
             foreach(var info in dogInformation)
             {
@@ -141,11 +155,55 @@ namespace doghavenCapstone.DetailsPage
                 lblLicense.Text = "PCCI Registered: No";
             }
 
+            imgOwnerImage.Source = _userImage;
+
         }
 
         private void pckrBreedsOwned_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadSelectedDog(pckrBreedsOwned.SelectedItem.ToString());
+            if(pckrBreedsOwned.Items[pckrBreedsOwned.SelectedIndex].ToString() == "All")
+            {
+                loadAllDogs();
+            }
+            else
+            {
+                loadSelectedDog(pckrBreedsOwned.Items[pckrBreedsOwned.SelectedIndex].ToString());
+            }
+        }
+
+        private async void loadAllDogs()
+        {
+            _dogPrices.Clear();
+            foreach(var info in dogPriceInformation)
+            {
+                string image = "", breed_id = "", breed_name = "";
+                var dogdetails = await App.client.GetTable<dogInfo>().Where(x => x.id == info.doginfo_id).ToListAsync();
+                foreach(var c in dogdetails)
+                {
+                    image = c.dogImage;
+                    breed_id = c.dogBreed_id;
+                }
+                var dogBreed = await App.client.GetTable<dogBreed>().Where(x => x.id == breed_id).ToListAsync();
+                foreach(var g in dogBreed)
+                {
+                    breed_name = g.breedName;
+                }
+                _dogPrices.Add(new DogPrice()
+                {
+                    id = info.id,
+                    doginfo_id = info.doginfo_id,
+                    price = "Price: " + info.price,
+                    withCompletePapers = info.withCompletePapers,
+                    completeVaccines = info.completeVaccines,
+                    Age = "Age: " + info.Age,
+                    seller_id = info.seller_id,
+                    dogImage = image,
+                    dogBreed = "Breed: " + breed_name
+                });
+            }
+
+            dogPriceInformation.Clear();
+
         }
     }
 }

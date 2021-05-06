@@ -21,5 +21,18 @@ namespace doghavenCapstone.ClassHelper
         public static string seller_id = "";
         public static string sellersUser_id = "";
         public static string SellersisRegistered = "";
+        public static string sellerCompletePapers = "";
+        public static string SellersDogAge = "";
+        public static string breedNames = "";
+
+        //dog details
+        public static string dogDetails_id = "";
+        public static string dogDetails_breeedName = "";
+        public static string dogDetails_age = "";
+        public static string dogDetails_vaccine = "";
+        public static string dogDetails_completepapers = "";
+        public static string dogDetails_sellerid = "";
+        public static string dogDetails_price = "";
+        public static string dogDetails_doginfoID = "";
     }
 }
