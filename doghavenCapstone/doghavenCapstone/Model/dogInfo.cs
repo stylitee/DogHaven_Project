@@ -37,8 +37,6 @@ namespace doghavenCapstone.Model
             {
                 NewPageCommand = new Command(GoToThisPage);
             }
-            //DetailsCommand = new Command(ReactOnImageTap);
-            
         }
 
         public ICommand NewPageCommand { get; set; }
@@ -52,7 +50,8 @@ namespace doghavenCapstone.Model
             App.dog_purposeID = dogPurpose_id;
             App.dog_breedID = dogBreed_id;
             App.dog_userID = userid;
-            BreedMatchingPage.breedingContentPage[0].Navigation.PushAsync(new DogInformationPage());
+            BreedMatchingPage.breedingContentPage[BreedMatchingPage.breedingContentPage.Count - 1].Navigation.PushAsync(new DogInformationPage());
+            BreedMatchingPage.breedingContentPage.Clear();
         }
     }
 }

@@ -4,9 +4,28 @@
              x:Class="doghavenCapstone.MainPages.ProfilePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
+                    <Frame>
+                        <Image />
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Label x:Name="lblName" 
+                           Text="Name: "
+                           TextColor="Black"/>
+                    <Label x:Name="lblAddress" 
+                           Text="Address: "
+                           TextColor="Black"/>
+                    <Label x:Name="lblUserType" 
+                           Text="User type: "
+                           TextColor="Black"/>
+                    <Label x:Name="lblDogsOwn" 
+                           Text="No. of Owned Dogs: "
+                           TextColor="Black"/>
+                    
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

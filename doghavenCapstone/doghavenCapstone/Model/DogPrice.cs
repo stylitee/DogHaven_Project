@@ -51,7 +51,8 @@ namespace doghavenCapstone.Model
             VariableStorage.dogDetails_completepapers = withCompletePapers;
             VariableStorage.dogDetails_sellerid = seller_id;
             VariableStorage.dogDetails_doginfoID = doginfo_id;
-            SellerDetails.dogForsale[0].Navigation.PushAsync(new dogForSaleDetails());
+            SellerDetails.dogForsale[SellerDetails.dogForsale.Count - 1].Navigation.PushAsync(new dogForSaleDetails());
+            SellerDetails.dogForsale.Clear();
         }
 
     }
