@@ -36,8 +36,8 @@ namespace doghavenCapstone
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new LoginPage());
-            MainPage = new ProfilePage();
+            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new ProfilePage();
             DatabaseLocation = databaseLocation;
         }
 

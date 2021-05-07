@@ -31,6 +31,7 @@ namespace doghavenCapstone.Model
 
         public string breed_Name { get; set; }
         public string usersDistance { get; set; }
+        public string purposeDesc { get; set; }
         public dogInfo()
         {
             if(App.uploadFlag == 1)

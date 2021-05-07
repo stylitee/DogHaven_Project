@@ -4,28 +4,77 @@
              x:Class="doghavenCapstone.MainPages.ProfilePage">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <StackLayout>
-                    <Frame>
-                        <Image />
+            <StackLayout Orientation="Horizontal"
+                         BackgroundColor="Yellow">
+                <StackLayout Margin="20,30,20,0">
+                    <Frame CornerRadius="100" 
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           HorizontalOptions="Center"
+                           Padding="0"
+                           IsClippedToBounds="True">
+                        <Image x:Name="imgUser"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
                     </Frame>
                 </StackLayout>
-                <StackLayout>
+                <StackLayout Margin="0,35,0,0">
                     <Label x:Name="lblName" 
                            Text="Name: "
                            TextColor="Black"/>
                     <Label x:Name="lblAddress" 
                            Text="Address: "
                            TextColor="Black"/>
-                    <Label x:Name="lblUserType" 
-                           Text="User type: "
-                           TextColor="Black"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="User type: "
+                               TextColor="Black"/>
+                        <Label x:Name="lblUserType"
+                               Text="Type"
+                               TextColor="Blue" />
+                    </StackLayout>
+
                     <Label x:Name="lblDogsOwn" 
                            Text="No. of Owned Dogs: "
                            TextColor="Black"/>
-                    
                 </StackLayout>
             </StackLayout>
+            <Label Text="List of owned dogs: "
+                   TextColor="Black"
+                   Margin="20,10,0,0"/>
+            <ListView ItemsSource="{Binding DogList}"
+                  BackgroundColor="Transparent"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding command}" />
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding dogImage}"
+                                           WidthRequest="80"
+                                           Margin="0,0,10,0"/>
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label Text="{Binding breed_Name}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                            <Label Text="{Binding dogGender}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                            <Label Text="{Binding purposeDesc}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
