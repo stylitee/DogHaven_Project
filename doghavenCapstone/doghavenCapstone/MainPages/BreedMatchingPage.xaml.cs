@@ -30,7 +30,6 @@ namespace doghavenCapstone.MainPages
             InitializeComponent();
             BindingContext = this;
             App.buttonName = "Back";
-            breedingContentPage.Add(this);
             loadYourDogs();
         }
 
@@ -262,6 +261,8 @@ namespace doghavenCapstone.MainPages
         protected override void OnAppearing()
         {
             App.uploadFlag = 1;
+            breedingContentPage.Clear();
+            breedingContentPage.Add(this);
             checkIfReady();
             loadDogs();
             UserDialogs.Instance.HideLoading();

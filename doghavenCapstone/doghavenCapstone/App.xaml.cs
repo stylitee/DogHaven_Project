@@ -13,10 +13,8 @@ namespace doghavenCapstone
     public partial class App : Application
     {
         public static MobileServiceClient client = new MobileServiceClient("https://myserver-doghaven.azurewebsites.net");
-        
-        
-        
         public static string DatabaseLocation = string.Empty;
+        
         public static string loadingMessage = "";
         public static string user_id = "";
         public static string fullName = "";
@@ -30,14 +28,15 @@ namespace doghavenCapstone
         public static string dog_purposeID = "";
         public static string dog_breedID = "";
         public static string dog_userID = "";
-        
+
+        public static int doginfo_flag = 0;
 
         public App(string databaseLocation)
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new ProfilePage();
+             //MainPage = new DogUpdateInfo();
             DatabaseLocation = databaseLocation;
         }
 

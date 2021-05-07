@@ -15,10 +15,12 @@ namespace doghavenCapstone.MainPages
     public partial class ProfilePage : ContentPage
     {
         public ObservableCollection<dogInfo> _Doglist = new ObservableCollection<dogInfo>();
+        public static List<ContentPage> profilePage = new List<ContentPage>();
         public ProfilePage()
         {
             InitializeComponent();
             loadAccountInfo();
+            profilePage.Add(this);
             BindingContext = this;
         }
 
@@ -31,12 +33,18 @@ namespace doghavenCapstone.MainPages
             }
         }
 
+        protected override void OnAppearing()
+        {
+            App.doginfo_flag = 1;
+            base.OnAppearing();
+        }
+
         private async void loadAccountInfo()
         {
-            var userInfo = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
+            var userInfo = await App.client.GetTable<accountusers>().Where(x => x.id == "e9f70cd415").ToListAsync();
             var addressInfo = await App.client.GetTable<usersaddress>().Where(x => x.id == userInfo[0].address_id).ToListAsync();
             var usertypeInfo = await App.client.GetTable<userRole>().Where(x => x.id == userInfo[0].user_role_id).ToListAsync();
-            var dogInformation = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
+            var dogInformation = await App.client.GetTable<dogInfo>().Where(x => x.userid == "e9f70cd415").ToListAsync();
             imgUser.Source = userInfo[0].userImage;
             lblName.Text = "Name: " + userInfo[0].fullName;
             lblAddress.Text = "Address: " + addressInfo[0].streetname + ", " + addressInfo[0].barangay;

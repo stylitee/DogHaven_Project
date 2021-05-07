@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.DogUpdateInfo">
+    <ContentPage.Content>
+        <StackLayout Margin="0,20,0,0">
+            <StackLayout>
+                <Frame CornerRadius="200" 
+                           HeightRequest="150"
+                           WidthRequest="150"
+                           HorizontalOptions="Center"
+                           Padding="0"
+                           IsClippedToBounds="True">
+                    <Image x:Name="imgUser"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                </Frame>
+            </StackLayout >
+            <StackLayout BackgroundColor="Yellow" Margin="20,20,20,0">
+                <StackLayout VerticalOptions="Center">
+                    <Label TextColor="Black"
+                           Text="Name: " />
+                    <Entry Text="name" 
+                           TextColor="Black"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="Yellow" Margin="20,0">
+                <StackLayout VerticalOptions="Center">
+                    <Label TextColor="Black"
+                           Text="Gender: " />
+                    <Entry Text="gender" 
+                           TextColor="Black"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="Yellow" Margin="20,0">
+                <StackLayout VerticalOptions="Center">
+                    <Label TextColor="Black"
+                           Text="Breed: " />
+                    <Entry Text="breed" 
+                           TextColor="Black"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="Yellow" Margin="20,0">
+                <StackLayout VerticalOptions="Center">
+                    <Label TextColor="Black"
+                           Text="Purpose: " />
+                    <Entry Text="purpose" 
+                           TextColor="Black"/>
+                </StackLayout>
+            </StackLayout>
+            <Button Text="Update" Margin="20,0"/>
+            <Button Text="Cancel" Margin="20,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

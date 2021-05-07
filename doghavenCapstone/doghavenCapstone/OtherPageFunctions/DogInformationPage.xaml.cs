@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.Model;
+﻿using doghavenCapstone.MainPages;
+using doghavenCapstone.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,12 @@ namespace doghavenCapstone.OtherPageFunctions
             var getDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.dog_userID).ToListAsync();
             lblOwner.Text = "Owned by: " + ownerName;
             
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
         }
     }
 }

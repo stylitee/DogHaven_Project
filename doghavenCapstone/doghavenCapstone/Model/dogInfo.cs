@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.MainPages;
 using doghavenCapstone.OtherPageFunctions;
 using Newtonsoft.Json;
@@ -32,15 +33,17 @@ namespace doghavenCapstone.Model
         public string breed_Name { get; set; }
         public string usersDistance { get; set; }
         public string purposeDesc { get; set; }
-        public dogInfo()
-        {
-            if(App.uploadFlag == 1)
-            {
-                NewPageCommand = new Command(GoToThisPage);
-            }
-        }
 
         public ICommand NewPageCommand { get; set; }
+        public ICommand updateDog { get; set; }
+
+        public dogInfo()
+        {
+            NewPageCommand = new Command(GoToThisPage);
+            updateDog = new Command(dogUpdate);
+        }
+
+        
 
         public void GoToThisPage()
         {
@@ -51,8 +54,12 @@ namespace doghavenCapstone.Model
             App.dog_purposeID = dogPurpose_id;
             App.dog_breedID = dogBreed_id;
             App.dog_userID = userid;
-            BreedMatchingPage.breedingContentPage[BreedMatchingPage.breedingContentPage.Count - 1].Navigation.PushAsync(new DogInformationPage());
-            BreedMatchingPage.breedingContentPage.Clear();
+            BreedMatchingPage.breedingContentPage[0].Navigation.PushAsync(new DogInformationPage());
+        }
+
+        public void dogUpdate()
+        {
+            ProfilePage.profilePage[ProfilePage.profilePage.Count - 1].Navigation.PushAsync(new DogUpdateInfo());
         }
     }
 }

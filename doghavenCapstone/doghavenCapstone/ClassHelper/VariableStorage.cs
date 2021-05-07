@@ -34,5 +34,16 @@ namespace doghavenCapstone.ClassHelper
         public static string dogDetails_sellerid = "";
         public static string dogDetails_price = "";
         public static string dogDetails_doginfoID = "";
+
+        //doginfo
+        public static string doginfos_id;
+        public static string doginfo_dogName;
+        public static string doginfo_dogImage;
+        public static string doginfo_dogGender;
+        public static string doginfo_dogBreed_id;
+        public static string doginfo_dogPurpose_id;
+        public static string doginfo_userid;
+
+        public static int switcher = 0;
     }
 }

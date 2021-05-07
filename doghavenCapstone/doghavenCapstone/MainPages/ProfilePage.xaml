@@ -51,7 +51,7 @@
                                 <Frame CornerRadius="20"
                                    HasShadow="True">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding command}" />
+                                        <TapGestureRecognizer Command="{Binding updateDog}"/>
                                     </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="{Binding dogImage}"
