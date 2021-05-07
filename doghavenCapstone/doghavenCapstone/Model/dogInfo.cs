@@ -59,7 +59,19 @@ namespace doghavenCapstone.Model
 
         public void dogUpdate()
         {
+            App.dog_id = id;
+            App.dog_name = dogName;
+            App.dog_image = dogImage;
+            App.dog_gender = dogGender;
+            App.dog_purposeID = dogPurpose_id;
+            App.dog_breedID = dogBreed_id;
+            App.dog_userID = userid;
             ProfilePage.profilePage[ProfilePage.profilePage.Count - 1].Navigation.PushAsync(new DogUpdateInfo());
+        }
+
+        public static async void Update(dogInfo dogs)
+        {
+            await App.client.GetTable<dogInfo>().UpdateAsync(dogs);
         }
     }
 }

@@ -11,16 +11,21 @@
                            HorizontalOptions="Center"
                            Padding="0"
                            IsClippedToBounds="True">
-                    <Image x:Name="imgUser"
+                    <Image x:Name="imgDog"
                                HorizontalOptions="Center"
-                               VerticalOptions="Center"/>
+                               VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgDog_Tapped"  NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Frame>
             </StackLayout >
             <StackLayout BackgroundColor="Yellow" Margin="20,20,20,0">
                 <StackLayout VerticalOptions="Center">
                     <Label TextColor="Black"
                            Text="Name: " />
-                    <Entry Text="name" 
+                    <Entry Text="name"
+                           x:Name="txtName"
                            TextColor="Black"/>
                 </StackLayout>
             </StackLayout>
@@ -28,28 +33,33 @@
                 <StackLayout VerticalOptions="Center">
                     <Label TextColor="Black"
                            Text="Gender: " />
-                    <Entry Text="gender" 
-                           TextColor="Black"/>
+                    <Picker x:Name="pckrGender"
+                            TextColor="Black" />
                 </StackLayout>
             </StackLayout>
             <StackLayout BackgroundColor="Yellow" Margin="20,0">
                 <StackLayout VerticalOptions="Center">
                     <Label TextColor="Black"
                            Text="Breed: " />
-                    <Entry Text="breed" 
-                           TextColor="Black"/>
+                    <Picker x:Name="pckrBreed"
+                            TextColor="Black" />
                 </StackLayout>
             </StackLayout>
             <StackLayout BackgroundColor="Yellow" Margin="20,0">
                 <StackLayout VerticalOptions="Center">
                     <Label TextColor="Black"
                            Text="Purpose: " />
-                    <Entry Text="purpose" 
-                           TextColor="Black"/>
+                    <Picker x:Name="pckrPurpose"
+                            TextColor="Black" />
                 </StackLayout>
             </StackLayout>
-            <Button Text="Update" Margin="20,0"/>
-            <Button Text="Cancel" Margin="20,0"/>
+            <Button Text="Update"
+                    Margin="20,0"
+                    x:Name="btnUpdate"
+                    Clicked="btnUpdate_Clicked"/>
+            <Button Text="Cancel" Margin="20,0"
+                    x:Name="btnCancel"
+                    Clicked="btnCancel_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
