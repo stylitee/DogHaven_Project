@@ -40,6 +40,7 @@ namespace doghavenCapstone.OtherPageFunctions
 
         protected override void OnAppearing()
         {
+            App._updateflag = false;
             App.uploadFlag = 0;
             base.OnAppearing();
             btnBack.Text = App.buttonName;

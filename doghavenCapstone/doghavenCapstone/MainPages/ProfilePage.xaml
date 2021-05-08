@@ -51,20 +51,20 @@
                                 <Frame CornerRadius="20"
                                    HasShadow="True">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding updateDog}"/>
+                                        <TapGestureRecognizer Command="{Binding NewPageCommand}"/>
                                     </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="{Binding dogImage}"
                                            WidthRequest="80"
                                            Margin="0,0,10,0"/>
                                         <StackLayout VerticalOptions="Center">
-                                            <Label Text="{Binding breed_Name}"
+                                            <Label Text="{Binding dogBreed_id}"
                                                FontSize="15"
                                                TextColor="Black"/>
                                             <Label Text="{Binding dogGender}"
                                                FontSize="15"
                                                TextColor="Black"/>
-                                            <Label Text="{Binding purposeDesc}"
+                                            <Label Text="{Binding dogPurpose_id}"
                                                FontSize="15"
                                                TextColor="Black"/>
                                         </StackLayout>

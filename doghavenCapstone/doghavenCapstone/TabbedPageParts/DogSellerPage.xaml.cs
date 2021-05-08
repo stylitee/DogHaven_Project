@@ -151,7 +151,7 @@ namespace doghavenCapstone.TabbedPageParts
                 foreach (var info in dogInfo)
                 {
                     numberOfDogs++;
-                    lstOfBreedsOwned.Add(info.breed_Name);
+                    lstOfBreedsOwned.Add(info.dogBreed_id);
                 }
                 if (lstOfBreedsOwned.Count <= 1)
                 {

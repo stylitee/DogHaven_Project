@@ -121,7 +121,7 @@ namespace doghavenCapstone.InitialPages
                 txtFullname.Text == "" ||
                 txtStreetName.Text == "" || txtStreetName.Text == null ||
                 txtBarangay.Text == "" || txtBarangay.Text == null ||
-                pckrUserRole == null || imgUsersImage == null)
+                pckrUserRole == null || imgUsersImage == null || txtCity.Text == "" || txtProvince.Text == "")
             {
                 await DisplayAlert("Warning", "Fields and Images cannot be empty", "Okay");
                 UserDialogs.Instance.HideLoading();
@@ -140,7 +140,9 @@ namespace doghavenCapstone.InitialPages
                         {
                             id = addressid,
                             streetname = txtStreetName.Text,
-                            barangay = txtBarangay.Text
+                            barangay = txtBarangay.Text,
+                            city = txtCity.Text,
+                            province = txtProvince.Text
                         };
 
                         var result = lstofRoles.FindIndex(role => role.roleDescription ==
@@ -155,7 +157,7 @@ namespace doghavenCapstone.InitialPages
                             userPassword = txtConfirmPassword.Text,
                             fullName = txtFullname.Text,
                             address_id = addressid,
-                            user_role_id = userrole_id
+                            user_role_id = userrole_id,
                         };
 
                         await App.client.GetTable<usersaddress>().InsertAsync(address);

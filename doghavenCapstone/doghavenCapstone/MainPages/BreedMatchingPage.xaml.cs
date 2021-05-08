@@ -23,6 +23,7 @@ namespace doghavenCapstone.MainPages
         List<dogInfo> dogInfoTable = new List<dogInfo>();
         List<dogInfo> _mydoglist = new List<dogInfo>();
         List<string> _breedNameList = new List<string>();
+        List<string> _breedIdList = new List<string>();
         double user_latitude = 0, user_longtitude = 0, otherUser_latitude = 0, otherUser_longtitude = 0;
         public BreedMatchingPage()
         { 
@@ -47,6 +48,7 @@ namespace doghavenCapstone.MainPages
                 foreach(var c in bred)
                 {
                     _breedNameList.Add(c.breedName);
+                    _breedIdList.Add(c.id);
                 }
                 
             }
@@ -124,12 +126,10 @@ namespace doghavenCapstone.MainPages
                             id = dog.id,
                             dogPurpose_id = dog.dogPurpose_id,
                             dogBreed_id = dog.dogBreed_id,
-                            userid = dog.userid,
                             dogName = dog.dogName,
                             dogGender = dog.dogGender,
-                            breed_Name = breed_Name,
                             dogImage = dog.dogImage,
-                            usersDistance = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude),2).ToString() + "km"
+                            userid = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude),2).ToString() + "km"
                         });
                         dogId.Add(dog.id);
                     }
@@ -236,12 +236,10 @@ namespace doghavenCapstone.MainPages
                     id = dog.id,
                     dogPurpose_id = dog.dogPurpose_id,
                     dogBreed_id = dog.dogBreed_id,
-                    userid = dog.userid,
                     dogName = dog.dogName,
                     dogGender = dog.dogGender,
-                    breed_Name = breederName,
                     dogImage = dog.dogImage,
-                    usersDistance = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2).ToString() + "km"
+                    userid = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2).ToString() + "km"
                 });
                 dogId.Add(dog.id);
             }
@@ -421,7 +419,7 @@ namespace doghavenCapstone.MainPages
             {
                 int index = _mydoglist.FindIndex(a => a.dogName == pckrDogList.Items[pckrDogList.SelectedIndex]);
                 
-                var availDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.breed_Name == _breedNameList[index] && x.dogGender != _mydoglist[index].dogGender).ToListAsync();
+                var availDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.dogBreed_id == _breedIdList[index] && x.dogGender != _mydoglist[index].dogGender).ToListAsync();
                 foreach(var dog in availDogs)
                 {
                     _Doglist.Add(new dogInfo()
@@ -429,12 +427,11 @@ namespace doghavenCapstone.MainPages
                         id = dog.id,
                         dogPurpose_id = dog.dogPurpose_id,
                         dogBreed_id = dog.dogBreed_id,
-                        userid = dog.userid,
                         dogName = dog.dogName,
                         dogGender = dog.dogGender,
-                        breed_Name = _mydoglist[index].breed_Name,
+                        /*breed_Name = _mydoglist[index].breed_Name,*/
                         dogImage = dog.dogImage,
-                        usersDistance = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2).ToString() + "km"
+                        userid = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2).ToString() + "km"
                     });
                     dogId.Add(dog.id);
                 }

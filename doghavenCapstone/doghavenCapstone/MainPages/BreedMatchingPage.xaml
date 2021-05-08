@@ -86,7 +86,7 @@
                                                AbsoluteLayout.LayoutFlags="PositionProportional">
                                     <Label.FormattedText >
                                         <FormattedString>
-                                            <Span Text="{Binding usersDistance}" />
+                                            <Span Text="{Binding userid}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>

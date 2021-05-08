@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.MainPages;
 using doghavenCapstone.Model;
 using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
@@ -15,20 +16,27 @@ namespace doghavenCapstone.OtherPageFunctions
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DogUpdateInfo : ContentPage
     {
+        public static int flag = 0;
+        
         List<dogBreed> lstofBreeds = new List<dogBreed>();
         List<dogPurpose> lstofPurpose = new List<dogPurpose>();
         string defaultImage = "";
         Stream dog_image = null;
         string url = "";
+        DateTimeOffset _createdAt, _updatedAt;
         public DogUpdateInfo()
         {
             InitializeComponent();
             loadPickers();
-            loadInformation();
         }
 
         private async void loadPickers()
         {
+            lstofPurpose.Clear();
+            lstofBreeds.Clear();
+            pckrBreed.Items.Clear();
+            pckrGender.Items.Clear();
+            pckrPurpose.Items.Clear();
             var doginfo = await App.client.GetTable<dogPurpose>().ToListAsync();
             var breedinfo = await App.client.GetTable<dogBreed>().ToListAsync();
             pckrGender.Items.Add("Male");
@@ -45,62 +53,92 @@ namespace doghavenCapstone.OtherPageFunctions
                 pckrPurpose.Items.Add(info.dogDesc);
                 lstofPurpose.Add(info);
             }
+
+            if(pckrPurpose.Items.Count == doginfo.Count && pckrBreed.Items.Count == breedinfo.Count)
+            {
+                loadInformation();
+            }
         }
 
         private async void loadInformation()
         {
             var doginfo = await App.client.GetTable<dogInfo>().Where(x => x.id == App.dog_id).ToListAsync();
-            var breedinfo = await App.client.GetTable<dogInfo>().Where(x => x.id == doginfo[0].dogBreed_id).ToListAsync();
-            var purposeinfo = await App.client.GetTable<dogInfo>().Where(x => x.id == doginfo[0].dogPurpose_id).ToListAsync();
+            var breedinfo = await App.client.GetTable<dogBreed>().Where(x => x.id == doginfo[0].dogBreed_id).ToListAsync();
+            var purposeinfo = await App.client.GetTable<dogPurpose>().Where(x => x.id == doginfo[0].dogPurpose_id).ToListAsync();
             txtName.Text = doginfo[0].dogName;
             pckrGender.SelectedItem = doginfo[0].dogGender;
-            pckrBreed.SelectedItem = breedinfo[0].breed_Name;
-            pckrPurpose.SelectedItem = purposeinfo[0].purposeDesc;
+            pckrBreed.SelectedItem = breedinfo[0].breedName;
+            pckrPurpose.SelectedItem = purposeinfo[0].dogDesc;
             imgDog.Source = doginfo[0].dogImage;
             defaultImage = doginfo[0].dogImage;
-
+            _createdAt = doginfo[0].createdAt;
+            _updatedAt = doginfo[0].updatedAt;
         }
 
         protected override void OnAppearing()
         {
+            App._updateflag = false;
+            flag = 1;
+            App.uploadFlag = 0;
+            App.doginfo_flag = 1;
             base.OnAppearing();
         }
 
         private void btnUpdate_Clicked(object sender, EventArgs e)
         {
-            uploadUserImage(dog_image);
+            App.doginfo_flag = 1;
+            
+            if (dog_image != null)
+            {
+                uploadUserImage(dog_image);
+            }
+            else
+            {
+                saveInformation();
+            }
         }
 
         public void saveInformation()
         {
             try
             {
-                if(txtName.Text != "")
+                string _dogimage = "";
+                if (url != "")
                 {
-                    dogInfo info = new dogInfo();
-                    info.id = App.dog_id;
-                    info.dogName = txtName.Text;
-                    if (url != "")
-                    {
-                        info.dogImage = url;
-                    }
+                    _dogimage = url;
+                }
+                else if (url == "")
+                {
+                    _dogimage = defaultImage;
+                }
 
-                    if (url == "")
-                    {
-                        info.dogImage = defaultImage;
-                    }
-                    info.dogGender = pckrGender.Items[pckrGender.SelectedIndex].ToString();
-                    var index = lstofBreeds.FindIndex(breed => breed.breedName ==
-                                                              pckrBreed.Items[pckrBreed.SelectedIndex]);
-                    var breed_id = lstofBreeds[index].id;
-                    info.dogBreed_id = breed_id;
-                    var i = lstofPurpose.FindIndex(purpose => purpose.dogDesc ==
+                var index = lstofBreeds.FindIndex(breed => breed.breedName ==
+                                                             pckrBreed.Items[pckrBreed.SelectedIndex]);
+                var breed_id = lstofBreeds[index].id;
+                var i = lstofPurpose.FindIndex(purpose => purpose.dogDesc ==
                                                               pckrPurpose.Items[pckrPurpose.SelectedIndex]);
-                    var purpose_id = lstofBreeds[i].id;
-                    info.dogPurpose_id = purpose_id;
-
+                var purpose_id = lstofPurpose[i].id;
+                string _gender = pckrGender.Items[pckrGender.SelectedIndex].ToString();
+                if (txtName.Text != "")
+                {
+                    
+                    dogInfo info = new dogInfo()
+                    {
+                        id = App.dog_id,
+                        dogName = txtName.Text,
+                        dogImage = _dogimage,
+                        dogGender = _gender,               
+                        dogBreed_id = breed_id,
+                        dogPurpose_id = purpose_id,
+                        userid = App.user_id,
+                        createdAt = _createdAt,
+                        updatedAt = _updatedAt
+                    };
+                    App._updateflag = false;
                     dogInfo.Update(info);
-                    DisplayAlert("Confirmation", "Dog is succesfully updated", "Okay");
+                    
+                    DisplayAlert("Confirmation", "Dog is succesfully updated", "Okay");                
+                    flag = 0;
                 }
                 else
                 {
@@ -108,11 +146,12 @@ namespace doghavenCapstone.OtherPageFunctions
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                DisplayAlert("error", e.Message, "okay");
             }
+            App.doginfo_flag = 0;
+            App._updateflag = true;
         }
 
         private void btnCancel_Clicked(object sender, EventArgs e)
@@ -172,6 +211,7 @@ namespace doghavenCapstone.OtherPageFunctions
             catch (Exception)
             {
                 UserDialogs.Instance.HideLoading();
+                App.doginfo_flag = 0;
                 await DisplayAlert("Warning", "Something went wrong with uploading the image", "Okay");
                 return;
             }

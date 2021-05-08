@@ -1,13 +1,7 @@
-﻿using Acr.UserDialogs;
-using doghavenCapstone.ClassHelper;
-using doghavenCapstone.MainPages;
+﻿using doghavenCapstone.MainPages;
 using doghavenCapstone.OtherPageFunctions;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -15,6 +9,7 @@ namespace doghavenCapstone.Model
 {
     public class dogInfo 
     {
+        
         [JsonProperty(PropertyName = "id")]
         public string id { get; set; }
         [JsonProperty(PropertyName = "dogName")]
@@ -29,49 +24,47 @@ namespace doghavenCapstone.Model
         public string dogPurpose_id { get; set; }
         [JsonProperty(PropertyName = "userid")]
         public string userid { get; set; }
-
-        public string breed_Name { get; set; }
-        public string usersDistance { get; set; }
-        public string purposeDesc { get; set; }
-
-        public ICommand NewPageCommand { get; set; }
-        public ICommand updateDog { get; set; }
+        [JsonProperty(PropertyName = "createdAt")]
+        public DateTimeOffset createdAt { get; set; }
+        [JsonProperty(PropertyName = "updatedAt")]
+        public DateTimeOffset updatedAt { get; set; }
 
         public dogInfo()
         {
-            NewPageCommand = new Command(GoToThisPage);
-            updateDog = new Command(dogUpdate);
+            if(App._updateflag == true && App.uploadFlag == 1)
+            {
+                NewPageCommand = new Command(GoToThisPage);
+            }
         }
-
-        
 
         public void GoToThisPage()
         {
-            App.dog_id = id;
-            App.dog_name = dogName;
-            App.dog_image = dogImage;
-            App.dog_gender = dogGender;
-            App.dog_purposeID = dogPurpose_id;
-            App.dog_breedID = dogBreed_id;
-            App.dog_userID = userid;
-            BreedMatchingPage.breedingContentPage[0].Navigation.PushAsync(new DogInformationPage());
+            if(App.uploadFlag == 1)
+            {
+                App.dog_id = id;
+                App.dog_name = dogName;
+                App.dog_image = dogImage;
+                App.dog_gender = dogGender;
+                App.dog_purposeID = dogPurpose_id;
+                App.dog_breedID = dogBreed_id;
+                App.dog_userID = userid;
+                BreedMatchingPage.breedingContentPage[0].Navigation.PushAsync(new DogInformationPage());
+            }
+            if (App.doginfo_flag == 0)
+            {
+                App.dog_id = id;
+                ProfilePage.profilePage[ProfilePage.profilePage.Count - 1].Navigation.PushAsync(new DogUpdateInfo());
+            }
+        }
+        public ICommand NewPageCommand { get; }
+        /*public string breed_Name { get; set; }*/
+        public string usersDistance { get; set; }
+        /*public string purposeDesc { get; set; }*/
+
+        public static async void Update(dogInfo dogUpdatess)
+        {
+            await App.client.GetTable<dogInfo>().UpdateAsync(dogUpdatess);
         }
 
-        public void dogUpdate()
-        {
-            App.dog_id = id;
-            App.dog_name = dogName;
-            App.dog_image = dogImage;
-            App.dog_gender = dogGender;
-            App.dog_purposeID = dogPurpose_id;
-            App.dog_breedID = dogBreed_id;
-            App.dog_userID = userid;
-            ProfilePage.profilePage[ProfilePage.profilePage.Count - 1].Navigation.PushAsync(new DogUpdateInfo());
-        }
-
-        public static async void Update(dogInfo dogs)
-        {
-            await App.client.GetTable<dogInfo>().UpdateAsync(dogs);
-        }
     }
 }

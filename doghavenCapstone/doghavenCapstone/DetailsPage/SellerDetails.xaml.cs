@@ -100,7 +100,8 @@ namespace doghavenCapstone.DetailsPage
                 var doginfos = await App.client.GetTable<dogInfo>().Where(x => x.id == info.doginfo_id).ToListAsync();
                 foreach (var getimage in doginfos)
                 {
-                    if(breedNames == getimage.breed_Name)
+                    var _breedName = await App.client.GetTable<dogBreed>().Where(x => x.id == getimage.dogBreed_id).ToListAsync();
+                    if(breedNames == _breedName[0].breedName)
                     {
                         _dogPrices.Add(new DogPrice
                         {

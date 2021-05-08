@@ -29,14 +29,15 @@ namespace doghavenCapstone
         public static string dog_breedID = "";
         public static string dog_userID = "";
 
-        public static int doginfo_flag = 0;
+        public static int doginfo_flag = 2;
+        public static bool _updateflag = true;
 
         public App(string databaseLocation)
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
-             //MainPage = new DogUpdateInfo();
+            //MainPage = new Register();
             DatabaseLocation = databaseLocation;
         }
 
