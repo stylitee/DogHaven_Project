@@ -41,6 +41,7 @@
             <Label Text="List of owned dogs: "
                    TextColor="Black"
                    Margin="20,10,0,0"/>
+             
             <ListView ItemsSource="{Binding DogList}"
                   BackgroundColor="Transparent"
                   HasUnevenRows="True">

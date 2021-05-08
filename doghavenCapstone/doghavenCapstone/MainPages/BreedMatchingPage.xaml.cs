@@ -436,7 +436,6 @@ namespace doghavenCapstone.MainPages
                     dogId.Add(dog.id);
                 }
             }
-        
         }
 
         private void SwipeGestureRecognizer_Swiped_1(object sender, SwipedEventArgs e)
