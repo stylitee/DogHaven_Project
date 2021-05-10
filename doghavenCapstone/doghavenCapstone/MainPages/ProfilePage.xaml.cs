@@ -1,4 +1,5 @@
 ﻿using doghavenCapstone.Model;
+using doghavenCapstone.OtherPageFunctions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -78,6 +79,16 @@ namespace doghavenCapstone.MainPages
         private void btnLogOut_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new LogoutPage());
+        }
+
+        private void btnUpdate_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new UpdateAccount());
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,6 +4,10 @@
              x:Class="doghavenCapstone.MainPages.ProfilePage">
     <ContentPage.Content>
         <StackLayout>
+            <Button VerticalOptions="End"
+                    Text="update"
+                    x:Name="btnUpdate"
+                    Clicked="btnUpdate_Clicked"/> 
             <StackLayout Orientation="Horizontal"
                          BackgroundColor="Yellow">
                 <StackLayout Margin="20,30,20,0">
@@ -37,7 +41,14 @@
                            Text="No. of Owned Dogs: "
                            TextColor="Black"/>
                 </StackLayout>
+                
             </StackLayout>
+            <Label Text="Change password"
+                   TextColor="Blue">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
             <Label Text="List of owned dogs: "
                    TextColor="Black"
                    Margin="20,10,0,0"/>
