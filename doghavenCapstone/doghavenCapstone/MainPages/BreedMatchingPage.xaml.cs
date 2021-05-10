@@ -20,6 +20,7 @@ namespace doghavenCapstone.MainPages
         public static List<ContentPage> breedingContentPage = new List<ContentPage>();
         public static List<dogInfo> lstDogs = new List<dogInfo>();
         public static List<string> dogId = new List<string>();
+        List<dogInfo> pckrID = new List<dogInfo>();
         List<dogInfo> dogInfoTable = new List<dogInfo>();
         List<dogInfo> _mydoglist = new List<dogInfo>();
         List<string> _breedNameList = new List<string>();
@@ -45,6 +46,7 @@ namespace doghavenCapstone.MainPages
                 foreach (var dogs in myDogs)
                 {
                     pckrDogList.Items.Add(dogs.dogName);
+                    pckrID.Add(dogs);
                     _mydoglist.Add(dogs);
                     var bred = await App.client.GetTable<dogBreed>().Where(x => x.id == dogs.dogBreed_id).ToListAsync();
                     foreach (var c in bred)
@@ -504,55 +506,38 @@ namespace doghavenCapstone.MainPages
         {
             if(dogId.Count() != 0)
             {
-                //string ownner_dogId = "";
                 List<dogInfo> mylistofDogs = new List<dogInfo>();
                 List<likedDogs> MatchedDogs = new List<likedDogs>();
-                //get the id of the liked dog
                 string liked_DogId = dogId[0];
 
-                //kukuanon sa dogInfo si mga ido
                 var ownerOfDog = await App.client.GetTable<dogInfo>().Where(x => x.id == liked_DogId).ToListAsync();
-                //kukuanon ko mga saidir kong id
                 var matchedDogs = await App.client.GetTable<likedDogs>().Where(x => x.userid == ownerOfDog[0].userid).ToListAsync();
 
                 if(matchedDogs.Count != 0)
                 {
-                    await DisplayAlert("Its a match!", "Youve been match with someone else", "Okay");
-                }
-                /*foreach (var c in ownerOfDog)
-                {
-                    ownner_dogId = c.userid;
-                }
+                    int index = pckrID.FindIndex(a => a.dogName == pckrDogList.Items[pckrDogList.SelectedIndex]);
+                    string dog1 = pckrID[index].id;
 
-                foreach (var c in ownedDogs)
-                {
-                    mylistofDogs.Add(c);
-                }
-
-                foreach (var z in mylistofDogs)
-                {
-                    var checker = await App.client.GetTable<likedDogs>().Where(x => x.dog_id == z.id && x.userid == App.user_id).ToListAsync();
-                    foreach (var y in checker)
+                    dogMatches match = new dogMatches()
                     {
-                        MatchedDogs.Add(y);
+                        id = Guid.NewGuid().ToString("N").Substring(0, 20),
+                        dog1 = dog1,
+                        dog2 = liked_DogId,
+                        markAsDone = "False"
+                    };
+
+                    try
+                    {
+                        await App.client.GetTable<dogMatches>().InsertAsync(match);
+
+                        await DisplayAlert("Its a match!", "Youve been match with someone else", "Okay");
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
                     }
                 }
-
-                if (MatchedDogs.Count != 0)
-                {
-                    //ITS A MATCH!!
-                    //owner_id = id kang nakamatch
-                    string fullName = "";
-
-                    var name = await App.client.GetTable<accountusers>().Where(x => x.id == ownner_dogId).ToListAsync();
-                    foreach (var n in name)
-                    {
-                        fullName = n.fullName;
-                    }
-
-                    string message = "You and " + fullName + " got matched";
-                    await DisplayAlert("Yay!", "Congrats its a match!" + Environment.NewLine + message, "Okay");
-                }*/
             }
         }
 

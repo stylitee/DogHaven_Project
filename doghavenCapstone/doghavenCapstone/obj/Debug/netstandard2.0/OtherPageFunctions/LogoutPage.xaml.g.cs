@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("doghavenCapstone.MainPages.LogoutPage.xaml", "MainPages/LogoutPage.xaml", typeof(global::doghavenCapstone.MainPages.LogoutPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("doghavenCapstone.OtherPageFunctions.LogoutPage.xaml", "OtherPageFunctions/LogoutPage.xaml", typeof(global::doghavenCapstone.OtherPageFunctions.LogoutPage))]
 
-namespace doghavenCapstone.MainPages {
+namespace doghavenCapstone.OtherPageFunctions {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("MainPages\\LogoutPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("OtherPageFunctions\\LogoutPage.xaml")]
     public partial class LogoutPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

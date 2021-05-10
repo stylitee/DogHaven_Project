@@ -76,6 +76,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout>
+                <Button x:Name="btnLogOut"
+                        Text="Logout"
+                        Clicked="btnLogOut_Clicked"/> 
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -39,8 +39,7 @@ namespace doghavenCapstone
                     new HomeFlyOutFlyoutMenuItem { Id = 2, Title = "Marketplace", Icon = "MarketPlace.png",TargetType = typeof(MarketPlacePage) },
                     new HomeFlyOutFlyoutMenuItem { Id = 3, Title = "Adoption", Icon = "adoption.png", TargetType = typeof(Adoption) },
                     new HomeFlyOutFlyoutMenuItem { Id = 4, Title = "Lost and Found", Icon = "Lost_and_Found.png" , TargetType = typeof(LostAndFoundHome)},
-                    new HomeFlyOutFlyoutMenuItem { Id = 5, Title = "Settings", Icon = "settings.png", TargetType = typeof(SettingsPage) },
-                    new HomeFlyOutFlyoutMenuItem { Id = 6, Title = "Log out", Icon = "settings.png", TargetType = typeof(LogoutPage) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 5, Title = "Messages", Icon = "settings.png", TargetType = typeof(SettingsPage) },
                 });
             }
 

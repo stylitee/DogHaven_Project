@@ -4,9 +4,19 @@
              x:Class="doghavenCapstone.MainPages.LogoutPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout VerticalOptions="CenterAndExpand" 
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="Are you sure you want to logout?"
+                       TextColor="Black"/>
+                <Button Text="Confirm"
+                        x:Name="btnConfirm"
+                        Clicked="btnConfirm_Clicked"
+                        TextColor="Black"/>
+                <Button Text="Cancel"
+                        x:Name="btnCancel"
+                        Clicked="btnCancel_Clicked"
+                        TextColor="Black"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

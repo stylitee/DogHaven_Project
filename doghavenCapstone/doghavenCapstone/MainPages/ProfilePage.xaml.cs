@@ -74,5 +74,10 @@ namespace doghavenCapstone.MainPages
             }
 
         }
+
+        private void btnLogOut_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LogoutPage());
+        }
     }
 }
