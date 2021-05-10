@@ -15,13 +15,21 @@
             <StackLayout Orientation="Horizontal"
                      BackgroundColor="White"
                          Margin="20,0">
-                <Label Text="Find a dog for: "
+                <Label Text="My Dogs:  "
                    VerticalOptions="CenterAndExpand"
                    TextColor="Black"/>
                 <Picker x:Name="pckrDogList"
                     SelectedIndexChanged="pckrDogList_SelectedIndexChanged"
                     TextColor="Black"
-                    WidthRequest="210"
+                    WidthRequest="100"
+                    BackgroundColor="White"/>
+                <Label Text="Type: "
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="Black"/>
+                <Picker x:Name="pckrMatchType"
+                    SelectedIndexChanged="pckrMatchType_SelectedIndexChanged"
+                    TextColor="Black"
+                    WidthRequest="100"
                     BackgroundColor="White"/>
             </StackLayout>
         </Frame>

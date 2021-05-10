@@ -88,7 +88,7 @@ namespace doghavenCapstone.MainPages
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ChangePassword());
         }
     }
 }

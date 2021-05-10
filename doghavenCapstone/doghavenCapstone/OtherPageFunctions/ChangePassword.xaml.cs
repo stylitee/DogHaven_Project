@@ -55,6 +55,7 @@ namespace doghavenCapstone.OtherPageFunctions
                     };
 
                     accountusers.Update(user);
+                    await DisplayAlert("Confirmation", "Password succesfully changed", "Okay");
                 }
             }
         }

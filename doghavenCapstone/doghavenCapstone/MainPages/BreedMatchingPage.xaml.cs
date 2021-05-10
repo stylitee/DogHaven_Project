@@ -37,9 +37,14 @@ namespace doghavenCapstone.MainPages
 
         private async void loadYourDogs()
         {
+            pckrMatchType.Items.Clear();
             _mydoglist.Clear();
             pckrDogList.Items.Clear();
             _breedNameList.Clear();
+
+            pckrMatchType.Items.Add("Random");
+            pckrMatchType.Items.Add("Pure Breed");
+            pckrMatchType.SelectedIndex = 0;
             var myDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
             if(myDogs.Count != 0)
             {
@@ -273,7 +278,7 @@ namespace doghavenCapstone.MainPages
             breedingContentPage.Clear();
             breedingContentPage.Add(this);
             checkIfReady();
-            loadDogs();
+            initialLoad();
             UserDialogs.Instance.HideLoading();
             base.OnAppearing();
 
@@ -301,9 +306,24 @@ namespace doghavenCapstone.MainPages
         {
             try
             {
-                if (pckrDogList.Items[pckrDogList.SelectedIndex] != "No dogs available")
+                int temp = pckrDogList.Items.Count();
+                if (pckrDogList.SelectedIndex != - 1)
                 {
-                    swipeLeftAlgo();
+                    try
+                    {
+                        if(pckrDogList.Items[pckrDogList.SelectedIndex] != "No dogs available")
+                        {
+                            swipeLeftAlgo();
+                        }
+                        else
+                        {
+                            UserDialogs.Instance.Toast("Please add a dog before using this breeding function", new TimeSpan(2));
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        UserDialogs.Instance.Toast("Please add a dog before using this breeding function", new TimeSpan(2));
+                    }
                 }
                 else
                 {
@@ -326,9 +346,24 @@ namespace doghavenCapstone.MainPages
         {
             try
             {
-                if (pckrDogList.Items[pckrDogList.SelectedIndex] != "No dogs available")
+                int temp = pckrDogList.Items.Count();
+                if (pckrDogList.SelectedIndex != -1)
                 {
-                    swipeRightAlgo();
+                    try
+                    {
+                        if (pckrDogList.Items[pckrDogList.SelectedIndex] != "No dogs available")
+                        {
+                            swipeRightAlgo();
+                        }
+                        else
+                        {
+                            UserDialogs.Instance.Toast("Please add a dog before using this breeding function", new TimeSpan(2));
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        UserDialogs.Instance.Toast("Please add a dog before using this breeding function", new TimeSpan(2));
+                    }
                 }
                 else
                 {
@@ -340,7 +375,6 @@ namespace doghavenCapstone.MainPages
 
                 DisplayAlert("", "", "");
             }
-
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -443,10 +477,7 @@ namespace doghavenCapstone.MainPages
 
         private void pckrDogList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pckrDogList.Items[pckrDogList.SelectedIndex] != "No dogs available")
-            {
-                loadRelatedDogs();
-            }
+            initialLoad();
         }
 
         private async void loadRelatedDogs()
@@ -459,6 +490,7 @@ namespace doghavenCapstone.MainPages
                 var availDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.dogBreed_id == _breedIdList[index] && x.dogGender != _mydoglist[index].dogGender).ToListAsync();
                 foreach(var dog in availDogs)
                 {
+                    //dae pa nafifiter ang dislike
                     var finalDogs = await App.client.GetTable<likedDogs>().Where(x => x.dog_id == dog.id && x.userid == App.user_id).ToListAsync();
                     if(finalDogs.Count == 0)
                     {
@@ -479,6 +511,29 @@ namespace doghavenCapstone.MainPages
                         }
                     }
                 }
+            }
+        }
+
+        private void pckrMatchType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            initialLoad();
+        }
+
+        private void initialLoad()
+        {
+            if (pckrDogList.SelectedIndex == -1 && pckrMatchType.SelectedIndex == 0)
+            {
+                loadDogs();
+            }
+
+            if (pckrDogList.SelectedIndex != -1 && pckrMatchType.SelectedIndex == 1)
+            {
+                loadRelatedDogs();
+            }
+
+            if (pckrDogList.SelectedIndex != -1 && pckrMatchType.SelectedIndex == 0)
+            {
+                loadDogs();
             }
         }
 
