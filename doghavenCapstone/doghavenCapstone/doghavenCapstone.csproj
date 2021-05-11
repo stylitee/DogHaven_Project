@@ -15,6 +15,7 @@
     <None Remove="Assets\get_location.gif" />
     <None Remove="Assets\Logo_icon.png" />
     <None Remove="Assets\no_image_available.jpg" />
+    <None Remove="Assets\satelite.png" />
     <None Remove="MapThemes\MapStyle.json" />
   </ItemGroup>
 
@@ -23,6 +24,7 @@
     <EmbeddedResource Include="Assets\get_location.gif" />
     <EmbeddedResource Include="Assets\Logo_icon.png" />
     <EmbeddedResource Include="Assets\no_image_available.jpg" />
+    <EmbeddedResource Include="Assets\satelite.png" />
     <EmbeddedResource Include="MapThemes\MapStyle.json" />
   </ItemGroup>
 
@@ -127,6 +129,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="OtherPageFunctions\UserCurrentLocation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PreventerPage\InternetChecker.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PreventerPage\SystemNotReady.xaml">

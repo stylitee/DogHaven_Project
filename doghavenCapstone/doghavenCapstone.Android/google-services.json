@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553254501063",
+    "project_id": "doghaven-b0a98",
+    "storage_bucket": "doghaven-b0a98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553254501063:android:c709b77230d590d205dce2",
+        "android_client_info": {
+          "package_name": "com.doghaveninc.doghavencapstone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553254501063-51h1jcir6hi65lg5a2l4tumt3j0bqofa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXjQ1NUS-ilV6rMEwIuB4zs5WNiBNOZC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553254501063-51h1jcir6hi65lg5a2l4tumt3j0bqofa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

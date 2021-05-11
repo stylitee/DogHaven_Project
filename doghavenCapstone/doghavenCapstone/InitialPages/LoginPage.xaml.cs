@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,10 +20,24 @@ namespace doghavenCapstone.InitialPages
         public LoginPage()
         {
             InitializeComponent();
-
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(LoginPage);
 
             imgLogo.Source = ImageSource.FromResource("doghavenCapstone.Assets.Logo_icon.png", assembly);
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess.ToString() != "Internet" && App.connectionFlag == 0)
+            {
+                Navigation.PushAsync(new InternetChecker());
+                App.connectionFlag = 1;
+            }
+            else
+            {
+                Navigation.PopAsync();
+                App.connectionFlag = 0;
+            }
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)

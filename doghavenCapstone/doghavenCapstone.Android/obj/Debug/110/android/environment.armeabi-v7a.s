@@ -23,7 +23,7 @@
 	.section	.rodata.env.str.1,"aMS",%progbits,1
 	.type	.L.env.str.1, %object
 .L.env.str.1:
-	.asciz	"com.companyname.doghavencapstone"
+	.asciz	"com.doghaveninc.doghavencapstone"
 	.size	.L.env.str.1, 33
 	.section	.data.application_config,"aw",%progbits
 	.type	application_config, %object
@@ -92,7 +92,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",%progbits,1
 	.type	.L.env.str.8, %object
 .L.env.str.8:
-	.asciz	"5a75d55d-1ab5-4922-b232-72559be4bc81"
+	.asciz	"c81c7e3b-b85c-4e1f-9aab-9462aa9210a4"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",%progbits,1
 	.type	.L.env.str.9, %object
