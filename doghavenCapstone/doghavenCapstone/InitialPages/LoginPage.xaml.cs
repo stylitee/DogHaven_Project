@@ -23,9 +23,10 @@ namespace doghavenCapstone.InitialPages
             InitializeComponent();
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(LoginPage);
-
             imgLogo.Source = ImageSource.FromResource("doghavenCapstone.Assets.Logo_icon.png", assembly);
         }
+
+        
 
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {

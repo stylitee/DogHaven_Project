@@ -1,14 +1,10 @@
 ﻿using doghavenCapstone.ClassHelper;
 using doghavenCapstone.MainPages;
-using doghavenCapstone.PreventerPage;
+using Plugin.LocalNotification;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,9 +19,37 @@ namespace doghavenCapstone
         public HomeFlyOutFlyout()
         {
             InitializeComponent();
+            NotificationChecker();
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+            NotificationCenter.Current.NotificationReceived += Current_NotificationReceived;
+            NotificationCenter.Current.NotificationTapped += Current_NotificationTapped;
             BindingContext = new HomeFlyOutFlyoutViewModel();
             ListView = MenuItemsListView;
+        }
+
+        private void Current_NotificationTapped(NotificationTappedEventArgs e)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                DisplayAlert("Match Confirmation", "Yove got a match with someone else", "Okay");
+            });
+        }
+
+        private void Current_NotificationReceived(NotificationReceivedEventArgs e)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                DisplayAlert("Match Confirmation", "Yove got a match with someone else", "Okay");
+            });
+        }
+
+        public void NotificationChecker()
+        {
+            Device.StartTimer(TimeSpan.FromSeconds(10), () =>
+            {
+                AppHelpers.PushNotificationInit();
+                return true;
+            });
         }
 
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

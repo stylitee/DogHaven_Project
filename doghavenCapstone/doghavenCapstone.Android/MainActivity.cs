@@ -9,6 +9,7 @@ using FFImageLoading.Forms.Platform;
 using Plugin.CurrentActivity;
 using Acr.UserDialogs;
 using Plugin.Permissions;
+using Plugin.LocalNotification;
 
 namespace doghavenCapstone.Droid
 {
@@ -28,7 +29,10 @@ namespace doghavenCapstone.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
-
+            NotificationCenter.CreateNotificationChannel(new Plugin.LocalNotification.Platform.Droid.NotificationChannelRequest
+            {
+                ShowBadge = true
+            });
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             string dbName = "dbDoghaven.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
