@@ -108,6 +108,15 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.LocalNotification/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Plugin.LocalNotification.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.LocalNotification.dll": {}
+        }
+      },
       "Plugin.Permissions/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -782,6 +791,26 @@
         "newtonsoft.json.12.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Plugin.LocalNotification/5.2.0": {
+      "sha512": "5F4CXTSMtiJe6bw2EqFgZ2qtQuQxqdRdA0NwjbnX9tB9/q7KN/I7NQFU7DqBIOFiylEFJe34tl97YM6XMFWsxg==",
+      "type": "package",
+      "path": "plugin.localnotification/5.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/monoandroid10.0/Plugin.LocalNotification.dll",
+        "lib/monoandroid10.0/Plugin.LocalNotification.xml",
+        "lib/netstandard2.0/Plugin.LocalNotification.dll",
+        "lib/netstandard2.0/Plugin.LocalNotification.xml",
+        "lib/netstandard2.1/Plugin.LocalNotification.dll",
+        "lib/netstandard2.1/Plugin.LocalNotification.xml",
+        "lib/xamarinios10/Plugin.LocalNotification.dll",
+        "lib/xamarinios10/Plugin.LocalNotification.xml",
+        "plugin.localnotification.5.2.0.nupkg.sha512",
+        "plugin.localnotification.nuspec"
       ]
     },
     "Plugin.Permissions/6.0.1": {
@@ -1795,6 +1824,7 @@
       "Microsoft.Azure.Mobile.Client >= 4.2.0",
       "Microsoft.WindowsAzure.Management.Storage >= 6.0.1",
       "NETStandard.Library >= 2.0.3",
+      "Plugin.LocalNotification >= 5.2.0",
       "Plugin.Permissions >= 6.0.1",
       "WindowsAzure.Storage >= 9.3.3",
       "Xam.Plugin.Media >= 5.0.1",
@@ -1873,6 +1903,10 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Plugin.LocalNotification": {
+            "target": "Package",
+            "version": "[5.2.0, )"
           },
           "Plugin.Permissions": {
             "target": "Package",

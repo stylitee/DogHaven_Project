@@ -1,12 +1,14 @@
-﻿using doghavenCapstone.Model;
+﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,10 +22,16 @@ namespace doghavenCapstone.MainPages
         public ProfilePage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             profilePage.Clear();
             profilePage.Add(this);
             BindingContext = this;
             App.doginfo_flag = 1;
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         public ObservableCollection<dogInfo> DogList

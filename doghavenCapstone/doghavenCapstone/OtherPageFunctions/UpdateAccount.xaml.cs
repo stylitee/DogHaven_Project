@@ -1,5 +1,7 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -9,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,7 +28,13 @@ namespace doghavenCapstone.OtherPageFunctions
 		public UpdateAccount ()
 		{
 			InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
 			LoadPickers();
+		}
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+			AppHelpers.checkConnection(this, e);
 		}
 
         private async void LoadPickers()
@@ -76,29 +84,38 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-			await CrossMedia.Current.Initialize();
+            try
+            {
+				await CrossMedia.Current.Initialize();
 
-			if (!CrossMedia.Current.IsPickPhotoSupported)
-			{
-				await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
-				return;
+				if (!CrossMedia.Current.IsPickPhotoSupported)
+				{
+					await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
+					return;
+				}
+
+				var mediaOptions = new PickMediaOptions()
+				{
+					PhotoSize = PhotoSize.Medium
+				};
+				var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+				if (selectedImageFile == null)
+				{
+					Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
+					return;
+				}
+
+				imgUsersImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
+
+				dog_image = selectedImageFile.GetStream();
 			}
+            catch (Plugin.Media.Abstractions.MediaPermissionException)
+            {
 
-			var mediaOptions = new PickMediaOptions()
-			{
-				PhotoSize = PhotoSize.Medium
-			};
-			var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
-
-			if (selectedImageFile == null)
-			{
-				Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
-				return;
-			}
-
-			imgUsersImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
-
-			dog_image = selectedImageFile.GetStream();
+				await DisplayAlert("Ops","We need your permission to be able to access your photos","Okay");
+            }
+			
 		}
 
         private void btnUpdate_Clicked(object sender, EventArgs e)

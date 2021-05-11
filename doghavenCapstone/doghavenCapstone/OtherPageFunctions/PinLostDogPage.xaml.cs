@@ -1,11 +1,13 @@
-﻿using doghavenCapstone.Model;
+﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
@@ -19,8 +21,14 @@ namespace doghavenCapstone.OtherPageFunctions
         public PinLostDogPage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             BindingContext = new LostDogs();
             loadUserLocation();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         private async void loadUserLocation()

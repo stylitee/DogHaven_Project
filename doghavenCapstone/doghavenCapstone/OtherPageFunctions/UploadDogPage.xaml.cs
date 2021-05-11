@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.MainPages;
 using doghavenCapstone.Model;
 using doghavenCapstone.PreventerPage;
@@ -11,7 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,7 +29,7 @@ namespace doghavenCapstone.OtherPageFunctions
         public UploadDogPage()
         {
             InitializeComponent();
-
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(UploadDogPage);
             loadBreeds();
             loadPurposeData();
@@ -36,6 +37,11 @@ namespace doghavenCapstone.OtherPageFunctions
             pckrGender.Items.Add("Male");
             pckrGender.Items.Add("Female");
             UserDialogs.Instance.HideLoading();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         protected override void OnAppearing()
@@ -68,7 +74,7 @@ namespace doghavenCapstone.OtherPageFunctions
             }
             else
             {
-                Application.Current.MainPage = new HomeFlyOut();
+                Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
                 UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
                 uploadDogInfo(dog_image);
             }

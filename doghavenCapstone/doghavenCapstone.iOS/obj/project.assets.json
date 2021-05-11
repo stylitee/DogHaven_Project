@@ -284,6 +284,18 @@
           "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll": {}
         }
       },
+      "Plugin.LocalNotification/5.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        }
+      },
       "Plugin.Permissions/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -1179,6 +1191,7 @@
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
+          "Plugin.LocalNotification": "5.2.0",
           "Plugin.Permissions": "6.0.1",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
@@ -1480,6 +1493,18 @@
         },
         "runtime": {
           "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll": {}
+        }
+      },
+      "Plugin.LocalNotification/5.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
         }
       },
       "Plugin.Permissions/6.0.1": {
@@ -2291,6 +2316,7 @@
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
+          "Plugin.LocalNotification": "5.2.0",
           "Plugin.Permissions": "6.0.1",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
@@ -2592,6 +2618,18 @@
         },
         "runtime": {
           "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll": {}
+        }
+      },
+      "Plugin.LocalNotification/5.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
         }
       },
       "Plugin.Permissions/6.0.1": {
@@ -3406,6 +3444,7 @@
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
+          "Plugin.LocalNotification": "5.2.0",
           "Plugin.Permissions": "6.0.1",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
@@ -3707,6 +3746,18 @@
         },
         "runtime": {
           "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll": {}
+        }
+      },
+      "Plugin.LocalNotification/5.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.LocalNotification.dll": {}
         }
       },
       "Plugin.Permissions/6.0.1": {
@@ -4521,6 +4572,7 @@
           "MLToolkit.Forms.SwipeCardView": "2.2.0",
           "Microsoft.Azure.Mobile.Client": "4.2.0",
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
+          "Plugin.LocalNotification": "5.2.0",
           "Plugin.Permissions": "6.0.1",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
@@ -5127,6 +5179,26 @@
         "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.xml",
         "pinvoke.windows.core.0.3.2.nupkg.sha512",
         "pinvoke.windows.core.nuspec"
+      ]
+    },
+    "Plugin.LocalNotification/5.2.0": {
+      "sha512": "5F4CXTSMtiJe6bw2EqFgZ2qtQuQxqdRdA0NwjbnX9tB9/q7KN/I7NQFU7DqBIOFiylEFJe34tl97YM6XMFWsxg==",
+      "type": "package",
+      "path": "plugin.localnotification/5.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/monoandroid10.0/Plugin.LocalNotification.dll",
+        "lib/monoandroid10.0/Plugin.LocalNotification.xml",
+        "lib/netstandard2.0/Plugin.LocalNotification.dll",
+        "lib/netstandard2.0/Plugin.LocalNotification.xml",
+        "lib/netstandard2.1/Plugin.LocalNotification.dll",
+        "lib/netstandard2.1/Plugin.LocalNotification.xml",
+        "lib/xamarinios10/Plugin.LocalNotification.dll",
+        "lib/xamarinios10/Plugin.LocalNotification.xml",
+        "plugin.localnotification.5.2.0.nupkg.sha512",
+        "plugin.localnotification.nuspec"
       ]
     },
     "Plugin.Permissions/6.0.1": {
@@ -8647,6 +8719,7 @@
       "MLToolkit.Forms.SwipeCardView >= 2.2.0",
       "Microsoft.Azure.Mobile.Client >= 4.2.0",
       "Microsoft.WindowsAzure.Management.Storage >= 6.0.1",
+      "Plugin.LocalNotification >= 5.2.0",
       "Plugin.Permissions >= 6.0.1",
       "WindowsAzure.Storage >= 9.3.3",
       "Xam.Plugin.Media >= 5.0.1",
@@ -8718,6 +8791,10 @@
           "Microsoft.WindowsAzure.Management.Storage": {
             "target": "Package",
             "version": "[6.0.1, )"
+          },
+          "Plugin.LocalNotification": {
+            "target": "Package",
+            "version": "[5.2.0, )"
           },
           "Plugin.Permissions": {
             "target": "Package",

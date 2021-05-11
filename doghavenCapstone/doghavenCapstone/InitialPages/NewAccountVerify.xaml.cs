@@ -1,9 +1,10 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
 using System;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,9 +16,15 @@ namespace doghavenCapstone.InitialPages
         public NewAccountVerify()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             txtNameSpan.Text = App.fullName;
             setTextMessage();
             UserDialogs.Instance.HideLoading();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         public void setTextMessage()

@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
 using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.Storage;
@@ -11,7 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,11 +27,16 @@ namespace doghavenCapstone.InitialPages
         public Register()
         {
             InitializeComponent();
-
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(Register);
 
             //imgLogo.Source = ImageSource.FromResource("doghavenCapstone.Assets.Logo_icon.png", assembly);
             loadPicker();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

@@ -1,6 +1,8 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.InitialPages;
 using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +20,15 @@ namespace doghavenCapstone.OtherPageFunctions
         public GetUsersLocation()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(GetUsersLocation);
             UserDialogs.Instance.HideLoading();
             imgLocationAnimation.Source = ImageSource.FromResource("doghavenCapstone.Assets.get_location.gif", assembly);
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         private async void btnGetLocation_Clicked(object sender, EventArgs e)

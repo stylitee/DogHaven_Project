@@ -16,14 +16,18 @@ namespace doghavenCapstone.PreventerPage
         public InternetChecker()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(InternetChecker);
             imgNoConnection.Source = ImageSource.FromResource("doghavenCapstone.Assets.satelite.png", assembly);
            
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            
+            if (e.NetworkAccess.ToString() == "Internet")
+            {
+                Navigation.PopAsync();
+            }
         }
     }
 }

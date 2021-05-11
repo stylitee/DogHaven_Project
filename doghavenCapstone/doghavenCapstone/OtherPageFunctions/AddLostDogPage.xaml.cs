@@ -1,5 +1,7 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -10,7 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,7 +28,13 @@ namespace doghavenCapstone.OtherPageFunctions
         public AddLostDogPage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             InitializeControls();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         public async void InitializeControls()

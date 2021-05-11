@@ -1,10 +1,12 @@
-﻿using doghavenCapstone.OtherPageFunctions;
+﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.OtherPageFunctions;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +18,12 @@ namespace doghavenCapstone.MainPages
         public Adoption()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         private void btnOpenMap_Clicked(object sender, EventArgs e)

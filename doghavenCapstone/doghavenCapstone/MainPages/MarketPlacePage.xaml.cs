@@ -13,13 +13,9 @@ namespace doghavenCapstone.MainPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MarketPlacePage : TabbedPage
     {
-        //public ObservableCollection<>
         public MarketPlacePage()
         {
             InitializeComponent();
-            //BindingContext = this;
         }
-
-        
     }
 }

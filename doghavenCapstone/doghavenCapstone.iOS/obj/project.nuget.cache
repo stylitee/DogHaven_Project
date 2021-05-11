@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FHMnqdI8zO0EKuENFGfUqFC8QvbyV7AIkq5VLStLcZnEfS/VkX9BF8KejuHQ54PIAlHLgJ3sw18DGHxrQ4M0ug==",
+  "dgSpecHash": "UVI94Q4p1Efj9IPJrvfthkYp3jxYJryIBtJ7CUr9IXX9TgFXNH/BQjY1PVXawl5v0cC2nOSmMZXHsOr2mc1yiQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.kernel32\\0.3.2\\pinvoke.kernel32.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.ncrypt\\0.3.2\\pinvoke.ncrypt.0.3.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\pinvoke.windows.core\\0.3.2\\pinvoke.windows.core.0.3.2.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\plugin.localnotification\\5.2.0\\plugin.localnotification.5.2.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\plugin.permissions\\6.0.1\\plugin.permissions.6.0.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlite-net-pcl\\1.8.0-beta\\sqlite-net-pcl.1.8.0-beta.nupkg.sha512",

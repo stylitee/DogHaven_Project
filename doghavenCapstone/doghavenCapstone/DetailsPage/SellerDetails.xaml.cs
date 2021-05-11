@@ -1,12 +1,13 @@
 ﻿using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,10 +27,16 @@ namespace doghavenCapstone.DetailsPage
         public SellerDetails()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             dogForsale.Add(this);
             BindingContext = this;
             LoadBreeds();
             loadUserInfo();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         public async void LoadBreeds()

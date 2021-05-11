@@ -1,11 +1,13 @@
-﻿using doghavenCapstone.MainPages;
+﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.MainPages;
 using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,8 +19,13 @@ namespace doghavenCapstone.OtherPageFunctions
         public DogInformationPage()
         {
             InitializeComponent();
-            //lblDogName.Text = App.dog_name;
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             loadDogInformation();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         private async void loadDogInformation()

@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
@@ -28,16 +29,7 @@ namespace doghavenCapstone.InitialPages
 
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            if (e.NetworkAccess.ToString() != "Internet" && App.connectionFlag == 0)
-            {
-                Navigation.PushAsync(new InternetChecker());
-                App.connectionFlag = 1;
-            }
-            else
-            {
-                Navigation.PopAsync();
-                App.connectionFlag = 0;
-            }
+            AppHelpers.checkConnection(this, e);
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -96,8 +88,8 @@ namespace doghavenCapstone.InitialPages
                             }
                             if(newAccountChecker.Count() + 1 >= 5 && dogchecker.Count >= 5 && location.Count != 0)
                             {
-                                Application.Current.MainPage = new HomeFlyOut();
-                                await Navigation.PushAsync(new HomeFlyOut());
+                                Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
+                                //await Navigation.PushAsync(new HomeFlyOut());
                                 txtUser_password.Text = "";
                                 txtUser_name.Text = "";
                                 usernames = "";
@@ -131,7 +123,6 @@ namespace doghavenCapstone.InitialPages
             {
                 await DisplayAlert("Warning", "Something went wrong:" + fs.Message , "Okay");
                 UserDialogs.Instance.HideLoading();
-                throw;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,14 @@ namespace doghavenCapstone.OtherPageFunctions
         public LostDogDetails()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             loadDetails();
             //getAddress();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         public async void loadDetails()

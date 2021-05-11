@@ -1,13 +1,15 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.MainPages;
 using doghavenCapstone.Model;
+using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,7 +29,13 @@ namespace doghavenCapstone.OtherPageFunctions
         public DogUpdateInfo()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             loadPickers();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
         }
 
         private async void loadPickers()
