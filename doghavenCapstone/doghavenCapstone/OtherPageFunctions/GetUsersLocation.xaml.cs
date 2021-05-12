@@ -64,9 +64,14 @@ namespace doghavenCapstone.OtherPageFunctions
                 }
 
             }
-            catch (Exception ex)
+            catch (Xamarin.Essentials.PermissionException)
             {
-                await DisplayAlert("Ops","Something went wrong getting your location, make sure your gps is on while connected to the internet","Okay");
+                await DisplayAlert("Permission Error", "We need to access your location to be able to use this feature", "Okay");
+
+            }
+            catch(Exception)
+            {
+                await DisplayAlert("Ops", "Something went wrong getting your location, make sure your gps is on while connected to the internet", "Okay");
             }
         }
     }

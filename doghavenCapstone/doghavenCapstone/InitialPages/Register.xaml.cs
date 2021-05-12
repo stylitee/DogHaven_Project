@@ -22,6 +22,7 @@ namespace doghavenCapstone.InitialPages
     public partial class Register : ContentPage
     {
         Stream dog_image = null;
+        bool _pass = false, _confirmpass = false;
         string url = "";
         List<userRole> lstofRoles = new List<userRole>();
         public Register()
@@ -30,8 +31,8 @@ namespace doghavenCapstone.InitialPages
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(Register);
 
-            //imgLogo.Source = ImageSource.FromResource("doghavenCapstone.Assets.Logo_icon.png", assembly);
-            loadPicker();
+            imgUsersImage.Source = ImageSource.FromResource("doghavenCapstone.Assets.no_image_available.jpg", assembly);
+            UserDialogs.Instance.HideLoading();
         }
 
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
@@ -39,10 +40,24 @@ namespace doghavenCapstone.InitialPages
             AppHelpers.checkConnection(this, e);
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             //-------------------register button------------------------
-            uploadUserImage(dog_image);
+            if (txtUser_name.Text == "" || txtUser_name.Text == null ||
+                txtConfirmPassword.Text == "" || txtConfirmPassword.Text == null ||
+                txtFullname.Text == "" ||
+                txtStreetName.Text == "" || txtStreetName.Text == null ||
+                txtBarangay.Text == "" || txtBarangay.Text == null ||
+                imgUsersImage == null || txtCity.Text == "" || txtProvince.Text == "")
+            {
+                await DisplayAlert("Warning", "Fields and Images cannot be empty", "Okay");
+                UserDialogs.Instance.HideLoading();
+            }
+            else
+            {
+                UserDialogs.Instance.ShowLoading("Please wait while we register your account");
+                uploadUserImage(dog_image);
+            }
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
@@ -53,31 +68,36 @@ namespace doghavenCapstone.InitialPages
 
         private async void imgUsersImage_Tapped(object sender, EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsPickPhotoSupported)
+            try
             {
-                await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
-                return;
+                await CrossMedia.Current.Initialize();
+
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
+                    return;
+                }
+
+                var mediaOptions = new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                };
+                var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+                if (selectedImageFile == null)
+                {
+                    Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
+                    return;
+                }
+
+                imgUsersImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
+
+                dog_image = selectedImageFile.GetStream();
             }
-
-            var mediaOptions = new PickMediaOptions()
+            catch (Plugin.Media.Abstractions.MediaPermissionException)
             {
-                PhotoSize = PhotoSize.Medium
-            };
-            var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
-
-            if (selectedImageFile == null)
-            {
-                Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
-                return;
+                await DisplayAlert("Permission Error", "We need your permission to access your gallery", "Okay");
             }
-
-            imgUsersImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
-            
-            dog_image = selectedImageFile.GetStream();
-
-
         }
 
         private async void uploadUserImage(Stream stream)
@@ -115,28 +135,19 @@ namespace doghavenCapstone.InitialPages
             {
                 savingInformation();
             }
-        }
-
-        //UserDialogs.Instance.ShowLoading("Please wait while we save your account");
-        private async void savingInformation()
-        {
-            string addressid = "", userrole_id = "";
-
-            if (txtUser_name.Text == "" || txtUser_name.Text == null ||
-                txtConfirmPassword.Text == "" || txtConfirmPassword.Text == null ||
-                txtFullname.Text == "" ||
-                txtStreetName.Text == "" || txtStreetName.Text == null ||
-                txtBarangay.Text == "" || txtBarangay.Text == null ||
-                pckrUserRole == null || imgUsersImage == null || txtCity.Text == "" || txtProvince.Text == "")
-            {
-                await DisplayAlert("Warning", "Fields and Images cannot be empty", "Okay");
-                UserDialogs.Instance.HideLoading();
-            }
             else
             {
+                UserDialogs.Instance.HideLoading();
+            }
+        }
+        private async void savingInformation()
+        {
+            if(_pass != false && _confirmpass != false)
+            {
+                string addressid = "", userrole_id = "";
+
                 if (txtPassword.Text == txtConfirmPassword.Text)
                 {
-
                     try
                     {
                         UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
@@ -151,10 +162,6 @@ namespace doghavenCapstone.InitialPages
                             province = txtProvince.Text
                         };
 
-                        var result = lstofRoles.FindIndex(role => role.roleDescription ==
-                                                          pckrUserRole.Items[pckrUserRole.SelectedIndex]);
-                        userrole_id = lstofRoles[result].id;
-
                         accountusers user = new accountusers()
                         {
                             id = Guid.NewGuid().ToString("N").Substring(0, 10),
@@ -163,7 +170,7 @@ namespace doghavenCapstone.InitialPages
                             userPassword = txtConfirmPassword.Text,
                             fullName = txtFullname.Text,
                             address_id = addressid,
-                            user_role_id = userrole_id,
+                            user_role_id = "abscenjs1",
                         };
 
                         await App.client.GetTable<usersaddress>().InsertAsync(address);
@@ -171,8 +178,6 @@ namespace doghavenCapstone.InitialPages
                         await Navigation.PushAsync(new LoginPage());
                         UserDialogs.Instance.HideLoading();
                         Acr.UserDialogs.UserDialogs.Instance.Toast("Account successfully saved", new TimeSpan(2));
-                        //await DisplayAlert("Confirmation", "You're acccount is succesfully saved!", "Okay");
-                        //App.loadingMessage = "";
                     }
                     catch (Exception)
                     {
@@ -183,21 +188,16 @@ namespace doghavenCapstone.InitialPages
                 {
                     await DisplayAlert("Ops", "Password does not match", "Okay");
                 }
-
+                addressid = "";
+                userrole_id = "";
+                clearFields();
             }
-            addressid = "";
-            userrole_id = "";
-            clearFields();
-            loadPicker();
-        }
-        public async void loadPicker()
-        {
-            var userAddressTable = await App.client.GetTable<userRole>().ToListAsync();
-            foreach (var role in userAddressTable)
+            else
             {
-                lstofRoles.Add(role);
-                pckrUserRole.Items.Add(role.roleDescription);
+                await DisplayAlert("Ops", "Password Cannot be less than four characters", "Okay");
             }
+            
+            UserDialogs.Instance.HideLoading();
         }
 
         public void clearFields()
@@ -205,11 +205,35 @@ namespace doghavenCapstone.InitialPages
             
             txtUser_name.Text = "";
             txtFullname.Text = "";
-            txtPassword.Text = "";
-            txtConfirmPassword.Text = "";
             txtBarangay.Text = "";
+            txtProvince.Text = "";
+            txtCity.Text = "";
             txtStreetName.Text = "";
-            pckrUserRole.Items.Clear();
         }
+
+        private void txtConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtConfirmPassword.Text.Length >= 4)
+            {
+                _confirmpass = true;
+            }
+            else
+            {
+                _confirmpass = false;
+            }
+        }
+
+        private void txtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtPassword.Text.Length >= 4)
+            {
+                _pass = true;
+            }
+            else
+            {
+                _pass = false;
+            }
+        }
+
     }
 }

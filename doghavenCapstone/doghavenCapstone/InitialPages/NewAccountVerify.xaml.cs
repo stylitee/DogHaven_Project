@@ -46,11 +46,10 @@ namespace doghavenCapstone.InitialPages
                 "Nevertheless, you can still use other functionalities" + Environment.NewLine + Environment.NewLine + "Personal " +
                 "User – this user type was solely for user who wants to buy dogs, adopt dogs and dog related information" +
                 ". This is preferable for users who doesn’t have any owned dogs yet. You can still use other functionalities" + Environment.NewLine + Environment.NewLine +
-                "Institution – this user type can be used by facilities (e.g. adoption center or veterinary clinic)" +
+                "Institution – this user type can be used by facilities (e.g. Adoption center)" +
                 " this user type can receive notification if a user who uses Doghaven look at the dogs on your adoption" +
-                " center, they can fill up a form and you will be notified for easy transactions. This could be used by" +
-                " veterinary clinics, they can be notified if a user has an emergency about a dog, or the user want to" +
-                " request something. You can still use other functionalities." + Environment.NewLine + Environment.NewLine + Environment.NewLine +
+                " center, they can fill up a form and you will be notified for easy transactions. " +
+                "But this can only be access on www.sample.com" + Environment.NewLine + Environment.NewLine + Environment.NewLine +
                 "By reading this information I hope you understand what does the user type means, you can change your user" +
                 " type before we proceed, start using the Dog Haven App!";
         }
@@ -60,9 +59,19 @@ namespace doghavenCapstone.InitialPages
             Navigation.PushAsync(new ChangeUserTypePage());
         }
 
-        private void btnProceed_Clicked(object sender, EventArgs e)
+        private async void btnProceed_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new UploadDogPage());
+            var userinfo = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
+            var filter = await App.client.GetTable<userRole>().Where(x => x.id == userinfo[0].user_role_id).ToListAsync();
+
+            if(filter[0].roleDescription == "Personal User")
+            {
+                Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
+            }
+            else
+            {
+                await Navigation.PushAsync(new UploadDogPage());
+            }
         }
     }
 }

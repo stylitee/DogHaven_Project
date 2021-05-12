@@ -32,9 +32,6 @@ namespace doghavenCapstone.MainPages {
         private global::Xamarin.Forms.Button btnNope;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Button btnSuperLike;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button btnLike;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
@@ -45,7 +42,6 @@ namespace doghavenCapstone.MainPages {
             pckrMatchType = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "pckrMatchType");
             swipeView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::MLToolkit.Forms.SwipeCardView.SwipeCardView>(this, "swipeView");
             btnNope = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnNope");
-            btnSuperLike = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnSuperLike");
             btnLike = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnLike");
         }
     }

@@ -45,8 +45,11 @@ namespace doghavenCapstone.OtherPageFunctions
 			var userType = await App.client.GetTable<userRole>().Where(x => x.id != "").ToListAsync();
 			foreach(var c in userType)
             {
-				roles.Add(c);
-				pckrUserRole.Items.Add(c.roleDescription);
+				if(c.roleDescription != "Institution")
+                {
+					roles.Add(c);
+					pckrUserRole.Items.Add(c.roleDescription);
+				}
 				if(userType.Count != flag)
                 {
 					flag++;
@@ -120,15 +123,24 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void btnUpdate_Clicked(object sender, EventArgs e)
         {
-			if (dog_image != null)
+			if (txtUser_name.Text == "" || txtFullname.Text == "" ||
+			   txtStreetName.Text == "" || txtBarangay.Text == "" ||
+			   txtCity.Text == "" || txtProvince.Text == "" || pckrUserRole.SelectedIndex == -1)
 			{
-				uploadUserImage(dog_image);
+				DisplayAlert("Ops", "Some fields are empty", "Okay");
 			}
 			else
 			{
-				saveInformation();
+				if (dog_image != null)
+				{
+					uploadUserImage(dog_image);
+				}
+				else
+				{
+					UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
+					saveInformation();
+				}
 			}
-			
         }
 
         private async void uploadUserImage(Stream dog_image)
@@ -171,49 +183,41 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private async void saveInformation()
         {
-			if (txtUser_name.Text == "" || txtFullname.Text == "" ||
-			   txtStreetName.Text == "" || txtBarangay.Text == "" ||
-			   txtCity.Text == "" || txtProvince.Text == "" || pckrUserRole.SelectedIndex == -1)
+			string _dogimage = "";
+			if (url != "")
 			{
-				await DisplayAlert("Ops", "Some fields are empty", "Okay");
+				_dogimage = url;
 			}
-			else
+			else if (url == "")
 			{
-				string _dogimage = "";
-				if (url != "")
-				{
-					_dogimage = url;
-				}
-				else if (url == "")
-				{
-					_dogimage = defaultImage;
-				}
-				int index = roles.FindIndex(a => a.roleDescription == pckrUserRole.Items[pckrUserRole.SelectedIndex]);
-				string role_id = roles[index].id;
-				usersaddress address = new usersaddress()
-				{
-					id = _address_id,
-					streetname = txtStreetName.Text,
-					barangay = txtBarangay.Text,
-					city = txtCity.Text,
-					province = txtProvince.Text
-				};
-
-				accountusers user = new accountusers()
-				{
-					id = App.user_id,
-					userImage = _dogimage,
-					username = txtUser_name.Text,
-					userPassword = password,
-					fullName = txtFullname.Text,
-					address_id = _address_id,
-					user_role_id = role_id
-				};
-
-				await App.client.GetTable<usersaddress>().UpdateAsync(address);
-				await App.client.GetTable<accountusers>().UpdateAsync(user);
-				await DisplayAlert("Confirmation", "Account Succesfully Updated", "Okay");
+				_dogimage = defaultImage;
 			}
+			int index = roles.FindIndex(a => a.roleDescription == pckrUserRole.Items[pckrUserRole.SelectedIndex]);
+			string role_id = roles[index].id;
+			usersaddress address = new usersaddress()
+			{
+				id = _address_id,
+				streetname = txtStreetName.Text,
+				barangay = txtBarangay.Text,
+				city = txtCity.Text,
+				province = txtProvince.Text
+			};
+
+			accountusers user = new accountusers()
+			{
+				id = App.user_id,
+				userImage = _dogimage,
+				username = txtUser_name.Text,
+				userPassword = password,
+				fullName = txtFullname.Text,
+				address_id = _address_id,
+				user_role_id = role_id
+			};
+
+			await App.client.GetTable<usersaddress>().UpdateAsync(address);
+			await App.client.GetTable<accountusers>().UpdateAsync(user);
+			await DisplayAlert("Confirmation", "Account Succesfully Updated", "Okay");
+			UserDialogs.Instance.HideLoading();
 		}
     }
 }

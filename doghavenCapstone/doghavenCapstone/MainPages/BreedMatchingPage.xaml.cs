@@ -344,11 +344,6 @@ namespace doghavenCapstone.MainPages
             }
         }
 
-        private void btnSuperLike_Clicked(object sender, EventArgs e)
-        {
-            swipeView.InvokeSwipe((MLToolkit.Forms.SwipeCardView.Core.SwipeCardDirection)MLToolkit.Forms.SwipeCardView.Core.SwipeCardDirection.Up);
-        }
-
         private void btnLike_Clicked(object sender, EventArgs e)
         {
             try

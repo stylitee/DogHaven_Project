@@ -112,8 +112,8 @@
                              Padding="10,10,10,20"
                              Spacing="30">
 
-                <StackLayout>
-                    <Button x:Name="btnNope" 
+            <StackLayout>
+                <Button x:Name="btnNope" 
                                 Image="ic_tinder_nope.png"
                                 Clicked="btnNope_Clicked"
                                 WidthRequest="60"
@@ -121,20 +121,9 @@
                                 CornerRadius="30"
                                 BackgroundColor="White"
                                 Scale="1"/>
-                </StackLayout>
+            </StackLayout>
 
-                <StackLayout VerticalOptions="Center">
-                    <Button x:Name="btnSuperLike" 
-                                Image="ic_tinder_superlike.png"
-                                Clicked="btnSuperLike_Clicked"
-                                WidthRequest="50"
-                                HeightRequest="50"
-                                CornerRadius="25"
-                                BackgroundColor="White"
-                                Scale="1"/>
-                </StackLayout>
-
-                <StackLayout>
+            <StackLayout>
                     <Button x:Name="btnLike" 
                                 Image="ic_tinder_like.png"
                                 Clicked="btnLike_Clicked"

@@ -42,12 +42,6 @@ namespace doghavenCapstone.Model
             if(App.uploadFlag == 1)
             {
                 App.dog_id = id;
-                App.dog_name = dogName;
-                App.dog_image = dogImage;
-                App.dog_gender = dogGender;
-                App.dog_purposeID = dogPurpose_id;
-                App.dog_breedID = dogBreed_id;
-                App.dog_userID = userid;
                 BreedMatchingPage.breedingContentPage[0].Navigation.PushAsync(new DogInformationPage());
             }
             if (App.doginfo_flag == 0)
@@ -57,9 +51,7 @@ namespace doghavenCapstone.Model
             }
         }
         public ICommand NewPageCommand { get; }
-        /*public string breed_Name { get; set; }*/
         public string usersDistance { get; set; }
-        /*public string purposeDesc { get; set; }*/
 
         public static async void Update(dogInfo dogUpdatess)
         {

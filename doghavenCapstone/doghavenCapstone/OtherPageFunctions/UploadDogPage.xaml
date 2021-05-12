@@ -44,7 +44,7 @@
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="btnUploadImage_Clicked" NumberOfTapsRequired="1" />
                 </Frame.GestureRecognizers>
-                <Label Text="Upload Image" HorizontalOptions="Center"
+                <Label Text="Upload Dog" HorizontalOptions="Center"
                        TextColor="White"
                        BackgroundColor="Blue"/>
             </Frame>

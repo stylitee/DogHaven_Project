@@ -36,7 +36,29 @@ namespace doghavenCapstone.OtherPageFunctions
             imgDogImage.Source = ImageSource.FromResource("doghavenCapstone.Assets.no_image_available.jpg", assembly);
             pckrGender.Items.Add("Male");
             pckrGender.Items.Add("Female");
+            setUserRoleInfo();
             UserDialogs.Instance.HideLoading();
+        }
+
+        private async void setUserRoleInfo()
+        {
+            var userinfo = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
+            var filter = await App.client.GetTable<userRole>().Where(x => x.id == userinfo[0].user_role_id).ToListAsync();
+
+            if (filter[0].roleDescription == "Breeder")
+            {
+                int index = lstOfPurpose.FindIndex(pur => pur.dogDesc == "Breeding");
+                pckrDogPurpose.SelectedIndex = index;
+            }
+            else if(filter[0].roleDescription == "Seller")
+            {
+                int index = lstOfPurpose.FindIndex(pur => pur.dogDesc == "Sale");
+                pckrDogPurpose.SelectedIndex = index;
+            }
+            else
+            {
+
+            }
         }
 
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
@@ -54,7 +76,6 @@ namespace doghavenCapstone.OtherPageFunctions
 
         public async void loadBreeds()
         {
-            //load breeds
             var dogBreedTable = await App.client.GetTable<dogBreed>().ToListAsync();
             foreach (var breed in dogBreedTable)
             {
@@ -67,9 +88,19 @@ namespace doghavenCapstone.OtherPageFunctions
         {
             if(App.buttonName == "Proceed")
             {
-                //Application.Current.MainPage = new HomeFlyOut();
-                UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
-                uploadDogInfo(dog_image);
+                
+                if (txtDogName.Text == "" || txtDogName == null ||
+                    pckrDogBreed == null || pckrDogPurpose == null ||
+                    pckrGender == null || imgDogImage == null || url == null)
+                {
+                    txtDogName.Text = "";
+                    DisplayAlert("Ops!", "Please provide info to all the provided fields", "Okay");
+                }
+                else
+                {
+                    UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
+                    uploadDogInfo(dog_image);
+                }
                 
             }
             else
@@ -127,54 +158,37 @@ namespace doghavenCapstone.OtherPageFunctions
         {
             try
             {
-                if (txtDogName.Text == "" || txtDogName == null || 
-                    pckrDogBreed == null || pckrDogPurpose == null ||
-                    pckrGender == null || imgDogImage == null)
+                var temp_id = lstOfBreeds.FindIndex(breed => breed.breedName == pckrDogBreed.Items[pckrDogBreed.SelectedIndex]);
+                var pur_id = lstOfPurpose.FindIndex(pur => pur.dogDesc == pckrDogPurpose.Items[pckrDogPurpose.SelectedIndex]);
+                string breeed_id = lstOfBreeds[temp_id].id, purposeid = lstOfPurpose[pur_id].id;
+                dogInfo dogInformation = new dogInfo()
                 {
-                    //clear input
-                    txtDogName.Text = "";
-                    //imgDogImage = null;
-                    await DisplayAlert("Ops!", "Please provide info to all the provided fields", "Okay");
-                }
-                else
-                {
-                    var temp_id = lstOfBreeds.FindIndex(breed => breed.breedName == pckrDogBreed.Items[pckrDogBreed.SelectedIndex]);
-                    var pur_id = lstOfPurpose.FindIndex(pur => pur.dogDesc == pckrDogPurpose.Items[pckrDogPurpose.SelectedIndex]);
-                    string breeed_id = lstOfBreeds[temp_id].id, purposeid = lstOfPurpose[pur_id].id;
-                    dogInfo dogInformation = new dogInfo()
-                    {
-                        id = Guid.NewGuid().ToString("N").Substring(0,20),
-                        dogName = txtDogName.Text,
-                        dogImage = url,
-                        dogGender = pckrGender.Items[pckrGender.SelectedIndex].ToString(),
-                        dogBreed_id = breeed_id,
-                        dogPurpose_id = purposeid,
-                        userid = App.user_id
-                    };
+                    id = Guid.NewGuid().ToString("N").Substring(0, 20),
+                    dogName = txtDogName.Text,
+                    dogImage = url,
+                    dogGender = pckrGender.Items[pckrGender.SelectedIndex].ToString(),
+                    dogBreed_id = breeed_id,
+                    dogPurpose_id = purposeid,
+                    userid = App.user_id
+                };
 
-                    await App.client.GetTable<dogInfo>().InsertAsync(dogInformation);
-                    //await Navigation.PushAsync(new UploadDogPage());
-                    txtDogName.Text = "";
-                    //imgDogImage = null;
-                    await DisplayAlert("Confirmation", "Dog information succesfully uploaded", "Okay");
-                }
+                await App.client.GetTable<dogInfo>().InsertAsync(dogInformation);
+                txtDogName.Text = "";
+                await DisplayAlert("Confirmation", "Dog information succesfully uploaded", "Okay");
             }
             catch (Exception ex)
             {
                 txtDogName.Text = "";
                 imgDogImage = null;
-                //await Navigation.PushAsync(new UploadDogPage());
                 UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Ops", "An error has occured: " + ex.Message, "Okay");
                 return;
             }
-            //imgDogImage.Source = null;
             txtDogName.Text = "";
             pckrDogBreed.SelectedIndex = -1;
             pckrDogPurpose.SelectedIndex = -1;
             pckrGender.SelectedIndex = -1;
             UserDialogs.Instance.HideLoading();
-            //App.loadingMessage = "";
         }
 
         public async void loadPurposeData()
@@ -182,8 +196,11 @@ namespace doghavenCapstone.OtherPageFunctions
             var purposeTable = await App.client.GetTable<dogPurpose>().ToListAsync();
             foreach (var purpose in purposeTable)
             {
-                lstOfPurpose.Add(purpose);
-                pckrDogPurpose.Items.Add(purpose.dogDesc);
+                if(purpose.dogDesc != "Adoption")
+                {
+                    lstOfPurpose.Add(purpose);
+                    pckrDogPurpose.Items.Add(purpose.dogDesc);
+                }
             }
         }
 

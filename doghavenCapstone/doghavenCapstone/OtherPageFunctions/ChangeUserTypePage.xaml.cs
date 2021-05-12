@@ -33,14 +33,18 @@ namespace doghavenCapstone.OtherPageFunctions
             var userTypes = await App.client.GetTable<userRole>().ToListAsync();
             foreach(var c in userTypes)
             {
-                lstOfId.Add(c);
-                pckrUserType.Items.Add(c.roleDescription);
+                if(c.roleDescription != "Institution")
+                {
+                    lstOfId.Add(c);
+                    pckrUserType.Items.Add(c.roleDescription);
+                }
             }
         }
 
         private void btnConfirm_Clicked(object sender, EventArgs e)
         {
             updateProcess();
+
             //show a message that the updating is succesful
             Application.Current.MainPage = new NavigationPage( new NewAccountVerify());
             Navigation.PushAsync(new NewAccountVerify());

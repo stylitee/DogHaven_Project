@@ -46,10 +46,14 @@
                                        x:Name="txtCity"/>
                                 <Entry Placeholder="Province"
                                        x:Name="txtProvince"/>
-                                <Label Text="  Choose user type:"/>
-                                <Picker x:Name="pckrUserRole"/>
-                                <Entry Placeholder="Password" IsPassword="True" x:Name="txtPassword"/>
-                                <Entry Placeholder="Confirm Password" IsPassword="True" x:Name="txtConfirmPassword"/>
+                                <Entry Placeholder="Password" 
+                                       IsPassword="True" 
+                                       x:Name="txtPassword"
+                                       TextChanged="txtPassword_TextChanged"/>
+                                <Entry Placeholder="Confirm Password" 
+                                       IsPassword="True" 
+                                       x:Name="txtConfirmPassword"
+                                       TextChanged="txtConfirmPassword_TextChanged"/>
                             </StackLayout>
                         </ScrollView>
                         

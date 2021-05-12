@@ -26,16 +26,23 @@
                            Margin="0,0,0,0"
                            TextColor="Black"/>
                     <Entry TextColor="Black"
+                           TextChanged="txtUser_name_TextChanged"
                            x:Name="txtUser_name"
                            Placeholder="Username"
                            Margin="30,10,30,0"
                            PlaceholderColor="Gray"/>
                     <Entry TextColor="Black"
                            Margin="30,0,30,0"
+                           TextChanged="txtUser_password_TextChanged"
                            Placeholder="Password"
                            x:Name="txtUser_password"
                            PlaceholderColor="Gray"
                            IsPassword="True"/>
+                    <Label Text=""
+                           x:Name="lblErrorMessage"
+                           TextColor="Red"
+                           FontSize="11"
+                           Margin="35,0,30,0"/>
                     <Label Text="Forgot your password?"
                            HorizontalTextAlignment="End"
                            Margin="0,0,30,0"
@@ -45,18 +52,14 @@
                         </Label.GestureRecognizers>
                     </Label>
 
-                    <Frame BackgroundColor="#31326f"
-                           CornerRadius="15"
-                           Margin="30,20"
-                           Padding="0,10"
-                           x:Name="btnLogin">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
-                        </Frame.GestureRecognizers>
-                        <Label Text="Login"
-                               HorizontalOptions="Center"
-                               TextColor="White"/>
-                    </Frame>
+                    <Button BackgroundColor="#31326f"
+                            CornerRadius="15"
+                            Margin="30,20"
+                            x:Name="btnLogin"
+                            Clicked="btnLogin_Clicked"
+                            Text="Login"
+                            TextColor="White"/>
+
                     <StackLayout Orientation="Horizontal"
                                  HorizontalOptions="Center"
                                  Margin="0,0,0,20">

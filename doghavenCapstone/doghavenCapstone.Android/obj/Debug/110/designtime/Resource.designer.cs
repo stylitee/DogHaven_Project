@@ -2874,6 +2874,10 @@ namespace doghavenCapstone.Droid
 			global::Plugin.LocalNotification.Resource.Attribute.fontVariationSettings = global::doghavenCapstone.Droid.Resource.Attribute.fontVariationSettings;
 			global::Plugin.LocalNotification.Resource.Attribute.fontWeight = global::doghavenCapstone.Droid.Resource.Attribute.fontWeight;
 			global::Plugin.LocalNotification.Resource.Attribute.ttcIndex = global::doghavenCapstone.Droid.Resource.Attribute.ttcIndex;
+			global::Plugin.LocalNotification.Resource.Boolean.enable_system_alarm_service_default = global::doghavenCapstone.Droid.Resource.Boolean.enable_system_alarm_service_default;
+			global::Plugin.LocalNotification.Resource.Boolean.enable_system_foreground_service_default = global::doghavenCapstone.Droid.Resource.Boolean.enable_system_foreground_service_default;
+			global::Plugin.LocalNotification.Resource.Boolean.enable_system_job_service_default = global::doghavenCapstone.Droid.Resource.Boolean.enable_system_job_service_default;
+			global::Plugin.LocalNotification.Resource.Boolean.workmanager_test_configuration = global::doghavenCapstone.Droid.Resource.Boolean.workmanager_test_configuration;
 			global::Plugin.LocalNotification.Resource.Color.androidx_core_ripple_material_light = global::doghavenCapstone.Droid.Resource.Color.androidx_core_ripple_material_light;
 			global::Plugin.LocalNotification.Resource.Color.androidx_core_secondary_text_default_material_light = global::doghavenCapstone.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
 			global::Plugin.LocalNotification.Resource.Color.notification_action_color_filter = global::doghavenCapstone.Droid.Resource.Color.notification_action_color_filter;
@@ -19332,7 +19336,19 @@ namespace doghavenCapstone.Droid
 			public const int abc_config_actionMenuItemAllCaps = 2130968578;
 			
 			// aapt resource value: 0x7F040003
-			public const int mtrl_btn_textappearance_all_caps = 2130968579;
+			public const int enable_system_alarm_service_default = 2130968579;
+			
+			// aapt resource value: 0x7F040004
+			public const int enable_system_foreground_service_default = 2130968580;
+			
+			// aapt resource value: 0x7F040005
+			public const int enable_system_job_service_default = 2130968581;
+			
+			// aapt resource value: 0x7F040006
+			public const int mtrl_btn_textappearance_all_caps = 2130968582;
+			
+			// aapt resource value: 0x7F040007
+			public const int workmanager_test_configuration = 2130968583;
 			
 			static Boolean()
 			{
