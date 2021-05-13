@@ -21,11 +21,13 @@ namespace doghavenCapstone.ClassHelper
 
         public async static void PushNotificationInit()
         {
+            
             var checker = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
             foreach(var c in checker)
             {
                 var matches = await App.client.GetTable<dogMatches>().Where(x => x.dog1 == c.id || x.dog2 == c.id && x.markAsDone == "False").ToListAsync();
-                if(matches.Count != 0)
+                Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
+                if (matches.Count != 0)
                 {
                     if(App.isAlreadyRead == false)
                     {

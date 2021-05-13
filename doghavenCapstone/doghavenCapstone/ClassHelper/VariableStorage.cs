@@ -16,6 +16,16 @@ namespace doghavenCapstone.ClassHelper
         public static string doginfo_id = "";
         public static string isRegistred = "Yes";
 
+        //Found class
+        public static string found_id = "";
+        public static string found_userid = "";
+        public static string found_lastSeen_date = "";
+        public static string found_lastSeen_time = "";
+        public static string found_placeLost_latitude = "";
+        public static string found_placeLost_longtitude = "";
+        public static string found_doginfo_id = "";
+        public static string found_isRegistred = "Yes";
+
 
         //Dog Sellers
         public static string seller_id = "";
@@ -45,7 +55,7 @@ namespace doghavenCapstone.ClassHelper
         public static string doginfo_userid;
 
         public static int switcher = 0;
-
+        public static string lostAndFoundIdentifier = "";
         
     }
 }

@@ -1,13 +1,11 @@
 ﻿using Acr.UserDialogs;
 using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
-using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,14 +17,15 @@ using Xamarin.Forms.Xaml;
 namespace doghavenCapstone.OtherPageFunctions
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddLostDogPage : ContentPage
+    public partial class AddFoundDogPage : ContentPage
     {
         public static string setLocation_latitude = "", setLocation_longtitude = "";
         public static List<Label> lbl = new List<Label>();
         Stream dogImage = null;
         List<dogBreed> mylstOfBreeds = new List<dogBreed>();
         string url = "", dogInfo_ID = "";
-        public AddLostDogPage()
+
+        public AddFoundDogPage()
         {
             InitializeComponent();
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
@@ -34,21 +33,15 @@ namespace doghavenCapstone.OtherPageFunctions
             InitializeControls();
         }
 
-        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        private async void InitializeControls()
         {
-            AppHelpers.checkConnection(this, e);
-        }
-
-        public async void InitializeControls()
-        {
-            
             pickerDogGender.Items.Add("Male");
             pickerDogGender.Items.Add("Female");
             timeSetter.Time = DateTime.Now.TimeOfDay;
             dateSetter.Date = DateTime.Now.Date;
             dateSetter.MaximumDate = DateTime.Now.Date;
             var listOfBreeds = await App.client.GetTable<dogBreed>().ToListAsync();
-            foreach(var c in listOfBreeds)
+            foreach (var c in listOfBreeds)
             {
                 pckrBreed.Items.Add(c.breedName);
                 mylstOfBreeds.Add(c);
@@ -57,17 +50,16 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void btnOpenMaps_Clicked(object sender, EventArgs e)
         {
-            VariableStorage.lostAndFoundIdentifier = "Lost";
+            VariableStorage.lostAndFoundIdentifier = "Found";
             Navigation.PushAsync(new PinLostDogPage());
         }
 
         private void btnSave_Clicked(object sender, EventArgs e)
         {
-            /**/
             if (txtDogName.Text != "" || pckrBreed.SelectedIndex == -1 ||
                     pckrBreed.SelectedIndex == -1)
             {
-                if(setLocation_latitude == "" && setLocation_longtitude == "")
+                if (setLocation_latitude == "" && setLocation_longtitude == "")
                 {
                     DisplayAlert("Ops", "Please enter the location", "Okay");
                 }
@@ -76,15 +68,15 @@ namespace doghavenCapstone.OtherPageFunctions
                     UserDialogs.Instance.ShowLoading("Please wait while we save your dog info");
                     uploadDogInfo(dogImage);
                 }
-                
+
             }
             else
             {
-                DisplayAlert("Ops", "Please enter lost dog details", "Okay");
+                DisplayAlert("Ops", "Please enter found dog details", "Okay");
             }
         }
 
-        public async void uploadDogInfo(Stream stream)
+        private async void uploadDogInfo(Stream dogImage)
         {
             try
             {
@@ -100,7 +92,7 @@ namespace doghavenCapstone.OtherPageFunctions
                 var name = Guid.NewGuid().ToString();
                 var blockBlob = container.GetBlockBlobReference($"{name}.jpg");
 
-                await blockBlob.UploadFromStreamAsync(stream);
+                await blockBlob.UploadFromStreamAsync(dogImage);
                 url = blockBlob.Uri.OriginalString.ToString();
                 infoInitializer();
 
@@ -132,7 +124,88 @@ namespace doghavenCapstone.OtherPageFunctions
             }
         }
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        protected override void OnAppearing()
+        {
+            App.uploadFlag = 0;
+            base.OnAppearing();
+
+        }
+
+        private async void uploadDogData()
+        {
+            try
+            {
+                string formattedTime = timeSetter.Time.Hours.ToString() + ":" + timeSetter.Time.Minutes.ToString();
+                string fromattedDate = dateSetter.Date.ToString("MM/dd/yyyy");
+                string trylang = timeSetter.Time.ToString();
+                DateTime dt = DateTime.Parse(formattedTime);
+                string finalTime = dt.ToString("hh:mm tt");
+
+                var temp_id = mylstOfBreeds.FindIndex(breed => breed.breedName == pckrBreed.Items[pckrBreed.SelectedIndex]);
+
+                string breeed_id = mylstOfBreeds[temp_id].id, purposeid = "5421dsad3";
+                dogInfo_ID = Guid.NewGuid().ToString("N").Substring(0, 20);
+                App.uploadFlag = 0;
+                dogInfo dogInformation = new dogInfo()
+                {
+
+                    id = dogInfo_ID,
+                    dogName = txtDogName.Text,
+                    dogImage = url,
+                    dogGender = pickerDogGender.Items[pickerDogGender.SelectedIndex].ToString(),
+                    dogBreed_id = breeed_id,
+                    dogPurpose_id = purposeid,
+                    userid = App.user_id
+                };
+
+                await App.client.GetTable<dogInfo>().InsertAsync(dogInformation);
+                FoundDogs foundDogs = new FoundDogs()
+                {
+                    id = Guid.NewGuid().ToString("N").Substring(0, 20),
+                    userid = App.user_id,
+                    found_date = fromattedDate,
+                    found_time = finalTime,
+                    placeFound_latitude = setLocation_latitude,
+                    placeFound_longtitude = setLocation_longtitude,
+                    dogInfo_id = dogInfo_ID
+                };
+
+                await App.client.GetTable<FoundDogs>().InsertAsync(foundDogs);
+                App.uploadFlag = 0;
+                await DisplayAlert("Confirmation", "Dog succesfully saved!", "Okay");
+            }
+            catch (Microsoft.WindowsAzure.MobileServices.MobileServiceInvalidOperationException ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "Please provide all the fields", "Okay");
+                return;
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "Please provide all the fields", "Okay");
+                return;
+            }
+            catch (Exception ex)
+            {
+                txtDogName.Text = "";
+                imgDogImage = null;
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "An error has occured: " + ex.Message, "Okay");
+                return;
+            }
+            txtDogName.Text = "";
+            pckrBreed.SelectedIndex = -1;
+            pickerDogGender.SelectedIndex = -1;
+            UserDialogs.Instance.HideLoading();
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            AppHelpers.checkConnection(this, e);
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             try
             {
@@ -155,7 +228,7 @@ namespace doghavenCapstone.OtherPageFunctions
                     Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
                     return;
                 }
-
+                
                 imgDogImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
 
                 dogImage = selectedImageFile.GetStream();
@@ -164,88 +237,6 @@ namespace doghavenCapstone.OtherPageFunctions
             {
                 await DisplayAlert("Ops", "We need you permission to access your photos", "Okay");
             }
-        }
-
-        public async void uploadDogData()
-        {
-            try
-            {
-                string formattedTime = timeSetter.Time.Hours.ToString() + ":" + timeSetter.Time.Minutes.ToString();
-                string fromattedDate = dateSetter.Date.ToString("MM/dd/yyyy");
-                string trylang = timeSetter.Time.ToString();
-                DateTime dt = DateTime.Parse(formattedTime);
-                string finalTime = dt.ToString("hh:mm tt");
-
-                var temp_id = mylstOfBreeds.FindIndex(breed => breed.breedName == pckrBreed.Items[pckrBreed.SelectedIndex]);
-
-                string breeed_id = mylstOfBreeds[temp_id].id, purposeid = "5421dsad3";
-                dogInfo_ID = Guid.NewGuid().ToString("N").Substring(0, 20);
-                //lostDogID = Guid.NewGuid().ToString("N").Substring(0, 19);
-                App.uploadFlag = 0;
-                dogInfo dogInformation = new dogInfo()
-                {
-
-                    id = dogInfo_ID,
-                    dogName = txtDogName.Text,
-                    dogImage = url,
-                    dogGender = pickerDogGender.Items[pickerDogGender.SelectedIndex].ToString(),
-                    dogBreed_id = breeed_id,
-                    dogPurpose_id = purposeid,
-                    userid = App.user_id
-                };
-
-                await App.client.GetTable<dogInfo>().InsertAsync(dogInformation);
-                //await Navigation.PushAsync(new UploadDogPage());
-
-                //imgDogImage = null;
-                LostDogs lostdogs = new LostDogs()
-                {
-                    id = Guid.NewGuid().ToString("N").Substring(0, 20),
-                    userid = App.user_id,
-                    lastSeen_date = fromattedDate,
-                    lastSeen_time = finalTime,
-                    placeLost_latitude = setLocation_latitude,
-                    placeLost_longtitude = setLocation_longtitude,
-                    dogInfo_id = dogInfo_ID
-                };
-
-                await App.client.GetTable<LostDogs>().InsertAsync(lostdogs);
-                App.uploadFlag = 0;
-                await DisplayAlert("Confirmation", "Dog succesfully saved!", "Okay");
-            }
-            catch (Microsoft.WindowsAzure.MobileServices.MobileServiceInvalidOperationException ex)
-            {
-                UserDialogs.Instance.HideLoading();
-                await DisplayAlert("Ops", "Please provide all the fields", "Okay");
-                return;
-            }
-            catch(System.ArgumentOutOfRangeException)
-            {
-                UserDialogs.Instance.HideLoading();
-                await DisplayAlert("Ops", "Please provide all the fields", "Okay");
-                return;
-            }
-            catch (Exception ex)
-            {
-                txtDogName.Text = "";
-                imgDogImage = null;
-                //await Navigation.PushAsync(new UploadDogPage());
-                UserDialogs.Instance.HideLoading();
-                await DisplayAlert("Ops", "An error has occured: " + ex.Message, "Okay");
-                return;
-            }
-            //imgDogImage.Source = null;
-            txtDogName.Text = "";         
-            pckrBreed.SelectedIndex = -1;
-            pickerDogGender.SelectedIndex = -1;
-            UserDialogs.Instance.HideLoading();
-            //App.loadingMessage = "";
-        }
-        protected override void OnAppearing()
-        {
-            App.uploadFlag = 0;
-            base.OnAppearing();
-
         }
     }
 }

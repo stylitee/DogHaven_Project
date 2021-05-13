@@ -81,8 +81,18 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void lostMaps_PinDragEnd(System.Object sender, Xamarin.Forms.GoogleMaps.PinDragEventArgs e)
         {
-            AddLostDogPage.setLocation_latitude = e.Pin.Position.Latitude.ToString();
-            AddLostDogPage.setLocation_longtitude = e.Pin.Position.Longitude.ToString();
+            if(VariableStorage.lostAndFoundIdentifier == "Lost")
+            {
+                AddLostDogPage.setLocation_latitude = e.Pin.Position.Latitude.ToString();
+                AddLostDogPage.setLocation_longtitude = e.Pin.Position.Longitude.ToString();
+                AddLostDogPage.lbl[0].Text = "location is pinned succesfully";
+            }
+            else
+            {
+                AddFoundDogPage.setLocation_latitude = e.Pin.Position.Latitude.ToString();
+                AddFoundDogPage.setLocation_longtitude = e.Pin.Position.Longitude.ToString();
+                AddFoundDogPage.lbl[0].Text = "location is pinned succesfully";
+            } 
         }
     }
 }

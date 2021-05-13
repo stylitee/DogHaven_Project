@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="doghavenCapstone.OtherPageFunctions.AddLostDogPage"
+             x:Class="doghavenCapstone.OtherPageFunctions.AddFoundDogPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
@@ -17,67 +17,67 @@
                        HeightRequest="100"
                        WidthRequest="1000">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  NumberOfTapsRequired="1" />
                     </Image.GestureRecognizers>
                 </Image>
             </Frame>
-                
-                <Frame Padding="10"
+
+            <Frame Padding="10"
                        CornerRadius="20"
                        HasShadow="True"
                        Margin="20,20,20,0">
-                    <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Vertical">
 
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Dog name: "
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Dog name: "
                                FontSize="21"
                                VerticalOptions="Center"
                                HorizontalOptions="Start"/>
-                            <Entry x:Name="txtDogName"
+                        <Entry x:Name="txtDogName"
                                    TextColor="Black"
                                    WidthRequest="200"
                                    HorizontalOptions="EndAndExpand"/>
-                        </StackLayout>
+                    </StackLayout>
 
-                        <StackLayout Orientation="Horizontal"
+                    <StackLayout Orientation="Horizontal"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                            <Label Text="Dog Gender"
+                        <Label Text="Dog Gender"
                                FontSize="21"
                                VerticalOptions="Center"/>
-                            <Picker x:Name="pickerDogGender"
+                        <Picker x:Name="pickerDogGender"
                                 TextColor="Black"
                                 WidthRequest="200"/>
-                        </StackLayout>
+                    </StackLayout>
 
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Dog Breed"
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Dog Breed"
                                    FontSize="21"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start"/>
-                            <Picker x:Name="pckrBreed"
+                        <Picker x:Name="pckrBreed"
                                     HorizontalOptions="EndAndExpand"
                                 TextColor="Black"
                                 WidthRequest="200"/>
-                        </StackLayout>
+                    </StackLayout>
 
-                        <StackLayout Orientation="Horizontal"
+                    <StackLayout Orientation="Horizontal"
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center">
-                                <Label Text="Last Seen Date" 
+                        <Label Text="Found Date" 
                                        FontSize="21"
                                        VerticalOptions="Center"/>
-                                <DatePicker x:Name="dateSetter"
+                        <DatePicker x:Name="dateSetter"
                                             MinimumDate="01/01/2018"
                                             
                                             TextColor="Black"
                                             WidthRequest="200"/>
-                        </StackLayout>
+                    </StackLayout>
 
-                        <StackLayout Orientation="Horizontal"
+                    <StackLayout Orientation="Horizontal"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                            <Label Text="Last Seen Time"
+                        <Label Text="Found Time"
                                FontSize="21"
                                VerticalOptions="Center"/>
                         <TimePicker x:Name="timeSetter"
@@ -85,21 +85,21 @@
                                         
                                         WidthRequest="200"/>
                     </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Label x:Name="lblPinnedAddressed"
+                </StackLayout>
+            </Frame>
+            <Label x:Name="lblPinnedAddressed"
                        HorizontalOptions="Center"
                        TextColor="Red"/>
-                <Button Margin="20,0"
+            <Button Margin="20,0"
                         Text="Pin Place in Maps"
                         x:Name="btnOpenMaps"
                         Clicked="btnOpenMaps_Clicked"
                         CornerRadius="20" />
-                <Button Text="Save Input"
+            <Button Text="Save Input"
                         Margin="20,0"
                         Clicked="btnSave_Clicked"
                         x:Name="btnSave"
                         CornerRadius="20" />
-            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

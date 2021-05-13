@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("doghavenCapstone.OtherPageFunctions.AddLostDogPage.xaml", "OtherPageFunctions/AddLostDogPage.xaml", typeof(global::doghavenCapstone.OtherPageFunctions.AddLostDogPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("doghavenCapstone.OtherPageFunctions.AddFoundDogPage.xaml", "OtherPageFunctions/AddFoundDogPage.xaml", typeof(global::doghavenCapstone.OtherPageFunctions.AddFoundDogPage))]
 
 namespace doghavenCapstone.OtherPageFunctions {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("OtherPageFunctions\\AddLostDogPage.xaml")]
-    public partial class AddLostDogPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("OtherPageFunctions\\AddFoundDogPage.xaml")]
+    public partial class AddFoundDogPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Image imgDogImage;
@@ -45,7 +45,7 @@ namespace doghavenCapstone.OtherPageFunctions {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AddLostDogPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AddFoundDogPage));
             imgDogImage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Image>(this, "imgDogImage");
             txtDogName = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "txtDogName");
             pickerDogGender = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "pickerDogGender");

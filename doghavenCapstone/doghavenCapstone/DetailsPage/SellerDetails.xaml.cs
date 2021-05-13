@@ -97,12 +97,8 @@ namespace doghavenCapstone.DetailsPage
         public async void loadSelectedDog(string breedNames)
         {
             _dogPrices.Clear();
-            pckrBreedsOwned.Items.Clear();
-            dogPriceInformation.Clear();
-            doginformationList.Clear();
-            ListOfBreeds.Clear();
-
-            var dogInformation = await App.client.GetTable<DogPrice>().Where(x => x.seller_id == VariableStorage.sellersUser_id).ToListAsync();
+            var userInformation = await App.client.GetTable<dogSeller>().Where(x => x.userid == DogSellerPage.dogSellerID).ToListAsync();
+            var dogInformation = await App.client.GetTable<DogPrice>().Where(x => x.seller_id == userInformation[0].id).ToListAsync();
             foreach(var info in dogInformation)
             {
                 var doginfos = await App.client.GetTable<dogInfo>().Where(x => x.id == info.doginfo_id).ToListAsync();
@@ -210,8 +206,6 @@ namespace doghavenCapstone.DetailsPage
                     dogBreed = "Breed: " + breed_name
                 });
             }
-
-            dogPriceInformation.Clear();
 
         }
     }

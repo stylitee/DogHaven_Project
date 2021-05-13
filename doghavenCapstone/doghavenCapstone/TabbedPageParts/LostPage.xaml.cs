@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.Model;
+﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using System;
 using System.Collections.Generic;
@@ -108,6 +109,7 @@ namespace doghavenCapstone.TabbedPageParts
 
         private void btnSeeAllDogs_Clicked(object sender, EventArgs e)
         {
+            VariableStorage.lostAndFoundIdentifier = "Lost";
             Navigation.PushAsync(new AllLostDogsMap());
         }
     }
