@@ -32,8 +32,9 @@ namespace doghavenCapstone.Droid
             NotificationCenter.CreateNotificationChannel(new Plugin.LocalNotification.Platform.Droid.NotificationChannelRequest
             {
                 ShowBadge = true,
-                Importance = NotificationImportance.Max
-            });
+                Importance = NotificationImportance.Max,
+                Sound = Resource.Raw.'@short-barking'.ToString()
+            }); ;
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             string dbName = "dbDoghaven.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
