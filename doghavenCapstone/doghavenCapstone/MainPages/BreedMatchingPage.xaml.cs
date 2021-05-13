@@ -53,20 +53,23 @@ namespace doghavenCapstone.MainPages
             pckrMatchType.Items.Add("Pure Breed");
             pckrMatchType.SelectedIndex = 0;
             var myDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
-            if(myDogs.Count != 0)
+            if (myDogs.Count != 0)
             {
                 foreach (var dogs in myDogs)
                 {
-                    pckrDogList.Items.Add(dogs.dogName);
-                    pckrID.Add(dogs);
-                    _mydoglist.Add(dogs);
-                    var bred = await App.client.GetTable<dogBreed>().Where(x => x.id == dogs.dogBreed_id).ToListAsync();
-                    foreach (var c in bred)
+                    var purpose = await App.client.GetTable<dogPurpose>().Where(x => x.id == dogs.dogPurpose_id).ToListAsync();
+                    if(purpose[0].dogDesc == "Breeding")
                     {
-                        _breedNameList.Add(c.breedName);
-                        _breedIdList.Add(c.id);
+                        pckrDogList.Items.Add(dogs.dogName);
+                        pckrID.Add(dogs);
+                        _mydoglist.Add(dogs);
+                        var bred = await App.client.GetTable<dogBreed>().Where(x => x.id == dogs.dogBreed_id).ToListAsync();
+                        foreach (var c in bred)
+                        {
+                            _breedNameList.Add(c.breedName);
+                            _breedIdList.Add(c.id);
+                        }
                     }
-
                 }
             }
             else
@@ -111,8 +114,8 @@ namespace doghavenCapstone.MainPages
             if (likedTable.Count == 0 && dislikedTable.Count == 0)
             {
                 int flag = 0;
-                dogInfoTable = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id).ToListAsync();
-                foreach(var c in dogInfoTable)
+                dogInfoTable = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.dogPurpose_id == "dk2emn1ik").ToListAsync();
+                foreach (var c in dogInfoTable)
                 {
                     if(flag != dogInfoTable.Count())
                     {
@@ -175,7 +178,7 @@ namespace doghavenCapstone.MainPages
 
                 if(theLikedTable.Count() == 0 & thedisLikedTable.Count() == 0)
                 {
-                    var dogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id).ToListAsync();
+                    var dogs = await App.client.GetTable<dogInfo>().Where(x => x.userid != App.user_id && x.dogPurpose_id == "dk2emn1ik").ToListAsync();
                     foreach(var c in dogs)
                     {
                         dogDisplay.Add(c);

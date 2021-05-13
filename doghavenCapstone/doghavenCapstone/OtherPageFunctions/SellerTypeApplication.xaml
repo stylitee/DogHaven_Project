@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.SellerTypeApplication">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="CenterAndExpand">
+            <Label Text="Terms and Condition for Dog Commercial Sale"
+                   TextColor="Black"
+                   Margin="30,0"
+                   FontSize="17"/>
+            <Frame CornerRadius="20"
+                       IsClippedToBounds="True"
+                       HeightRequest="300"
+                       Margin="20,20,20,10">
+                <ScrollView>
+                    <StackLayout>
+                        <Label x:Name="txtTItle"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle1"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc1"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle2"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc2"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle3"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc3"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle4"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc4"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle5"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc5"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle6"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc6"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle7"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc7"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle8"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc8"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle9"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc9"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle10"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc10"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle11"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc11"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle12"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc12"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle13"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc13"
+                               TextColor="Black"/>
+
+                        <Label x:Name="txtTitle14"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                        <Label x:Name="txtDesc14"
+                               TextColor="Black"/>
+                    </StackLayout>
+
+                </ScrollView>
+            </Frame>
+
+            <Button Text="Accept and Proceed"
+                    Margin="20,0"/>
+            <Button Text="Cancel"
+                    Margin="20,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

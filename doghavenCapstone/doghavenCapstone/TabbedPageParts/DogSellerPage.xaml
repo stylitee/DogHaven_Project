@@ -7,7 +7,6 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="pickersType" SelectedIndexChanged="pickersType_SelectedIndexChanged"/>
             <ListView ItemsSource="{Binding dogSellers}"
                   BackgroundColor="Transparent"
                   HasUnevenRows="True">

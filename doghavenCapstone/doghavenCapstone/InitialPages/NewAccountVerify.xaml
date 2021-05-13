@@ -14,7 +14,7 @@
                        Margin="0,50,0,0">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Welcome to DogHaven, "/>
+                            <Span Text="Welcome, "/>
                             <Span x:Name="txtNameSpan" />
                         </FormattedString>
                     </Label.FormattedText>

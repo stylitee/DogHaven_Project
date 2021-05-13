@@ -43,12 +43,20 @@
                 </StackLayout>
                 
             </StackLayout>
-            <Label Text="Change password"
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Change password"
                    TextColor="Blue">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
-                </Label.GestureRecognizers>
-            </Label>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Apply for seller"
+                       TextColor="Red">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
             <Label Text="List of owned dogs: "
                    TextColor="Black"
                    Margin="20,10,0,0"/>
@@ -67,8 +75,9 @@
                                     </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="{Binding dogImage}"
-                                           WidthRequest="80"
-                                           Margin="0,0,10,0"/>
+                                               WidthRequest="80"
+                                               HeightRequest="80"
+                                               Margin="0,0,10,0"/>
                                         <StackLayout VerticalOptions="Center">
                                             <Label Text="{Binding dogBreed_id}"
                                                FontSize="15"

@@ -26,26 +26,21 @@ namespace doghavenCapstone.OtherPageFunctions
             AppHelpers.checkConnection(this, e);
         }
 
-        private void btnConfirm_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PopAsync();
         }
 
-        private async void updatePassword(Entry oldPassword, Entry newPassword, Entry confirmPassword)
+        private async void btnConfirm_Clicked_1(object sender, EventArgs e)
         {
             var userInformation = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
-            if(oldPassword.Text != userInformation[0].userPassword)
+            if (txtOldPassword.Text != userInformation[0].userPassword)
             {
                 await DisplayAlert("Ops", "Old password is incorrect", "okay");
             }
             else
             {
-                if(newPassword.Text != confirmPassword.Text)
+                if (txtNewPassword.Text != txtConfirmPassword.Text)
                 {
                     await DisplayAlert("Ops", "Your password doesnt match", "okay");
                 }
@@ -56,7 +51,7 @@ namespace doghavenCapstone.OtherPageFunctions
                         id = userInformation[0].id,
                         userImage = userInformation[0].userImage,
                         username = userInformation[0].username,
-                        userPassword = confirmPassword.Text,
+                        userPassword = txtConfirmPassword.Text,
                         fullName = userInformation[0].fullName,
                         address_id = userInformation[0].address_id,
                         user_role_id = userInformation[0].user_role_id

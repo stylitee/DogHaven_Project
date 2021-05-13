@@ -39,6 +39,7 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private async void LoadPickers()
         {
+			UserDialogs.Instance.ShowLoading("Please wait while loading");
 			roles.Clear();
 			pckrUserRole.Items.Clear();
 			int flag = 1;
@@ -69,9 +70,7 @@ namespace doghavenCapstone.OtherPageFunctions
 				var addressInfo = await App.client.GetTable<usersaddress>().Where(x => x.id == accountInfo[0].address_id).ToListAsync();
 				var userType = await App.client.GetTable<userRole>().Where(x => x.id == accountInfo[0].user_role_id).ToListAsync();
 				int index = roles.FindIndex(a => a.roleDescription == userType[0].roleDescription);
-
-
-				imgUsersImage.Source = accountInfo[0].userImage;
+				
 				defaultImage = accountInfo[0].userImage;
 				txtUser_name.Text = accountInfo[0].username;
 				txtFullname.Text = accountInfo[0].fullName;
@@ -82,7 +81,9 @@ namespace doghavenCapstone.OtherPageFunctions
 				txtCity.Text = addressInfo[0].city;
 				txtProvince.Text = addressInfo[0].province;
 				password = accountInfo[0].userPassword;
+				imgUsersImage.Source = accountInfo[0].userImage;
 			}
+			UserDialogs.Instance.HideLoading();
 		}
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -131,13 +132,14 @@ namespace doghavenCapstone.OtherPageFunctions
 			}
 			else
 			{
+				UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
 				if (dog_image != null)
 				{
 					uploadUserImage(dog_image);
 				}
 				else
 				{
-					UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
+					
 					saveInformation();
 				}
 			}
@@ -179,6 +181,7 @@ namespace doghavenCapstone.OtherPageFunctions
 			{
 				saveInformation();
 			}
+			UserDialogs.Instance.HideLoading();
 		}
 
         private async void saveInformation()

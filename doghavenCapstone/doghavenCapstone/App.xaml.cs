@@ -39,7 +39,7 @@ namespace doghavenCapstone
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new InternetChecker();
+            //MainPage = new SellerTypeApplication();
             DatabaseLocation = databaseLocation;
         }
 

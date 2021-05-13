@@ -1,6 +1,7 @@
 ﻿using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
 using doghavenCapstone.PreventerPage;
+using doghavenCapstone.TabbedPageParts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,7 +47,7 @@ namespace doghavenCapstone.DetailsPage
             dogPriceInformation.Clear();
             doginformationList.Clear();
             ListOfBreeds.Clear();
-            var sellerInfo = await App.client.GetTable<dogSeller>().Where(x => x.userid == VariableStorage.sellersUser_id).ToListAsync();
+            var sellerInfo = await App.client.GetTable<dogSeller>().Where(x => x.userid == DogSellerPage.dogSellerID).ToListAsync();
             foreach (var info in sellerInfo)
             {
                 sellerInformations.Add(info);
