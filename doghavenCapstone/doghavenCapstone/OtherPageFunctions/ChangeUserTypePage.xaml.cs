@@ -17,6 +17,7 @@ namespace doghavenCapstone.OtherPageFunctions
     public partial class ChangeUserTypePage : ContentPage
     {
         public List<userRole> lstOfId = new List<userRole>();
+        string currentUser = "";
         public ChangeUserTypePage()
         {
             InitializeComponent();
@@ -31,49 +32,63 @@ namespace doghavenCapstone.OtherPageFunctions
         public async void loadList()
         {
             var userTypes = await App.client.GetTable<userRole>().ToListAsync();
-            foreach(var c in userTypes)
+            var account_details = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
+            foreach (var c in userTypes)
             {
                 if(c.roleDescription != "Institution")
                 {
-                    lstOfId.Add(c);
-                    pckrUserType.Items.Add(c.roleDescription);
+                    if(c.id != account_details[0].user_role_id)
+                    {
+                        lstOfId.Add(c);
+                        pckrUserType.Items.Add(c.roleDescription);
+                    }
+                    else
+                    {
+                        currentUser = "Current User Type: " + c.roleDescription;
+                    }
                 }
             }
+            lblUserType.Text = currentUser;
         }
 
         private void btnConfirm_Clicked(object sender, EventArgs e)
         {
             updateProcess();
-
-            //show a message that the updating is succesful
-            Application.Current.MainPage = new NavigationPage( new NewAccountVerify());
-            Navigation.PushAsync(new NewAccountVerify());
         }
 
         public async void updateProcess()
         {
-            var account_details = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
-            var result = lstOfId.FindIndex(role => role.roleDescription ==
-                                                          pckrUserType.Items[pckrUserType.SelectedIndex]);
-            var userrole_id = lstOfId[result].id;
-            string userType = pckrUserType.SelectedItem.ToString();
-            foreach(var g in account_details)
+            if(pckrUserType.SelectedIndex != -1)
             {
-                accountusers user = new accountusers()
+                var account_details = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
+                var result = lstOfId.FindIndex(role => role.roleDescription ==
+                                                              pckrUserType.Items[pckrUserType.SelectedIndex]);
+                var userrole_id = lstOfId[result].id;
+                string userType = pckrUserType.SelectedItem.ToString();
+                foreach (var g in account_details)
                 {
-                    id = App.user_id,
-                    username = g.username,
-                    userImage = g.userImage,
-                    userPassword = g.userPassword,
-                    fullName = g.fullName,
-                    address_id = g.address_id,
-                    user_role_id = userrole_id
-                };
+                    accountusers user = new accountusers()
+                    {
+                        id = App.user_id,
+                        username = g.username,
+                        userImage = g.userImage,
+                        userPassword = g.userPassword,
+                        fullName = g.fullName,
+                        address_id = g.address_id,
+                        user_role_id = userrole_id
+                    };
 
-                accountusers.Update(user);
+                    accountusers.Update(user);
+                }
+
+                lstOfId.Clear();
+                Application.Current.MainPage = new NavigationPage(new NewAccountVerify());
+            }
+            else
+            {
+                await DisplayAlert("Ops","Please select a usertype first","Okay");
             }
             
-            lstOfId.Clear();
         }
 
         private void btnCancel_Clicked(object sender, EventArgs e)

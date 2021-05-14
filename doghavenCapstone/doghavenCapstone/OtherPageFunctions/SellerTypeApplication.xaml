@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="doghavenCapstone.OtherPageFunctions.SellerTypeApplication">
+             x:Class="doghavenCapstone.OtherPageFunctions.SellerTypeApplication"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" 
                      HorizontalOptions="CenterAndExpand">
@@ -108,9 +109,13 @@
             </Frame>
 
             <Button Text="Accept and Proceed"
-                    Margin="20,0"/>
+                    Margin="20,0"
+                    x:Name="btnProceed"
+                    Clicked="btnProceed_Clicked"/>
             <Button Text="Cancel"
-                    Margin="20,0"/>
+                    Margin="20,0"
+                    x:Name="btnCancel"
+                    Clicked="btnCancel_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

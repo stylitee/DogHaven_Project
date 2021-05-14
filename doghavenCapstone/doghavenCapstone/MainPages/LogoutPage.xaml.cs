@@ -28,7 +28,7 @@ namespace doghavenCapstone.MainPages
 
         private void btnConfirm_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new LoginPage();
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
 
         private void btnCancel_Clicked(object sender, EventArgs e)

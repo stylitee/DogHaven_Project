@@ -36,9 +36,7 @@ namespace doghavenCapstone.ClassHelper
                             Title = "Match Notification!",
                             NotificationId = 1255,
                             ReturningData = "Youve been match recently go check it out!",
-                            NotifyTime = DateTime.Now.AddSeconds(1),
-                            Sound = 
-
+                            NotifyTime = DateTime.Now.AddSeconds(1)
                         };
 
                         NotificationCenter.Current.Show(notification);

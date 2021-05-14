@@ -68,6 +68,11 @@ namespace doghavenCapstone.InitialPages
             {
                 Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
             }
+            else if(filter[0].roleDescription == "Seller")
+            {
+                App.flagForSellerApplication = "ChangeUserType";
+                await Navigation.PushAsync(new SellerTypeApplication());
+            }
             else
             {
                 await Navigation.PushAsync(new UploadDogPage());

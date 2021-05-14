@@ -1,4 +1,6 @@
-﻿using System;
+﻿using doghavenCapstone.DetailsPage;
+using doghavenCapstone.InitialPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -164,6 +166,16 @@ namespace doghavenCapstone.OtherPageFunctions
                 " of such Offer, Confirmation or Agreement, and (2) on any existing Agreement thirty (30) days from notific" +
                 "ation of such amendments or modifications by Seller to Buyer, unless Buyer has notified Seller within such t" +
                 "hirty (30) days period that it objects thereto.";
+        }
+
+        private void btnCancel_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
+
+        private void btnProceed_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SellerInformation());
         }
     }
 }

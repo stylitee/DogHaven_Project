@@ -15,6 +15,10 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
+            <Label x:Name="lblUserType"
+                   Margin="20,0"
+                   TextColor="Black"
+                   Text=""/>
             <Frame CornerRadius="20"
                    Margin="20,0">
                 <StackLayout>

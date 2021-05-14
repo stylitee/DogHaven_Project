@@ -43,13 +43,20 @@ namespace doghavenCapstone.OtherPageFunctions
 			roles.Clear();
 			pckrUserRole.Items.Clear();
 			int flag = 1;
+			var accountinfo = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
 			var userType = await App.client.GetTable<userRole>().Where(x => x.id != "").ToListAsync();
 			foreach(var c in userType)
             {
 				if(c.roleDescription != "Institution")
                 {
-					roles.Add(c);
-					pckrUserRole.Items.Add(c.roleDescription);
+					if(c.id != "2dskandlkdklsa")
+                    {
+						if (accountinfo[0].user_role_id != c.id)
+						{
+							roles.Add(c);
+							pckrUserRole.Items.Add(c.roleDescription);
+						}
+					}
 				}
 				if(userType.Count != flag)
                 {

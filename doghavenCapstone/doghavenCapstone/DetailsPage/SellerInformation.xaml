@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.DetailsPage.SellerInformation"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Submit Supporting Documents"
+                   TextColor="Black"
+                   Margin="0,20,0,40"/>
+            <Label Text="Please upload a Valid ID: "
+                   TextColor="Black"/>
+            
+            <Frame CornerRadius="12"
+                   HeightRequest="100">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Image x:Name="imgValidID" />
+            </Frame>
+            
+            
+            <Label Text="Please upload either PCCI Identification or Certificate of Registration of Kennel Name"
+                   TextColor="Black"/>
+            <Frame CornerRadius="12"
+                   HeightRequest="100">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Image x:Name="imgPCCIImage" />
+            </Frame>
+            
+            <Button x:Name="btnSubmit"
+                    Clicked="btnSubmit_Clicked"
+                    Text="SUBMIT DOCUMENTS"/>
+            <Button x:Name="btnCancel"
+                    Text="Cancel"
+                    Clicked="btnCancel_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
