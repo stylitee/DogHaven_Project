@@ -79,7 +79,6 @@ C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.pdb
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\DetailsPage\dogForSaleDetails.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\DogUpdateInfo.xaml.g.cs
-C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.csprojAssemblyReference.cache
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\UpdateAccount.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\ChangePassword.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\PreventerPage\InternetChecker.xaml.g.cs

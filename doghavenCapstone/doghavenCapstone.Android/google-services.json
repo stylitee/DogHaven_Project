@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "553254501063",
-    "project_id": "doghaven-b0a98",
-    "storage_bucket": "doghaven-b0a98.appspot.com"
+    "project_number": "1098529335727",
+    "project_id": "doghavencapstone",
+    "storage_bucket": "doghavencapstone.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:553254501063:android:c709b77230d590d205dce2",
+        "mobilesdk_app_id": "1:1098529335727:android:bdb0897ea0ace274a4a75a",
         "android_client_info": {
           "package_name": "com.doghaveninc.doghavencapstone"
         }
       },
       "oauth_client": [
         {
-          "client_id": "553254501063-51h1jcir6hi65lg5a2l4tumt3j0bqofa.apps.googleusercontent.com",
+          "client_id": "1098529335727-5lcqebud0bj8apfidsqnr3r03k9ll4f4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAXjQ1NUS-ilV6rMEwIuB4zs5WNiBNOZC4"
+          "current_key": "AIzaSyAQCPrDoVB3nIAeWccNtTezgN6AOeZnP8E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "553254501063-51h1jcir6hi65lg5a2l4tumt3j0bqofa.apps.googleusercontent.com",
+              "client_id": "1098529335727-5lcqebud0bj8apfidsqnr3r03k9ll4f4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,8 +1,10 @@
 ﻿using Acr.UserDialogs;
 using doghavenCapstone.ClassHelper;
+using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,7 @@ namespace doghavenCapstone.InitialPages
     {
         bool usercharacterChecker = false;
         bool passcharacterChecker = false;
+        string _id = "", _fullName = "", _username = "", _password = "";
         public LoginPage()
         {
             InitializeComponent();
@@ -101,6 +104,11 @@ namespace doghavenCapstone.InitialPages
                             App.user_id = c.id;
                             usernames = c.username;
                             password = c.userPassword;
+
+                            _id = c.id;
+                            _fullName = c.fullName;
+                            _username = c.username;
+                            _password = c.userPassword;
                         }
 
                         if (user != null)
@@ -108,6 +116,20 @@ namespace doghavenCapstone.InitialPages
                             if (password == txtUser_password.Text)
                             {
                                 UserDialogs.Instance.ShowLoading("Please wait while we prepare everything for you");
+                                accountsLoggedIn account = new accountsLoggedIn()
+                                {
+                                    userid = _id,
+                                    fullName = _fullName,
+                                    username = _username,
+                                    userPassword = _password,
+                                    isLoggedIn = "Yes"
+                                };
+
+                                SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation);
+                                conn.CreateTable<accountsLoggedIn>();
+                                conn.Insert(account);
+                                conn.Close();
+
                                 var newAccountChecker = await App.client.GetTable<dogInfo>().ToListAsync();
                                 var dogchecker = await App.client.GetTable<dogInfo>().ToListAsync();
                                 var userDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "noMIs93+lgpzcLD8iP3iFm9+Hwf+GA0xYSEpPIlcZQJTFR0Tcd5Y6Tm5Qj7o3JTLCfvyzZJJzdJdUH5cQfWW5A==",
+  "dgSpecHash": "KJQY5ODPhAeAL8PjmmPCS1tdnOq5o5q5Kum+piMjt0NxGblrhAVSd0CvqpsE4mhpYXV8CUJC8xRNqdIgFcjalw==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
   "expectedPackageFiles": [
@@ -114,6 +114,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.vector.drawable\\28.0.0.3\\xamarin.android.support.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.android.volley\\1.1.1.1\\xamarin.android.volley.1.1.1.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.8\\xamarin.androidx.annotation.1.1.0.8.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation.experimental\\1.0.0.8\\xamarin.androidx.annotation.experimental.1.0.0.8.nupkg.sha512",
@@ -164,6 +165,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager\\1.0.0.6\\xamarin.androidx.viewpager.1.0.0.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager2\\1.0.0.8\\xamarin.androidx.viewpager2.1.0.0.8.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.androidx.work.runtime\\2.4.0.1\\xamarin.androidx.work.runtime.2.4.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.azure.notificationhubs.android\\1.1.4.1\\xamarin.azure.notificationhubs.android.1.1.4.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.build.download\\0.10.0\\xamarin.build.download.0.10.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
@@ -171,14 +173,43 @@
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg\\2.4.11.982\\xamarin.ffimageloading.svg.2.4.11.982.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading.svg.forms\\2.4.11.982\\xamarin.ffimageloading.svg.forms.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.annotations\\116.0.0\\xamarin.firebase.annotations.116.0.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.common\\119.5.0\\xamarin.firebase.common.119.5.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.components\\116.1.0\\xamarin.firebase.components.116.1.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.datatransport\\117.0.10\\xamarin.firebase.datatransport.117.0.10.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.encoders\\116.1.0\\xamarin.firebase.encoders.116.1.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.encoders.json\\117.1.0\\xamarin.firebase.encoders.json.117.1.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.iid\\121.0.1\\xamarin.firebase.iid.121.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.iid.interop\\117.0.0\\xamarin.firebase.iid.interop.117.0.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.installations\\116.3.5\\xamarin.firebase.installations.116.3.5.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.installations.interop\\116.0.1\\xamarin.firebase.installations.interop.116.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.measurement.connector\\118.0.1\\xamarin.firebase.measurement.connector.118.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.firebase.messaging\\121.0.1\\xamarin.firebase.messaging.121.0.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.forms.googlemaps\\4.0.0-beta1\\xamarin.forms.googlemaps.4.0.0-beta1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.google.android.datatransport.transportapi\\2.2.1\\xamarin.google.android.datatransport.transportapi.2.2.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.google.android.datatransport.transportbackendcct\\2.3.3\\xamarin.google.android.datatransport.transportbackendcct.2.3.3.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.google.android.datatransport.transportruntime\\2.2.5\\xamarin.google.android.datatransport.transportruntime.2.2.5.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.2.1.1\\xamarin.google.android.material.1.2.1.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.google.dagger\\2.13.0\\xamarin.google.dagger.2.13.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
-    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.base\\117.1.0\\xamarin.googleplayservices.base.117.1.0.nupkg.sha512",
-    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.basement\\117.1.0\\xamarin.googleplayservices.basement.117.1.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.base\\117.6.0\\xamarin.googleplayservices.base.117.6.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.basement\\117.6.0\\xamarin.googleplayservices.basement.117.6.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.cloudmessaging\\116.0.0\\xamarin.googleplayservices.cloudmessaging.116.0.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.maps\\117.0.0\\xamarin.googleplayservices.maps.117.0.0.nupkg.sha512",
-    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.tasks\\117.0.0\\xamarin.googleplayservices.tasks.117.0.0.nupkg.sha512"
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.stats\\117.0.0\\xamarin.googleplayservices.stats.117.0.0.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xamarin.googleplayservices.tasks\\117.2.1\\xamarin.googleplayservices.tasks.117.2.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Xamarin.Firebase.Messaging 121.0.1 depends on Xamarin.Google.Android.DataTransport.TransportRuntime (>= 2.2.4) but Xamarin.Google.Android.DataTransport.TransportRuntime 2.2.4 was not found. An approximate best match of Xamarin.Google.Android.DataTransport.TransportRuntime 2.2.5 was resolved.",
+      "libraryId": "Xamarin.Google.Android.DataTransport.TransportRuntime",
+      "targetGraphs": [
+        "MonoAndroid,Version=v11.0"
+      ]
+    }
+  ]
 }

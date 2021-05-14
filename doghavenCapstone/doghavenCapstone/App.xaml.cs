@@ -1,9 +1,12 @@
 ﻿using doghavenCapstone.DetailsPage;
 using doghavenCapstone.InitialPages;
+using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.MainPages;
+using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
 using Microsoft.WindowsAzure.MobileServices;
+using SQLite;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -38,9 +41,19 @@ namespace doghavenCapstone
         public App(string databaseLocation)
         {
             InitializeComponent();
+            try
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
+            catch(SQLite.SQLiteException)
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
+            catch (Exception)
+            {
 
-            //MainPage = new NavigationPage(new LoginPage());
-            MainPage = new ChooseDogsForSale();
+                throw;
+            }  
             DatabaseLocation = databaseLocation;
         }
 

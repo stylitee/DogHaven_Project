@@ -11,15 +11,18 @@ namespace doghavenCapstone.Model
     public class accountusers
     {
         [JsonProperty(PropertyName = "id")]
-        [PrimaryKey,AutoIncrement]
+        [PrimaryKey, MaxLength(250)]
         public string id { get; set; }
         [JsonProperty(PropertyName = "userImage")]
         public string userImage { get; set; }
         [JsonProperty(PropertyName = "username")]
+        [MaxLength(250)]
         public string username { get; set; }
         [JsonProperty(PropertyName = "userPassword")]
+        [MaxLength(250)]
         public string userPassword { get; set; }
         [JsonProperty(PropertyName = "fullName")]
+        [MaxLength(250)]
         public string fullName { get; set; }
         [JsonProperty(PropertyName = "address_id")]
         public string address_id { get; set; }
