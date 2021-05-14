@@ -18,6 +18,7 @@
                            Padding="0"
                            IsClippedToBounds="True">
                         <Image x:Name="imgUser"
+                               Aspect="AspectFill"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                     </Frame>
@@ -51,12 +52,22 @@
                     </Label.GestureRecognizers>
                 </Label>
                 <Label Text="Apply for seller"
-                       TextColor="Red">
+                       TextColor="Red"
+                       x:Name="lblApplyForSeller">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"/>
                     </Label.GestureRecognizers>
                 </Label>
+
+                <Label Text="Sell My Dogs"
+                       TextColor="Red"
+                       x:Name="lblSellMyDog">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"  NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
+            
             <Label Text="List of owned dogs: "
                    TextColor="Black"
                    Margin="20,10,0,0"/>

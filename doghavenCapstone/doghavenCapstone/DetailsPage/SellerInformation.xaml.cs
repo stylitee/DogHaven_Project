@@ -216,7 +216,8 @@ namespace doghavenCapstone.DetailsPage
                         user_id = App.user_id,
                         valid_id = document_one,
                         licence_id = document_two,
-                        admin_response = "PENDING"
+                        admin_response = "PENDING",
+                        notified = "No"
                     };
 
                     await App.client.GetTable<SellerAdminRequest>().InsertAsync(sell);

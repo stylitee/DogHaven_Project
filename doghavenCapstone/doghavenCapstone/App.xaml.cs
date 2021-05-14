@@ -39,8 +39,8 @@ namespace doghavenCapstone
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new SellerTypeApplication();
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = new ChooseDogsForSale();
             DatabaseLocation = databaseLocation;
         }
 

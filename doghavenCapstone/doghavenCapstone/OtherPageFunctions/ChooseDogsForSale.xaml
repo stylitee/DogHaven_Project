@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.ChooseDogsForSale">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Margin="20,30"
+                   FontSize="20"
+                   TextColor="Black"
+                   Text="Sell Your Dogs: "/>
+            <Label Text="Choose your dog: "
+                   Margin="20,0"
+                   TextColor="Black"/>
+            <Picker x:Name="pckrDogs"
+                    Margin="20,0"
+                    TextColor="Black"/>
+            <Label Text="age (in weeks)"
+                   Margin="20,0"
+                   TextColor="Black"/>
+            <Entry Placeholder="e.g. 12"
+                   Margin="20,0"
+                   x:Name="txtAge"
+                   TextColor="Black"/>
+            <Label Text="Price"
+                   Margin="20,0"
+                   TextColor="Black"/>
+            <Entry Placeholder="e.g. 12,000 or 15,500"
+                   Margin="20,0"
+                   x:Name="txtPrice"
+                   TextColor="Black"/>
+            <Label Text="With Complete Papers"
+                   Margin="20,0"
+                   TextColor="Black"/>
+            <Picker x:Name="pckrCompletePapers"
+                    Margin="20,0"
+                    TextColor="Black"/>
+            <Label Text="With Complete Vaccines"
+                   Margin="20,0"
+                   TextColor="Black"/>
+            <Picker x:Name="pckrCompleteVaccines"
+                    Margin="20,0"
+                    TextColor="Black"/>
+            <Button TextColor="Black"
+                    Margin="20,0"
+                    x:Name="btnConfirm"
+                    Clicked="btnConfirm_Clicked"
+                    Text="Confirm"/>
+            <Button TextColor="Black"
+                    Margin="20,0"
+                    Clicked="btnCancel_Clicked"
+                    x:Name="btnCancel"
+                    Text="Cancel"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

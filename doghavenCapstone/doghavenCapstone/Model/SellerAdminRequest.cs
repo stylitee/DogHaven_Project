@@ -17,5 +17,7 @@ namespace doghavenCapstone.Model
         public string licence_id { get; set; }
         [JsonProperty(PropertyName = "admin_response")]
         public string admin_response{ get; set; }
+        [JsonProperty(PropertyName = "notified")]
+        public string notified { get; set; }
     }
 }

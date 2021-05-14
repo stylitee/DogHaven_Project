@@ -29,6 +29,22 @@ namespace doghavenCapstone.MainPages
             App.doginfo_flag = 1;
         }
 
+        private async void setForSale()
+        {
+            var checker = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id).ToListAsync();
+            var sellerChecker = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id && x.admin_response == "ACCEPTED").ToListAsync();
+            if(checker.Count == 0 || sellerChecker.Count == 0)
+            {
+                lblApplyForSeller.IsVisible = true;
+                lblSellMyDog.IsVisible = false;
+            }
+            else if(sellerChecker.Count != 0)
+            {
+                lblSellMyDog.IsVisible = true;
+                lblApplyForSeller.IsVisible = false;
+            }
+        }
+
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
             AppHelpers.checkConnection(this, e);
@@ -49,6 +65,7 @@ namespace doghavenCapstone.MainPages
             loadAccountInfo();
             App.uploadFlag = 1;
             App.doginfo_flag = 0;
+            setForSale();
             base.OnAppearing();
         }
 
@@ -58,18 +75,26 @@ namespace doghavenCapstone.MainPages
             var addressInfo = await App.client.GetTable<usersaddress>().Where(x => x.id == userInfo[0].address_id).ToListAsync();
             var usertypeInfo = await App.client.GetTable<userRole>().Where(x => x.id == userInfo[0].user_role_id).ToListAsync();
             var dogInformation = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
-            var requestChecker = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id).ToListAsync();
+            var requestChecker = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id && x.admin_response == "ACCEPTED").ToListAsync();
             imgUser.Source = userInfo[0].userImage;
             lblName.Text = "Name: " + userInfo[0].fullName;
             lblAddress.Text = "Address: " + addressInfo[0].streetname + ", " + addressInfo[0].barangay;
-            if(requestChecker.Count == 0)
+            if(userInfo[0].user_role_id == "2dskandlkdklsa")
             {
-                lblUserType.Text = usertypeInfo[0].roleDescription;
+                if (requestChecker.Count != 0)
+                {
+                    lblUserType.Text = usertypeInfo[0].roleDescription;
+                }
+                else
+                {
+                    lblUserType.Text = usertypeInfo[0].roleDescription + " (Pending)";
+                }
             }
             else
             {
-                lblUserType.Text = usertypeInfo[0].roleDescription + " (Pending)";
+                lblUserType.Text = usertypeInfo[0].roleDescription;
             }
+            
             lblDogsOwn.Text = "No. of dogs owned: " + dogInformation.Count.ToString();
             _Doglist.Clear();
             foreach (var info in dogInformation)
@@ -109,6 +134,11 @@ namespace doghavenCapstone.MainPages
         {
             App.flagForSellerApplication = "ProfileSeller";
             Navigation.PushAsync(new SellerTypeApplication());
+        }
+
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        {
+
         }
     }
 }
