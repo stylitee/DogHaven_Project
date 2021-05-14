@@ -160,6 +160,15 @@ namespace doghavenCapstone.InitialPages
                         }
                     }
                 }
+                catch(Microsoft.WindowsAzure.MobileServices.MobileServiceInvalidOperationException)
+                {
+                    await DisplayAlert("Sorry", "Something went wrong with the server, please try again in a few moments", "Okay");
+                }
+                catch(System.Net.Http.HttpRequestException)
+                {
+                    UserDialogs.Instance.HideLoading();
+                    await Navigation.PushAsync(new InternetChecker());
+                }
                 catch (Exception fs)
                 {
                     await DisplayAlert("Warning", "Something went wrong:" + fs.Message, "Okay");

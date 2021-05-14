@@ -62,7 +62,7 @@ namespace doghavenCapstone.MainPages
             imgUser.Source = userInfo[0].userImage;
             lblName.Text = "Name: " + userInfo[0].fullName;
             lblAddress.Text = "Address: " + addressInfo[0].streetname + ", " + addressInfo[0].barangay;
-            if(requestChecker.Count != 0)
+            if(requestChecker.Count == 0)
             {
                 lblUserType.Text = usertypeInfo[0].roleDescription;
             }
@@ -70,7 +70,6 @@ namespace doghavenCapstone.MainPages
             {
                 lblUserType.Text = usertypeInfo[0].roleDescription + " (Pending)";
             }
-            lblUserType.Text = usertypeInfo[0].roleDescription;
             lblDogsOwn.Text = "No. of dogs owned: " + dogInformation.Count.ToString();
             _Doglist.Clear();
             foreach (var info in dogInformation)

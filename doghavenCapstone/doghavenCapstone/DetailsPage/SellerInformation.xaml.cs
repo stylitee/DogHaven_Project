@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using doghavenCapstone.InitialPages;
+using doghavenCapstone.MainPages;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using Microsoft.WindowsAzure.Storage;
@@ -22,6 +23,7 @@ namespace doghavenCapstone.DetailsPage
     {
         string document_one = "", document_two = "";
         Stream document_ones = null, document_twos = null;
+        int flag = 0;
         public SellerInformation()
         {
             InitializeComponent();
@@ -33,14 +35,14 @@ namespace doghavenCapstone.DetailsPage
         {
             if(document_ones != null && document_twos != null)
             {
-                uploadDocuments(document_ones, document_one);
-                uploadDocuments(document_twos, document_two);
-                uploadData();
+                UserDialogs.Instance.ShowLoading("Documents are being uploaded, please wait!");
+                uploadDocumentsOne(document_ones);       
             }
             else
             {
                 DisplayAlert("Ops", "Please upload your documents", "Okay");
             }
+
         }
 
         private void btnCancel_Clicked(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace doghavenCapstone.DetailsPage
             
         }
 
-        private async void uploadDocuments(Stream dogImage, string documentnumber)
+        private async void uploadDocumentsOne(Stream documents)
         {
             try
             {
@@ -72,9 +74,52 @@ namespace doghavenCapstone.DetailsPage
                 var name = Guid.NewGuid().ToString();
                 var blockBlob = container.GetBlockBlobReference($"{name}.jpg");
 
-                await blockBlob.UploadFromStreamAsync(dogImage);
-                documentnumber = blockBlob.Uri.OriginalString.ToString();
+                await blockBlob.UploadFromStreamAsync(documents);
+                document_one = blockBlob.Uri.OriginalString.ToString();
+                if (document_one != "")
+                {
+                    uploadDocumentsTwo(document_twos);
+                }
+                
+            }
+            catch (System.ArgumentNullException ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Ops", "Please select a dog image ", "Okay");
+                return;
+            }
+            catch (Exception)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Warning", "Something went wrong with uploading the image: ", "Okay");
+                return;
+            }
+        }
 
+
+        private async void uploadDocumentsTwo(Stream documents)
+        {
+            try
+            {
+                var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=doghaven2storage;" +
+                                                    "AccountKey=Arp3X8RJ/LG4FMED/DqRMkWJn5Ba0IUhEdTJak6z5yOHcIsx+" +
+                                                    "97bgwfjuQNBLgmpt+0J0mjK8rcCGeeMJ/FT0Q==;EndpointSuffix=core.w" +
+                                                    "indows.net");
+                var client = account.CreateCloudBlobClient();
+                var container = client.GetContainerReference("dogsellerapplicationrequest");
+
+                await container.CreateIfNotExistsAsync();
+
+                var name = Guid.NewGuid().ToString();
+                var blockBlob = container.GetBlockBlobReference($"{name}.jpg");
+
+                await blockBlob.UploadFromStreamAsync(documents);
+                document_two = blockBlob.Uri.OriginalString.ToString();
+                if(document_two != "")
+                {
+                    uploadData();
+                }
+                
             }
             catch (System.ArgumentNullException ex)
             {
@@ -148,7 +193,7 @@ namespace doghavenCapstone.DetailsPage
                     return;
                 }
 
-                imgValidID.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
+                imgPCCIImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
 
                 document_twos = selectedImageFile.GetStream();
             }
@@ -163,20 +208,40 @@ namespace doghavenCapstone.DetailsPage
         {
             try
             {
-                SellerAdminRequest sell = new SellerAdminRequest()
+                if(document_one != "" || document_two != "")
                 {
-                    id = Guid.NewGuid().ToString("N").Substring(0, 16),
-                    user_id = App.user_id,
-                    valid_id = document_one,
-                    licence_id = document_two
-                };
+                    SellerAdminRequest sell = new SellerAdminRequest()
+                    {
+                        id = Guid.NewGuid().ToString("N").Substring(0, 16),
+                        user_id = App.user_id,
+                        valid_id = document_one,
+                        licence_id = document_two,
+                        admin_response = "PENDING"
+                    };
 
-                await App.client.GetTable<SellerAdminRequest>().InsertAsync(sell);
+                    await App.client.GetTable<SellerAdminRequest>().InsertAsync(sell);
+                    await DisplayAlert("Confirmation", "Appication succesfully submitted. Please wait 2-3 days to review your application", "Okay");
+
+                    if (App.flagForSellerApplication == "ChangeUserType")
+                    {
+                        await Navigation.PushAsync(new UploadDogPage());
+                    }
+                    else
+                    {
+                        Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Ops","Something went wrong in uploading the pages","Okay");
+                }
+
             }
             catch (Exception e)
             {
                 await DisplayAlert("Error", "SellerAdminRequest Error" + e.Message, "Okay");
             }
+            UserDialogs.Instance.HideLoading();
         }
     }
 }

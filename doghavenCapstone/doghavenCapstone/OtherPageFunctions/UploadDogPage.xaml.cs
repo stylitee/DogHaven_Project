@@ -216,13 +216,12 @@ namespace doghavenCapstone.OtherPageFunctions
         {
             if(btnBack.Text == "Back")
             {
-                Application.Current.MainPage = new HomeFlyOut();
+                Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
                 Navigation.PopToRootAsync();
             }
             else
             {
-                Application.Current.MainPage = new HomeFlyOut();
-                Navigation.PushAsync(new HomeFlyOut());
+                Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
             }
         }
 
