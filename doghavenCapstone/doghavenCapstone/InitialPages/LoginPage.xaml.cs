@@ -21,6 +21,7 @@ namespace doghavenCapstone.InitialPages
     {
         bool usercharacterChecker = false;
         bool passcharacterChecker = false;
+        public static string user_Image = "", user_fullName = "";
         string _id = "", _fullName = "", _username = "", _password = "";
         public LoginPage()
         {
@@ -109,6 +110,8 @@ namespace doghavenCapstone.InitialPages
                             _fullName = c.fullName;
                             _username = c.username;
                             _password = c.userPassword;
+                            user_Image = c.userImage;
+                            user_fullName = c.fullName;
                         }
 
                         if (user != null)
@@ -184,6 +187,7 @@ namespace doghavenCapstone.InitialPages
                 }
                 catch(Microsoft.WindowsAzure.MobileServices.MobileServiceInvalidOperationException)
                 {
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Sorry", "Something went wrong with the server, please try again in a few moments", "Okay");
                 }
                 catch(System.Net.Http.HttpRequestException)

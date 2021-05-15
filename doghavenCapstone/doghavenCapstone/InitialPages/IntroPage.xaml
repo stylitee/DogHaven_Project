@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.InitialPages.IntroPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center"
+                     Margin="0,90,0,0">
+            <Image x:Name="imgLogo"
+                   HeightRequest="200"
+                   Margin="0,0,0,20"/>
+            <Label Text="DOG HAVEN"
+                   FontSize="35"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="Black"/>
+            <Label Text="Meet new friends and have fun with them"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="18"
+                   TextColor="Gray"/>
+            <Button BackgroundColor="#EEB601"
+                    CornerRadius="20"
+                    Text=">"
+                    FontSize="30"
+                    Margin="100,20"
+                    HeightRequest="75"
+                    x:Name="btnNext"
+                    Clicked="btnNext_Clicked"
+                    TextColor="White"
+                    FontAttributes="Bold"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

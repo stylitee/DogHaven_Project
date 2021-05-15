@@ -13,6 +13,7 @@
   <ItemGroup>
     <None Remove="Assets\dog_questioning.gif" />
     <None Remove="Assets\get_location.gif" />
+    <None Remove="Assets\introPageLogo.png" />
     <None Remove="Assets\Logo_icon.png" />
     <None Remove="Assets\no_image_available.jpg" />
     <None Remove="Assets\satelite.png" />
@@ -22,6 +23,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\dog_questioning.gif" />
     <EmbeddedResource Include="Assets\get_location.gif" />
+    <EmbeddedResource Include="Assets\introPageLogo.png" />
     <EmbeddedResource Include="Assets\Logo_icon.png" />
     <EmbeddedResource Include="Assets\no_image_available.jpg" />
     <EmbeddedResource Include="Assets\satelite.png" />
@@ -67,6 +69,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="HomeFlyOutFlyout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="InitialPages\IntroPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="InitialPages\LoginPage.xaml">

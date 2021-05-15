@@ -7,26 +7,51 @@
     <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
+              BackgroundColor="#015579"
               ItemsSource="{Binding MenuItems}">
       <ListView.Header>
-        <Grid BackgroundColor="#03A9F4">
+        <Grid BackgroundColor="#015579">
+            
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
           </Grid.ColumnDefinitions>
+            
           <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
           </Grid.RowDefinitions>
-          <Label
-              Grid.Column="1"
-              Grid.Row="2"
-              Text="AppName"
-              Style="{DynamicResource SubtitleStyle}"/>
-        </Grid>
+          <Frame CornerRadius="100"
+                 HeightRequest="50"
+                 WidthRequest="50"
+                 Grid.Column="1"
+                 Padding="0"
+                 Grid.Row="1"
+                 IsClippedToBounds="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        </Frame.GestureRecognizers>
+          <Image x:Name="imgProfilePic"/>
+          </Frame>
+                    <StackLayout VerticalOptions="CenterAndExpand"
+                           Grid.Row="1"
+                           Margin="20,0,0,0"
+                           Grid.Column="2"
+                           Grid.ColumnSpan="3"
+                           Orientation="Vertical">
+                        <Label HorizontalTextAlignment="Start"
+                               VerticalTextAlignment="Center"
+                               TextColor="White"
+                               x:Name="lblName"/>
+                        <Label HorizontalTextAlignment="Start"
+                               VerticalTextAlignment="Center"
+                               TextColor="White"
+                               Text="Active Status"/>
+              </StackLayout>
+           </Grid>
       </ListView.Header>
       <ListView.ItemTemplate>
         <DataTemplate>

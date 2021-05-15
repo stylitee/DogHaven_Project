@@ -1,4 +1,5 @@
 ﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.InitialPages;
 using doghavenCapstone.MainPages;
 using Plugin.LocalNotification;
 using System;
@@ -25,6 +26,8 @@ namespace doghavenCapstone
             NotificationCenter.Current.NotificationTapped += Current_NotificationTapped;
             BindingContext = new HomeFlyOutFlyoutViewModel();
             ListView = MenuItemsListView;
+            imgProfilePic.Source = LoginPage.user_Image;
+            lblName.Text = LoginPage.user_fullName;
         }
 
         private void Current_NotificationTapped(NotificationTappedEventArgs e)
@@ -65,12 +68,11 @@ namespace doghavenCapstone
             {
                 MenuItems = new ObservableCollection<HomeFlyOutFlyoutMenuItem>(new[]
                 {
-                    new HomeFlyOutFlyoutMenuItem { Id = 0, Title = "Profile", Icon = "profile.png", TargetType = typeof(ProfilePage)},
-                    new HomeFlyOutFlyoutMenuItem { Id = 1, Title = "Breed Matching" , Icon = "Breeding.png", TargetType = typeof(BreedMatchingPage) },
-                    new HomeFlyOutFlyoutMenuItem { Id = 2, Title = "Marketplace", Icon = "MarketPlace.png",TargetType = typeof(MarketPlacePage) },
-                    new HomeFlyOutFlyoutMenuItem { Id = 3, Title = "Adoption", Icon = "adoption.png", TargetType = typeof(Adoption) },
-                    new HomeFlyOutFlyoutMenuItem { Id = 4, Title = "Lost and Found", Icon = "Lost_and_Found.png" , TargetType = typeof(LostAndFoundHome)},
-                    new HomeFlyOutFlyoutMenuItem { Id = 5, Title = "Messages", Icon = "settings.png", TargetType = typeof(SettingsPage) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 0, Title = "Breed Matching" , Icon = "Breeding.png", TargetType = typeof(BreedMatchingPage) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 1, Title = "Marketplace", Icon = "MarketPlace.png",TargetType = typeof(MarketPlacePage) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 2, Title = "Adoption", Icon = "adoption.png", TargetType = typeof(Adoption) },
+                    new HomeFlyOutFlyoutMenuItem { Id = 3, Title = "Lost and Found", Icon = "Lost_and_Found.png" , TargetType = typeof(LostAndFoundHome)},
+                    new HomeFlyOutFlyoutMenuItem { Id = 4, Title = "Messages", Icon = "settings.png", TargetType = typeof(SettingsPage) },
                 });
             }
 
@@ -84,6 +86,11 @@ namespace doghavenCapstone
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
             #endregion
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProfilePage());
         }
     }
 }

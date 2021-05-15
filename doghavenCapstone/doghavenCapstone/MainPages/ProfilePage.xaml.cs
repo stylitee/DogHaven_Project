@@ -138,7 +138,7 @@ namespace doghavenCapstone.MainPages
 
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ChooseDogsForSale());
         }
     }
 }

@@ -4,7 +4,7 @@
              x:Class="doghavenCapstone.InitialPages.LoginPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#ffc93c">
+        <StackLayout BackgroundColor="White">
             <Image x:Name="imgLogo"
                    HeightRequest="100"
                    Margin="0,50,0,20"/>

@@ -41,20 +41,22 @@ namespace doghavenCapstone
         public App(string databaseLocation)
         {
             InitializeComponent();
-            try
-            {
-                MainPage = new NavigationPage(new LoginPage());
-            }
-            catch(SQLite.SQLiteException)
-            {
-                MainPage = new NavigationPage(new LoginPage());
-            }
-            catch (Exception)
-            {
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new IntroPage());
+            /* try
+             {
 
-                throw;
-            }  
-            DatabaseLocation = databaseLocation;
+             }
+             catch(SQLite.SQLiteException)
+             {
+                 MainPage = new NavigationPage(new LoginPage());
+             }
+             catch (Exception)
+             {
+
+                 throw;
+             }  
+             DatabaseLocation = databaseLocation;*/
         }
 
         protected override void OnStart()
