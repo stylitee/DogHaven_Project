@@ -133,6 +133,11 @@ namespace doghavenCapstone.OtherPageFunctions
         {
             try
             {
+                string finalDesc = "", finalLink = "";
+                if(txtDescription.Text == "") { finalDesc = ""; }
+                else { finalDesc = txtDescription.Text; }
+                if (txtLink.Text == "") { finalLink = ""; }
+                else { finalLink = txtLink.Text; }
                 dogRelatedEstablishments shopInfo = new dogRelatedEstablishments()
                 {
 
@@ -142,8 +147,8 @@ namespace doghavenCapstone.OtherPageFunctions
                     latitude = latitude,
                     longtitude = longtitude,
                     rate = "0",
-                    addtionalDesc = txtDescription.Text,
-                    facebookLink = txtLink.Text
+                    addtionalDesc = finalDesc,
+                    facebookLink = finalLink
                 };
 
                 await App.client.GetTable<dogRelatedEstablishments>().InsertAsync(shopInfo);

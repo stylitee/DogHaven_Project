@@ -34,44 +34,58 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private async void loadUserLocation()
         {
-            string latitude = "", longtitude = "";
-
-            var location = await Geolocation.GetLastKnownLocationAsync();
-            if (location == null)
+            try
             {
-                location = await Geolocation.GetLocationAsync(new GeolocationRequest
+                string latitude = "", longtitude = "";
+
+                var location = await Geolocation.GetLastKnownLocationAsync();
+                if (location == null)
                 {
-                    DesiredAccuracy = GeolocationAccuracy.Medium,
-                    Timeout = TimeSpan.FromSeconds(30)
-                });
+                    location = await Geolocation.GetLocationAsync(new GeolocationRequest
+                    {
+                        DesiredAccuracy = GeolocationAccuracy.Medium,
+                        Timeout = TimeSpan.FromSeconds(30)
+                    });
+                }
+
+                if (location == null)
+                {
+                    UserDialogs.Instance.Toast("NO GPS", new TimeSpan(1));
+                }
+                else
+                {
+                    //igdi ma set
+                    latitude = location.Latitude.ToString();
+                    longtitude = location.Longitude.ToString();
+                }
+
+
+
+                Pin pinMyAddress = new Pin()
+                {
+                    Type = PinType.Place,
+                    Label = "Pin to Lost Place",
+                    Position = new Position(double.Parse(latitude), double.Parse(longtitude)),
+                    Rotation = 33.3f,
+                    IsDraggable = true
+                };
+
+                lostMaps.Pins.Add(pinMyAddress);
+                lostMaps.MoveToRegion(MapSpan.FromCenterAndRadius(pinMyAddress.Position, Distance.FromMeters(500)));
+
+                ApplyMyMapTheme();
             }
-
-            if (location == null)
+            catch (Xamarin.Essentials.PermissionException)
             {
-                UserDialogs.Instance.Toast("NO GPS", new TimeSpan(1));
+
+                await DisplayAlert("Ops","We need your permission to use this function","Okay");
             }
-            else
+            catch(Exception)
             {
-                //igdi ma set
-                latitude = location.Latitude.ToString();
-                longtitude = location.Longitude.ToString();
+                await DisplayAlert("Ops", "Something went wrong", "Okay");
+                return;
             }
-
-
-
-            Pin pinMyAddress = new Pin()
-            {
-                Type = PinType.Place,
-                Label = "Pin to Lost Place",
-                Position = new Position(double.Parse(latitude), double.Parse(longtitude)),
-                Rotation = 33.3f,
-                IsDraggable = true
-            };
-
-            lostMaps.Pins.Add(pinMyAddress);
-            lostMaps.MoveToRegion(MapSpan.FromCenterAndRadius(pinMyAddress.Position, Distance.FromMeters(500)));
-
-            ApplyMyMapTheme();
+            
         }
 
         private void ApplyMyMapTheme()
