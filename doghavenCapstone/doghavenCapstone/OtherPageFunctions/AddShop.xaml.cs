@@ -103,7 +103,7 @@ namespace doghavenCapstone.OtherPageFunctions
                 infoInitializer();
 
             }
-            catch (System.ArgumentNullException ex)
+            catch (System.ArgumentNullException)
             {
                 UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Ops", "Please select a dog image ", "Okay");

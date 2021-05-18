@@ -7,9 +7,45 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="See all lost dogs in Maps" x:Name="btnSeeAllEstablishments" Clicked="btnSeeAllEstablishments_Clicked"/>
+                <ListView ItemsSource="{Binding LostDoglist}"
+                  BackgroundColor="Transparent"
+                  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding command}" />
+                                        </Frame.GestureRecognizers>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="{Binding dogImageSouce}"
+                                           WidthRequest="80"
+                                           Margin="0,0,10,0"/>
+                                            <StackLayout VerticalOptions="Center">
+                                                <Label Text="{Binding breedName}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                                <Label Text="{Binding fullName}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                                <Label Text="{Binding dateLost}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                                <Label Text="{Binding timeLost}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
