@@ -23,8 +23,8 @@ namespace doghavenCapstone.Model
         public string longtitude { get; set; }
         [JsonProperty(PropertyName = "rate")]
         public string rate { get; set; }
-        [JsonProperty(PropertyName = "addtionalDesc")]
-        public string addtionalDesc { get; set; }
+        [JsonProperty(PropertyName = "additionalDesc")]
+        public string additionalDesc { get; set; }
         [JsonProperty(PropertyName = "facebookLink")]
         public string facebookLink { get; set; }
 

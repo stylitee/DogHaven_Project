@@ -155,7 +155,7 @@ namespace doghavenCapstone.OtherPageFunctions
                     latitude = latitude,
                     longtitude = longtitude,
                     rate = "0",
-                    addtionalDesc = finalDesc,
+                    additionalDesc = finalDesc,
                     facebookLink = finalLink
                 };
 

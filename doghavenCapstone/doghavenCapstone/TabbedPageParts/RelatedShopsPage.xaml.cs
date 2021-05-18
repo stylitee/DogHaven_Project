@@ -88,6 +88,12 @@ namespace doghavenCapstone.TabbedPageParts
             }
         }
 
+        protected override void OnAppearing()
+        {
+            LoadPlaces();
+            base.OnAppearing();
+        }
+
         public ObservableCollection<dogRelatedEstablishments> listOfEstablishments
         {
             get => _listOfEstablishments;

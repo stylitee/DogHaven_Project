@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.Model;
+﻿using Acr.UserDialogs;
+using doghavenCapstone.Model;
 using doghavenCapstone.TabbedPageParts;
 using System;
 using System.Collections.Generic;
@@ -52,13 +53,13 @@ namespace doghavenCapstone.OtherPageFunctions
                 }
 
                 lblNameShop.Text = "Shop Name: " + c.nameOfShop;
-                if(c.addtionalDesc == "")
+                if(c.additionalDesc == "")
                 {
                     lblDesc.Text = "No description available";
                 }
                 else
                 {
-                    lblDesc.Text = c.addtionalDesc; 
+                    lblDesc.Text = c.additionalDesc; 
                 }
 
                 if(c.facebookLink == "")
@@ -73,35 +74,83 @@ namespace doghavenCapstone.OtherPageFunctions
             }
         }
 
-        private void btnSave_Clicked(object sender, EventArgs e)
+        private async void btnSave_Clicked(object sender, EventArgs e)
         {
-            if(btnSave.Text == "Rate Shop")
+            var checker = await App.client.GetTable<EstablishmentsRating>().Where(x => x.userid == App.user_id).ToListAsync();
+            if(checker.Count == 0)
             {
-                ratings.IsVisible = true;
-                btnSave.Text = "Save Rating";
-            }
-            else
-            {
-                if(pckRate.SelectedIndex == -1)
+                if (btnSave.Text == "Rate Shop")
                 {
-                    DisplayAlert("Ops","No rating is selected","Okay");
+                    ratings.IsVisible = true;
+                    btnSave.Text = "Save Rating";
                 }
                 else
                 {
-                    SaveRating();
-                }
-                ratings.IsVisible = false;
-                btnSave.Text = "Rate Shop";
+                    if (pckRate.SelectedIndex == -1)
+                    {
+                        await DisplayAlert("Ops", "No rating is selected", "Okay");
+                    }
+                    else
+                    {
+                        UserDialogs.Instance.ShowLoading("Please wait while we save your rating");
+                        SaveRating();
+                    }
+                    ratings.IsVisible = false;
+                    btnSave.Text = "Rate Shop";
 
+                }
             }
+            else
+            {
+                if (btnSave.Text == "Rate Shop")
+                {
+                    ratings.IsVisible = true;
+                    btnSave.Text = "Save Rating";
+                }
+                else
+                {
+                    if (pckRate.SelectedIndex == -1)
+                    {
+                        await DisplayAlert("Ops", "No rating is selected", "Okay");
+                    }
+                    else
+                    {
+                        UserDialogs.Instance.ShowLoading("Please wait while we save your rating");
+                        UpdateRating();
+                    }
+                    ratings.IsVisible = false;
+                    btnSave.Text = "Rate Shop";
+
+                }
+            }
+
+        }
+
+        private async void UpdateRating()
+        {
+            string rate = pckRate.Items[pckRate.SelectedIndex].ToString();
+            var checker = await App.client.GetTable<EstablishmentsRating>().Where(x => x.userid == App.user_id).ToListAsync();
+            EstablishmentsRating establishment = new EstablishmentsRating()
+            {
+                id = checker[0].id,
+                userid = App.user_id,
+                establishment_id = checker[0].establishment_id,
+                rating = rate
+            };
+
+            await App.client.GetTable<EstablishmentsRating>().UpdateAsync(establishment);
+
+            computeRating();
         }
 
         private async void SaveRating()
         {
             string rate = pckRate.Items[pckRate.SelectedIndex].ToString();
+            string _id = Guid.NewGuid().ToString("N").Substring(0, 30);
+
             EstablishmentsRating establishment = new EstablishmentsRating()
             {
-                id = Guid.NewGuid().ToString("N").Substring(0, 40),
+                id = _id,
                 userid = App.user_id,
                 establishment_id = RelatedShopsPage.store_id,
                 rating = rate
@@ -115,37 +164,42 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private async void computeRating()
         {
+            //try ni ta dae pa na ttry
             List<int> results = new List<int>();
-            var allRatings = await App.client.GetTable<EstablishmentsRating>().Where(x => x.id == RelatedShopsPage.store_id).ToListAsync();
-            foreach (var c in allRatings)
+            var allRatings = await App.client.GetTable<EstablishmentsRating>().Where(x => x.establishment_id == RelatedShopsPage.store_id).ToListAsync();
+            if(allRatings.Count >= 5)
             {
-                results.Add(Convert.ToInt32(c.rating));
+                foreach (var c in allRatings)
+                {
+                    results.Add(Convert.ToInt32(c.rating));
+                }
+
+                int total = 0;
+                for (int i = 0; i < results.Count; i++)
+                {
+                    total += results[i];
+                }
+
+                double average = total / allRatings.Count;
+                double roundoff = Math.Round(average, 2);
+
+                var _estab = await App.client.GetTable<dogRelatedEstablishments>().Where(x => x.id == RelatedShopsPage.store_id).ToListAsync();
+                dogRelatedEstablishments estab = new dogRelatedEstablishments()
+                {
+                    id = _estab[0].id,
+                    shopImage = _estab[0].shopImage,
+                    nameOfShop = _estab[0].nameOfShop,
+                    latitude = _estab[0].latitude,
+                    longtitude = _estab[0].longtitude,
+                    rate = roundoff.ToString(),
+                    additionalDesc = _estab[0].additionalDesc,
+                    facebookLink = _estab[0].facebookLink
+                };
+
+                await App.client.GetTable<dogRelatedEstablishments>().UpdateAsync(estab);
+                await DisplayAlert("Confirm", "Rating saved succesfully", "Okay");
             }
-
-            int total = 0;
-            for(int i = 0; i < results.Count; i++)
-            {
-                total = total + results[i];
-            }
-
-            double average = total / allRatings.Count;
-            double roundoff = Math.Round(average, 2);
-
-            var _estab = await App.client.GetTable<dogRelatedEstablishments>().Where(x => x.id == RelatedShopsPage.store_id).ToListAsync();
-            dogRelatedEstablishments estab = new dogRelatedEstablishments()
-            {
-                id = _estab[0].id,
-                shopImage = _estab[0].shopImage,
-                latitude = _estab[0].latitude,
-                longtitude = _estab[0].longtitude,
-                rate = roundoff.ToString(),
-                addtionalDesc = _estab[0].addtionalDesc,
-                facebookLink = _estab[0].facebookLink
-            };
-
-            await App.client.GetTable<dogRelatedEstablishments>().UpdateAsync(estab);
-
-            await DisplayAlert("Confirm","Rating saved succesfully","Okay");
+            UserDialogs.Instance.HideLoading();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
