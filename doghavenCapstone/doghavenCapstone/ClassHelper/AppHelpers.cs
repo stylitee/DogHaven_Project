@@ -24,17 +24,19 @@ namespace doghavenCapstone.ClassHelper
             var checker = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
             foreach(var c in checker)
             {
-                var matches = await App.client.GetTable<dogMatches>().Where(x => x.dog1 == c.id || x.dog2 == c.id && x.markAsDone == "False").ToListAsync();
+                var matches = await App.client.GetTable<dogMatches>().Where(x => x.dog2 == c.id && x.markAsDone == "False").ToListAsync();
                 if (matches.Count != 0)
                 {
                     if(App.isAlreadyRead == false)
                     {
+                        Random random = new Random();
+                        int i = random.Next();
                         var notification = new NotificationRequest
                         {
                             BadgeNumber = 1,
-                            Description = "You've got a match, check it out!",
+                            Description = "You've got a match, check i@t out!",
                             Title = "Match Notification!",
-                            NotificationId = 1255,
+                            NotificationId = i,
                             ReturningData = "Youve been match recently go check it out!",
                             NotifyTime = DateTime.Now.AddSeconds(1)
                         };

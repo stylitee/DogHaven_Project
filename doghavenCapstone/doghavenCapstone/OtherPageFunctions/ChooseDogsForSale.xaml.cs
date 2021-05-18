@@ -48,9 +48,10 @@ namespace doghavenCapstone.OtherPageFunctions
                 }
                 else
                 {
-                    if(txtAge.Text == "8")
+                    double _age = double.Parse(txtAge.Text);
+                    if(_age <= 8)
                     {
-                        await DisplayAlert("Ops", "Ops! Dogs 8 weeks below are not allowed to be sell", "Okay");
+                        await DisplayAlert("Ops", "Ops! Dogs 8 weeks below are not allowed to be sold.", "Okay");
                     }
                     else
                     {

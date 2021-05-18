@@ -227,29 +227,37 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsPickPhotoSupported)
+            try
             {
-                await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
-                return;
+                await CrossMedia.Current.Initialize();
+
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("Ops!", "Your device is not supported to do this function", "Okay");
+                    return;
+                }
+
+                var mediaOptions = new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                };
+                var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+                if (selectedImageFile == null)
+                {
+                    Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
+                    return;
+                }
+
+                imgDogImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
+
+                dog_image = selectedImageFile.GetStream();
+            }
+            catch (Plugin.Media.Abstractions.MediaPermissionException)
+            {
+                await DisplayAlert("Permission Error", "We need your permission to access your gallery", "Okay");
             }
 
-            var mediaOptions = new PickMediaOptions()
-            {
-                PhotoSize = PhotoSize.Medium
-            };
-            var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
-
-            if (selectedImageFile == null)
-            {
-                Acr.UserDialogs.UserDialogs.Instance.Toast("You haven't picked any image", new TimeSpan(2));
-                return;
-            }
-
-            imgDogImage.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
-
-            dog_image = selectedImageFile.GetStream();
         }
     }
 }

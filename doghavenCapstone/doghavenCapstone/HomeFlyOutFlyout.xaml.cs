@@ -48,7 +48,7 @@ namespace doghavenCapstone
 
         public void NotificationChecker()
         {
-            Device.StartTimer(TimeSpan.FromSeconds(20), () =>
+            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
             {
                 AppHelpers.PushNotificationInit();
                 return true;

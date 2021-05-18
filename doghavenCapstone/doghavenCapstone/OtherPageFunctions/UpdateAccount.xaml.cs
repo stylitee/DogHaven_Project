@@ -47,6 +47,7 @@ namespace doghavenCapstone.OtherPageFunctions
 			var userType = await App.client.GetTable<userRole>().Where(x => x.id != "").ToListAsync();
 			foreach(var c in userType)
             {
+				var sellerchecker = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id).ToListAsync();
 				if(c.roleDescription != "Institution")
                 {
 					if(c.id != "2dskandlkdklsa")
@@ -56,6 +57,11 @@ namespace doghavenCapstone.OtherPageFunctions
 							roles.Add(c);
 							pckrUserRole.Items.Add(c.roleDescription);
 						}
+					}
+					if(c.id == "2dskandlkdklsa" && sellerchecker[0].admin_response == "ACCEPTED")
+                    {
+						roles.Add(c);
+						pckrUserRole.Items.Add(c.roleDescription);
 					}
 				}
 				if(userType.Count != flag)
