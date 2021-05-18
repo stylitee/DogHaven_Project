@@ -18,7 +18,7 @@
                                     <Frame CornerRadius="20"
                                    HasShadow="True">
                                         <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding command}" />
+                                        <TapGestureRecognizer Command="{Binding NewPageCommand}" />
                                         </Frame.GestureRecognizers>
                                         <StackLayout Orientation="Horizontal">
                                         <Image Source="{Binding shopImage}"

@@ -5,10 +5,7 @@
              x:Class="doghavenCapstone.OtherPageFunctions.ShowDirection">
     <ContentPage.Content>
         <StackLayout>
-            <map:Map x:Name="map" PinDragStart="lostMaps_PinDragStart" PinDragEnd="lostMaps_PinDragEnd" HasZoomEnabled="True"/>
-            <Button Text="Confirm location"
-                x:Name="btnConfirm"
-                Clicked="btnConfirm_Clicked" />
+            <map:Map x:Name="map" HasZoomEnabled="True"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

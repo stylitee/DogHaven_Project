@@ -1,7 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using doghavenCapstone.OtherPageFunctions;
+using doghavenCapstone.TabbedPageParts;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace doghavenCapstone.Model
 {
@@ -23,5 +27,18 @@ namespace doghavenCapstone.Model
         public string addtionalDesc { get; set; }
         [JsonProperty(PropertyName = "facebookLink")]
         public string facebookLink { get; set; }
+
+        public ICommand NewPageCommand { get; }
+
+        public dogRelatedEstablishments()
+        {
+            NewPageCommand = new Command(GoToThisPage);
+        }
+
+        private void GoToThisPage()
+        {
+            RelatedShopsPage.store_id = id;
+            RelatedShopsPage.cnt[0].Navigation.PushAsync(new EstablishmentDetails());
+        }
     }
 }

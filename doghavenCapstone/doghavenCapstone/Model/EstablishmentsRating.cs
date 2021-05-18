@@ -19,18 +19,5 @@ namespace doghavenCapstone.Model
         public string establishment_id { get; set; }
         [JsonProperty(PropertyName = "rating")]
         public string rating { get; set; }
-
-        public ICommand NewPageCommand { get; }
-
-        public EstablishmentsRating()
-        {
-            NewPageCommand = new Command(GoToThisPage);
-        }
-
-        private void GoToThisPage()
-        {
-            RelatedShopsPage.store_id = id;
-            RelatedShopsPage.cnt[0].Navigation.PushAsync(new EstablishmentDetails());
-        }
     }
 }
