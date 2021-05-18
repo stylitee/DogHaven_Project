@@ -34,7 +34,6 @@ namespace doghavenCapstone.Model
         public string timeLost { get; set; }
         public string placeLost { get; set; }
 
-        //Commands
 
         public ICommand command { get; }
 
@@ -55,9 +54,6 @@ namespace doghavenCapstone.Model
             VariableStorage.found_placeLost_latitude = placeFound_latitude;
             VariableStorage.found_placeLost_longtitude = placeFound_longtitude;
             VariableStorage.found_doginfo_id = dogInfo_id;
-            //FoundPage.FoundPageContent[0].Navigation.PushAsync(new LostDogDetails());
         }
-
-        // getting of lost dogs Pin
     }
 }

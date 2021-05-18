@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="doghavenCapstone.OtherPageFunctions.ShowDirection">
+    <ContentPage.Content>
+        <StackLayout>
+            <map:Map x:Name="map" PinDragStart="lostMaps_PinDragStart" PinDragEnd="lostMaps_PinDragEnd" HasZoomEnabled="True"/>
+            <Button Text="Confirm location"
+                x:Name="btnConfirm"
+                Clicked="btnConfirm_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -77,8 +77,16 @@ namespace doghavenCapstone.OtherPageFunctions
             }
             else
             {
-                UserDialogs.Instance.ShowLoading("Please wait while we save your information");
-                uploadDogInfo(shop_image);
+                if(shop_image != null)
+                {
+                    UserDialogs.Instance.ShowLoading("Please wait while we save your information");
+                    uploadDogInfo(shop_image);
+                }
+                else
+                {
+                    UserDialogs.Instance.ShowLoading("Please wait while we save your information");
+                    uploadDogData();
+                }
             }
         }
 
@@ -113,7 +121,7 @@ namespace doghavenCapstone.OtherPageFunctions
             {
                 UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Warning", "Something went wrong with uploading the image: ", "Okay");
-                return;
+                throw;
             }
         }
 
@@ -134,7 +142,7 @@ namespace doghavenCapstone.OtherPageFunctions
             try
             {
                 string finalDesc = "", finalLink = "";
-                if(txtDescription.Text == "") { finalDesc = ""; }
+                if (txtDescription.Text == "") { finalDesc = ""; }
                 else { finalDesc = txtDescription.Text; }
                 if (txtLink.Text == "") { finalLink = ""; }
                 else { finalLink = txtLink.Text; }
@@ -173,7 +181,6 @@ namespace doghavenCapstone.OtherPageFunctions
                 return;
             }
             UserDialogs.Instance.HideLoading();
-            //App.loadingMessage = "";
         }
     }
 }

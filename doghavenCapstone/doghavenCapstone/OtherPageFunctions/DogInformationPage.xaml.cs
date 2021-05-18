@@ -50,7 +50,6 @@ namespace doghavenCapstone.OtherPageFunctions
             _Doglist.Clear();
             foreach (var c in allDogs)
             {
-                /*if()*/
                 _Doglist.Add(new dogInfo()
                 {
                     dogImage = c.dogImage

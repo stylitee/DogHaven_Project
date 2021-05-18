@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.EstablishmentDetails">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Image x:Name="imgShop"
+                   HeightRequest="100"
+                   WidthRequest="100"/>
+            <Label x:Name="lblNameShop"/>
+            <StackLayout Orientation="Horizontal" x:Name="ratings">
+                <Label Text="Rate: "/>
+                <Picker x:Name="pckRate"/>
+            </StackLayout>
+            <Label x:Name="lblDesc"/>
+            <Label x:Name="lblMaps"
+                   Text="Show in Maps "
+                   TextDecorations="Underline"
+                   TextColor="Blue">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label x:Name="lblFB"/>
+            <Button x:Name="btnSave"
+                    Clicked="btnSave_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
