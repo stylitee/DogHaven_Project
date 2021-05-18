@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.AddShop">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Frame CornerRadius="100"
+                 HeightRequest="50"
+                 WidthRequest="50"
+                 Grid.Column="1"
+                 Padding="0"
+                 Grid.Row="1"
+                 IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Image x:Name="imgShopPic"/>
+            </Frame>
+            <Entry Placeholder="Name of Shop"
+                   x:Name="txtNameShop"/>
+            <Entry Placeholder="Facebook Page Link"
+                   x:Name="txtLink"/>
+            <Editor Keyboard="Plain" 
+                    AutoSize="TextChanges" 
+                    MaxLength="100"
+                    x:Name="txtDescription"
+                    Placeholder="Additional Description"/>
+            <Label Text="No location is pinned"
+                   x:Name="lblLocation"/>
+            <Button Text="Pin address to map"
+                    x:Name="btnAddress"
+                    Clicked="btnAddress_Clicked"/>
+            <Button Text="Confirm"
+                    x:Name="btnConfirm"
+                    Clicked="btnConfirm_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

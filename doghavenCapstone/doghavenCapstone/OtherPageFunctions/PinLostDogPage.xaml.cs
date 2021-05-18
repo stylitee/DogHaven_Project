@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.ClassHelper;
+﻿using Acr.UserDialogs;
+using doghavenCapstone.ClassHelper;
 using doghavenCapstone.Model;
 using doghavenCapstone.PreventerPage;
 using System;
@@ -34,12 +35,29 @@ namespace doghavenCapstone.OtherPageFunctions
         private async void loadUserLocation()
         {
             string latitude = "", longtitude = "";
-            var getLocation = await App.client.GetTable<getCurrentLocation>().Where(x => x.user_id == App.user_id).ToListAsync();
-            foreach (var row in getLocation)
+
+            var location = await Geolocation.GetLastKnownLocationAsync();
+            if (location == null)
             {
-                latitude = row.latitude;
-                longtitude = row.longtitude;
+                location = await Geolocation.GetLocationAsync(new GeolocationRequest
+                {
+                    DesiredAccuracy = GeolocationAccuracy.Medium,
+                    Timeout = TimeSpan.FromSeconds(30)
+                });
             }
+
+            if (location == null)
+            {
+                UserDialogs.Instance.Toast("NO GPS", new TimeSpan(1));
+            }
+            else
+            {
+                //igdi ma set
+                latitude = location.Latitude.ToString();
+                longtitude = location.Longitude.ToString();
+            }
+
+
 
             Pin pinMyAddress = new Pin()
             {
@@ -87,12 +105,18 @@ namespace doghavenCapstone.OtherPageFunctions
                 AddLostDogPage.setLocation_longtitude = e.Pin.Position.Longitude.ToString();
                 AddLostDogPage.lbl[0].Text = "location is pinned succesfully";
             }
-            else
+            else if(VariableStorage.lostAndFoundIdentifier == "Found")
             {
                 AddFoundDogPage.setLocation_latitude = e.Pin.Position.Latitude.ToString();
                 AddFoundDogPage.setLocation_longtitude = e.Pin.Position.Longitude.ToString();
                 AddFoundDogPage.lbl[0].Text = "location is pinned succesfully";
-            } 
+            }
+            else
+            {
+                AddShop.latitude = e.Pin.Position.Latitude.ToString();
+                AddShop.longtitude = e.Pin.Position.Longitude.ToString();
+                AddShop.lbl[0].Text = "Location pinned successfully";
+            }
         }
     }
 }

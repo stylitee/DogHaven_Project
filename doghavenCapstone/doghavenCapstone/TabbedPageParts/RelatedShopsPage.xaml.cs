@@ -1,4 +1,5 @@
-﻿using System;
+﻿using doghavenCapstone.OtherPageFunctions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace doghavenCapstone.TabbedPageParts
         public RelatedShopsPage()
         {
             InitializeComponent();
+        }
+
+        private void addShop_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddShop());
         }
     }
 }

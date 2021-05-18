@@ -31,17 +31,29 @@ namespace doghavenCapstone.MainPages
 
         private async void setForSale()
         {
-            var checker = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id).ToListAsync();
-            var sellerChecker = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id && x.admin_response == "ACCEPTED").ToListAsync();
-            if(checker.Count == 0 || sellerChecker.Count == 0)
+            var rejected = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id && x.admin_response == "REJECTED").ToListAsync();
+            var pending = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id && x.admin_response == "PENDING").ToListAsync();
+            var accepted = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id && x.admin_response == "ACCEPTED").ToListAsync();
+            
+            if(accepted.Count != 0 && rejected.Count == 0 && pending.Count == 0)
+            {
+                lblApplyForSeller.IsVisible = false;
+                lblSellMyDog.IsVisible = true;
+            }
+            else if(accepted.Count == 0 && rejected.Count != 0 && pending.Count == 0)
             {
                 lblApplyForSeller.IsVisible = true;
                 lblSellMyDog.IsVisible = false;
             }
-            else if(sellerChecker.Count != 0)
+            else if(accepted.Count == 0 && rejected.Count == 0 && pending.Count != 0)
             {
-                lblSellMyDog.IsVisible = true;
                 lblApplyForSeller.IsVisible = false;
+                lblSellMyDog.IsVisible = false;
+            }
+            else
+            {
+                lblApplyForSeller.IsVisible = true;
+                lblSellMyDog.IsVisible = false;
             }
         }
 
@@ -130,10 +142,18 @@ namespace doghavenCapstone.MainPages
             Navigation.PushAsync(new ChangePassword());
         }
 
-        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            App.flagForSellerApplication = "ProfileSeller";
-            Navigation.PushAsync(new SellerTypeApplication());
+            var pending = await App.client.GetTable<SellerAdminRequest>().Where(x => x.user_id == App.user_id && x.admin_response == "PENDING").ToListAsync();
+            if(pending.Count == 0)
+            {
+                App.flagForSellerApplication = "ProfileSeller";
+                await Navigation.PushAsync(new SellerTypeApplication());
+            }
+            else
+            {
+                await DisplayAlert("Hey","You have a pending seller request, please try again later","Okay");
+            }
         }
 
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
