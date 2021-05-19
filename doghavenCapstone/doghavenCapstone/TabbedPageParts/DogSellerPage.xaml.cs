@@ -1,5 +1,7 @@
 ﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,9 +35,32 @@ namespace doghavenCapstone.TabbedPageParts
             
             if(accountChecker.Count == 0)
             {
+                List<SellerPrompt> checker = null;
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                {
+                    conn.CreateTable<SellerPrompt>();
+                    checker = conn.Table<SellerPrompt>().ToList();
+                    conn.Close();
+                };
 
-                await DisplayAlert("Prompt", "Are you a dog seller? You can go to your profile and tap apply for seller", "Okay"); ;
-                return;
+                if(checker.Count == 0)
+                {
+                    SellerPrompt term = new SellerPrompt()
+                    {
+                        isRead = "Yes"
+                    };
+
+                    using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                    {
+                        conn.CreateTable<SellerPrompt>();
+                        conn.Insert(term);
+                        conn.Close();
+                    };
+
+
+                    await DisplayAlert("Prompt", "Are you a dog seller? You can go to your profile and tap apply for seller", "Okay"); ;
+                    return;
+                }   
             }
             else
             {
