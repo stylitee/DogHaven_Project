@@ -8,7 +8,7 @@ namespace doghavenCapstone.LocalDBModel
     public class accountsLoggedIn
     {
         [PrimaryKey, AutoIncrement]
-        public int MyProperty { get; set; }
+        public int id { get; set; }
         [MaxLength(250)]
         public string userid { get; set; }
         [MaxLength(250)]

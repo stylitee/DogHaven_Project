@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -22,6 +23,7 @@ namespace doghavenCapstone.InitialPages
     public partial class Register : ContentPage
     {
         Stream dog_image = null;
+        bool _usernameChecker = false;
         bool _pass = false, _confirmpass = false;
         string url = "";
         List<userRole> lstofRoles = new List<userRole>();
@@ -30,7 +32,7 @@ namespace doghavenCapstone.InitialPages
             InitializeComponent();
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             var assembly = typeof(Register);
-
+            lblIndicator.BackgroundColor = Color.Yellow;
             imgUsersImage.Source = ImageSource.FromResource("doghavenCapstone.Assets.no_image_available.jpg", assembly);
             UserDialogs.Instance.HideLoading();
         }
@@ -55,8 +57,16 @@ namespace doghavenCapstone.InitialPages
             }
             else
             {
-                UserDialogs.Instance.ShowLoading("Please wait while we register your account");
-                uploadUserImage(dog_image);
+                if (_usernameChecker != false)
+                {
+                    UserDialogs.Instance.ShowLoading("Please wait while we register your account");
+                    uploadUserImage(dog_image);
+                }
+                else
+                {
+                    await DisplayAlert("Ops", "Username is already use please use another one", "Okay");
+                    UserDialogs.Instance.HideLoading();
+                }
             }
         }
 
@@ -220,6 +230,25 @@ namespace doghavenCapstone.InitialPages
             else
             {
                 _confirmpass = false;
+            }
+        }
+
+        private async void txtUser_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lblIndicator.BackgroundColor = Color.Yellow;
+            if(txtUser_name.Text.Length < 3)
+            {
+                var usernameChecker = await App.client.GetTable<accountusers>().Where(x => x.username == txtUser_name.Text).ToListAsync();
+                if(usernameChecker.Count != 0)
+                {
+                    lblIndicator.BackgroundColor = Color.Red;
+                    _usernameChecker = false;
+                }
+                else
+                {
+                    lblIndicator.BackgroundColor = Color.Green;
+                    _usernameChecker = false;
+                }
             }
         }
 

@@ -1,6 +1,9 @@
 ﻿using doghavenCapstone.ClassHelper;
 using doghavenCapstone.InitialPages;
+using doghavenCapstone.LocalDBModel;
+using SQLite;
 using System;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,6 +26,33 @@ namespace doghavenCapstone.MainPages
 
         private void btnConfirm_Clicked(object sender, EventArgs e)
         {
+            List<accountsLoggedIn> checker = null;
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<accountsLoggedIn>();
+                checker = conn.Table<accountsLoggedIn>().Where(x => x.userid == App.user_id).ToList();
+                conn.Close();
+            };
+
+            foreach(var c in checker)
+            {
+                accountsLoggedIn account = new accountsLoggedIn()
+                {
+                    id = c.id,
+                    userid = c.userid,
+                    fullName = c.fullName,
+                    username = c.username,
+                    userPassword = c.userPassword,
+                    isLoggedIn = "No"
+                };
+
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                {
+                    conn.CreateTable<accountsLoggedIn>();
+                    conn.Update(account);
+                    conn.Close();
+                };
+            }
             Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
 

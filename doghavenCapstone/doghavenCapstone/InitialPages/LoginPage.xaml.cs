@@ -119,19 +119,56 @@ namespace doghavenCapstone.InitialPages
                             if (password == txtUser_password.Text)
                             {
                                 UserDialogs.Instance.ShowLoading("Please wait while we prepare everything for you");
-                                accountsLoggedIn account = new accountsLoggedIn()
+
+
+                                List<accountsLoggedIn> checker = null;
+                                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                                 {
-                                    userid = _id,
-                                    fullName = _fullName,
-                                    username = _username,
-                                    userPassword = _password,
-                                    isLoggedIn = "Yes"
+                                    conn.CreateTable<accountsLoggedIn>();
+                                    checker = conn.Table<accountsLoggedIn>().Where(x => x.userid == App.user_id).ToList();
+                                    conn.Close();
                                 };
 
-                                SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation);
-                                conn.CreateTable<accountsLoggedIn>();
-                                conn.Insert(account);
-                                conn.Close();
+                                if(checker.Count == 0)
+                                {
+                                    accountsLoggedIn account = new accountsLoggedIn()
+                                    {
+                                        userid = _id,
+                                        fullName = _fullName,
+                                        username = _username,
+                                        userPassword = _password,
+                                        isLoggedIn = "Yes"
+                                    };
+
+                                    using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                                    {
+                                        conn.CreateTable<accountsLoggedIn>();
+                                        conn.Insert(account);
+                                        conn.Close();
+                                    };
+                                }
+                                else
+                                {
+                                    foreach (var c in checker)
+                                    {
+                                        accountsLoggedIn account = new accountsLoggedIn()
+                                        {
+                                            id = c.id,
+                                            userid = c.userid,
+                                            fullName = c.fullName,
+                                            username = c.username,
+                                            userPassword = c.userPassword,
+                                            isLoggedIn = "Yes"
+                                        };
+
+                                        using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                                        {
+                                            conn.CreateTable<accountsLoggedIn>();
+                                            conn.Update(account);
+                                            conn.Close();
+                                        };
+                                    }
+                                }              
 
                                 var newAccountChecker = await App.client.GetTable<dogInfo>().ToListAsync();
                                 var dogchecker = await App.client.GetTable<dogInfo>().ToListAsync();

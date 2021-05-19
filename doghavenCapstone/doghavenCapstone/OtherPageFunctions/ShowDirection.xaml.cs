@@ -23,46 +23,53 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private async void loadDirection()
         {
-            var pathContent = await InitiateDirection.LoadRoute();
-
-            map.Polylines.Clear();
-            var polyline = new Polyline();
-            polyline.StrokeColor = Color.Black;
-            polyline.StrokeWidth = 3;
-            foreach(var c in pathContent)
+            try
             {
-                polyline.Positions.Add(c);
+                var pathContent = await InitiateDirection.LoadRoute();
+
+                map.Polylines.Clear();
+                var polyline = new Polyline();
+                polyline.StrokeColor = Color.Black;
+                polyline.StrokeWidth = 3;
+                foreach (var c in pathContent)
+                {
+                    polyline.Positions.Add(c);
+                }
+
+                map.Polylines.Add(polyline);
+
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.GoogleMaps.Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Xamarin.Forms.GoogleMaps.Distance.FromKilometers(0.50f)));
+                var pin = new Xamarin.Forms.GoogleMaps.Pin
+                {
+                    Type = PinType.SearchResult,
+                    Position = new Xamarin.Forms.GoogleMaps.Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
+                    Label = "Pin",
+                    Address = "Pin",
+                    Tag = "CirclePoint"
+                };
+
+                map.Pins.Add(pin);
+                var positionindex = 1;
+
+                Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+                {
+                    if (pathContent.Count > positionindex)
+                    {
+                        UpdatePositions(pathContent[positionindex]);
+                        positionindex++;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                });
             }
-
-            map.Polylines.Add(polyline);
-           
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.GoogleMaps.Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Xamarin.Forms.GoogleMaps.Distance.FromKilometers(0.50f)));
-            var pin = new Xamarin.Forms.GoogleMaps.Pin
+            catch (Exception)
             {
-                Type = PinType.SearchResult,
-                Position = new Xamarin.Forms.GoogleMaps.Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
-                Label = "Pin",
-                Address = "Pin",
-                Tag = "CirclePoint"
-            };
-
-            map.Pins.Add(pin);
-            var positionindex = 1;
-
-            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
-            {
-                if (pathContent.Count > positionindex)
-                {
-                    UpdatePositions(pathContent[positionindex]);
-                    positionindex++;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            });
+                throw;
+            }   
         }
 
         private void UpdatePositions(Position position)
