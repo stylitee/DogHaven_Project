@@ -33,7 +33,8 @@ namespace doghavenCapstone.TabbedPageParts
             
             if(accountChecker.Count == 0)
             {
-                await DisplayAlert("Prompt", "Are you a dog seller? You can change your user type in the profile and change it to Seller", "Okay"); ;
+
+                await DisplayAlert("Prompt", "Are you a dog seller? You can go to your profile and tap apply for seller", "Okay"); ;
                 return;
             }
             else

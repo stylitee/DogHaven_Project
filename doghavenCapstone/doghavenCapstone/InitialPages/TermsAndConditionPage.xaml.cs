@@ -1,4 +1,6 @@
-﻿using System;
+﻿using doghavenCapstone.LocalDBModel;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +43,17 @@ namespace doghavenCapstone.InitialPages
 
         private void btnAccept_Clicked(object sender, EventArgs e)
         {
+            TermsAndCondition term = new TermsAndCondition()
+            {
+                isRead = "Yes"
+            };
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<TermsAndCondition>();
+                conn.Insert(term);
+                conn.Close();
+            };
             Navigation.PushAsync(new LoginPage());
         }
     }

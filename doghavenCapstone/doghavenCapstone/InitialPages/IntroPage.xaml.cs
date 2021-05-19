@@ -36,16 +36,22 @@ namespace doghavenCapstone.InitialPages
             try
             {
                 List<accountsLoggedIn> checker = null;
-                List<accountsLoggedIn> tableChecker = null;
+                List<TermsAndConditionPage> tableChecker = null;
                 using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                 {
                     conn.CreateTable<accountsLoggedIn>();
-                    tableChecker = conn.Table<accountsLoggedIn>().ToList();
                     checker = conn.Table<accountsLoggedIn>().Where(x => x.isLoggedIn == "Yes").ToList();
                     conn.Close();
                 };
 
-                if(tableChecker.Count != 0)
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                {
+                    conn.CreateTable<TermsAndConditionPage>();
+                    tableChecker = conn.Table<TermsAndConditionPage>().ToList();
+                    conn.Close();
+                };
+
+                if (tableChecker.Count != 0)
                 {
                     if (checker.Count != 0)
                     {
