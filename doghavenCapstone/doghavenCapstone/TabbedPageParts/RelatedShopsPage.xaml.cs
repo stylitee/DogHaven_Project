@@ -1,6 +1,8 @@
 ﻿using Acr.UserDialogs;
+using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -104,7 +106,20 @@ namespace doghavenCapstone.TabbedPageParts
                             star_rate = "No ratings available";
                         }
 
-                        _listOfEstablishments.Add(new dogRelatedEstablishments()
+
+                        double resultKilometers = Math.Round(getDistance(location.Latitude, location.Longitude, double.Parse(c.latitude), double.Parse(c.longtitude)), 2);
+
+                        List<SettingsData> checker = null;
+                        using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                        {
+                            conn.CreateTable<SettingsData>();
+                            checker = conn.Table<SettingsData>().ToList();
+                            conn.Close();
+                        };
+
+                        if (resultKilometers < double.Parse(checker[0].breedingEstablishments))
+
+                            _listOfEstablishments.Add(new dogRelatedEstablishments()
                         {
                             id = c.id,
                             shopImage = finalimage,

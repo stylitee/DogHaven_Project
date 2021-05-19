@@ -75,7 +75,8 @@ namespace doghavenCapstone.OtherPageFunctions
                         userPassword = g.userPassword,
                         fullName = g.fullName,
                         address_id = g.address_id,
-                        user_role_id = userrole_id
+                        user_role_id = userrole_id,
+                        phoneNumber = g.phoneNumber
                     };
 
                     accountusers.Update(user);

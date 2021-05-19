@@ -95,6 +95,7 @@ namespace doghavenCapstone.OtherPageFunctions
 				txtProvince.Text = addressInfo[0].province;
 				password = accountInfo[0].userPassword;
 				imgUsersImage.Source = accountInfo[0].userImage;
+				txtPhoneNumber.Text = accountInfo[0].phoneNumber;
 			}
 			UserDialogs.Instance.HideLoading();
 		}
@@ -197,6 +198,17 @@ namespace doghavenCapstone.OtherPageFunctions
 			UserDialogs.Instance.HideLoading();
 		}
 
+        private void txtPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
+        {
+			String val = txtPhoneNumber.Text; 
+
+			if (val.Length > 11)
+			{
+				val = val.Remove(val.Length - 1);
+				txtPhoneNumber.Text = val; 
+			}
+		}
+
         private async void saveInformation()
         {
 			string _dogimage = "";
@@ -227,7 +239,8 @@ namespace doghavenCapstone.OtherPageFunctions
 				userPassword = password,
 				fullName = txtFullname.Text,
 				address_id = _address_id,
-				user_role_id = role_id
+				user_role_id = role_id,
+				phoneNumber = txtPhoneNumber.Text
 			};
 
 			await App.client.GetTable<usersaddress>().UpdateAsync(address);

@@ -28,6 +28,8 @@ namespace doghavenCapstone.Model
         public string address_id { get; set; }
         [JsonProperty(PropertyName = "user_role_id")]
         public string user_role_id { get; set; }
+        [JsonProperty(PropertyName = "phoneNumber")]
+        public string phoneNumber { get; set; }
 
         public static async void Update(accountusers usertype)
         {

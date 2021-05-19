@@ -181,6 +181,7 @@ namespace doghavenCapstone.InitialPages
                             fullName = txtFullname.Text,
                             address_id = addressid,
                             user_role_id = "abscenjs1",
+                            phoneNumber = txtPhoneNumber.Text
                         };
 
                         await App.client.GetTable<usersaddress>().InsertAsync(address);

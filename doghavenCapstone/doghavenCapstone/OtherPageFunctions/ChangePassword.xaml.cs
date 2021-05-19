@@ -54,7 +54,8 @@ namespace doghavenCapstone.OtherPageFunctions
                         userPassword = txtConfirmPassword.Text,
                         fullName = userInformation[0].fullName,
                         address_id = userInformation[0].address_id,
-                        user_role_id = userInformation[0].user_role_id
+                        user_role_id = userInformation[0].user_role_id,
+                        phoneNumber = userInformation[0].phoneNumber
                     };
 
                     accountusers.Update(user);

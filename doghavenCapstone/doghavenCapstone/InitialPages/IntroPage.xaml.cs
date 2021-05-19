@@ -36,7 +36,7 @@ namespace doghavenCapstone.InitialPages
             try
             {
                 List<accountsLoggedIn> checker = null;
-                List<TermsAndConditionPage> tableChecker = null;
+                List<TermsAndCondition> tableChecker = null;
                 using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                 {
                     conn.CreateTable<accountsLoggedIn>();
@@ -46,8 +46,8 @@ namespace doghavenCapstone.InitialPages
 
                 using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                 {
-                    conn.CreateTable<TermsAndConditionPage>();
-                    tableChecker = conn.Table<TermsAndConditionPage>().ToList();
+                    conn.CreateTable<TermsAndCondition>();
+                    tableChecker = conn.Table<TermsAndCondition>().ToList();
                     conn.Close();
                 };
 

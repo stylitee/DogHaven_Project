@@ -158,7 +158,7 @@ namespace doghavenCapstone.MainPages
                             conn.Close();
                         };
 
-                        if(resultKilometers < Double.Parse(checker[0].breedingKilometers))
+                        if(resultKilometers < double.Parse(checker[0].breedingKilometers))
                         {
                             System.Uri url = new System.Uri(dog.dogImage);
                             _Doglist.Add(new dogInfo()
@@ -282,7 +282,7 @@ namespace doghavenCapstone.MainPages
                     conn.Close();
                 };
 
-                if (resultKilometers < Double.Parse(checker[0].breedingKilometers))
+                if (resultKilometers < double.Parse(checker[0].breedingKilometers))
                 {
                     System.Uri url = new System.Uri(dog.dogImage);
                     _Doglist.Add(new dogInfo()
@@ -541,7 +541,7 @@ namespace doghavenCapstone.MainPages
                                 conn.Close();
                             };
 
-                            if (resultKilometers < Double.Parse(checker[0].breedingKilometers))
+                            if (resultKilometers < double.Parse(checker[0].breedingKilometers))
                             {
                                 _Doglist.Add(new dogInfo()
                                 {
