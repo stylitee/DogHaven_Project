@@ -23,7 +23,6 @@ namespace doghavenCapstone.TabbedPageParts
             InitializeComponent();
             BindingContext = this;
             cnt.Add(this);
-            LoadPlaces();
         }
 
         private async void LoadPlaces()
@@ -31,6 +30,7 @@ namespace doghavenCapstone.TabbedPageParts
             var establishments = await App.client.GetTable<dogRelatedEstablishments>().ToListAsync();
             foreach(var c in establishments)
             {
+                _listOfEstablishments.Clear();
                 string finalimage = "";
                 if(c.shopImage == "")
                 {

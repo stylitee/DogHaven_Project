@@ -26,7 +26,7 @@
   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
   <application android:theme="@style/MainTheme" android:label="Dog Haven" android:debuggable="true" android:name="crc648c25666d4d5544e9.MainAppication" android:allowBackup="true" android:icon="@mipmap/icon" android:extractNativeLibs="true">
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
-    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCF5QOXmOpYU3xwIlNMVkXZFVu1TIwrNR4" />
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyB7dCEMKp64DsBVkal51g6_phLHm8meaOE" />
     <activity android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:label="doghavenCapstone" android:theme="@style/MainTheme" android:name="crc644d1b3750717d48d9.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
