@@ -1,8 +1,10 @@
 ﻿using Acr.UserDialogs;
 using doghavenCapstone.ClassHelper;
+using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -146,17 +148,30 @@ namespace doghavenCapstone.MainPages
                         {
                             breed_Name = b.breedName;
                         }
-                        System.Uri url = new System.Uri(dog.dogImage);
-                        _Doglist.Add(new dogInfo()
+                        double resultKilometers = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2);
+                        
+                        List<SettingsData> checker = null;
+                        using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                         {
-                            id = dog.id,
-                            dogPurpose_id = dog.dogPurpose_id,
-                            dogBreed_id = dog.dogBreed_id,
-                            dogName = dog.dogName,
-                            dogGender = dog.dogGender,
-                            dogImage = dog.dogImage,
-                            userid = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude),2).ToString() + "km"
-                        });
+                            conn.CreateTable<SettingsData>();
+                            checker = conn.Table<SettingsData>().ToList();
+                            conn.Close();
+                        };
+
+                        if(resultKilometers < Double.Parse(checker[0].breedingKilometers))
+                        {
+                            System.Uri url = new System.Uri(dog.dogImage);
+                            _Doglist.Add(new dogInfo()
+                            {
+                                id = dog.id,
+                                dogPurpose_id = dog.dogPurpose_id,
+                                dogBreed_id = dog.dogBreed_id,
+                                dogName = dog.dogName,
+                                dogGender = dog.dogGender,
+                                dogImage = dog.dogImage,
+                                userid = resultKilometers.ToString() + "km"
+                            });
+                        } 
                         dogId.Add(dog.id);
                     }
                 }
@@ -256,17 +271,32 @@ namespace doghavenCapstone.MainPages
                 {
                     breederName = b.breedName;
                 }
-                System.Uri url = new System.Uri(dog.dogImage);
-                _Doglist.Add(new dogInfo()
+
+                double resultKilometers = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2);
+
+                List<SettingsData> checker = null;
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                 {
-                    id = dog.id,
-                    dogPurpose_id = dog.dogPurpose_id,
-                    dogBreed_id = dog.dogBreed_id,
-                    dogName = dog.dogName,
-                    dogGender = dog.dogGender,
-                    dogImage = dog.dogImage,
-                    userid = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2).ToString() + "km"
-                });
+                    conn.CreateTable<SettingsData>();
+                    checker = conn.Table<SettingsData>().ToList();
+                    conn.Close();
+                };
+
+                if (resultKilometers < Double.Parse(checker[0].breedingKilometers))
+                {
+                    System.Uri url = new System.Uri(dog.dogImage);
+                    _Doglist.Add(new dogInfo()
+                    {
+                        id = dog.id,
+                        dogPurpose_id = dog.dogPurpose_id,
+                        dogBreed_id = dog.dogBreed_id,
+                        dogName = dog.dogName,
+                        dogGender = dog.dogGender,
+                        dogImage = dog.dogImage,
+                        userid = resultKilometers.ToString() + "km"
+                    });
+                }
+                
                 dogId.Add(dog.id);
             }
             finalListOfDogs.Clear();
@@ -501,18 +531,30 @@ namespace doghavenCapstone.MainPages
                     {
                         foreach (var d in availDogs)
                         {
-                            _Doglist.Add(new dogInfo()
+                            double resultKilometers = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2);
+
+                            List<SettingsData> checker = null;
+                            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                             {
-                                id = dog.id,
-                                dogPurpose_id = dog.dogPurpose_id,
-                                dogBreed_id = dog.dogBreed_id,
-                                dogName = dog.dogName,
-                                dogGender = dog.dogGender,
-                                /*breed_Name = _mydoglist[index].breed_Name,*/
-                                dogImage = dog.dogImage,
-                                userid = Math.Round(getDistance(user_latitude, user_longtitude, otherUser_latitude, otherUser_longtitude), 2).ToString() + "km"
-                            });
-                            dogId.Add(dog.id);
+                                conn.CreateTable<SettingsData>();
+                                checker = conn.Table<SettingsData>().ToList();
+                                conn.Close();
+                            };
+
+                            if (resultKilometers < Double.Parse(checker[0].breedingKilometers))
+                            {
+                                _Doglist.Add(new dogInfo()
+                                {
+                                    id = dog.id,
+                                    dogPurpose_id = dog.dogPurpose_id,
+                                    dogBreed_id = dog.dogBreed_id,
+                                    dogName = dog.dogName,
+                                    dogGender = dog.dogGender,
+                                    dogImage = dog.dogImage,
+                                    userid = resultKilometers.ToString() + "km"
+                                });
+                                dogId.Add(dog.id);
+                            }
                         }
                     }
                 }

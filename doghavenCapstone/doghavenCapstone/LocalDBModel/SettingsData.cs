@@ -5,11 +5,13 @@ using System.Text;
 
 namespace doghavenCapstone.LocalDBModel
 {
-    public class SellerPrompt
+    public class SettingsData
     {
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }
         [MaxLength(250)]
-        public string isRead { get; set; }
+        public string breedingKilometers { get; set; }
+        [MaxLength(250)]
+        public string breedingEstablishments { get; set; }
     }
 }

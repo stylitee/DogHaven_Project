@@ -56,6 +56,11 @@ namespace doghavenCapstone.ClassHelper
 
         public static int switcher = 0;
         public static string lostAndFoundIdentifier = "";
-        
+
+
+        //settings
+
+        public static string breedingKilometers = "";
+        public static string breedingEstablishments = "";
     }
 }

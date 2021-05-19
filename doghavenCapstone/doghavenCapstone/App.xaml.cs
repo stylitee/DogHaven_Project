@@ -42,12 +42,12 @@ namespace doghavenCapstone
         {
             InitializeComponent();
             DatabaseLocation = databaseLocation;
-            //MainPage = new NavigationPage(new IntroPage());
-            MainPage = new NavigationPage(new SettingsPage());
+            MainPage = new NavigationPage(new IntroPage());
         }
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()
