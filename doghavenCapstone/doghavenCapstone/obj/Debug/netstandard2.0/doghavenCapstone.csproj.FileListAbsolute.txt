@@ -93,3 +93,4 @@ C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\doghavenCapstone.pdb
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\InitialPages\TermsAndConditionPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\MainPages\MessagesPage.xaml.g.cs
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\InitialPages\OTPPage.xaml.g.cs

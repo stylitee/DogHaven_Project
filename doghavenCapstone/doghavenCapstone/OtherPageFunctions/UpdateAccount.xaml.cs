@@ -200,7 +200,7 @@ namespace doghavenCapstone.OtherPageFunctions
 
         private void txtPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
         {
-			String val = txtPhoneNumber.Text; 
+			string val = txtPhoneNumber.Text; 
 
 			if (val.Length > 11)
 			{

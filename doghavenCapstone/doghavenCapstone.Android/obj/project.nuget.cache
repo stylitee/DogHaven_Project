@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "noMIs93+lgpzcLD8iP3iFm9+Hwf+GA0xYSEpPIlcZQJTFR0Tcd5Y6Tm5Qj7o3JTLCfvyzZJJzdJdUH5cQfWW5A==",
+  "dgSpecHash": "dUvwpF61+dRG9k3xfIjikD2qZgKNNieC1IEPPwouzL0czkTQ0FIhP/0qn0cpbKo37s6OqZDAcb8Sa6Liq/ucMA==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.Android\\doghavenCapstone.Android.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\plugin.currentactivity\\2.1.0.4\\plugin.currentactivity.2.1.0.4.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\plugin.localnotification\\5.2.0\\plugin.localnotification.5.2.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\plugin.permissions\\6.0.1\\plugin.permissions.6.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\restsharp\\106.11.8-alpha.0.2\\restsharp.106.11.8-alpha.0.2.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlite-net-pcl\\1.8.0-beta\\sqlite-net-pcl.1.8.0-beta.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",

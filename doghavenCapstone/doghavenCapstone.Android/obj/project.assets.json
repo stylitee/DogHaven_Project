@@ -337,6 +337,15 @@
           "lib/monoandroid10.0/Plugin.Permissions.dll": {}
         }
       },
+      "RestSharp/106.11.8-alpha.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "SkiaSharp/1.68.0": {
         "type": "package",
         "compile": {
@@ -2839,6 +2848,7 @@
           "Microsoft.WindowsAzure.Management.Storage": "6.0.1",
           "Plugin.LocalNotification": "5.2.0",
           "Plugin.Permissions": "6.0.1",
+          "RestSharp": "106.11.8-alpha.0.2",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
           "Xamarin.CommunityToolkit": "1.1.0",
@@ -3505,6 +3515,22 @@
         "plugin.permissions.6.0.1.nupkg.sha512",
         "plugin.permissions.nuspec",
         "readme.txt"
+      ]
+    },
+    "RestSharp/106.11.8-alpha.0.2": {
+      "sha512": "SRTuLBqzBTephRh+KHS9rLKQKssySDBhgbaKPHrqD5Svh9AidgrtjvUUaNKAjwGPNj/2J+SkTqocNGrFKlfx0g==",
+      "type": "package",
+      "path": "restsharp/106.11.8-alpha.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.11.8-alpha.0.2.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
       ]
     },
     "SkiaSharp/1.68.0": {
@@ -8583,6 +8609,7 @@
       "Plugin.CurrentActivity >= 2.1.0.4",
       "Plugin.LocalNotification >= 5.2.0",
       "Plugin.Permissions >= 6.0.1",
+      "RestSharp >= 106.11.8-alpha.0.2",
       "WindowsAzure.Storage >= 9.3.3",
       "Xam.Plugin.Media >= 5.0.1",
       "Xamarin.CommunityToolkit >= 1.1.0",
@@ -8666,6 +8693,10 @@
           "Plugin.Permissions": {
             "target": "Package",
             "version": "[6.0.1, )"
+          },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[106.11.8-alpha.0.2, )"
           },
           "WindowsAzure.Storage": {
             "target": "Package",

@@ -55,7 +55,8 @@
                                 <Entry Placeholder="Province"
                                        x:Name="txtProvince"/>
                                 <Entry x:Name="txtPhoneNumber"
-                                       Placeholder="Phone number" />
+                                       Placeholder="Phone number"
+                                       TextChanged="txtPhoneNumber_TextChanged"/>
                                 <Entry Placeholder="Password" 
                                        IsPassword="True" 
                                        x:Name="txtPassword"

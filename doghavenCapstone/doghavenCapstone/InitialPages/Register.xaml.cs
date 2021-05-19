@@ -6,6 +6,7 @@ using Microsoft.WindowsAzure.Storage;
 using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,9 @@ namespace doghavenCapstone.InitialPages
         bool _usernameChecker = false;
         bool _pass = false, _confirmpass = false;
         string url = "";
+        public static int OTPResult = 0;
+        public static List<accountusers> _accounts = new List<accountusers>();
+        public static List<usersaddress> _address = new List<usersaddress>();
         List<userRole> lstofRoles = new List<userRole>();
         public Register()
         {
@@ -184,11 +188,15 @@ namespace doghavenCapstone.InitialPages
                             phoneNumber = txtPhoneNumber.Text
                         };
 
-                        await App.client.GetTable<usersaddress>().InsertAsync(address);
+                        _accounts.Add(user);
+                        _address.Add(address);
+                        OTP();
+                        /*await App.client.GetTable<usersaddress>().InsertAsync(address);
                         await App.client.GetTable<accountusers>().InsertAsync(user);
                         await Navigation.PushAsync(new LoginPage());
+                        
+                        Acr.UserDialogs.UserDialogs.Instance.Toast("Account successfully saved", new TimeSpan(2));*/
                         UserDialogs.Instance.HideLoading();
-                        Acr.UserDialogs.UserDialogs.Instance.Toast("Account successfully saved", new TimeSpan(2));
                     }
                     catch (Exception)
                     {
@@ -237,7 +245,7 @@ namespace doghavenCapstone.InitialPages
         private async void txtUser_name_TextChanged(object sender, TextChangedEventArgs e)
         {
             lblIndicator.BackgroundColor = Color.Yellow;
-            if(txtUser_name.Text.Length < 3)
+            if(txtUser_name.Text.Length > 3)
             {
                 var usernameChecker = await App.client.GetTable<accountusers>().Where(x => x.username == txtUser_name.Text).ToListAsync();
                 if(usernameChecker.Count != 0)
@@ -248,8 +256,19 @@ namespace doghavenCapstone.InitialPages
                 else
                 {
                     lblIndicator.BackgroundColor = Color.Green;
-                    _usernameChecker = false;
+                    _usernameChecker = true;
                 }
+            }
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string val = txtPhoneNumber.Text;
+
+            if (val.Length > 15)
+            {
+                val = val.Remove(val.Length - 1);
+                txtPhoneNumber.Text = val;
             }
         }
 
@@ -263,6 +282,48 @@ namespace doghavenCapstone.InitialPages
             {
                 _pass = false;
             }
+        }
+
+        private async void OTP()
+        {
+            string countryCode = "63";
+            OTPResult = GenerateOTP();
+
+            /*OTPModel model = new OTPModel();
+            model.sender = "DogHaven";
+            model.route = "4";
+            model.country = countryCode;
+            string message = $"<#> Your One Time Password for Dog Haven is { OTPResult } ";
+            List<string> numbers = new List<string>() { txtPhoneNumber.Text };
+            model.sms.Add(new Model.Sms { message = message, to = numbers });*/
+
+            var client = new RestClient("https://api.msg91.com/api/v5/otp?template_id=360983ASQxxFbyvQ60a51031P1&mobile=%20639277645857&authkey=60a5221f8fa2a00374469824");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            request.AddParameter("application/json", "{\"Value1\":\"" + OTPResult.ToString() + "}\",\"Value2\":\"\",\"Value3\":\"\"}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+
+            if (response.IsSuccessful)
+            {
+                OTPResponse resp = JsonConvert.DeserializeObject<OTPResponse>(response.Content);
+                if(resp.type == "success")
+                {
+                    Application.Current.MainPage = new NavigationPage(new OTPPage());
+                }
+                else
+                {
+                    await DisplayAlert("Ops", "An error has occured sending the OTP please try again later", "Okay");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Ops", "An error has occured sending the OTP please try again later", "Okay");
+            }
+        }
+
+        public int GenerateOTP()
+        {
+            return new Random().Next(1000, 9999);
         }
 
     }

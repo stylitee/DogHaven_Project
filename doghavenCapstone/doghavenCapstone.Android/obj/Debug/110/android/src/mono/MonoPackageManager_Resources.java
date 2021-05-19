@@ -31,6 +31,7 @@ public class MonoPackageManager_Resources {
 		"Plugin.LocalNotification.dll",
 		"Plugin.Media.dll",
 		"Plugin.Permissions.dll",
+		"RestSharp.dll",
 		"SkiaSharp.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
