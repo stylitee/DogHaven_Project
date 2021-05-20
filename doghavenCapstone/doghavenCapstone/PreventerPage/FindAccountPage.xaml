@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.PreventerPage.FindAccountPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Label Text="Enter your username: " 
+                   TextColor="Black"/>
+            <Entry Placeholder="e.g. Beegies0982"
+                   x:Name="txtUsername"
+                   TextColor="Black"/>
+            <Button Text="Find my account"
+                    x:Name="txtFindAccount"
+                    TextColor="Black"
+                    Clicked="txtFindAccount_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

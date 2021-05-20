@@ -164,46 +164,49 @@ namespace doghavenCapstone.InitialPages
 
                 if (txtPassword.Text == txtConfirmPassword.Text)
                 {
-                    try
+                    if(txtPhoneNumber.Text.Substring(0,2) == "09")
                     {
-                        UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
-                        addressid = System.Guid.NewGuid().ToString("N").Substring(0, 11);
-
-                        usersaddress address = new usersaddress()
+                        try
                         {
-                            id = addressid,
-                            streetname = txtStreetName.Text,
-                            barangay = txtBarangay.Text,
-                            city = txtCity.Text,
-                            province = txtProvince.Text
-                        };
+                            UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
+                            addressid = System.Guid.NewGuid().ToString("N").Substring(0, 11);
 
-                        accountusers user = new accountusers()
+                            usersaddress address = new usersaddress()
+                            {
+                                id = addressid,
+                                streetname = txtStreetName.Text,
+                                barangay = txtBarangay.Text,
+                                city = txtCity.Text,
+                                province = txtProvince.Text
+                            };
+
+                            accountusers user = new accountusers()
+                            {
+                                id = Guid.NewGuid().ToString("N").Substring(0, 10),
+                                userImage = url,
+                                username = txtUser_name.Text,
+                                userPassword = txtConfirmPassword.Text,
+                                fullName = txtFullname.Text,
+                                address_id = addressid,
+                                user_role_id = "abscenjs1",
+                                phoneNumber = txtPhoneNumber.Text
+                            };
+
+                            _accounts.Add(user);
+                            _address.Add(address);
+                            OTP();
+                            UserDialogs.Instance.HideLoading();
+                        }
+                        catch (Exception)
                         {
-                            id = Guid.NewGuid().ToString("N").Substring(0, 10),
-                            userImage = url,
-                            username = txtUser_name.Text,
-                            userPassword = txtConfirmPassword.Text,
-                            fullName = txtFullname.Text,
-                            address_id = addressid,
-                            user_role_id = "abscenjs1",
-                            phoneNumber = txtPhoneNumber.Text
-                        };
-
-                        _accounts.Add(user);
-                        _address.Add(address);
-                        OTP();
-                        /*await App.client.GetTable<usersaddress>().InsertAsync(address);
-                        await App.client.GetTable<accountusers>().InsertAsync(user);
-                        await Navigation.PushAsync(new LoginPage());
-                        
-                        Acr.UserDialogs.UserDialogs.Instance.Toast("Account successfully saved", new TimeSpan(2));*/
-                        UserDialogs.Instance.HideLoading();
+                            await DisplayAlert("Error", "Connection error, please try again later", "Okay");
+                        }
                     }
-                    catch (Exception)
+                    else
                     {
-                        await DisplayAlert("Error", "Connection error, please try again later", "Okay");
+                        await DisplayAlert("Ops", "You've enter an invalid phone number", "Okay");
                     }
+                    
                 }
                 else
                 {
@@ -274,7 +277,7 @@ namespace doghavenCapstone.InitialPages
         {
             string val = txtPhoneNumber.Text;
 
-            if (val.Length > 15)
+            if (val.Length > 11)
             {
                 val = val.Remove(val.Length - 1);
                 txtPhoneNumber.Text = val;
