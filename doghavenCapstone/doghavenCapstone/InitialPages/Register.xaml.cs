@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -244,20 +246,27 @@ namespace doghavenCapstone.InitialPages
 
         private async void txtUser_name_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lblIndicator.BackgroundColor = Color.Yellow;
-            if(txtUser_name.Text.Length > 3)
+            try
             {
-                var usernameChecker = await App.client.GetTable<accountusers>().Where(x => x.username == txtUser_name.Text).ToListAsync();
-                if(usernameChecker.Count != 0)
+                lblIndicator.BackgroundColor = Color.Yellow;
+                if (txtUser_name.Text.Length > 3)
                 {
-                    lblIndicator.BackgroundColor = Color.Red;
-                    _usernameChecker = false;
+                    var usernameChecker = await App.client.GetTable<accountusers>().Where(x => x.username == txtUser_name.Text).ToListAsync();
+                    if (usernameChecker.Count != 0)
+                    {
+                        lblIndicator.BackgroundColor = Color.Red;
+                        _usernameChecker = false;
+                    }
+                    else
+                    {
+                        lblIndicator.BackgroundColor = Color.Green;
+                        _usernameChecker = true;
+                    }
                 }
-                else
-                {
-                    lblIndicator.BackgroundColor = Color.Green;
-                    _usernameChecker = true;
-                }
+            }
+            catch (System.Net.Http.HttpRequestException)
+            {
+                await Navigation.PushAsync(new InternetChecker());
             }
         }
 
@@ -286,39 +295,21 @@ namespace doghavenCapstone.InitialPages
 
         private async void OTP()
         {
-            string countryCode = "63";
+            string accountSid = "AC31df88e462474edfa661c409f0c0806a";
+            string authToken = "b088a7e257a4dc3fc533fd39c6fde692";
             OTPResult = GenerateOTP();
+            string final_num = "+63" + txtPhoneNumber.Text.Remove(0, 1);
 
-            /*OTPModel model = new OTPModel();
-            model.sender = "DogHaven";
-            model.route = "4";
-            model.country = countryCode;
-            string message = $"<#> Your One Time Password for Dog Haven is { OTPResult } ";
-            List<string> numbers = new List<string>() { txtPhoneNumber.Text };
-            model.sms.Add(new Model.Sms { message = message, to = numbers });*/
+            TwilioClient.Init(accountSid, authToken);
+            var message = MessageResource.Create(
+                body: "You're OTP for DogHaven Account is " + OTPResult.ToString(),
+                from: new Twilio.Types.PhoneNumber("+15634122473"),
+                to: new Twilio.Types.PhoneNumber(final_num)
+            );
 
-            var client = new RestClient("https://api.msg91.com/api/v5/otp?template_id=360983ASQxxFbyvQ60a51031P1&mobile=%20639277645857&authkey=60a5221f8fa2a00374469824");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("content-type", "application/json");
-            request.AddParameter("application/json", "{\"Value1\":\"" + OTPResult.ToString() + "}\",\"Value2\":\"\",\"Value3\":\"\"}", ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-
-            if (response.IsSuccessful)
-            {
-                OTPResponse resp = JsonConvert.DeserializeObject<OTPResponse>(response.Content);
-                if(resp.type == "success")
-                {
-                    Application.Current.MainPage = new NavigationPage(new OTPPage());
-                }
-                else
-                {
-                    await DisplayAlert("Ops", "An error has occured sending the OTP please try again later", "Okay");
-                }
-            }
-            else
-            {
-                await DisplayAlert("Ops", "An error has occured sending the OTP please try again later", "Okay");
-            }
+            await DisplayAlert("Confirmation","A code has been sent to your phone number " + txtPhoneNumber.Text, "Okay");
+            Application.Current.MainPage = new NavigationPage(new OTPPage());
+            
         }
 
         public int GenerateOTP()

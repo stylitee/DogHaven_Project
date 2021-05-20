@@ -29,7 +29,7 @@ namespace doghavenCapstone.InitialPages
             }
             else
             {
-                await DisplayAlert("Ops","You've enter the wrong one time password","Okay");
+                await DisplayAlert("Ops","You've enter the wrong code","Okay");
             }
         }
     }

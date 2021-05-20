@@ -2,6 +2,7 @@
 using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
+using doghavenCapstone.PreventerPage;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -35,78 +36,87 @@ namespace doghavenCapstone.InitialPages
             await Task.Delay(5000);
             try
             {
-                List<accountsLoggedIn> checker = null;
-                List<TermsAndCondition> tableChecker = null;
-                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                var netChekcer = await App.client.GetTable<usersaddress>().ToListAsync();
+                try
                 {
-                    conn.CreateTable<accountsLoggedIn>();
-                    checker = conn.Table<accountsLoggedIn>().Where(x => x.isLoggedIn == "Yes").ToList();
-                    conn.Close();
-                };
-
-                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-                {
-                    conn.CreateTable<TermsAndCondition>();
-                    tableChecker = conn.Table<TermsAndCondition>().ToList();
-                    conn.Close();
-                };
-
-                if (tableChecker.Count != 0)
-                {
-                    if (checker.Count != 0)
+                    List<accountsLoggedIn> checker = null;
+                    List<TermsAndCondition> tableChecker = null;
+                    using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                     {
-                        UserDialogs.Instance.ShowLoading("Please wait while we logged you in");
-                        App.user_id = checker[0].userid;
-                        var newAccountChecker = await App.client.GetTable<dogInfo>().ToListAsync();
-                        var dogchecker = await App.client.GetTable<dogInfo>().ToListAsync();
-                        var userDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
-                        var location = await App.client.GetTable<getCurrentLocation>().Where(x => x.user_id == App.user_id).ToListAsync();
+                        conn.CreateTable<accountsLoggedIn>();
+                        checker = conn.Table<accountsLoggedIn>().Where(x => x.isLoggedIn == "Yes").ToList();
+                        conn.Close();
+                    };
 
-                        if (newAccountChecker.Count + 1 <= 5 && dogchecker.Count <= 5 && location.Count == 0)
-                        {
-                            await Navigation.PushAsync(new GetUsersLocation());
-                        }
-                        if (newAccountChecker.Count + 1 <= 5 && dogchecker.Count <= 5 && location.Count != 0)
-                        {
-                            if (userDogs.Count != 0)
-                            {
-                                await Navigation.PushAsync(new UploadDogPage());
-                            }
-                            else
-                            {
-                                await Navigation.PushAsync(new NewAccountVerify());
-                            }
+                    using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                    {
+                        conn.CreateTable<TermsAndCondition>();
+                        tableChecker = conn.Table<TermsAndCondition>().ToList();
+                        conn.Close();
+                    };
 
-                        }
-                        if (newAccountChecker.Count() + 1 >= 5 && dogchecker.Count >= 5 && location.Count != 0)
+                    if (tableChecker.Count != 0)
+                    {
+                        if (checker.Count != 0)
                         {
-                            Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
-                            UserDialogs.Instance.HideLoading();
+                            UserDialogs.Instance.ShowLoading("Please wait while we logged you in");
+                            App.user_id = checker[0].userid;
+                            var newAccountChecker = await App.client.GetTable<dogInfo>().ToListAsync();
+                            var dogchecker = await App.client.GetTable<dogInfo>().ToListAsync();
+                            var userDogs = await App.client.GetTable<dogInfo>().Where(x => x.userid == App.user_id).ToListAsync();
+                            var location = await App.client.GetTable<getCurrentLocation>().Where(x => x.user_id == App.user_id).ToListAsync();
+
+                            if (newAccountChecker.Count + 1 <= 5 && dogchecker.Count <= 5 && location.Count == 0)
+                            {
+                                await Navigation.PushAsync(new GetUsersLocation());
+                            }
+                            if (newAccountChecker.Count + 1 <= 5 && dogchecker.Count <= 5 && location.Count != 0)
+                            {
+                                if (userDogs.Count != 0)
+                                {
+                                    await Navigation.PushAsync(new UploadDogPage());
+                                }
+                                else
+                                {
+                                    await Navigation.PushAsync(new NewAccountVerify());
+                                }
+
+                            }
+                            if (newAccountChecker.Count() + 1 >= 5 && dogchecker.Count >= 5 && location.Count != 0)
+                            {
+                                Application.Current.MainPage = new NavigationPage(new HomeFlyOut());
+                                UserDialogs.Instance.HideLoading();
+                            }
+                            if (newAccountChecker.Count() + 1 >= 5 && dogchecker.Count >= 5 && location.Count == 0)
+                            {
+                                await Navigation.PushAsync(new GetUsersLocation());
+                            }
                         }
-                        if (newAccountChecker.Count() + 1 >= 5 && dogchecker.Count >= 5 && location.Count == 0)
+                        else
                         {
-                            await Navigation.PushAsync(new GetUsersLocation());
+                            Application.Current.MainPage = new NavigationPage(new LoginPage());
                         }
                     }
                     else
                     {
-                        Application.Current.MainPage = new NavigationPage(new LoginPage());
+                        await Navigation.PushAsync(new TermsAndConditionPage());
                     }
+
+                    UserDialogs.Instance.HideLoading();
                 }
-                else
+                catch (SQLite.SQLiteException)
                 {
-                    await Navigation.PushAsync(new TermsAndConditionPage());
+                    Application.Current.MainPage = new NavigationPage(new LoginPage());
                 }
-                
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            catch (System.Net.Http.HttpRequestException)
+            {
                 UserDialogs.Instance.HideLoading();
-            }
-            catch (SQLite.SQLiteException)
-            {
-                Application.Current.MainPage = new NavigationPage(new LoginPage());
-            }
-            catch (Exception)
-            {
-                throw;
+                await Navigation.PushAsync(new InternetChecker());
             }
         }
     }
