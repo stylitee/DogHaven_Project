@@ -8,8 +8,6 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -47,7 +45,7 @@ namespace doghavenCapstone.InitialPages
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            //forgotPassword
+            Navigation.PushAsync(new FindAccountPage());
         }
 
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
