@@ -48,15 +48,15 @@ namespace doghavenCapstone.PreventerPage
             try
             {
                 var number = await App.client.GetTable<accountusers>().Where(x => x.username == txtUsername.Text).ToListAsync();
-                string accountSid = "AC31df88e462474edfa661c409f0c0806a";
-                string authToken = "b088a7e257a4dc3fc533fd39c6fde692";
+                string accountSid = "ACf7bf998164d8831baae2a9e2e2f5a64f";
+                string authToken = "31c30e40bd0988e50f3f0bb398517843";
                 OTPResult = GenerateOTP();
                 string final_num = "+63" + number[0].phoneNumber.Remove(0, 1);
 
                 TwilioClient.Init(accountSid, authToken);
                 var message = MessageResource.Create(
                     body: "You're recover code for DogHaven Account is " + OTPResult.ToString(),
-                    from: new Twilio.Types.PhoneNumber("+15634122473"),
+                    from: new Twilio.Types.PhoneNumber("+14079179741"),
                     to: new Twilio.Types.PhoneNumber(final_num)
                 );
 
@@ -65,6 +65,11 @@ namespace doghavenCapstone.PreventerPage
             catch (System.Net.Http.HttpRequestException)
             {
                 await Navigation.PushAsync(new InternetChecker());
+            }
+            catch (Twilio.Exceptions.ApiException)
+            {
+                username = txtUsername.Text;
+                await Navigation.PushAsync(new ForgotPasswordOTPPage());
             }
         }
 

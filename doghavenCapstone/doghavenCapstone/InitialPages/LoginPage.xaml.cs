@@ -36,8 +36,6 @@ namespace doghavenCapstone.InitialPages
             lblErrorMessage.Text = message;
         }
 
-        
-
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
             AppHelpers.checkConnection(this, e);
