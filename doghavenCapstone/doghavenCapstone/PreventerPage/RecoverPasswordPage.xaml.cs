@@ -1,4 +1,5 @@
-﻿using doghavenCapstone.Model;
+﻿using doghavenCapstone.ClassHelper;
+using doghavenCapstone.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace doghavenCapstone.PreventerPage
                         id = info[0].id,
                         userImage = info[0].userImage,
                         username = info[0].username,
-                        userPassword = txtConfirmPassword.Text,
+                        userPassword = AppHelpers.PasswordEncryption(txtConfirmPassword.Text),
                         fullName = info[0].fullName,
                         address_id = info[0].address_id,
                         user_role_id = info[0].user_role_id,

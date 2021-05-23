@@ -158,7 +158,9 @@ namespace doghavenCapstone.InitialPages
         }
         private async void savingInformation()
         {
-            if(_pass != false && _confirmpass != false)
+            _accounts.Clear();
+            _address.Clear();
+            if (_pass != false && _confirmpass != false)
             {
                 string addressid = "", userrole_id = "";
 
@@ -170,7 +172,7 @@ namespace doghavenCapstone.InitialPages
                         {
                             UserDialogs.Instance.ShowLoading("Information is being processed, please wait");
                             addressid = System.Guid.NewGuid().ToString("N").Substring(0, 11);
-
+                            string encryptedPass = AppHelpers.PasswordEncryption(txtConfirmPassword.Text);
                             usersaddress address = new usersaddress()
                             {
                                 id = addressid,
@@ -185,7 +187,7 @@ namespace doghavenCapstone.InitialPages
                                 id = Guid.NewGuid().ToString("N").Substring(0, 10),
                                 userImage = url,
                                 username = txtUser_name.Text,
-                                userPassword = txtConfirmPassword.Text,
+                                userPassword = encryptedPass,
                                 fullName = txtFullname.Text,
                                 address_id = addressid,
                                 user_role_id = "abscenjs1",
@@ -194,15 +196,9 @@ namespace doghavenCapstone.InitialPages
 
                             _accounts.Add(user);
                             _address.Add(address);
-                            try
-                            {
-                                OTP();
-                                UserDialogs.Instance.HideLoading();
-                            }
-                            catch (Twilio.Exceptions.ApiException)
-                            {
-                                Application.Current.MainPage = new NavigationPage(new LoginPage());
-                            }
+
+                            OTP();
+                            UserDialogs.Instance.HideLoading();
                             
                         }
                         catch (Exception)
@@ -306,21 +302,30 @@ namespace doghavenCapstone.InitialPages
 
         private async void OTP()
         {
-            string accountSid = "ACf7bf998164d8831baae2a9e2e2f5a64f";
-            string authToken = "31c30e40bd0988e50f3f0bb398517843";
-            OTPResult = GenerateOTP();
-            string final_num = "+63" + txtPhoneNumber.Text.Remove(0, 1);
+            try
+            {
+                string accountSid = "ACf7bf998164d8831baae2a9e2e2f5a64f";
+                string authToken = "31c30e40bd0988e50f3f0bb398517843";
+                OTPResult = GenerateOTP();
+                string final_num = "+63" + txtPhoneNumber.Text.Remove(0, 1);
 
-            TwilioClient.Init(accountSid, authToken);
-            var message = MessageResource.Create(
-                body: "You're OTP for DogHaven Account is " + OTPResult.ToString(),
-                from: new Twilio.Types.PhoneNumber("+14079179741"),
-                to: new Twilio.Types.PhoneNumber(final_num)
-            );
+                TwilioClient.Init(accountSid, authToken);
+                var message = MessageResource.Create(
+                    body: "You're OTP for DogHaven Account is " + OTPResult.ToString(),
+                    from: new Twilio.Types.PhoneNumber("+14079179741"),
+                    to: new Twilio.Types.PhoneNumber(final_num)
+                );
 
-            await DisplayAlert("Confirmation","A code has been sent to your phone number " + txtPhoneNumber.Text, "Okay");
-            Application.Current.MainPage = new NavigationPage(new OTPPage());
-            
+                await DisplayAlert("Confirmation", "A code has been sent to your phone number " + txtPhoneNumber.Text, "Okay");
+                Application.Current.MainPage = new NavigationPage(new OTPPage());
+            }
+            catch (Twilio.Exceptions.ApiException)
+            {
+                await App.client.GetTable<usersaddress>().InsertAsync(_address[0]);
+                await App.client.GetTable<accountusers>().InsertAsync(_accounts[0]);
+                UserDialogs.Instance.Toast("Account succesfully saved", new TimeSpan(3));
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
         }
 
         public int GenerateOTP()

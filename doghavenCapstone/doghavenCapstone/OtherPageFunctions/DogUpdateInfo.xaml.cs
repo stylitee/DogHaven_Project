@@ -225,6 +225,12 @@ namespace doghavenCapstone.OtherPageFunctions
             }
         }
 
+        private void DeleteDog_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+            Navigation.PushAsync(new DeleteDogPage());
+        }
+
         private void infoInitializer()
         {
             if (url != "")

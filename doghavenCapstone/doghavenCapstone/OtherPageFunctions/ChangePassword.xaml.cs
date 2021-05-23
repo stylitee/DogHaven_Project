@@ -34,7 +34,8 @@ namespace doghavenCapstone.OtherPageFunctions
         private async void btnConfirm_Clicked_1(object sender, EventArgs e)
         {
             var userInformation = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
-            if (txtOldPassword.Text != userInformation[0].userPassword)
+            var passResult = AppHelpers.PasswordDecrypt(userInformation[0].userPassword);
+            if (txtOldPassword.Text != passResult)
             {
                 await DisplayAlert("Ops", "Old password is incorrect", "okay");
             }
@@ -51,7 +52,7 @@ namespace doghavenCapstone.OtherPageFunctions
                         id = userInformation[0].id,
                         userImage = userInformation[0].userImage,
                         username = userInformation[0].username,
-                        userPassword = txtConfirmPassword.Text,
+                        userPassword = AppHelpers.PasswordEncryption(txtConfirmPassword.Text),
                         fullName = userInformation[0].fullName,
                         address_id = userInformation[0].address_id,
                         user_role_id = userInformation[0].user_role_id,

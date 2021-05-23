@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.OtherPageFunctions.DeleteDogPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Are you sure you want to Delete this Dog?"
+                   HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="btnConfirm"
+                    Text="Confirm"
+                    Clicked="btnConfirm_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

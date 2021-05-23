@@ -100,12 +100,12 @@ namespace doghavenCapstone.InitialPages
                             App.fullName = c.fullName;
                             App.user_id = c.id;
                             usernames = c.username;
-                            password = c.userPassword;
+                            password = AppHelpers.PasswordDecrypt(c.userPassword);
 
                             _id = c.id;
                             _fullName = c.fullName;
                             _username = c.username;
-                            _password = c.userPassword;
+                            _password = AppHelpers.PasswordDecrypt(c.userPassword);
                             user_Image = c.userImage;
                             user_fullName = c.fullName;
                         }

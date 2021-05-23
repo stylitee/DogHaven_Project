@@ -71,6 +71,7 @@ namespace doghavenCapstone.OtherPageFunctions
                         };
 
                         await App.client.GetTable<DogPrice>().InsertAsync(sell);
+
                     }
                 }
             }
