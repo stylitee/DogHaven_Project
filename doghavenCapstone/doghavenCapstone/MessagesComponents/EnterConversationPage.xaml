@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="doghavenCapstone.MessagesComponents.EnterConversationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding conversationList}"
+                  BackgroundColor="Transparent"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame CornerRadius="60"
+                                           HeightRequest="30"
+                                           WidthRequest="30"
+                                           Grid.Column="1"
+                                           Padding="0"
+                                           VerticalOptions="Center"
+                                           IsClippedToBounds="True">
+                                        <Image Source="{Binding conversationImage}"/>
+                                    </Frame>
+                                    <Frame CornerRadius="60"
+                                           HorizontalOptions="StartAndExpand"
+                                           Grid.Column="1"
+                                           Padding="0"
+                                           VerticalOptions="StartAndExpand">
+                                        <Label Text="{Binding textMessage}"/>
+                                    </Frame>
+                                </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Fill"
+                         Margin="0,0"
+                         Padding="0,0">
+                <Editor VerticalOptions="CenterAndExpand"
+                       Placeholder="Enter your message"
+                        x:Name="txtMessage"
+                       HorizontalOptions="FillAndExpand"
+                       Margin="0,0" />
+                <Button Text="Send"
+                        x:Name="btnSend"
+                        Margin="0,0"
+                        Clicked="btnSend_Clicked"
+                        Padding="0,0"
+                        HorizontalOptions="EndAndExpand"/>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
 using Plugin.LocalNotification;
 using SendBird;
@@ -16,25 +17,38 @@ namespace doghavenCapstone.MainPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MessagesPage : ContentPage
     {
-        public ObservableCollection<ConversationName> _conversationList = new ObservableCollection<ConversationList>();
+        public static string _channelUrl = "", userimage = "";
+        public ObservableCollection<ConversationNames> _conversationList = new ObservableCollection<ConversationNames>();
+        public static List<ContentPage> lstContent = new List<ContentPage>();
+
         List<accountusers> userinfo = new List<accountusers>();
         SendBirdClient.ChannelHandler channel = new SendBirdClient.ChannelHandler();
-        string token = "bbb00b761b8fc76589c4e5618c812ebd3f5bf466";
+        //string token = "bbb00b761b8fc76589c4e5618c812ebd3f5bf466";
         int i = 0;
         public static string UNIQUE_HANDLER_ID = Guid.NewGuid().ToString("N").Substring(0, 10);
         public MessagesPage()
         {
             InitializeComponent();
+            lstContent.Clear();
+            lstContent.Add(this);
             BindingContext = this;
             loadUserInfo();
             loadAccount();
             loadListOfConversation();
         }
 
+        protected override void OnAppearing()
+        {
+            lstContent.Clear();
+            lstContent.Add(this);
+            base.OnAppearing();
+        }
+
         private async void loadListOfConversation()
         {
-            var conversationList = await App.client.GetTable<ConversationList>().ToListAsync();
-            foreach(var c in conversationList)
+            var conversationList = await App.client.GetTable<ConversationList>().Where(x => x.user_idOne == App.user_id || x.user_idTwo == App.user_id).ToListAsync();
+            var myinformation = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
+            foreach (var c in conversationList)
             {
                 OpenChannel.GetChannel(c.channelID, (OpenChannel openChannel, SendBirdException e) =>
                 {
@@ -44,27 +58,18 @@ namespace doghavenCapstone.MainPages
                     }
 
                     string ChannelName = openChannel.Name;
+                    userimage = myinformation[0].userImage;
+                    _conversationList.Add(new ConversationNames()
+                    {
+                        conversationImage = openChannel.CoverUrl,
+                        Name = openChannel.Name,
+                        channelURL = openChannel.Url,
+                    });
                 });
             }
-            /*_FoundDogList.Add(new FoundDogs()
-            {
-                id = c.id,
-                dogImageSouce = dogImage_source,
-                userid = c.userid,
-                found_date = c.found_date,
-                found_time = c.found_time,
-                placeFound_latitude = c.placeFound_latitude,
-                placeFound_longtitude = c.placeFound_longtitude,
-                dogInfo_id = c.dogInfo_id,
-                fullName = "Owner: " + full_Name,
-                breedName = "Breed: " + breed_name,
-                dateLost = "Date Lost: " + c.found_date,
-                timeLost = "Time Lost: " + c.found_time,
-                placeLost = fullFoundAddress
-            });*/
         }
 
-        public ObservableCollection<ConversationList> conversationList
+        public ObservableCollection<ConversationNames> conversationList
         {
             get => _conversationList;
             set

@@ -4,9 +4,9 @@
              x:Class="doghavenCapstone.MainPages.MessagesPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding LostDoglist}"
+            <ListView ItemsSource="{Binding conversationList}"
                   BackgroundColor="Transparent"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -14,7 +14,7 @@
                                 <Frame CornerRadius="20"
                                    HasShadow="True">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding command}" />
+                                        <TapGestureRecognizer Command="{Binding OpenChat}" />
                                     </Frame.GestureRecognizers>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="{Binding conversationImage}"

@@ -2,6 +2,7 @@
 using doghavenCapstone.InitialPages;
 using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.MainPages;
+using doghavenCapstone.MessagesComponents;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
@@ -42,7 +43,7 @@ namespace doghavenCapstone
         {
             InitializeComponent();
             DatabaseLocation = databaseLocation;
-            MainPage = new NavigationPage(new IntroPage());
+            MainPage = new NavigationPage(new EnterConversationPage());
         }
 
         protected override void OnStart()

@@ -20,6 +20,7 @@
           "Twilio": "5.61.0",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugin.SendBird": "1.0.1",
           "Xamarin.CommunityToolkit": "1.1.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.FFImageLoading.Forms": "2.4.11.982",
@@ -1051,6 +1052,18 @@
           }
         }
       },
+      "Xam.Plugin.SendBird/1.0.1": {
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/SendBird.dll": {
+            "assemblyVersion": "3.0.6.0",
+            "fileVersion": "3.0.6.0"
+          },
+          "lib/portable-net45+wp80+win8+wpa81/websocket-sharp.dll": {
+            "assemblyVersion": "1.0.2.30482",
+            "fileVersion": "1.0.2.30482"
+          }
+        }
+      },
       "Xamarin.CommunityToolkit/1.1.0": {
         "dependencies": {
           "System.Reflection.Emit.Lightweight": "4.7.0",
@@ -1829,6 +1842,13 @@
       "sha512": "sha512-UUR31EEnhDVa4IXgVfQIAL3u9v6YAyppsb5UlO9MNJ4quGGkfcWX++JexjB1nMGqvCzsjAT2t32drKDIXoW4SQ==",
       "path": "xam.plugin.media/5.0.1",
       "hashPath": "xam.plugin.media.5.0.1.nupkg.sha512"
+    },
+    "Xam.Plugin.SendBird/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7BLhZocwIeiiOUeFA+mmmuDyl62NoOzW+x6ASjtx41ChIw/F1QZUAXlAr7izPWhqyECf4MBWxcHEs8P1/hhHJA==",
+      "path": "xam.plugin.sendbird/1.0.1",
+      "hashPath": "xam.plugin.sendbird.1.0.1.nupkg.sha512"
     },
     "Xamarin.CommunityToolkit/1.1.0": {
       "type": "package",

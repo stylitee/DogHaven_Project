@@ -98,3 +98,4 @@ C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\PreventerPage\ForgotPasswordOTPPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\PreventerPage\RecoverPasswordPage.xaml.g.cs
 C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\OtherPageFunctions\DeleteDogPage.xaml.g.cs
+C:\Users\balon\Desktop\trylang\capstoneProject\doghavenCapstone\doghavenCapstone\obj\Debug\netstandard2.0\MessagesComponents\EnterConversationPage.xaml.g.cs
