@@ -4,6 +4,7 @@ using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
+using SendBird;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace doghavenCapstone.MainPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BreedMatchingPage : ContentPage
     {
+        public static string userowner1 = "", userowner2 = "";
         public ObservableCollection<dogInfo> _Doglist = new ObservableCollection<dogInfo>();
         public static List<ContentPage> breedingContentPage = new List<ContentPage>();
         public static List<dogInfo> lstDogs = new List<dogInfo>();
@@ -630,9 +632,35 @@ namespace doghavenCapstone.MainPages
 
                     try
                     {
+                        userowner1 = ownerOfDog[0].userid;
+                        var dog2 = await App.client.GetTable<dogInfo>().Where(x => x.id == dog1).ToListAsync();
+                        userowner2 = dog2[0].userid;
+
+                        var userInfo = await App.client.GetTable<accountusers>().Where(x => x.id == userowner2).ToListAsync();
+
                         await App.client.GetTable<dogMatches>().InsertAsync(match);
 
-                        await DisplayAlert("Its a match!", "Youve been match with someone else", "Okay");
+                        await Navigation.PushAsync(new MatchNotification());
+
+                        OpenChannel.CreateChannel(userInfo[0].fullName, userInfo[0].userImage, "Match Dogs" + ownerOfDog[0].dogName + " and " + dog2[0].dogName, (OpenChannel openChannel, SendBirdException e) =>
+                        {
+                            if (e != null)
+                            {
+                                // Handle error.
+                            }
+                            string ChanneUrl = openChannel.Url;
+
+                            ConversationList conversation = new ConversationList()
+                            {
+                                id = Guid.NewGuid().ToString("N").Substring(0, 30),
+                                user_idOne = userowner1,
+                                user_idTwo = userowner2,
+                                channelID = ChanneUrl
+                            };
+                            
+                            App.client.GetTable<ConversationList>().InsertAsync(conversation);
+                        });
+
                     }
                     catch (Exception)
                     {

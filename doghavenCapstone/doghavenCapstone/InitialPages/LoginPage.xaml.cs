@@ -4,6 +4,7 @@ using doghavenCapstone.LocalDBModel;
 using doghavenCapstone.Model;
 using doghavenCapstone.OtherPageFunctions;
 using doghavenCapstone.PreventerPage;
+using SendBird;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,7 @@ namespace doghavenCapstone.InitialPages
 
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
+            string temp_userImage = "";
             if(usercharacterChecker != false & passcharacterChecker !=  false)
             {
                 App.buttonName = "Proceed";
@@ -107,6 +109,7 @@ namespace doghavenCapstone.InitialPages
                             _username = c.username;
                             _password = AppHelpers.PasswordDecrypt(c.userPassword);
                             user_Image = c.userImage;
+                            temp_userImage = c.userImage;
                             user_fullName = c.fullName;
                         }
 
@@ -199,6 +202,16 @@ namespace doghavenCapstone.InitialPages
                                 {
                                     await Navigation.PushAsync(new GetUsersLocation());
                                 }
+                                string token = "bbb00b761b8fc76589c4e5618c812ebd3f5bf466";
+
+                                SendBirdClient.Connect(App.user_id, (User users, SendBirdException ex) =>
+                                {
+                                    if (ex != null)
+                                    {
+                                        UserDialogs.Instance.Toast("An error has occurred", new TimeSpan(2));
+                                    }
+                                });
+
                             }
                             else
                             {
@@ -207,6 +220,7 @@ namespace doghavenCapstone.InitialPages
                                 UserDialogs.Instance.HideLoading();
                                 errorMessage("The username or password you entered is incorrect");
                             }
+
                         }
                         else
                         {

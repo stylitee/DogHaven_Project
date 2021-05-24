@@ -4,9 +4,15 @@
              x:Class="doghavenCapstone.OtherPageFunctions.MatchNotification">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label x:Name="lblTitle"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Button Text="Chat with your match!"
+                    x:Name="btnChat"
+                    Clicked="btnChat_Clicked"/>
+            <Button Text="Keep swiping"
+                    x:Name="btnSwipe"
+                    Clicked="btnSwipe_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

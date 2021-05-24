@@ -4,9 +4,35 @@
              x:Class="doghavenCapstone.MainPages.MessagesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding LostDoglist}"
+                  BackgroundColor="Transparent"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding command}" />
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding conversationImage}"
+                                           WidthRequest="80"
+                                           Margin="0,0,10,0"/>
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label Text="{Binding Name}"
+                                               FontSize="15"
+                                               TextColor="Black"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
