@@ -1477,6 +1477,17 @@
           "lib/netstandard2.0/Plugin.Media.dll": {}
         }
       },
+      "Xam.Plugin.SendBird/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/SendBird.dll": {},
+          "lib/portable-net45+wp80+win8+wpa81/websocket-sharp.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/SendBird.dll": {},
+          "lib/portable-net45+wp80+win8+wpa81/websocket-sharp.dll": {}
+        }
+      },
       "Xamarin.CommunityToolkit/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -5446,6 +5457,25 @@
         "xam.plugin.media.nuspec"
       ]
     },
+    "Xam.Plugin.SendBird/1.0.1": {
+      "sha512": "7BLhZocwIeiiOUeFA+mmmuDyl62NoOzW+x6ASjtx41ChIw/F1QZUAXlAr7izPWhqyECf4MBWxcHEs8P1/hhHJA==",
+      "type": "package",
+      "path": "xam.plugin.sendbird/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/SendBird.dll",
+        "lib/MonoAndroid10/websocket-sharp.dll",
+        "lib/UAP10/SendBird.dll",
+        "lib/UAP10/websocket-sharp.dll",
+        "lib/Xamarin.iOS10/SendBird.dll",
+        "lib/Xamarin.iOS10/websocket-sharp.dll",
+        "lib/portable-net45+wp80+win8+wpa81/SendBird.dll",
+        "lib/portable-net45+wp80+win8+wpa81/websocket-sharp.dll",
+        "xam.plugin.sendbird.1.0.1.nupkg.sha512",
+        "xam.plugin.sendbird.nuspec"
+      ]
+    },
     "Xamarin.CommunityToolkit/1.1.0": {
       "sha512": "GJiaXaPLrM1qn1HYxDPKlECYAzX5CI6FKtv4NXCq8K7SJTscmFo79RcwZoj1o3de+4V0aiJAVZMCpbMIF/sZVA==",
       "type": "package",
@@ -5956,6 +5986,7 @@
       "Twilio >= 5.61.0",
       "WindowsAzure.Storage >= 9.3.3",
       "Xam.Plugin.Media >= 5.0.1",
+      "Xam.Plugin.SendBird >= 1.0.1",
       "Xamarin.CommunityToolkit >= 1.1.0",
       "Xamarin.Essentials >= 1.6.1",
       "Xamarin.FFImageLoading.Forms >= 2.4.11.982",
@@ -6056,6 +6087,10 @@
             "target": "Package",
             "version": "[5.0.1, )"
           },
+          "Xam.Plugin.SendBird": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "Xamarin.CommunityToolkit": {
             "target": "Package",
             "version": "[1.1.0, )"
@@ -6130,6 +6165,16 @@
       "warningLevel": 1,
       "message": "Package 'Microsoft.WindowsAzure.Management.Storage 6.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.WindowsAzure.Management.Storage",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Xam.Plugin.SendBird 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Xam.Plugin.SendBird",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
       ]

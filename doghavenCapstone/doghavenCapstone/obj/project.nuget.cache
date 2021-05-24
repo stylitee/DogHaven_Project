@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5LN2hsWxD7aDMd3AC1An2Y5D9/TAxkhvRFJjacfDYRT9TEwGiE7CeS+/M2QBMcNKvUjItRVO9JSUZQxmoCuqGQ==",
+  "dgSpecHash": "1DSavWKIcK1dFMX9P4s5L1jB3AhDs829RQcQbGNW41qvtM2bivogqAdsCPxiN/vZC+WUtYG8cwaD/bjZ4aORQQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone\\doghavenCapstone.csproj",
   "expectedPackageFiles": [
@@ -100,6 +100,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\twilio\\5.61.0\\twilio.5.61.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\windowsazure.storage\\9.3.3\\windowsazure.storage.9.3.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xam.plugin.sendbird\\1.0.1\\xam.plugin.sendbird.1.0.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
@@ -136,6 +137,16 @@
       "warningLevel": 1,
       "message": "Package 'Microsoft.WindowsAzure.Management.Storage 6.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.WindowsAzure.Management.Storage",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Xam.Plugin.SendBird 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Xam.Plugin.SendBird",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
       ]

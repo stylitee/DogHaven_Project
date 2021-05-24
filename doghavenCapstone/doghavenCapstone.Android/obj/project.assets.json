@@ -1079,6 +1079,17 @@
           "lib/monoandroid10.0/Plugin.Media.dll": {}
         }
       },
+      "Xam.Plugin.SendBird/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/SendBird.dll": {},
+          "lib/MonoAndroid10/websocket-sharp.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/SendBird.dll": {},
+          "lib/MonoAndroid10/websocket-sharp.dll": {}
+        }
+      },
       "Xamarin.Android.Arch.Core.Common/1.1.1.3": {
         "type": "package",
         "dependencies": {
@@ -2962,6 +2973,7 @@
           "Twilio": "5.61.0",
           "WindowsAzure.Storage": "9.3.3",
           "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugin.SendBird": "1.0.1",
           "Xamarin.CommunityToolkit": "1.1.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.FFImageLoading.Forms": "2.4.11.982",
@@ -6856,6 +6868,25 @@
         "xam.plugin.media.nuspec"
       ]
     },
+    "Xam.Plugin.SendBird/1.0.1": {
+      "sha512": "7BLhZocwIeiiOUeFA+mmmuDyl62NoOzW+x6ASjtx41ChIw/F1QZUAXlAr7izPWhqyECf4MBWxcHEs8P1/hhHJA==",
+      "type": "package",
+      "path": "xam.plugin.sendbird/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/SendBird.dll",
+        "lib/MonoAndroid10/websocket-sharp.dll",
+        "lib/UAP10/SendBird.dll",
+        "lib/UAP10/websocket-sharp.dll",
+        "lib/Xamarin.iOS10/SendBird.dll",
+        "lib/Xamarin.iOS10/websocket-sharp.dll",
+        "lib/portable-net45+wp80+win8+wpa81/SendBird.dll",
+        "lib/portable-net45+wp80+win8+wpa81/websocket-sharp.dll",
+        "xam.plugin.sendbird.1.0.1.nupkg.sha512",
+        "xam.plugin.sendbird.nuspec"
+      ]
+    },
     "Xamarin.Android.Arch.Core.Common/1.1.1.3": {
       "sha512": "ss+hnEoFeyxLgHk3TrCBqTMkK6ZJqhq382AONzdVGg7cyVibvBMWPX2Xp5byB8tvRJOMRIWZnqyqgpYQIagkZA==",
       "type": "package",
@@ -8997,6 +9028,7 @@
       "Twilio >= 5.61.0",
       "WindowsAzure.Storage >= 9.3.3",
       "Xam.Plugin.Media >= 5.0.1",
+      "Xam.Plugin.SendBird >= 1.0.1",
       "Xamarin.CommunityToolkit >= 1.1.0",
       "Xamarin.Essentials >= 1.6.1",
       "Xamarin.FFImageLoading.Forms >= 2.4.11.982",
@@ -9094,6 +9126,10 @@
           "Xam.Plugin.Media": {
             "target": "Package",
             "version": "[5.0.1, )"
+          },
+          "Xam.Plugin.SendBird": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           },
           "Xamarin.CommunityToolkit": {
             "target": "Package",

@@ -10,12 +10,14 @@ using Plugin.CurrentActivity;
 using Acr.UserDialogs;
 using Plugin.Permissions;
 using Plugin.LocalNotification;
+using SendBird;
 
 namespace doghavenCapstone.Droid
 {
     [Activity(Label = "doghavenCapstone", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        string APP_ID = "7E24FC44-AB28-4B18-BB59-B8F90FAE0115";
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -35,6 +37,7 @@ namespace doghavenCapstone.Droid
                 Importance = NotificationImportance.Max
             });
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
+            SendBirdClient.Init(APP_ID);
             string dbName = "dbDoghaven.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullpath = Path.Combine(folderPath, dbName);

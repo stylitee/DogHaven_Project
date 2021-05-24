@@ -82,6 +82,10 @@
               "target": "Package",
               "version": "[5.0.1, )"
             },
+            "Xam.Plugin.SendBird": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
             "Xamarin.CommunityToolkit": {
               "target": "Package",
               "version": "[1.1.0, )"
@@ -214,6 +218,10 @@
             "Xam.Plugin.Media": {
               "target": "Package",
               "version": "[5.0.1, )"
+            },
+            "Xam.Plugin.SendBird": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             },
             "Xamarin.CommunityToolkit": {
               "target": "Package",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "e7VdkzRyPgaXnFeXchznujf+sZUHo9FgfcP9mBMjdBiNSo/GfT50ONe0S0wz1/xfvfxHhz/uoEwLvYdjOHiWQg==",
+  "dgSpecHash": "Bkqaoytgys4AQFz4CDgerzx0d95Ctq56eWqC5UGvOUHbiL/CksWleCgTR88EepnjdZIa0gYqmeiF9m5TFP/Xpw==",
   "success": true,
   "projectFilePath": "C:\\Users\\balon\\Desktop\\trylang\\capstoneProject\\doghavenCapstone\\doghavenCapstone.iOS\\doghavenCapstone.iOS.csproj",
   "expectedPackageFiles": [
@@ -91,6 +91,7 @@
     "C:\\Users\\balon\\.nuget\\packages\\webp.touch\\1.0.8\\webp.touch.1.0.8.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\windowsazure.storage\\9.3.3\\windowsazure.storage.9.3.3.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
+    "C:\\Users\\balon\\.nuget\\packages\\xam.plugin.sendbird\\1.0.1\\xam.plugin.sendbird.1.0.1.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.build.download\\0.10.0\\xamarin.build.download.0.10.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Users\\balon\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
