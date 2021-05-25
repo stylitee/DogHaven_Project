@@ -43,7 +43,7 @@ namespace doghavenCapstone
         {
             InitializeComponent();
             DatabaseLocation = databaseLocation;
-            MainPage = new NavigationPage(new EnterConversationPage());
+            MainPage = new NavigationPage(new IntroPage());
         }
 
         protected override void OnStart()

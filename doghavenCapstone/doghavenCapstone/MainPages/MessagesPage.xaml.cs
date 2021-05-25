@@ -20,8 +20,6 @@ namespace doghavenCapstone.MainPages
         public static string _channelUrl = "", userimage = "";
         public ObservableCollection<ConversationNames> _conversationList = new ObservableCollection<ConversationNames>();
         public static List<ContentPage> lstContent = new List<ContentPage>();
-
-        List<accountusers> userinfo = new List<accountusers>();
         SendBirdClient.ChannelHandler channel = new SendBirdClient.ChannelHandler();
         //string token = "bbb00b761b8fc76589c4e5618c812ebd3f5bf466";
         int i = 0;
@@ -32,15 +30,14 @@ namespace doghavenCapstone.MainPages
             lstContent.Clear();
             lstContent.Add(this);
             BindingContext = this;
-            loadUserInfo();
-            loadAccount();
-            loadListOfConversation();
         }
 
         protected override void OnAppearing()
         {
             lstContent.Clear();
             lstContent.Add(this);
+            loadAccount();
+            loadListOfConversation();
             base.OnAppearing();
         }
 
@@ -57,7 +54,11 @@ namespace doghavenCapstone.MainPages
                         UserDialogs.Instance.Toast("An error has occured while retrieving your messages", new TimeSpan(2));
                     }
 
+                    // Through the "openChannel" parameter of the callback function,
+                    // the open channel object identified with the CHANNEL_URL is returned by Sendbird server,
+                    // and you can get the open channel's data from the result object.
                     string ChannelName = openChannel.Name;
+                    _conversationList.Clear();
                     userimage = myinformation[0].userImage;
                     _conversationList.Add(new ConversationNames()
                     {
@@ -65,6 +66,7 @@ namespace doghavenCapstone.MainPages
                         Name = openChannel.Name,
                         channelURL = openChannel.Url,
                     });
+
                 });
             }
         }
@@ -77,35 +79,35 @@ namespace doghavenCapstone.MainPages
                 _conversationList = value;
             }
         }
-        private async void loadUserInfo()
-        {
-            userinfo.Clear();
-            var accountInfo = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
-            foreach(var x in accountInfo)
-            {
-                userinfo.Add(x);
-            }
-        }
 
         private void loadAccount()
         {
-
+            //var accountusers = await App.client.GetTable<accountusers>().Where(x => x.id == App.user_id).ToListAsync();
             // The USER_ID below should be unique to your Sendbird application.
-            SendBirdClient.Connect(userinfo[0].fullName, (User user, SendBirdException e) =>
+            SendBirdClient.Connect(App.user_id, (User user, SendBirdException e) =>
+            {
+                if (e != null)
+                {
+                    // Handle error.
+                }
+
+                // The user is connected to Sendbird server.
+            });
+            /*SendBirdClient.Connect(accountusers[0].fullName, (User user, SendBirdException e) =>
             {
                 if (e != null)
                 {
                     UserDialogs.Instance.Toast("An error has occured connecting to your account", new TimeSpan(2));
                 }
             });
-            SendBirdClient.UpdateCurrentUserInfo(userinfo[0].fullName, userinfo[0].userImage, (SendBirdException e) =>
+            SendBirdClient.UpdateCurrentUserInfo(accountusers[0].fullName, accountusers[0].userImage, (SendBirdException e) =>
             {
                 if (e != null)
                 {
                     UserDialogs.Instance.Toast("An error has occured getting to your messages", new TimeSpan(2));
                 }
 
-            });
+            });*/
         }
     }
 }

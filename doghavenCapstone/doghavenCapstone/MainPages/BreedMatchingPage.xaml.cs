@@ -634,6 +634,7 @@ namespace doghavenCapstone.MainPages
                     {
                         userowner1 = ownerOfDog[0].userid;
                         var dog2 = await App.client.GetTable<dogInfo>().Where(x => x.id == dog1).ToListAsync();
+                        var info = await App.client.GetTable<accountusers>().Where(x => x.id == ownerOfDog[0].userid).ToListAsync();
                         userowner2 = dog2[0].userid;
 
                         var userInfo = await App.client.GetTable<accountusers>().Where(x => x.id == userowner2).ToListAsync();
@@ -642,11 +643,11 @@ namespace doghavenCapstone.MainPages
 
                         await Navigation.PushAsync(new MatchNotification());
 
-                        OpenChannel.CreateChannel(userInfo[0].fullName, userInfo[0].userImage, "Match Dogs" + ownerOfDog[0].dogName + " and " + dog2[0].dogName, (OpenChannel openChannel, SendBirdException e) =>
+                        OpenChannel.CreateChannel(info[0].fullName, info[0].userImage, "Dog Matching Conversation", (OpenChannel openChannel, SendBirdException e) =>
                         {
                             if (e != null)
                             {
-                                // Handle error.
+                                
                             }
                             string ChanneUrl = openChannel.Url;
 
@@ -657,7 +658,7 @@ namespace doghavenCapstone.MainPages
                                 user_idTwo = userowner2,
                                 channelID = ChanneUrl
                             };
-                            
+
                             App.client.GetTable<ConversationList>().InsertAsync(conversation);
                         });
 

@@ -202,13 +202,14 @@ namespace doghavenCapstone.InitialPages
                                 {
                                     await Navigation.PushAsync(new GetUsersLocation());
                                 }
-                                string token = "bbb00b761b8fc76589c4e5618c812ebd3f5bf466";
+                                //string token = "bbb00b761b8fc76589c4e5618c812ebd3f5bf466";
 
                                 SendBirdClient.Connect(App.user_id, (User users, SendBirdException ex) =>
                                 {
                                     if (ex != null)
                                     {
                                         UserDialogs.Instance.Toast("An error has occurred", new TimeSpan(2));
+                                        Phone.CloseApplication();
                                     }
                                 });
 
